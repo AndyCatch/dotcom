@@ -364,11 +364,8 @@ h1 {
   and (max-device-width: 812px) 
   and (-webkit-min-device-pixel-ratio: 3)
   and (orientation: portrait) { 
-	/*
-	.project-cover{
-	    margin-top: -82vh;
-	}
-	*/
+
+    
 }
 
 
@@ -435,6 +432,7 @@ h1 {
 
 }
 
+/* Portrait */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) and (hover: none){
 
   
