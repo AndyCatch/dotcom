@@ -3,6 +3,11 @@
   display: none;
 }
 
+body{
+
+  background-color: black;
+}
+
 /* GLOBAL CSS */
 #overlay-menu .logo a {
   color: black !important;
