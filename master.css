@@ -1,10 +1,79 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img, iframe {
+  vertical-align: bottom;
+  max-width: 100%;
+}
+
+input, textarea, select {
+  font: inherit;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: "Monument";
+  src: url("fonts/monumentextended-regular-webfont.woff2"), url("fonts/monumentextended-regular-webfont.woff");
+}
 /* Remove the WP admin bar cos it's annoying  */
 #wpadminbar {
   display: none;
 }
 
-body{
-
+body {
   background-color: black;
 }
 
@@ -58,14 +127,13 @@ body{
     opacity: 1;
   }
 }
-
 /* Global Styles */
 h1 {
-	line-height: 0.9 !important;
+  line-height: 0.9 !important;
 }
 
-.navItem-About{
-	margin-top: -10px;
+.navItem-About {
+  margin-top: -10px;
 }
 
 .navItem-Index {
@@ -73,35 +141,35 @@ h1 {
 }
 
 /* HOME PAGE Styles Start */
-.list{
-    display: inline-block;
-    margin-top:33vh;
-  	margin-bottom:50vh;
+.list {
+  display: inline-block;
+  margin-top: 33vh;
+  margin-bottom: 50vh;
 }
 
-.full-height{
-  height:25vh !important;
+.full-height {
+  height: 25vh !important;
 }
 
-.right-align{
+.right-align {
   flex-grow: 2;
-  text-align:right;
+  text-align: right;
 }
 
-.title{
+.title {
   display: flex;
-  flex-basis:auto;
-  flex-wrap:wrap;
-  justify-content:space-between;  
+  flex-basis: auto;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .title,
-.right-align{
-	font-size:8.25vw; 
+.right-align {
+  font-size: 8.25vw;
 }
 
 .list,
-.next{
+.next {
   border-top: solid 1px #ffffff;
   width: 100%;
   /* turn this one with Project images
@@ -134,7 +202,7 @@ h1 {
 
 .list a:hover img,
 .next a:hover img {
-  opacity: 0.8;
+  opacity: 0.2;
 }
 
 /*   The animation settings in Semplice will adjust the placement of the image */
@@ -151,77 +219,76 @@ h1 {
   transition: opacity 0.2s;
 }
 
-
 .list span,
 .next span {
   position: relative;
   z-index: 1;
 }
 
-.index-footer{
-	margin-top:20vh;
+.index-footer {
+  margin-top: 20vh;
 }
 
 /* Project Page Styles */
 .cover_title {
-/*  margin-top: 50vh; */
+  /*  margin-top: 50vh; */
   border-top: solid 1px #ffffff;
   color: #ffffff;
   -webkit-text-fill-color: #ffffff;
   -webkit-text-stroke-width: 0px;
   -webkit-text-stroke-color: #ffffff;
   text-transform: uppercase;
-  
-  z-index:100 !important;
+  z-index: 100 !important;
 }
 
 /* Handles Project Cover Titles*/
-.cover_title h1 span{
-	font-size:8.25vw;
+.cover_title h1 span {
+  font-size: 8.25vw;
 }
 
-.image-section{
-  margin-top:5vh !important;
+.image-section {
+  margin-top: 5vh !important;
 }
 
 .info_section {
   margin-top: 15vh !important;
 }
 
-.project-cover{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-	height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-  	height: calc(var(--vh, 1vh) * 100);
-    align-items: center;
-	margin-top: -100vh;
-  	margin-top: calc(var(--vh, 1vh) * -100);
-    transition: 0.3s ease-in;
+.project-cover {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
+  align-items: center;
+  margin-top: -100vh;
+  margin-top: calc(var(--vh, 1vh) * -100);
+  transition: 0.3s ease-in;
 }
 
-.show-first{
-    opacity: 0;
-    filter:invert(0.8);
+.show-first {
+  opacity: 0;
+  filter: invert(0.8);
 }
 
-.fade-in{
-    opacity:0.8;
-    filter:invert(0);
-    transition: 0.3s ease-in;
-	transition-delay: 0.5s;
+.fade-in {
+  opacity: 0.8;
+  filter: invert(0);
+  transition: 0.3s ease-in;
+  transition-delay: 0.5s;
 }
 
-.project-image-container{
-    position: relative;
-    transform-origin: center center;
-    transition: 0.3s ease-in;
+.project-image-container {
+  position: relative;
+  transform-origin: center center;
+  transition: 0.3s ease-in;
 }
 
-.project-image{
+.project-image {
   position: relative;
   z-index: 1;
-  width:75vw;
+  width: 75vw;
   background-blend-mode: multiply;
 }
 
@@ -234,7 +301,6 @@ h1 {
     transform: translateX(-3000vw);
   }
 }
-
 .cover_title span {
   animation: moveLeft 300s infinite;
   animation-timing-function: linear;
@@ -252,7 +318,7 @@ h1 {
   fill: #f6f6f6;
 }
 
-/*Breakpoints*/
+/*Tablets*/
 /*---------------* iPad 1,2 *----------------*/
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (hover: none) {
@@ -267,7 +333,7 @@ h1 {
   }
 
   .next a img {
-    width: 75vw; 
+    width: 75vw;
     position: relative !important;
     opacity: 0.8;
   }
@@ -276,42 +342,36 @@ h1 {
     margin-top: 15vh !important;
     margin-bottom: 0vh !important;
   }
-
 }
-
 /* iPad Portrait */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
-
   .row-2-spacer,
-  .row-3-spacer {
+.row-3-spacer {
     display: none !important;
   }
 
   .next a img {
-    transform: translate(-50%, -70%); 
+    transform: translate(-50%, -70%);
   }
-  
-  .navItem-Index{
-    display:list-item;
-  }
-  
-}
 
+  .navItem-Index {
+    display: list-item;
+  }
+}
 /* iPad Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-  
-  .navItem-Index{
-    display:none;
+  .navItem-Index {
+    display: none;
   }
-  
+
   h1 {
-	 font-size: 70px !important; 
+    font-size: 70px !important;
   }
-  
-	.title,
-	.right-align{
-		font-size:70px !important; 
-	}
+
+  .title,
+.right-align {
+    font-size: 70px !important;
+  }
 
   .semplice-cover .show-more svg {
     margin-bottom: 0px;
@@ -325,59 +385,32 @@ h1 {
   .next a img {
     transform: translate(-50%, -20%);
   }
-  
 }
-
-
 /*  iPad Pro :/*/
 /* Portrait */
-@media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (orientation: portrait) 
-  and (-webkit-min-device-pixel-ratio: 2) {
-  
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
   .navItem-Index {
-      display: none;
+    display: none;
   }
-  
+
   .row-2-spacer,
-  .row-3-spacer {
-      display: flex !important;
+.row-3-spacer {
+    display: flex !important;
   }
-
 }
-
 /* Landscape */
-@media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (orientation: landscape) 
-  and (-webkit-min-device-pixel-ratio: 2) {
-
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
   .row-2-spacer,
-  .row-3-spacer{
-    display:flex;
+.row-3-spacer {
+    display: flex;
   }
-
 }
-
+/* Mobile */
 /* iPhone X */
 /* Portrait */
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 812px) 
-  and (-webkit-min-device-pixel-ratio: 3)
-  and (orientation: portrait) { 
-
-    
-}
-
-
 /* ----------- Pixel 2 XL ----------- */
 /* Landscape */
 @media screen and (max-width: 823px) and (min-width: 411px) {
-  
   .navItem-Index {
     display: list-item;
   }
@@ -391,29 +424,26 @@ h1 {
   }
 
   .info-section-col-1-title,
-  .info-section-col-2-client {
+.info-section-col-2-client {
     width: 100%;
     max-width: 100%;
     flex-basis: 100%;
   }
 
   .info-section-col-3-description,
-  .info-section-col-4-team,
-  .info-section-col-5-role {
+.info-section-col-4-team,
+.info-section-col-5-role {
     width: 50%;
     max-width: 50%;
     flex-basis: 50%;
   }
-  
+
   .row-2-spacer,
-  .row-3-spacer{
-    display:none !important;
+.row-3-spacer {
+    display: none !important;
   }
-  
 }
-
-
-/* ----------- iPhone 6 PLUS, 7 PLUS and 8 PLUS ----------- */
+/* ----------- iPhone 6,7 and 8 PLUS ----------- */
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (hover: none) {
   .navItem-Index {
@@ -425,24 +455,17 @@ h1 {
     transform: translate(26px, 20px);
   }
 
-  	.title,
-	.right-align,
-	.cover_title h1 span{
-		font-size:40px !important; 
-	}
+  .title,
+.right-align,
+.cover_title h1 span {
+    font-size: 40px !important;
+  }
 
   .semplice-cover .show-more svg {
     margin-bottom: 0px;
   }
-
 }
-
-/* Portrait */
-@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) and (hover: none){
-
-  
-}
-
+/* Portrait Only */
 /* Landscape */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
   /* Back to Top  */
@@ -452,22 +475,22 @@ h1 {
 
   /* Settings for Landscape Orientation */
   .info-section-col-1-title,
-  .info-section-col-2-client {
+.info-section-col-2-client {
     width: 100%;
     max-width: 100%;
     flex-basis: 100%;
   }
 
   .info-section-col-3-description,
-  .info-section-col-4-team,
-  .info-section-col-5-role {
+.info-section-col-4-team,
+.info-section-col-5-role {
     width: 50%;
     max-width: 50%;
     flex-basis: 50%;
   }
 
   .row-2-spacer,
-  .row-3-spacer {
+.row-3-spacer {
     display: none;
   }
 
@@ -476,29 +499,26 @@ h1 {
     opacity: 0.8;
   }
 
-  .next a img{
+  .next a img {
     width: 65vw;
   }
-  
 }
-
 /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
-  
   /*Need to keep this to allow for the JS*/
   h1 {
     font-size: 40px !important;
   }
-  
-  .cover-title h1 span{
-  	font-size: 40px !important;
+
+  .cover-title h1 span {
+    font-size: 40px !important;
   }
-  
-   .title,
-	.right-align{
-		font-size: 40px !important; 
-	}
+
+  .title,
+.right-align {
+    font-size: 40px !important;
+  }
 
   .semplice-cover .show-more svg {
     margin-bottom: 0px;
@@ -530,10 +550,8 @@ h1 {
     transform: translate(-50%, 0%);
   }
 }
-
 /* Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-  
   /* Back to Top  */
   .back-to-top {
     transform: translate(26px, 14px);
@@ -541,48 +559,45 @@ h1 {
 
   /* Settings for Landscape Orientation */
   .info-section-col-1-title,
-  .info-section-col-2-client {
+.info-section-col-2-client {
     width: 100%;
     max-width: 100%;
     flex-basis: 100%;
   }
 
   .info-section-col-3-description,
-  .info-section-col-4-team,
-  .info-section-col-5-role {
+.info-section-col-4-team,
+.info-section-col-5-role {
     width: 50%;
     max-width: 50%;
     flex-basis: 50%;
   }
 
   .row-2-spacer,
-  .row-3-spacer {
+.row-3-spacer {
     display: none;
   }
 
   .next a img,
-  .project-image{
+.project-image {
     width: 70vw;
   }
-  
 }
-
 /* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
-  
   h1 {
     font-size: 40px !important;
   }
-  
-  	.title,
-	.right-align{
-		font-size:40px !important; 
-	}
-  
+
+  .title,
+.right-align {
+    font-size: 40px !important;
+  }
+
   .back-to-top {
     transform: translate(33px, 20px);
-}
+  }
 
   .semplice-cover .show-more svg {
     margin-bottom: 0px;
@@ -592,35 +607,30 @@ h1 {
     display: list-item;
   }
 }
-
 /* Portrait */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-  
-  	.back-to-top {
-    	transform: translate(33px, 20px);
-	}
-  
-  	.next a img {
-    	position: relative !important;
-		opacity: 0.8;
-	  	transform: translate(-50%, -20%);
-	}
-  
-}
+  .back-to-top {
+    transform: translate(33px, 20px);
+  }
 
+  .next a img {
+    position: relative !important;
+    opacity: 0.8;
+    transform: translate(-50%, -20%);
+  }
+}
 /* Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-  
   .back-to-top {
     transform: translate(26px, 16px);
   }
 
   /* Settings for Landscape Orientation */
   .info-section-col-1-title,
-  .info-section-col-2-client,
-  .info-section-col-3-description,
-  .info-section-col-4-team,
-  .info-section-col-5-role {
+.info-section-col-2-client,
+.info-section-col-3-description,
+.info-section-col-4-team,
+.info-section-col-5-role {
     width: 66%;
     max-width: 66%;
     flex-basis: 66%;
@@ -628,13 +638,14 @@ h1 {
   }
 
   .row-2-spacer,
-  .row-3-spacer {
+.row-3-spacer {
     display: none;
   }
 
   .next a img,
-  .project-image{
+.project-image {
     width: 70vw;
   }
-
 }
+
+/*# sourceMappingURL=master.css.map */
