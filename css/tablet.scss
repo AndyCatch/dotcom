@@ -1,109 +1,105 @@
-/*---------------* iPad 1,2 *----------------*/
-  /* Portrait and Landscape */
-  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (hover: none) {
-    /* HOMEPAGE STYLE */
-    .list {
-      margin-top: 50vh;
-    }
-  
-    .next {
-      margin-top: 42vh;
-      margin-bottom: 0vh;
-    }
-  
-    .next a img {
-      width: 75vw; 
-      position: relative !important;
-      opacity: 0.8;
-    }
-  
-    .info_section {
-      margin-top: 15vh !important;
-      margin-bottom: 0vh !important;
-    }
-  
+/*-- iPad 1,2 --*/
+/* Portrait & Landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (hover: none) {
+  /* HOMEPAGE STYLE */
+  .list {
+    margin-top: 50vh;
   }
-  
-  /* iPad Portrait */
-  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
-  
-    .row-2-spacer,
-    .row-3-spacer {
-      display: none !important;
-    }
-  
-    .next a img {
-      transform: translate(-50%, -70%); 
-    }
-    
-    .navItem-Index{
-      display:list-item;
-    }
-    
-  }
-  
-  /* iPad Landscape */
-  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-    
-    .navItem-Index{
-      display:none;
-    }
-    
-    h1 {
-       font-size: 70px !important; 
-    }
-    
-      .title,
-      .right-align{
-          font-size:70px !important; 
-      }
-  
-    .semplice-cover .show-more svg {
-      margin-bottom: 0px;
-    }
-  
-    .info_section {
-      margin-top: 15vh !important;
-      margin-bottom: 0;
-    }
-  
-    .next a img {
-      transform: translate(-50%, -20%);
-    }
-    
-  }
-  
-  
-  /*  iPad Pro :/*/
-  /* Portrait */
-  @media only screen 
-    and (min-device-width: 768px) 
-    and (max-device-width: 1024px) 
-    and (orientation: portrait) 
-    and (-webkit-min-device-pixel-ratio: 2) {
 
-    .navItem-Index {
-        display: none;
-    }
-    
-    .row-2-spacer,
-    .row-3-spacer {
-        display: flex !important;
-    }
-  
+  .next {
+    margin-top: 42vh;
+    margin-bottom: 0vh;
+  }
+
+  .next a img {
+    width: 75vw;
+    position: relative !important;
+    opacity: 0.8;
+  }
+
+  .info_section {
+    margin-top: 15vh !important;
+    margin-bottom: 0vh !important;
+  }
+}
+
+/* Portrait */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+  .list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 44.7vh;
+    margin-bottom: 0vh;
   }
   
-  /* Landscape */
-  @media only screen 
-    and (min-device-width: 768px) 
-    and (max-device-width: 1024px) 
-    and (orientation: landscape) 
-    and (-webkit-min-device-pixel-ratio: 2) {
-  
-    .row-2-spacer,
-    .row-3-spacer{
-      display:flex;
-    }
-  
+  .list a img {
+    position: relative !important;
+    opacity: 1;
+    left: 50%;
+    transform: translate(-50%, -16%);
   }
-  
+
+  .row-2-spacer,
+  .row-3-spacer {
+    display: none !important;
+  }
+
+  .next a img {
+    transform: translate(-50%, -70%);
+  }
+
+  .navItem-Index {
+    display: list-item;
+  }
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+  .navItem-Index {
+    display: none;
+  }
+
+  h1 {
+    font-size: 70px !important;
+  }
+
+  .title,
+  .right-align {
+    font-size: 70px !important;
+  }
+
+  .semplice-cover .show-more svg {
+    margin-bottom: 0px;
+  }
+
+  .info_section {
+    margin-top: 15vh !important;
+    margin-bottom: 0;
+  }
+
+  .next a img {
+    transform: translate(-50%, -20%);
+  }
+}
+
+/*  iPad Pro :/*/
+/* Portrait */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+  .navItem-Index {
+    display: none;
+  }
+
+  .row-2-spacer,
+  .row-3-spacer {
+    display: flex !important;
+  }
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  .row-2-spacer,
+  .row-3-spacer {
+    display: flex;
+  }
+}

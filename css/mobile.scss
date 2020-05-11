@@ -1,267 +1,294 @@
-/* iPhone X */
+/* ----------- Pixel 2 XL ----------- */
+/* Landscape */
+@media screen and (max-width: 823px) and (min-width: 411px) {
+
+  .list a img {
+    position: relative !important;
+    opacity: 0.9;
+    top:0%;
+    left: 50%;
+    transform: translate(-50%, -17%);
+  }
+
+  .navItem-Index {
+    display: list-item;
+  }
+
+  .info_section {
+    margin-bottom: 5vh !important;
+  }
+
+  .semplice-cover .show-more svg {
+    margin-bottom: 0px;
+  }
+
+  .info-section-col-1-title,
+  .info-section-col-2-client {
+    width: 100%;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+
+  .info-section-col-3-description,
+  .info-section-col-4-team,
+  .info-section-col-5-role {
+    width: 50%;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+
+  .row-2-spacer,
+  .row-3-spacer {
+    display: none !important;
+  }
+}
+
+/* ----------- iPhone X ----------- */
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+    .list a img {
+      transform: translate(-50%, -35%);
+    }
+}
+
+/* ----------- iPhone 6,7 and 8 PLUS ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (hover: none) {
+  .navItem-Index {
+    display: list-item;
+  }
+
+  /* Back to Top  */
+  .back-to-top {
+    transform: translate(26px, 20px);
+  }
+
+  .title,
+  .right-align,
+  .cover_title h1 span {
+    font-size: 40px !important;
+  }
+
+  .semplice-cover .show-more svg {
+    margin-bottom: 0px;
+  }
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  .list{
+    margin-top: 48vh;
+  }
+
+  .list a img {
+    transform: translate(-50%, -11%);
+  }
+  
+  /* Back to Top  */
+  .back-to-top {
+    transform: translate(26px, 18px);
+  }
+
+  /* Settings for Landscape Orientation */
+  .info-section-col-1-title,
+  .info-section-col-2-client {
+    width: 100%;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+
+  .info-section-col-3-description,
+  .info-section-col-4-team,
+  .info-section-col-5-role {
+    width: 50%;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+
+  .row-2-spacer,
+  .row-3-spacer {
+    display: none;
+  }
+
+  .next a img {
+    position: relative !important;
+    opacity: 0.8;
+  }
+
+  .next a img {
+    width: 65vw;
+  }
+}
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
+  
+  .list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 44.7vh;
+    margin-bottom: 0vh;
+  }
+  
+  .list a img {
+    position: relative !important;
+    opacity: 0.9;
+    left: 50%;
+    transform: translate(-50%, -20%);
+  }
+
+  /*Need to keep this to allow for the JS*/
+  h1 {
+    font-size: 40px !important;
+  }
+
+  .cover-title h1 span {
+    font-size: 40px !important;
+  }
+
+  .title,
+  .right-align {
+    font-size: 40px !important;
+  }
+
+  .semplice-cover .show-more svg {
+    margin-bottom: 0px;
+  }
+
+  /* Back to Top  */
+  .back-to-top {
+    transform: translate(32px, 20px);
+  }
+
+  .navItem-Index {
+    display: list-item;
+  }
+
+  .next {
+    margin-top: 25vh;
+  }
+
+  .next a img {
+    position: relative !important;
+    opacity: 0.8;
+  }
+
+  .next a img {
+    transform: translate(-50%, 0%);
+  }
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+
+  .list a img {
+    position: relative !important;
+    opacity: 0.9;
+    left: 50%;
+    transform: translate(-50%, -12%);
+  }
+  
+  /* Back to Top  */
+  .back-to-top {
+    transform: translate(26px, 14px);
+  }
+
+  /* Settings for Landscape Orientation */
+  .info-section-col-1-title,
+  .info-section-col-2-client {
+    width: 100%;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+
+  .info-section-col-3-description,
+  .info-section-col-4-team,
+  .info-section-col-5-role {
+    width: 50%;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+
+  .row-2-spacer,
+  .row-3-spacer {
+    display: none;
+  }
+
+  .next a img,
+  .project-image {
+    width: 70vw;
+  }
+}
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
+  h1 {
+    font-size: 40px !important;
+  }
+
+  .title,
+  .right-align {
+    font-size: 40px !important;
+  }
+
+  .back-to-top {
+    transform: translate(33px, 20px);
+  }
+
+  .semplice-cover .show-more svg {
+    margin-bottom: 0px;
+  }
+
+  .navItem-Index {
+    display: list-item;
+  }
+}
+
 /* Portrait */
-// @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {}
-  
-  
-  /* ----------- Pixel 2 XL ----------- */
-  /* Landscape */
-  @media screen and (max-width: 823px) and (min-width: 411px) {
-    
-    .navItem-Index {
-      display: list-item;
-    }
-  
-    .info_section {
-      margin-bottom: 5vh !important;
-    }
-  
-    .semplice-cover .show-more svg {
-      margin-bottom: 0px;
-    }
-  
-    .info-section-col-1-title,
-    .info-section-col-2-client {
-      width: 100%;
-      max-width: 100%;
-      flex-basis: 100%;
-    }
-  
-    .info-section-col-3-description,
-    .info-section-col-4-team,
-    .info-section-col-5-role {
-      width: 50%;
-      max-width: 50%;
-      flex-basis: 50%;
-    }
-    
-    .row-2-spacer,
-    .row-3-spacer{
-      display:none !important;
-    }
-    
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  .back-to-top {
+    transform: translate(33px, 20px);
   }
-  
-  
-  /* ----------- iPhone 6,7 and 8 PLUS ----------- */
-  /* Portrait and Landscape */
-  @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (hover: none) {
-    .navItem-Index {
-      display: list-item;
-    }
-  
-    /* Back to Top  */
-    .back-to-top {
-      transform: translate(26px, 20px);
-    }
-  
-    .title,
-    .right-align,
-    .cover_title h1 span{
-      font-size:40px !important; 
-    }
-  
-    .semplice-cover .show-more svg {
-      margin-bottom: 0px;
-    }
-  
+
+  .next a img {
+    position: relative !important;
+    opacity: 0.8;
+    transform: translate(-50%, -20%);
   }
-  
-  /* Portrait Only */
-  // @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) and (hover: none){}
-  
-  /* Landscape */
-  @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
-    /* Back to Top  */
-    .back-to-top {
-      transform: translate(26px, 18px);
-    }
-  
-    /* Settings for Landscape Orientation */
-    .info-section-col-1-title,
-    .info-section-col-2-client {
-      width: 100%;
-      max-width: 100%;
-      flex-basis: 100%;
-    }
-  
-    .info-section-col-3-description,
-    .info-section-col-4-team,
-    .info-section-col-5-role {
-      width: 50%;
-      max-width: 50%;
-      flex-basis: 50%;
-    }
-  
-    .row-2-spacer,
-    .row-3-spacer {
-      display: none;
-    }
-  
-    .next a img {
-      position: relative !important;
-      opacity: 0.8;
-    }
-  
-    .next a img{
-      width: 65vw;
-    }
-    
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  .back-to-top {
+    transform: translate(26px, 16px);
   }
-  
-  /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
-  /* Portrait and Landscape */
-  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
-    
-    /*Need to keep this to allow for the JS*/
-    h1 {
-      font-size: 40px !important;
-    }
-    
-    .cover-title h1 span{
-        font-size: 40px !important;
-    }
-    
-     .title,
-      .right-align{
-          font-size: 40px !important; 
-      }
-  
-    .semplice-cover .show-more svg {
-      margin-bottom: 0px;
-    }
-  
-    /* Back to Top  */
-    .back-to-top {
-      transform: translate(32px, 20px);
-    }
-  
-    .navItem-Index {
-      display: list-item;
-    }
-  
-    .list {
-      margin-top: 44.7vh;
-    }
-  
-    .next {
-      margin-top: 25vh;
-    }
-  
-    .next a img {
-      position: relative !important;
-      opacity: 0.8;
-    }
-  
-    .next a img {
-      transform: translate(-50%, 0%);
-    }
+
+  /* Settings for Landscape Orientation */
+  .info-section-col-1-title,
+  .info-section-col-2-client,
+  .info-section-col-3-description,
+  .info-section-col-4-team,
+  .info-section-col-5-role {
+    width: 66%;
+    max-width: 66%;
+    flex-basis: 66%;
+    display: block;
   }
-  
-  /* Landscape */
-  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-    
-    /* Back to Top  */
-    .back-to-top {
-      transform: translate(26px, 14px);
-    }
-  
-    /* Settings for Landscape Orientation */
-    .info-section-col-1-title,
-    .info-section-col-2-client {
-      width: 100%;
-      max-width: 100%;
-      flex-basis: 100%;
-    }
-  
-    .info-section-col-3-description,
-    .info-section-col-4-team,
-    .info-section-col-5-role {
-      width: 50%;
-      max-width: 50%;
-      flex-basis: 50%;
-    }
-  
-    .row-2-spacer,
-    .row-3-spacer {
-      display: none;
-    }
-  
-    .next a img,
-    .project-image{
-      width: 70vw;
-    }
-    
+
+  .row-2-spacer,
+  .row-3-spacer {
+    display: none;
   }
-  
-  /* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
-  /* Portrait and Landscape */
-  @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
-    
-    h1 {
-      font-size: 40px !important;
-    }
-    
-        .title,
-      .right-align{
-          font-size:40px !important; 
-      }
-    
-    .back-to-top {
-      transform: translate(33px, 20px);
+
+  .next a img,
+  .project-image {
+    width: 70vw;
   }
-  
-    .semplice-cover .show-more svg {
-      margin-bottom: 0px;
-    }
-  
-    .navItem-Index {
-      display: list-item;
-    }
-  }
-  
-  /* Portrait */
-  @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-    
-        .back-to-top {
-          transform: translate(33px, 20px);
-      }
-    
-        .next a img {
-          position: relative !important;
-          opacity: 0.8;
-            transform: translate(-50%, -20%);
-      }
-    
-  }
-  
-  /* Landscape */
-  @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-    
-    .back-to-top {
-      transform: translate(26px, 16px);
-    }
-  
-    /* Settings for Landscape Orientation */
-    .info-section-col-1-title,
-    .info-section-col-2-client,
-    .info-section-col-3-description,
-    .info-section-col-4-team,
-    .info-section-col-5-role {
-      width: 66%;
-      max-width: 66%;
-      flex-basis: 66%;
-      display: block;
-    }
-  
-    .row-2-spacer,
-    .row-3-spacer {
-      display: none;
-    }
-  
-    .next a img,
-    .project-image{
-      width: 70vw;
-    }
-  
-  }
-  
+}

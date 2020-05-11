@@ -75,6 +75,7 @@ input, textarea, select {
 
 body {
   background-color: black;
+  font-family: "Monument";
 }
 
 /* GLOBAL CSS */
@@ -140,6 +141,10 @@ h1 {
   display: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* HOME PAGE Styles Start */
 .list {
   display: inline-block;
@@ -152,13 +157,12 @@ h1 {
 }
 
 .right-align {
-  flex-grow: 2;
   text-align: right;
 }
 
 .title {
   display: flex;
-  flex-basis: auto;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
 }
@@ -173,7 +177,7 @@ h1 {
   border-top: solid 1px #ffffff;
   width: 100%;
   /* turn this one with Project images
-  transition: 0.3s ease-in;*/
+    transition: 0.3s ease-in;*/
 }
 
 .next {
@@ -202,7 +206,7 @@ h1 {
 
 .list a:hover img,
 .next a:hover img {
-  opacity: 0.2;
+  opacity: 0.8;
 }
 
 /*   The animation settings in Semplice will adjust the placement of the image */
@@ -318,9 +322,9 @@ h1 {
   fill: #f6f6f6;
 }
 
-/*Tablets*/
-/*---------------* iPad 1,2 *----------------*/
-/* Portrait and Landscape */
+/* -------------------- Tablets -------------------- */
+/*-- iPad 1,2 --*/
+/* Portrait & Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (hover: none) {
   /* HOMEPAGE STYLE */
   .list {
@@ -343,8 +347,23 @@ h1 {
     margin-bottom: 0vh !important;
   }
 }
-/* iPad Portrait */
+/* Portrait */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+  .list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 44.7vh;
+    margin-bottom: 0vh;
+  }
+
+  .list a img {
+    position: relative !important;
+    opacity: 1;
+    left: 50%;
+    transform: translate(-50%, -16%);
+  }
+
   .row-2-spacer,
 .row-3-spacer {
     display: none !important;
@@ -358,7 +377,7 @@ h1 {
     display: list-item;
   }
 }
-/* iPad Landscape */
+/* Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
   .navItem-Index {
     display: none;
@@ -405,12 +424,18 @@ h1 {
     display: flex;
   }
 }
-/* Mobile */
-/* iPhone X */
-/* Portrait */
+/* -------------------- Mobile -------------------- */
 /* ----------- Pixel 2 XL ----------- */
 /* Landscape */
 @media screen and (max-width: 823px) and (min-width: 411px) {
+  .list a img {
+    position: relative !important;
+    opacity: 0.9;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -17%);
+  }
+
   .navItem-Index {
     display: list-item;
   }
@@ -443,6 +468,13 @@ h1 {
     display: none !important;
   }
 }
+/* ----------- iPhone X ----------- */
+/* Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  .list a img {
+    transform: translate(-50%, -35%);
+  }
+}
 /* ----------- iPhone 6,7 and 8 PLUS ----------- */
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (hover: none) {
@@ -465,9 +497,16 @@ h1 {
     margin-bottom: 0px;
   }
 }
-/* Portrait Only */
 /* Landscape */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  .list {
+    margin-top: 48vh;
+  }
+
+  .list a img {
+    transform: translate(-50%, -11%);
+  }
+
   /* Back to Top  */
   .back-to-top {
     transform: translate(26px, 18px);
@@ -506,6 +545,21 @@ h1 {
 /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
+  .list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 44.7vh;
+    margin-bottom: 0vh;
+  }
+
+  .list a img {
+    position: relative !important;
+    opacity: 0.9;
+    left: 50%;
+    transform: translate(-50%, -20%);
+  }
+
   /*Need to keep this to allow for the JS*/
   h1 {
     font-size: 40px !important;
@@ -533,10 +587,6 @@ h1 {
     display: list-item;
   }
 
-  .list {
-    margin-top: 44.7vh;
-  }
-
   .next {
     margin-top: 25vh;
   }
@@ -552,6 +602,13 @@ h1 {
 }
 /* Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  .list a img {
+    position: relative !important;
+    opacity: 0.9;
+    left: 50%;
+    transform: translate(-50%, -12%);
+  }
+
   /* Back to Top  */
   .back-to-top {
     transform: translate(26px, 14px);
