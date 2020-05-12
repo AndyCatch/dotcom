@@ -32,7 +32,7 @@
     margin-top: 44.7vh;
     margin-bottom: 0vh;
   }
-  
+
   .list a img {
     position: relative !important;
     opacity: 1;
@@ -56,6 +56,12 @@
 
 /* Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+  .list a img {
+    position: relative !important;
+    opacity: 0.9;
+    transform: translate(-50%, -16%);
+  }
+
   .navItem-Index {
     display: none;
   }
@@ -98,8 +104,29 @@
 
 /* Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  .list a img {
+    position: relative !important;
+    opacity: 0.9;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -13%);
+  }
+
   .row-2-spacer,
   .row-3-spacer {
     display: flex;
+  }
+}
+
+/* ----------- iPad Pro 12.9" ----------- */
+/* Landscape */
+/* Declare the same value for min- and max-width to avoid colliding with desktops */
+@media only screen and (min-device-width: 1366px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  .list a img {
+    position: relative !important;
+    opacity: 0.9;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -16%);
   }
 }
