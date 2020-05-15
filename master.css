@@ -68,14 +68,14 @@ input, textarea, select {
   font-family: "Monument";
   src: url("fonts/monumentextended-regular-webfont.woff2"), url("fonts/monumentextended-regular-webfont.woff");
 }
-/* Remove the WP admin bar cos it's annoying  */
-#wpadminbar {
-  display: none;
-}
-
 body {
   background-color: black;
   font-family: "Monument";
+}
+
+/* Remove the WP admin bar cos it's annoying  */
+#wpadminbar {
+  display: none;
 }
 
 /* GLOBAL CSS */
@@ -145,11 +145,12 @@ a {
   text-decoration: none;
 }
 
-/* HOME PAGE Styles Start */
+/* ----- Index Page ----- */
 .list {
   display: inline-block;
   margin-top: 33vh;
   margin-bottom: 50vh;
+  width: 100%;
 }
 
 .full-height {
@@ -172,20 +173,52 @@ a {
   font-size: 8.25vw;
 }
 
-.list,
-.next {
-  width: 100%;
-  /* turn this one with Project images
-    transition: 0.3s ease-in;*/
+.list a {
+  overflow: hidden;
+  color: #ffffff;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #ffffff;
+  text-transform: uppercase;
 }
 
+.list a:hover {
+  color: #ffffff;
+  -webkit-text-stroke-width: 0px;
+  -webkit-text-fill-color: #ffffff;
+  transition: -webkit-text-fill-color 0.5s;
+}
+
+.list a:hover img {
+  opacity: 0.8;
+}
+
+/*   The animation settings in Semplice will adjust the placement of the image */
+.list a img {
+  opacity: 0;
+  position: fixed !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75vw;
+  /*   this will tell the browser to ignore any default mouse interactions on this img element */
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.list span {
+  position: relative;
+  z-index: 1;
+}
+
+/* ----- Next Project Module ----- */
 .next {
   margin-top: 50vh;
   margin-bottom: 25vh;
   display: inline-block;
+  width: 100%;
 }
 
-.list a:hover,
 .next a:hover {
   color: #ffffff;
   -webkit-text-stroke-width: 0px;
@@ -193,7 +226,6 @@ a {
   transition: -webkit-text-fill-color 0.5s;
 }
 
-.list a,
 .next a {
   overflow: hidden;
   color: #ffffff;
@@ -203,13 +235,11 @@ a {
   text-transform: uppercase;
 }
 
-.list a:hover img,
 .next a:hover img {
   opacity: 0.8;
 }
 
 /*   The animation settings in Semplice will adjust the placement of the image */
-.list a img,
 .next a img {
   opacity: 0;
   position: fixed !important;
@@ -222,7 +252,6 @@ a {
   transition: opacity 0.2s;
 }
 
-.list span,
 .next span {
   position: relative;
   z-index: 1;
@@ -410,7 +439,7 @@ a {
     transform: translate(-50%, -20%);
   }
 }
-/*  iPad Pro :/*/
+/*  iPad Pro */
 /* Portrait */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
   .navItem-Index {
@@ -692,6 +721,12 @@ a {
 }
 /* Portrait */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  .list a img {
+    position: relative !important;
+    opacity: 0.9;
+    transform: translate(-50%, -25%);
+  }
+
   .back-to-top {
     transform: translate(33px, 20px);
   }
@@ -704,6 +739,13 @@ a {
 }
 /* Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  .list a img {
+    position: relative !important;
+    opacity: 0.9;
+    width: 75vw;
+    transform: translate(-50%, -14%);
+  }
+
   .back-to-top {
     transform: translate(26px, 16px);
   }
@@ -727,7 +769,7 @@ a {
 
   .next a img,
 .project-image {
-    width: 70vw;
+    width: 75vw;
   }
 }
 

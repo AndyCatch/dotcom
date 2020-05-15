@@ -9,14 +9,14 @@ $title-font: "Monument";
 $title-font-size: 8.25vw;
 $title-line-height: 0.9;
 
-/* Remove the WP admin bar cos it's annoying  */
-#wpadminbar {
-  display: none;
-}
-
 body {
   background-color: $background-color;
   font-family: $title-font;
+}
+
+/* Remove the WP admin bar cos it's annoying  */
+#wpadminbar {
+  display: none;
 }
 
 /* GLOBAL CSS */
@@ -83,15 +83,17 @@ h1 {
   display: none;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-/* HOME PAGE Styles Start */
+/* ----- Index Page ----- */
 .list {
   display: inline-block;
   margin-top: 33vh;
   margin-bottom: 50vh;
+
+  width: 100%;
 }
 
 .full-height {
@@ -99,7 +101,6 @@ a{
 }
 
 .right-align {
-  // flex-grow: 2;
   text-align: right;
 }
 
@@ -116,21 +117,53 @@ a{
   font-size: $title-font-size;
 }
 
-.list,
-.next {
-  // border-top: solid 1px #ffffff;
-  width: 100%;
-  /* turn this one with Project images
-    transition: 0.3s ease-in;*/
+.list a {
+  overflow: hidden;
+  color: #ffffff;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #ffffff;
+  text-transform: uppercase;
 }
 
+.list a:hover {
+  color: #ffffff;
+  -webkit-text-stroke-width: 0px;
+  -webkit-text-fill-color: #ffffff;
+  transition: -webkit-text-fill-color 0.5s;
+}
+
+.list a:hover img {
+  opacity: 0.8;
+}
+
+/*   The animation settings in Semplice will adjust the placement of the image */
+.list a img {
+  opacity: 0;
+  position: fixed !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75vw;
+  /*   this will tell the browser to ignore any default mouse interactions on this img element */
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.list span {
+  position: relative;
+  z-index: 1;
+}
+
+/* ----- Next Project Module ----- */
 .next {
   margin-top: 50vh;
   margin-bottom: 25vh;
   display: inline-block;
+
+  width: 100%;
 }
 
-.list a:hover,
 .next a:hover {
   color: #ffffff;
   -webkit-text-stroke-width: 0px;
@@ -138,7 +171,6 @@ a{
   transition: -webkit-text-fill-color 0.5s;
 }
 
-.list a,
 .next a {
   overflow: hidden;
   color: #ffffff;
@@ -148,13 +180,11 @@ a{
   text-transform: uppercase;
 }
 
-.list a:hover img,
 .next a:hover img {
   opacity: 0.8;
 }
 
 /*   The animation settings in Semplice will adjust the placement of the image */
-.list a img,
 .next a img {
   opacity: 0;
   position: fixed !important;
@@ -167,7 +197,6 @@ a{
   transition: opacity 0.2s;
 }
 
-.list span,
 .next span {
   position: relative;
   z-index: 1;

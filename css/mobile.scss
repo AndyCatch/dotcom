@@ -2,11 +2,10 @@
 /* Landscape */
 /* iPad 1,2 Landscape too*/
 @media screen and (max-width: 823px) and (min-width: 411px) {
-
   .list a img {
     position: relative !important;
     opacity: 0.9;
-    top:0%;
+    top: 0%;
     left: 50%;
     transform: translate(-50%, -16%);
   }
@@ -46,14 +45,10 @@
 
 /* ----------- iPhone X ----------- */
 /* Landscape */
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 812px) 
-  and (-webkit-min-device-pixel-ratio: 3)
-  and (orientation: landscape) { 
-    .list a img {
-      transform: translate(-50%, -35%);
-    }
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  .list a img {
+    transform: translate(-50%, -35%);
+  }
 }
 
 /* ----------- iPhone 6,7 and 8 PLUS ----------- */
@@ -81,14 +76,14 @@
 
 /* Landscape */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
-  .list{
+  .list {
     margin-top: 48vh;
   }
 
   .list a img {
     transform: translate(-50%, -11%);
   }
-  
+
   /* Back to Top  */
   .back-to-top {
     transform: translate(26px, 18px);
@@ -128,7 +123,6 @@
 /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
-  
   .list {
     display: flex;
     flex-direction: column;
@@ -136,7 +130,7 @@
     margin-top: 44.7vh;
     margin-bottom: 0vh;
   }
-  
+
   .list a img {
     position: relative !important;
     opacity: 0.9;
@@ -187,14 +181,13 @@
 
 /* Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-
   .list a img {
     position: relative !important;
     opacity: 0.9;
     left: 50%;
     transform: translate(-50%, -12%);
   }
-  
+
   /* Back to Top  */
   .back-to-top {
     transform: translate(26px, 14px);
@@ -254,6 +247,12 @@
 
 /* Portrait */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  .list a img {
+    position: relative !important;
+    opacity: 0.9;
+    transform: translate(-50%, -25%);
+  }
+
   .back-to-top {
     transform: translate(33px, 20px);
   }
@@ -267,6 +266,14 @@
 
 /* Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+
+  .list a img {
+    position: relative !important;
+    opacity: 0.9;
+    width: 75vw;
+    transform: translate(-50%, -14%);
+  }
+
   .back-to-top {
     transform: translate(26px, 16px);
   }
@@ -290,6 +297,6 @@
 
   .next a img,
   .project-image {
-    width: 70vw;
+    width: 75vw;
   }
 }
