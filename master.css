@@ -68,9 +68,17 @@ input, textarea, select {
   font-family: "Monument";
   src: url("fonts/monumentextended-regular-webfont.woff2"), url("fonts/monumentextended-regular-webfont.woff");
 }
+@font-face {
+  font-family: "Monument-Extended";
+  src: url("fonts/monumentextended-ultrabold-webfont.woff2"), url("fonts/monumentextended-ultrabold-webfont.woff");
+}
+@font-face {
+  font-family: "Common";
+  src: url("fonts/CommonSansWeb-Regular.woff2"), url("fonts/CommonSansWeb-Regular.woff");
+}
 body {
   background-color: black;
-  font-family: "Monument";
+  font-family: "Monument-Extended";
 }
 
 /* Remove the WP admin bar cos it's annoying  */
@@ -134,7 +142,7 @@ h1 {
 }
 
 .navItem-About {
-  margin-top: -10px;
+  margin-top: -10px !important;
 }
 
 .navItem-Index {
@@ -355,6 +363,10 @@ a {
 /* Portrait & Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (hover: none) {
   /* HOMEPAGE STYLE */
+  .list a h1 {
+    margin-bottom: 10%;
+  }
+
   .list {
     margin-top: 50vh;
   }
@@ -389,7 +401,7 @@ a {
     position: relative !important;
     opacity: 1;
     left: 50%;
-    transform: translate(-50%, -16%);
+    transform: translate(-50%, 0%);
   }
 
   .row-2-spacer,
@@ -410,7 +422,7 @@ a {
   .list a img {
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, -16%);
+    transform: translate(-50%, 0%);
   }
 
   .navItem-Index {
@@ -456,9 +468,8 @@ a {
   .list a img {
     position: relative !important;
     opacity: 0.9;
-    top: 0%;
     left: 50%;
-    transform: translate(-50%, -13%);
+    transform: translate(-50%, 0%);
   }
 
   .row-2-spacer,
@@ -470,12 +481,15 @@ a {
 /* Landscape */
 /* Declare the same value for min- and max-width to avoid colliding with desktops */
 @media only screen and (min-device-width: 1366px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  .list a h1 {
+    margin-bottom: 10%;
+  }
+
   .list a img {
     position: relative !important;
     opacity: 0.9;
-    top: 0%;
     left: 50%;
-    transform: translate(-50%, -16%);
+    transform: translate(-50%, 0%);
   }
 }
 /* -------------------- Mobile -------------------- */
@@ -483,14 +497,6 @@ a {
 /* Landscape */
 /* iPad 1,2 Landscape too*/
 @media screen and (max-width: 823px) and (min-width: 411px) {
-  .list a img {
-    position: relative !important;
-    opacity: 0.9;
-    top: 0%;
-    left: 50%;
-    transform: translate(-50%, -16%);
-  }
-
   .navItem-Index {
     display: list-item;
   }
@@ -521,13 +527,6 @@ a {
   .row-2-spacer,
 .row-3-spacer {
     display: none !important;
-  }
-}
-/* ----------- iPhone X ----------- */
-/* Landscape */
-@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
-  .list a img {
-    transform: translate(-50%, -35%);
   }
 }
 /* ----------- iPhone 6,7 and 8 PLUS ----------- */
@@ -608,13 +607,6 @@ a {
     margin-bottom: 0vh;
   }
 
-  .list a img {
-    position: relative !important;
-    opacity: 0.9;
-    left: 50%;
-    transform: translate(-50%, -20%);
-  }
-
   /*Need to keep this to allow for the JS*/
   h1 {
     font-size: 40px !important;
@@ -657,13 +649,6 @@ a {
 }
 /* Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-  .list a img {
-    position: relative !important;
-    opacity: 0.9;
-    left: 50%;
-    transform: translate(-50%, -12%);
-  }
-
   /* Back to Top  */
   .back-to-top {
     transform: translate(26px, 14px);
@@ -698,6 +683,16 @@ a {
 /* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
+  .list a h1 {
+    margin-bottom: 10%;
+  }
+
+  .list a img {
+    position: relative !important;
+    opacity: 0.9;
+    transform: translate(-50%, 0%);
+  }
+
   h1 {
     font-size: 40px !important;
   }
@@ -721,12 +716,6 @@ a {
 }
 /* Portrait */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-  .list a img {
-    position: relative !important;
-    opacity: 0.9;
-    transform: translate(-50%, -25%);
-  }
-
   .back-to-top {
     transform: translate(33px, 20px);
   }
@@ -739,13 +728,6 @@ a {
 }
 /* Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-  .list a img {
-    position: relative !important;
-    opacity: 0.9;
-    width: 75vw;
-    transform: translate(-50%, -14%);
-  }
-
   .back-to-top {
     transform: translate(26px, 16px);
   }

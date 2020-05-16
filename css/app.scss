@@ -5,7 +5,7 @@
 $background-color: black;
 
 // Typography
-$title-font: "Monument";
+$title-font: "Monument-Extended";
 $title-font-size: 8.25vw;
 $title-line-height: 0.9;
 
@@ -76,7 +76,7 @@ h1 {
 }
 
 .navItem-About {
-  margin-top: -10px;
+  margin-top: -10px !important;
 }
 
 .navItem-Index {
