@@ -75,12 +75,26 @@ h1 {
   line-height: $title-line-height !important;
 }
 
-.navItem-About {
-  margin-top: -10px !important;
+/* Workaround for Semplice's Menu */
+.logo ::after {
+  content: "\A Design Director";
+  white-space: pre;
 }
 
-.navItem-Index {
-  display: none;
+.navItem-Index,
+.navItem-About {
+  width: 100px;
+}
+
+.navItem-Index a,
+.navItem-About a {
+  padding-right: 0 !important;
+}
+
+/* To help override values + flexbox from Semplice */
+.navbar-right .menu {
+  flex-direction: column !important;
+  height: fit-content !important;
 }
 
 a {
@@ -208,8 +222,8 @@ a {
 
 /* Project Page Styles */
 .cover_title {
-  /*  margin-top: 50vh; */
-  border-top: solid 1px #ffffff;
+  transform: rotate(-10deg);
+
   color: #ffffff;
   -webkit-text-fill-color: #ffffff;
   -webkit-text-stroke-width: 0px;
@@ -294,6 +308,19 @@ a {
 
 .back-to-top svg {
   fill: #f6f6f6;
+}
+
+/* -------------------- Footer -------------------- */
+
+.currentYear::before {
+  content: "©";
+}
+
+.currentYear {
+  font-family: "Common";
+  color: white;
+  font-size: 16px;
+  text-align: left;
 }
 
 /* -------------------- Tablets -------------------- */

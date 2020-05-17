@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -64,10 +65,6 @@ input, textarea, select {
   text-rendering: optimizeLegibility;
 }
 
-@font-face {
-  font-family: "Monument";
-  src: url("fonts/monumentextended-regular-webfont.woff2"), url("fonts/monumentextended-regular-webfont.woff");
-}
 @font-face {
   font-family: "Monument-Extended";
   src: url("fonts/monumentextended-ultrabold-webfont.woff2"), url("fonts/monumentextended-ultrabold-webfont.woff");
@@ -141,12 +138,26 @@ h1 {
   line-height: 0.9 !important;
 }
 
-.navItem-About {
-  margin-top: -10px !important;
+/* Workaround for Semplice's Menu */
+.logo ::after {
+  content: "\a Design Director";
+  white-space: pre;
 }
 
-.navItem-Index {
-  display: none;
+.navItem-Index,
+.navItem-About {
+  width: 100px;
+}
+
+.navItem-Index a,
+.navItem-About a {
+  padding-right: 0 !important;
+}
+
+/* To help override values + flexbox from Semplice */
+.navbar-right .menu {
+  flex-direction: column !important;
+  height: fit-content !important;
 }
 
 a {
@@ -271,8 +282,7 @@ a {
 
 /* Project Page Styles */
 .cover_title {
-  /*  margin-top: 50vh; */
-  border-top: solid 1px #ffffff;
+  transform: rotate(-10deg);
   color: #ffffff;
   -webkit-text-fill-color: #ffffff;
   -webkit-text-stroke-width: 0px;
@@ -358,11 +368,29 @@ a {
   fill: #f6f6f6;
 }
 
+/* -------------------- Footer -------------------- */
+.currentYear::before {
+  content: "©";
+}
+
+.currentYear {
+  font-family: "Common";
+  color: white;
+  font-size: 16px;
+  text-align: left;
+}
+
 /* -------------------- Tablets -------------------- */
 /*-- iPad 1,2 --*/
 /* Portrait & Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (hover: none) {
   /* HOMEPAGE STYLE */
+  .list a img {
+    position: relative !important;
+    opacity: 1;
+    transform: translate(-50%, 0%);
+  }
+
   .list a h1 {
     margin-bottom: 10%;
   }
@@ -397,13 +425,6 @@ a {
     margin-bottom: 0vh;
   }
 
-  .list a img {
-    position: relative !important;
-    opacity: 1;
-    left: 50%;
-    transform: translate(-50%, 0%);
-  }
-
   .row-2-spacer,
 .row-3-spacer {
     display: none !important;
@@ -419,12 +440,6 @@ a {
 }
 /* Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-  .list a img {
-    position: relative !important;
-    opacity: 0.9;
-    transform: translate(-50%, 0%);
-  }
-
   .navItem-Index {
     display: none;
   }
@@ -465,13 +480,6 @@ a {
 }
 /* Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
-  .list a img {
-    position: relative !important;
-    opacity: 0.9;
-    left: 50%;
-    transform: translate(-50%, 0%);
-  }
-
   .row-2-spacer,
 .row-3-spacer {
     display: flex;
@@ -488,7 +496,6 @@ a {
   .list a img {
     position: relative !important;
     opacity: 0.9;
-    left: 50%;
     transform: translate(-50%, 0%);
   }
 }
