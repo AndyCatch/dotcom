@@ -9,17 +9,16 @@
     transform: translate(-50%, 0%);
   }
 
-  .list a h1{
-    margin-bottom:10%;
+  .list a h1 {
+    margin-bottom: 10%;
   }
-  
+
   .list {
     margin-top: 50vh;
   }
 
   .next {
-    margin-top: 42vh;
-    margin-bottom: 0vh;
+    margin: 42vh 0 0 0;
   }
 
   .next a img {
@@ -28,9 +27,9 @@
     opacity: 0.8;
   }
 
-  .info_section {
-    margin-top: 15vh !important;
-    margin-bottom: 0vh !important;
+  .info_section,
+  .info_index {
+    margin: 15vh 0 0 0 !important;
   }
 }
 
@@ -40,8 +39,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-top: 44.7vh;
-    margin-bottom: 0vh;
+    margin: 44.7vh 0 0 0 !important;
   }
 
   .row-2-spacer,
@@ -60,7 +58,6 @@
 
 /* Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-
   .navItem-Index {
     display: none;
   }
@@ -79,8 +76,7 @@
   }
 
   .info_section {
-    margin-top: 15vh !important;
-    margin-bottom: 0;
+    margin: 15vh 0 0 0 !important;
   }
 
   .next a img {
@@ -103,7 +99,6 @@
 
 /* Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
-
   .row-2-spacer,
   .row-3-spacer {
     display: flex;
@@ -114,14 +109,13 @@
 /* Landscape */
 /* Declare the same value for min- and max-width to avoid colliding with desktops */
 @media only screen and (min-device-width: 1366px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
-  .list a h1{
-    margin-bottom:10%;
+  .list a h1 {
+    margin-bottom: 10%;
   }
-  
+
   .list a img {
     position: relative !important;
     opacity: 0.9;
     transform: translate(-50%, 0%);
   }
-  
 }
