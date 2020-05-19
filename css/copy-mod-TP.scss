@@ -1,0 +1,15 @@
+.copy-module {
+    margin: 0 1vh 0 1vh;
+
+    flex-direction: row;
+    flex-basis: 50%;
+
+    .spacer{
+      display: none;
+    }
+    
+    div {
+      width: 50%;
+      max-width: 50%;
+    }
+  }

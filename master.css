@@ -103,6 +103,14 @@ body {
   line-height: 1.2;
   color: white;
 }
+.copy-module .project-title {
+  width: 100%;
+  max-width: 100%;
+}
+.copy-module div .eyebrow {
+  margin-top: 16px;
+  color: #5e5e61;
+}
 
 /* GLOBAL CSS */
 #overlay-menu .logo a {
@@ -432,15 +440,13 @@ a {
     margin: 0 1vh 0 1vh;
     flex-direction: row;
     flex-basis: 50%;
-    flex-shrink: 1;
+  }
+  .copy-module .spacer {
+    display: none;
   }
   .copy-module div {
     width: 50%;
     max-width: 50%;
-  }
-
-  .spacer {
-    display: none;
   }
 
   .list {
