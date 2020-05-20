@@ -96,6 +96,7 @@ body {
   max-width: 33%;
 }
 .copy-module div p {
+  margin-bottom: 0 !important;
   letter-spacing: -30;
   text-align: left;
   font-family: "Common";
@@ -106,6 +107,9 @@ body {
 .copy-module .project-title {
   width: 100%;
   max-width: 100%;
+}
+.copy-module .project-team {
+  margin-left: 50%;
 }
 .copy-module div .eyebrow {
   margin-top: 16px;
@@ -405,6 +409,22 @@ a {
 /* Portrait & Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (hover: none) {
   /* HOMEPAGE STYLE */
+  .copy-module {
+    margin: 0 1vh 0 1vh;
+    flex-direction: row;
+    flex-basis: 50%;
+  }
+  .copy-module .spacer {
+    display: none;
+  }
+  .copy-module div {
+    width: 50%;
+    max-width: 50%;
+  }
+  .copy-module .project-team {
+    margin-left: 33%;
+  }
+
   .list a img {
     position: relative !important;
     opacity: 1;
@@ -436,19 +456,6 @@ a {
 }
 /* Portrait */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
-  .copy-module {
-    margin: 0 1vh 0 1vh;
-    flex-direction: row;
-    flex-basis: 50%;
-  }
-  .copy-module .spacer {
-    display: none;
-  }
-  .copy-module div {
-    width: 50%;
-    max-width: 50%;
-  }
-
   .list {
     display: flex;
     flex-direction: column;
@@ -638,13 +645,19 @@ a {
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
   .copy-module {
-    margin: 0 1vh 0 1vh;
+    margin: 0 8px 0 8px;
     flex-direction: column;
     flex-basis: 100%;
   }
   .copy-module div {
     width: 100%;
     max-width: 100%;
+  }
+  .copy-module .spacer {
+    display: none;
+  }
+  .copy-module .project-team {
+    margin-left: 0;
   }
 
   .list {
@@ -763,6 +776,22 @@ a {
 }
 /* Portrait */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  .copy-module {
+    margin: 0 8px 0 8px;
+    flex-direction: column;
+    flex-basis: 100%;
+  }
+  .copy-module div {
+    width: 100%;
+    max-width: 100%;
+  }
+  .copy-module .spacer {
+    display: none;
+  }
+  .copy-module .project-team {
+    margin-left: 0;
+  }
+
   .back-to-top {
     transform: translate(33px, 20px);
   }

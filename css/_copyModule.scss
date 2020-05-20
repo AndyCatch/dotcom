@@ -1,0 +1,88 @@
+@mixin desktop {
+  .copy-module {
+    margin: 0 1vh 0 1vh;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-basis: 33%;
+
+    div {
+      width: 33%;
+      max-width: 33%;
+    }
+
+    div p {
+      margin-bottom:0 !important;
+      letter-spacing: -30;
+      text-align: left;
+      font-family: "Common";
+      font-size: 20px;
+      line-height: 1.2;
+      color: white;
+    }
+
+    .project-title {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .project-team {
+      margin-left: 50%;
+    }
+
+    div .eyebrow {
+      margin-top: 16px;
+      color: #5e5e61;
+    }
+  }
+}
+
+@mixin tablet-portait {
+  .copy-module {
+    margin: 0 1vh 0 1vh;
+
+    flex-direction: row;
+    flex-basis: 50%;
+
+    .spacer {
+      display: none;
+    }
+
+    div {
+      width: 50%;
+      max-width: 50%;
+    }
+
+    .project-team {
+      margin-left: 33%;
+    }
+  }
+}
+
+@mixin mobile{
+   
+  .copy-module{
+    margin:0 8px 0 8px;
+  
+    flex-direction: column;
+    flex-basis: 100%;
+  
+    div{
+      width: 100%;
+      max-width:100%;
+    }
+
+    .spacer {
+      display: none;
+    }
+
+    .project-team {
+      margin-left: 0;
+    }
+
+  }
+
+}

@@ -1,7 +1,12 @@
+@use "copyModule";
+
+
 /*-- iPad 1,2 --*/
 /* Portrait & Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (hover: none) {
   /* HOMEPAGE STYLE */
+
+  @include copyModule.tablet-portait;
 
   .list a img {
     position: relative !important;
@@ -36,26 +41,6 @@
 /* Portrait */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
   
-  @import 'copy-mod-TP';
-  // .copy-module {
-  //   margin: 0 1vh 0 1vh;
-
-  //   flex-direction: row;
-  //   flex-basis: 50%;
-  //   flex-shrink: 1;
-
-  //   .spacer{
-  //     display: none;
-  //   }
-    
-  //   div {
-  //     width: 50%;
-  //     max-width: 50%;
-  //   }
-  // }
-
-  
-
   .list {
     display: flex;
     flex-direction: column;

@@ -1,5 +1,8 @@
+@use "copyModule";
 @import "reset";
 @import "typography";
+
+
 
 // Colors
 $background-color: black;
@@ -19,41 +22,7 @@ body {
   display: none;
 }
 
-
-.copy-module{
-  margin:0 1vh 0 1vh;
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-basis: 33%;
-
-  div{
-    width: 33%;
-    max-width: 33%;
-  }
-
-  div p{
-    letter-spacing: -30;
-    text-align: left;
-    font-family: "Common";
-    font-size: 20px;
-    line-height: 1.2;
-    color: white;
-  }
-
-  .project-title{
-    width: 100%;
-    max-width: 100%;
-  }
-
-  div .eyebrow{
-    margin-top:16px;
-    color: #5e5e61;
-  }
-}
+@include copyModule.desktop;
 
 /* GLOBAL CSS */
 #overlay-menu .logo a {

@@ -1,3 +1,5 @@
+@use "copyModule";
+
 /* ----------- Pixel 2 XL ----------- */
 /* Landscape */
 /* iPad 1,2 Landscape too*/
@@ -41,8 +43,6 @@
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (hover: none) {
   
- 
-
   .navItem-Index {
     display: list-item;
   }
@@ -113,17 +113,7 @@
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
   
-  .copy-module{
-    margin:0 1vh 0 1vh;
-  
-    flex-direction: column;
-    flex-basis: 100%;
-  
-    div{
-      width: 100%;
-      max-width:100%;
-    }
-  }
+  @include copyModule.mobile;
 
   .list {
     display: flex;
@@ -247,6 +237,8 @@
 /* Portrait */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
   
+  @include copyModule.mobile;
+
   .back-to-top {
     transform: translate(33px, 20px);
   }
