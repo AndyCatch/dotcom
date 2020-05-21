@@ -1,5 +1,5 @@
-@use "copyModule";
-
+@use "modules/copyModule";
+@use "modules/footerModule";
 
 /*-- iPad 1,2 --*/
 /* Portrait & Landscape */
@@ -7,6 +7,8 @@
   /* HOMEPAGE STYLE */
 
   @include copyModule.tablet-portait;
+  @include footerModule.tablet;
+  
 
   .list a img {
     position: relative !important;
@@ -32,10 +34,6 @@
     opacity: 0.8;
   }
 
-  .info_section,
-  .info_index {
-    margin: 15vh 0 0 0 !important;
-  }
 }
 
 /* Portrait */
@@ -46,11 +44,6 @@
     flex-direction: column;
     justify-content: space-around;
     margin: 44.7vh 0 0 0 !important;
-  }
-
-  .row-2-spacer,
-  .row-3-spacer {
-    display: none !important;
   }
 
   .next a img {
@@ -81,10 +74,6 @@
     margin-bottom: 0px;
   }
 
-  .info_section {
-    margin: 15vh 0 0 0 !important;
-  }
-
   .next a img {
     transform: translate(-50%, -20%);
   }
@@ -97,18 +86,11 @@
     display: none;
   }
 
-  .row-2-spacer,
-  .row-3-spacer {
-    display: flex !important;
-  }
 }
 
 /* Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
-  .row-2-spacer,
-  .row-3-spacer {
-    display: flex;
-  }
+ 
 }
 
 /* ----------- iPad Pro 12.9" ----------- */

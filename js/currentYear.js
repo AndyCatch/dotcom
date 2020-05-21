@@ -26,7 +26,6 @@ function updateClock() {
 
   // Sets the elements inner HTML value to our clock data
   if (elem) {
-    elem.innerHTML =
-    "© " + year + " " + hours + ":" + minutes + ":" + seconds;
+    elem.innerHTML = "© " + year + " " + hours + ":" + minutes + ":" + seconds;
   }
 }

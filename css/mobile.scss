@@ -1,48 +1,28 @@
-@use "copyModule";
+@use "modules/copyModule";
+@use "modules/footerModule";
 
 /* ----------- Pixel 2 XL ----------- */
 /* Landscape */
 /* iPad 1,2 Landscape too*/
 @media screen and (max-width: 823px) and (min-width: 411px) {
+  @include copyModule.mobile;
 
   .navItem-Index {
     display: list-item;
-  }
-
-  .info_section,
-  .info_index {
-    margin: 5vh 0 5vh 0 !important;
   }
 
   .semplice-cover .show-more svg {
     margin-bottom: 0px;
   }
 
-  .info-section-col-1-title,
-  .info-section-col-2-client {
-    width: 100%;
-    max-width: 100%;
-    flex-basis: 100%;
-  }
-
-  .info-section-col-3-description,
-  .info-section-col-4-team,
-  .info-section-col-5-role {
-    width: 50%;
-    max-width: 50%;
-    flex-basis: 50%;
-  }
-
-  .row-2-spacer,
-  .row-3-spacer {
-    display: none !important;
-  }
 }
 
 /* ----------- iPhone 6,7 and 8 PLUS ----------- */
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (hover: none) {
   
+  @include footerModule.mobile;
+
   .navItem-Index {
     display: list-item;
   }
@@ -65,6 +45,9 @@
 
 /* Landscape */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  
+  @include copyModule.mobile;
+  
   .list {
     margin-top: 48vh;
   }
@@ -76,27 +59,6 @@
   /* Back to Top  */
   .back-to-top {
     transform: translate(26px, 18px);
-  }
-
-  /* Settings for Landscape Orientation */
-  .info-section-col-1-title,
-  .info-section-col-2-client {
-    width: 100%;
-    max-width: 100%;
-    flex-basis: 100%;
-  }
-
-  .info-section-col-3-description,
-  .info-section-col-4-team,
-  .info-section-col-5-role {
-    width: 50%;
-    max-width: 50%;
-    flex-basis: 50%;
-  }
-
-  .row-2-spacer,
-  .row-3-spacer {
-    display: none;
   }
 
   .next a img {
@@ -114,6 +76,7 @@
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
   
   @include copyModule.mobile;
+  @include footerModule.mobile;
 
   .list {
     display: flex;
@@ -171,27 +134,6 @@
     transform: translate(26px, 14px);
   }
 
-  /* Settings for Landscape Orientation */
-  .info-section-col-1-title,
-  .info-section-col-2-client {
-    width: 100%;
-    max-width: 100%;
-    flex-basis: 100%;
-  }
-
-  .info-section-col-3-description,
-  .info-section-col-4-team,
-  .info-section-col-5-role {
-    width: 50%;
-    max-width: 50%;
-    flex-basis: 50%;
-  }
-
-  .row-2-spacer,
-  .row-3-spacer {
-    display: none;
-  }
-
   .next a img,
   .project-image {
     width: 70vw;
@@ -202,6 +144,8 @@
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
  
+  @include footerModule.mobile;
+
   .list a h1{
     margin-bottom:10%;
   }
@@ -252,25 +196,9 @@
 
 /* Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  
   .back-to-top {
     transform: translate(26px, 16px);
-  }
-
-  /* Settings for Landscape Orientation */
-  .info-section-col-1-title,
-  .info-section-col-2-client,
-  .info-section-col-3-description,
-  .info-section-col-4-team,
-  .info-section-col-5-role {
-    width: 66%;
-    max-width: 66%;
-    flex-basis: 66%;
-    display: block;
-  }
-
-  .row-2-spacer,
-  .row-3-spacer {
-    display: none;
   }
 
   .next a img,

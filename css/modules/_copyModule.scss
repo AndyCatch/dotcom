@@ -1,7 +1,8 @@
 @mixin desktop {
   .copy-module {
     margin: 0 1vh 0 1vh;
-
+    height: fit-content;
+    padding: 25vh 0 0 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -29,10 +30,6 @@
       max-width: 100%;
     }
 
-    .project-team {
-      margin-left: 50%;
-    }
-
     div .eyebrow {
       margin-top: 16px;
       color: #5e5e61;
@@ -57,7 +54,7 @@
     }
 
     .project-team {
-      margin-left: 33%;
+      margin-left: 50%;
     }
   }
 }
@@ -68,11 +65,11 @@
     margin:0 8px 0 8px;
   
     flex-direction: column;
-    flex-basis: 100%;
+    flex-basis: 87%;
   
     div{
-      width: 100%;
-      max-width:100%;
+      width: 87%;
+      max-width:87%;
     }
 
     .spacer {
@@ -81,6 +78,8 @@
 
     .project-team {
       margin-left: 0;
+      width: 75%;
+      max-width:75%;
     }
 
   }

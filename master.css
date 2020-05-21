@@ -84,6 +84,8 @@ body {
 
 .copy-module {
   margin: 0 1vh 0 1vh;
+  height: fit-content;
+  padding: 25vh 0 0 0;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -107,9 +109,6 @@ body {
 .copy-module .project-title {
   width: 100%;
   max-width: 100%;
-}
-.copy-module .project-team {
-  margin-left: 50%;
 }
 .copy-module div .eyebrow {
   margin-top: 16px;
@@ -195,7 +194,7 @@ a {
 /* ----- Index Page ----- */
 .list {
   display: inline-block;
-  margin: 33vh 0 50vh 0;
+  margin: 45vh 0 25vh 0;
   width: 100%;
 }
 
@@ -320,14 +319,6 @@ a {
   margin-top: 5vh !important;
 }
 
-.info_section {
-  margin: 15vh 0 0 0 !important;
-}
-
-.info_index {
-  margin: 10vh 0 40vh 0 !important;
-}
-
 .project-cover {
   display: flex;
   justify-content: center;
@@ -393,12 +384,37 @@ a {
 }
 
 /* -------------------- Footer -------------------- */
+.footer-module {
+  font-family: "Common";
+  font-size: 20px;
+  line-height: 1.2;
+  text-align: left;
+  color: white;
+  padding: 20vh 0 0 0;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-basis: 33%;
+}
+.footer-module div {
+  width: 33%;
+  max-width: 33%;
+}
+.footer-module .attribution {
+  width: 66%;
+  max-width: 66%;
+}
+
 .index-footer {
   margin-top: 20vh;
 }
 
 .currentYear {
   color: white !important;
+  font-family: "Common";
   font-size: 20px;
   line-height: 1.2;
   text-align: left;
@@ -422,7 +438,20 @@ a {
     max-width: 50%;
   }
   .copy-module .project-team {
-    margin-left: 33%;
+    margin-left: 50%;
+  }
+
+  .footer-module {
+    flex-direction: column-reverse;
+    flex-basis: 50%;
+  }
+  .footer-module div {
+    width: 50%;
+    max-width: 50%;
+  }
+  .footer-module .attribution {
+    width: 100%;
+    max-width: 100%;
   }
 
   .list a img {
@@ -448,11 +477,6 @@ a {
     position: relative !important;
     opacity: 0.8;
   }
-
-  .info_section,
-.info_index {
-    margin: 15vh 0 0 0 !important;
-  }
 }
 /* Portrait */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
@@ -461,11 +485,6 @@ a {
     flex-direction: column;
     justify-content: space-around;
     margin: 44.7vh 0 0 0 !important;
-  }
-
-  .row-2-spacer,
-.row-3-spacer {
-    display: none !important;
   }
 
   .next a img {
@@ -495,10 +514,6 @@ a {
     margin-bottom: 0px;
   }
 
-  .info_section {
-    margin: 15vh 0 0 0 !important;
-  }
-
   .next a img {
     transform: translate(-50%, -20%);
   }
@@ -509,19 +524,8 @@ a {
   .navItem-Index {
     display: none;
   }
-
-  .row-2-spacer,
-.row-3-spacer {
-    display: flex !important;
-  }
 }
 /* Landscape */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
-  .row-2-spacer,
-.row-3-spacer {
-    display: flex;
-  }
-}
 /* ----------- iPad Pro 12.9" ----------- */
 /* Landscape */
 /* Declare the same value for min- and max-width to avoid colliding with desktops */
@@ -541,42 +545,48 @@ a {
 /* Landscape */
 /* iPad 1,2 Landscape too*/
 @media screen and (max-width: 823px) and (min-width: 411px) {
-  .navItem-Index {
-    display: list-item;
+  .copy-module {
+    margin: 0 8px 0 8px;
+    flex-direction: column;
+    flex-basis: 87%;
+  }
+  .copy-module div {
+    width: 87%;
+    max-width: 87%;
+  }
+  .copy-module .spacer {
+    display: none;
+  }
+  .copy-module .project-team {
+    margin-left: 0;
+    width: 75%;
+    max-width: 75%;
   }
 
-  .info_section,
-.info_index {
-    margin: 5vh 0 5vh 0 !important;
+  .navItem-Index {
+    display: list-item;
   }
 
   .semplice-cover .show-more svg {
     margin-bottom: 0px;
   }
-
-  .info-section-col-1-title,
-.info-section-col-2-client {
-    width: 100%;
-    max-width: 100%;
-    flex-basis: 100%;
-  }
-
-  .info-section-col-3-description,
-.info-section-col-4-team,
-.info-section-col-5-role {
-    width: 50%;
-    max-width: 50%;
-    flex-basis: 50%;
-  }
-
-  .row-2-spacer,
-.row-3-spacer {
-    display: none !important;
-  }
 }
 /* ----------- iPhone 6,7 and 8 PLUS ----------- */
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (hover: none) {
+  .footer-module {
+    flex-direction: column-reverse;
+    flex-basis: 100%;
+  }
+  .footer-module div {
+    width: 100%;
+    max-width: 100%;
+  }
+  .footer-module .attribution {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .navItem-Index {
     display: list-item;
   }
@@ -598,6 +608,24 @@ a {
 }
 /* Landscape */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  .copy-module {
+    margin: 0 8px 0 8px;
+    flex-direction: column;
+    flex-basis: 87%;
+  }
+  .copy-module div {
+    width: 87%;
+    max-width: 87%;
+  }
+  .copy-module .spacer {
+    display: none;
+  }
+  .copy-module .project-team {
+    margin-left: 0;
+    width: 75%;
+    max-width: 75%;
+  }
+
   .list {
     margin-top: 48vh;
   }
@@ -609,27 +637,6 @@ a {
   /* Back to Top  */
   .back-to-top {
     transform: translate(26px, 18px);
-  }
-
-  /* Settings for Landscape Orientation */
-  .info-section-col-1-title,
-.info-section-col-2-client {
-    width: 100%;
-    max-width: 100%;
-    flex-basis: 100%;
-  }
-
-  .info-section-col-3-description,
-.info-section-col-4-team,
-.info-section-col-5-role {
-    width: 50%;
-    max-width: 50%;
-    flex-basis: 50%;
-  }
-
-  .row-2-spacer,
-.row-3-spacer {
-    display: none;
   }
 
   .next a img {
@@ -647,17 +654,32 @@ a {
   .copy-module {
     margin: 0 8px 0 8px;
     flex-direction: column;
-    flex-basis: 100%;
+    flex-basis: 87%;
   }
   .copy-module div {
-    width: 100%;
-    max-width: 100%;
+    width: 87%;
+    max-width: 87%;
   }
   .copy-module .spacer {
     display: none;
   }
   .copy-module .project-team {
     margin-left: 0;
+    width: 75%;
+    max-width: 75%;
+  }
+
+  .footer-module {
+    flex-direction: column-reverse;
+    flex-basis: 100%;
+  }
+  .footer-module div {
+    width: 100%;
+    max-width: 100%;
+  }
+  .footer-module .attribution {
+    width: 100%;
+    max-width: 100%;
   }
 
   .list {
@@ -714,27 +736,6 @@ a {
     transform: translate(26px, 14px);
   }
 
-  /* Settings for Landscape Orientation */
-  .info-section-col-1-title,
-.info-section-col-2-client {
-    width: 100%;
-    max-width: 100%;
-    flex-basis: 100%;
-  }
-
-  .info-section-col-3-description,
-.info-section-col-4-team,
-.info-section-col-5-role {
-    width: 50%;
-    max-width: 50%;
-    flex-basis: 50%;
-  }
-
-  .row-2-spacer,
-.row-3-spacer {
-    display: none;
-  }
-
   .next a img,
 .project-image {
     width: 70vw;
@@ -743,6 +744,19 @@ a {
 /* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
+  .footer-module {
+    flex-direction: column-reverse;
+    flex-basis: 100%;
+  }
+  .footer-module div {
+    width: 100%;
+    max-width: 100%;
+  }
+  .footer-module .attribution {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .list a h1 {
     margin-bottom: 10%;
   }
@@ -779,17 +793,19 @@ a {
   .copy-module {
     margin: 0 8px 0 8px;
     flex-direction: column;
-    flex-basis: 100%;
+    flex-basis: 87%;
   }
   .copy-module div {
-    width: 100%;
-    max-width: 100%;
+    width: 87%;
+    max-width: 87%;
   }
   .copy-module .spacer {
     display: none;
   }
   .copy-module .project-team {
     margin-left: 0;
+    width: 75%;
+    max-width: 75%;
   }
 
   .back-to-top {
@@ -806,23 +822,6 @@ a {
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
   .back-to-top {
     transform: translate(26px, 16px);
-  }
-
-  /* Settings for Landscape Orientation */
-  .info-section-col-1-title,
-.info-section-col-2-client,
-.info-section-col-3-description,
-.info-section-col-4-team,
-.info-section-col-5-role {
-    width: 66%;
-    max-width: 66%;
-    flex-basis: 66%;
-    display: block;
-  }
-
-  .row-2-spacer,
-.row-3-spacer {
-    display: none;
   }
 
   .next a img,
