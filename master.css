@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -69,7 +70,7 @@ input, textarea, select {
   src: url("fonts/monumentextended-ultrabold-webfont.woff2"), url("fonts/monumentextended-ultrabold-webfont.woff");
 }
 @font-face {
-  font-family: "Common";
+  font-family: "Common Sans";
   src: url("fonts/CommonSansWeb-Regular.woff2"), url("fonts/CommonSansWeb-Regular.woff");
 }
 body {
@@ -101,9 +102,10 @@ body {
   margin-bottom: 0 !important;
   letter-spacing: -30;
   text-align: left;
-  font-family: "Common";
+  font-family: "Common Sans";
   font-size: 20px;
-  line-height: 1.2;
+  line-height: 1.1 !important;
+  letter-spacing: -0.05rem !important;
   color: white;
 }
 .copy-module .project-title {
@@ -385,12 +387,14 @@ a {
 
 /* -------------------- Footer -------------------- */
 .footer-module {
-  font-family: "Common";
+  font-family: "Common Sans";
   font-size: 20px;
-  line-height: 1.2;
+  line-height: 1.1;
+  letter-spacing: -0.05rem;
   text-align: left;
   color: white;
   padding: 20vh 0 0 0;
+  margin: 0 8px 8px 8px;
   height: fit-content;
   display: flex;
   flex-direction: row;
@@ -399,13 +403,21 @@ a {
   align-items: flex-start;
   flex-basis: 33%;
 }
-.footer-module div {
+.footer-module .timeStamp {
   width: 33%;
   max-width: 33%;
 }
-.footer-module .attribution {
+.footer-module .footer-links {
   width: 66%;
   max-width: 66%;
+}
+.footer-module .footer-links a::after {
+  font-family: Arial, Helvetica, sans-serif;
+  content: " ↗︎";
+}
+.footer-module .attribution {
+  width: 60%;
+  max-width: 60%;
 }
 
 .index-footer {
@@ -414,9 +426,9 @@ a {
 
 .currentYear {
   color: white !important;
-  font-family: "Common";
+  font-family: "Common Sans";
   font-size: 20px;
-  line-height: 1.2;
+  line-height: 1.1;
   text-align: left;
 }
 
@@ -442,16 +454,22 @@ a {
   }
 
   .footer-module {
-    flex-direction: column-reverse;
-    flex-basis: 50%;
+    flex-direction: column;
+    flex-basis: 100%;
   }
-  .footer-module div {
-    width: 50%;
-    max-width: 50%;
+  .footer-module .footer-links {
+    padding: 0 0 8px 0;
+    width: 85%;
+    max-width: 85%;
+  }
+  .footer-module .timeStamp {
+    padding: 0 0 8px 0;
+    width: 85%;
+    max-width: 85%;
   }
   .footer-module .attribution {
-    width: 100%;
-    max-width: 100%;
+    width: 85%;
+    max-width: 85%;
   }
 
   .list a img {
@@ -520,11 +538,6 @@ a {
 }
 /*  iPad Pro */
 /* Portrait */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
-  .navItem-Index {
-    display: none;
-  }
-}
 /* Landscape */
 /* ----------- iPad Pro 12.9" ----------- */
 /* Landscape */
@@ -548,11 +561,11 @@ a {
   .copy-module {
     margin: 0 8px 0 8px;
     flex-direction: column;
-    flex-basis: 87%;
+    flex-basis: 90%;
   }
   .copy-module div {
-    width: 87%;
-    max-width: 87%;
+    width: 100%;
+    max-width: 100%;
   }
   .copy-module .spacer {
     display: none;
@@ -575,14 +588,26 @@ a {
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (hover: none) {
   .footer-module {
-    flex-direction: column-reverse;
+    padding: 20vh 0 7vh 0;
+    flex-direction: column;
     flex-basis: 100%;
   }
-  .footer-module div {
+  .footer-module .footer-links {
+    padding: 0 0 8px 0;
     width: 100%;
     max-width: 100%;
   }
+  .footer-module .footer-links:last-child {
+    padding-left: 8px;
+  }
+  .footer-module .timeStamp {
+    padding: 0 0 8px 0;
+    width: 85%;
+    max-width: 85%;
+  }
   .footer-module .attribution {
+    font-size: 16px !important;
+    line-height: 1.1 !important;
     width: 100%;
     max-width: 100%;
   }
@@ -611,11 +636,11 @@ a {
   .copy-module {
     margin: 0 8px 0 8px;
     flex-direction: column;
-    flex-basis: 87%;
+    flex-basis: 90%;
   }
   .copy-module div {
-    width: 87%;
-    max-width: 87%;
+    width: 100%;
+    max-width: 100%;
   }
   .copy-module .spacer {
     display: none;
@@ -654,11 +679,11 @@ a {
   .copy-module {
     margin: 0 8px 0 8px;
     flex-direction: column;
-    flex-basis: 87%;
+    flex-basis: 90%;
   }
   .copy-module div {
-    width: 87%;
-    max-width: 87%;
+    width: 100%;
+    max-width: 100%;
   }
   .copy-module .spacer {
     display: none;
@@ -670,14 +695,26 @@ a {
   }
 
   .footer-module {
-    flex-direction: column-reverse;
+    padding: 20vh 0 7vh 0;
+    flex-direction: column;
     flex-basis: 100%;
   }
-  .footer-module div {
+  .footer-module .footer-links {
+    padding: 0 0 8px 0;
     width: 100%;
     max-width: 100%;
   }
+  .footer-module .footer-links:last-child {
+    padding-left: 8px;
+  }
+  .footer-module .timeStamp {
+    padding: 0 0 8px 0;
+    width: 85%;
+    max-width: 85%;
+  }
   .footer-module .attribution {
+    font-size: 16px !important;
+    line-height: 1.1 !important;
     width: 100%;
     max-width: 100%;
   }
@@ -745,14 +782,26 @@ a {
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
   .footer-module {
-    flex-direction: column-reverse;
+    padding: 20vh 0 7vh 0;
+    flex-direction: column;
     flex-basis: 100%;
   }
-  .footer-module div {
+  .footer-module .footer-links {
+    padding: 0 0 8px 0;
     width: 100%;
     max-width: 100%;
   }
+  .footer-module .footer-links:last-child {
+    padding-left: 8px;
+  }
+  .footer-module .timeStamp {
+    padding: 0 0 8px 0;
+    width: 85%;
+    max-width: 85%;
+  }
   .footer-module .attribution {
+    font-size: 16px !important;
+    line-height: 1.1 !important;
     width: 100%;
     max-width: 100%;
   }
@@ -793,11 +842,11 @@ a {
   .copy-module {
     margin: 0 8px 0 8px;
     flex-direction: column;
-    flex-basis: 87%;
+    flex-basis: 90%;
   }
   .copy-module div {
-    width: 87%;
-    max-width: 87%;
+    width: 100%;
+    max-width: 100%;
   }
   .copy-module .spacer {
     display: none;
