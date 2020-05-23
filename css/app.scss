@@ -1,3 +1,4 @@
+@use "modules/type-stack";
 @use "modules/copyModule";
 @use "modules/listModule";
 @use "modules/nextProject";
@@ -15,7 +16,6 @@ $title-line-height: 0.8;
 
 body {
   background-color: $background-color;
-  font-family: $title-font;
 }
 
 /* Remove the WP admin bar cos it's annoying  */
@@ -77,15 +77,17 @@ body {
 }
 
 /* Global Styles */
-h1 {
-  line-height: $title-line-height !important;
-}
+
+@include type-stack.desktop-type-stack;
+// h1 {
+//   line-height: $title-line-height !important;
+// }
 
 /* Workaround for Semplice's Menu */
-.logo ::after {
-  content: "\A Design Director";
-  white-space: pre;
-}
+// .logo ::after {
+//   content: "\A Design Director";
+//   white-space: pre;
+// }
 
 /* To help override values + flexbox from Semplice */
 .navbar-right .menu {
@@ -117,7 +119,6 @@ a {
 .title {
   display: flex;
   flex-direction: row;
-  // flex-basis: auto;
   flex-grow: 1;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -126,6 +127,12 @@ a {
 .title,
 .right-align {
   font-size: $title-font-size;
+}
+
+/* ----- Profile / About Page ----- */
+
+.about-top-item{
+  margin: 45vh 0 0 0;
 }
 
 /* ----- Next Project Module ----- */

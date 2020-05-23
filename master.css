@@ -75,7 +75,6 @@ input, textarea, select {
 }
 body {
   background-color: black;
-  font-family: "Monument-Extended";
 }
 
 /* Remove the WP admin bar cos it's annoying  */
@@ -97,16 +96,7 @@ body {
 .copy-module div {
   width: 33%;
   max-width: 33%;
-}
-.copy-module div p {
   margin-bottom: 0 !important;
-  letter-spacing: -30;
-  text-align: left;
-  font-family: "Common Sans";
-  font-size: 20px;
-  line-height: 1.1 !important;
-  letter-spacing: -0.05rem !important;
-  color: white;
 }
 .copy-module .project-title {
   width: 100%;
@@ -168,16 +158,27 @@ body {
   }
 }
 /* Global Styles */
-h1 {
-  line-height: 0.8 !important;
+p {
+  font-family: "Common Sans";
+  font-size: 18px !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.05rem !important;
+  text-align: left;
+  color: white;
 }
 
-/* Workaround for Semplice's Menu */
+h1 {
+  font-family: "Monument-Extended";
+  font-size: 8.25vw;
+  line-height: 0.8;
+}
+
 .logo ::after {
   content: "\a Design Director";
   white-space: pre;
 }
 
+/* Workaround for Semplice's Menu */
 /* To help override values + flexbox from Semplice */
 .navbar-right .menu {
   width: 33vw;
@@ -196,7 +197,7 @@ a {
 /* ----- Index Page ----- */
 .list {
   display: inline-block;
-  margin: 45vh 0 0vh 0;
+  margin: 45vh 0 0 0;
   padding: 0 0 30vh 0;
   width: 100%;
   /*   The animation settings in Semplice will adjust the placement of the image */
@@ -254,6 +255,11 @@ a {
 .title,
 .right-align {
   font-size: 8.25vw;
+}
+
+/* ----- Profile / About Page ----- */
+.about-top-item {
+  margin: 45vh 0 0 0;
 }
 
 /* ----- Next Project Module ----- */
@@ -505,8 +511,29 @@ a {
 }
 /* Portrait */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+  .copy-module {
+    margin: 0 1vh 0 1vh;
+    flex-direction: row;
+    flex-basis: 50%;
+  }
+  .copy-module .spacer {
+    display: none;
+  }
+  .copy-module div {
+    width: 50%;
+    max-width: 50%;
+  }
+  .copy-module .project-team {
+    margin-left: 50%;
+  }
+
   .navItem-Index {
     display: list-item;
+  }
+
+  .current-menu-item::after {
+    font-family: Arial, Helvetica, sans-serif !important;
+    display: none;
   }
 }
 /* Landscape */
@@ -540,6 +567,14 @@ a {
     opacity: 0.9;
     transform: translate(-50%, 0%);
   }
+
+  .next a img {
+    filter: saturate(110%);
+    width: 75vw;
+    position: relative !important;
+    opacity: 0.9;
+    transform: translate(-50%, 0%) !important;
+  }
 }
 /* -------------------- Mobile -------------------- */
 /* ----------- Pixel ----------- */
@@ -564,13 +599,13 @@ a {
   }
 }
 /* ----------- Pixel 2 XL ----------- */
-/* Landscape */
+/* Portrait */
 /* iPad 1,2 Landscape too*/
-@media screen and (max-width: 823px) and (min-width: 411px) {
+@media only screen and (max-device-width: 411px) and (min-device-width: 411px) and (orientation: portrait) {
   .copy-module {
     margin: 0 8px 0 8px;
     flex-direction: column;
-    flex-basis: 90%;
+    flex-basis: 100%;
   }
   .copy-module div {
     width: 100%;
@@ -581,12 +616,58 @@ a {
   }
   .copy-module .project-team {
     margin-left: 0;
-    width: 75%;
-    max-width: 75%;
+    width: 88%;
+    max-width: 88%;
   }
 
   .navItem-Index {
     display: list-item;
+  }
+
+  .current-menu-item::after {
+    font-family: Arial, Helvetica, sans-serif !important;
+    display: none;
+  }
+
+  .semplice-cover .show-more svg {
+    margin-bottom: 0px;
+  }
+}
+/* Landscape */
+@media only screen and (max-device-width: 731px) and (min-device-width: 731px) and (orientation: landscape) {
+  .copy-module {
+    margin: 0 8px 0 8px;
+    flex-direction: column;
+    flex-basis: 100%;
+  }
+  .copy-module div {
+    width: 100%;
+    max-width: 100%;
+  }
+  .copy-module .spacer {
+    display: none;
+  }
+  .copy-module .project-team {
+    margin-left: 0;
+    width: 88%;
+    max-width: 88%;
+  }
+
+  .navItem-Index {
+    display: list-item;
+  }
+
+  .current-menu-item::after {
+    font-family: Arial, Helvetica, sans-serif !important;
+    display: none;
+  }
+
+  .next a img {
+    filter: saturate(110%);
+    width: 75vw;
+    position: relative !important;
+    opacity: 0.9;
+    transform: translate(-50%, 0%) !important;
   }
 
   .semplice-cover .show-more svg {
@@ -658,6 +739,11 @@ a {
     display: list-item;
   }
 
+  .current-menu-item::after {
+    font-family: Arial, Helvetica, sans-serif !important;
+    display: none;
+  }
+
   /* Back to Top  */
   .back-to-top {
     transform: translate(26px, 20px);
@@ -696,7 +782,7 @@ a {
   .copy-module {
     margin: 0 8px 0 8px;
     flex-direction: column;
-    flex-basis: 90%;
+    flex-basis: 100%;
   }
   .copy-module div {
     width: 100%;
@@ -707,22 +793,17 @@ a {
   }
   .copy-module .project-team {
     margin-left: 0;
-    width: 75%;
-    max-width: 75%;
+    width: 88%;
+    max-width: 88%;
   }
 
-  .list {
-    margin-top: 48vh;
+  .navItem-Index {
+    display: list-item;
   }
 
-  .list a h1 {
-    margin-bottom: 10%;
-  }
-
-  .list a img {
-    position: relative !important;
-    opacity: 0.9;
-    transform: translate(-50%, 0%);
+  .current-menu-item::after {
+    font-family: Arial, Helvetica, sans-serif !important;
+    display: none;
   }
 
   /* Back to Top  */
@@ -752,7 +833,7 @@ a {
   .copy-module {
     margin: 0 8px 0 8px;
     flex-direction: column;
-    flex-basis: 90%;
+    flex-basis: 100%;
   }
   .copy-module div {
     width: 100%;
@@ -763,8 +844,8 @@ a {
   }
   .copy-module .project-team {
     margin-left: 0;
-    width: 75%;
-    max-width: 75%;
+    width: 88%;
+    max-width: 88%;
   }
 
   .next {
@@ -809,6 +890,15 @@ a {
     font-size: 16px !important;
   }
 
+  .navItem-Index {
+    display: list-item;
+  }
+
+  .current-menu-item::after {
+    font-family: Arial, Helvetica, sans-serif !important;
+    display: none;
+  }
+
   /*Need to keep this to allow for the JS*/
   h1 {
     font-size: 40px !important;
@@ -831,13 +921,19 @@ a {
   .back-to-top {
     transform: translate(32px, 20px);
   }
-
-  .navItem-Index {
-    display: list-item;
-  }
 }
 /* Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  .list a h1 {
+    margin-bottom: 10%;
+  }
+  .list a img {
+    filter: saturate(110%);
+    position: relative !important;
+    opacity: 0.9;
+    transform: translate(-50%, 0%);
+  }
+
   .next a img {
     filter: saturate(110%);
     width: 75vw;
@@ -846,14 +942,13 @@ a {
     transform: translate(-50%, 0%) !important;
   }
 
-  .list a h1 {
-    margin-bottom: 10%;
+  .navItem-Index {
+    display: list-item;
   }
 
-  .list a img {
-    position: relative !important;
-    opacity: 0.9;
-    transform: translate(-50%, 0%);
+  .current-menu-item::after {
+    font-family: Arial, Helvetica, sans-serif !important;
+    display: none;
   }
 
   /* Back to Top  */
@@ -911,6 +1006,15 @@ a {
     font-size: 16px !important;
   }
 
+  .navItem-Index {
+    display: list-item;
+  }
+
+  .current-menu-item::after {
+    font-family: Arial, Helvetica, sans-serif !important;
+    display: none;
+  }
+
   h1 {
     font-size: 40px !important;
   }
@@ -927,17 +1031,13 @@ a {
   .semplice-cover .show-more svg {
     margin-bottom: 0px;
   }
-
-  .navItem-Index {
-    display: list-item;
-  }
 }
 /* Portrait */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
   .copy-module {
     margin: 0 8px 0 8px;
     flex-direction: column;
-    flex-basis: 90%;
+    flex-basis: 100%;
   }
   .copy-module div {
     width: 100%;
@@ -948,8 +1048,8 @@ a {
   }
   .copy-module .project-team {
     margin-left: 0;
-    width: 75%;
-    max-width: 75%;
+    width: 88%;
+    max-width: 88%;
   }
 
   .next {
@@ -989,6 +1089,15 @@ a {
     position: relative !important;
     opacity: 0.9;
     transform: translate(-50%, 0%) !important;
+  }
+
+  .navItem-Index {
+    display: list-item;
+  }
+
+  .current-menu-item::after {
+    font-family: Arial, Helvetica, sans-serif !important;
+    display: none;
   }
 
   .back-to-top {

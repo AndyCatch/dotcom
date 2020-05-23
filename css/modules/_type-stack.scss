@@ -1,0 +1,35 @@
+@mixin desktop-h1-styles{
+    font-family: "Monument-Extended";
+    font-size: 8.25vw;
+    line-height: 0.8;
+}
+
+@mixin desktop-p-styles{
+    font-family: "Common Sans";
+    font-size: 18px !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.05rem !important;
+    text-align: left;
+    color: white;
+}
+
+@mixin desktop-type-stack {
+  p {
+    @include desktop-p-styles;
+  }
+
+  h1{
+    @include desktop-h1-styles;
+  }
+
+  .logo ::after {
+    content: "\A Design Director";
+    white-space: pre;
+  }
+}
+
+@mixin tablet-type-stack {
+}
+
+@mixin mobile-type-stack {
+}
