@@ -1,10 +1,23 @@
+@use "modules/listModule";
 @use "modules/copyModule";
+@use "modules/nextProject";
 @use "modules/footerModule";
+
+/* ----------- Pixel ----------- */
+/* Landscape */
+@media screen 
+  and (min-device-width: 731px) 
+  and (max-device-width: 731px) 
+  and (orientation: landscape) {
+    @include listModule.mobile-landscape;
+    @include nextProject.mobile-landscape-med;
+}
 
 /* ----------- Pixel 2 XL ----------- */
 /* Landscape */
 /* iPad 1,2 Landscape too*/
 @media screen and (max-width: 823px) and (min-width: 411px) {
+  
   @include copyModule.mobile;
 
   .navItem-Index {
@@ -20,7 +33,8 @@
 /* ----------- iPhone 6,7 and 8 PLUS ----------- */
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (hover: none) {
-  
+  @include listModule.mobile-portrait;
+  @include nextProject.mobile-portrait-med;
   @include footerModule.mobile;
 
   .navItem-Index {
@@ -46,14 +60,22 @@
 /* Landscape */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
   
+  @include listModule.mobile-landscape;
+  @include nextProject.mobile-landscape-med;
   @include copyModule.mobile;
   
   .list {
     margin-top: 48vh;
   }
 
+  .list a h1{
+    margin-bottom:10%;
+  }
+  
   .list a img {
-    transform: translate(-50%, -11%);
+    position: relative !important;
+    opacity: 0.9;
+    transform: translate(-50%, 0%);
   }
 
   /* Back to Top  */
@@ -61,29 +83,16 @@
     transform: translate(26px, 18px);
   }
 
-  .next a img {
-    position: relative !important;
-    opacity: 0.8;
-  }
-
-  .next a img {
-    width: 65vw;
-  }
 }
 
 /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
   
+  @include listModule.mobile-portrait;
   @include copyModule.mobile;
+  @include nextProject.mobile-portrait-med;
   @include footerModule.mobile;
-
-  .list {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin: 44.7vh 0 0 0;
-  }
 
   /*Need to keep this to allow for the JS*/
   h1 {
@@ -112,39 +121,12 @@
     display: list-item;
   }
 
-  .next {
-    margin-top: 0vh !important;
-  }
-
-  .next a img {
-    position: relative !important;
-    opacity: 0.8;
-  }
-
-  .next a img {
-    transform: translate(-50%, 0%);
-  }
 }
 
 /* Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
 
-  /* Back to Top  */
-  .back-to-top {
-    transform: translate(26px, 14px);
-  }
-
-  .next a img,
-  .project-image {
-    width: 70vw;
-  }
-}
-
-/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
-/* Portrait and Landscape */
-@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
- 
-  @include footerModule.mobile;
+  @include nextProject.mobile-landscape-med;
 
   .list a h1{
     margin-bottom:10%;
@@ -155,6 +137,23 @@
     opacity: 0.9;
     transform: translate(-50%, 0%);
   }
+
+  /* Back to Top  */
+  .back-to-top {
+    transform: translate(26px, 14px);
+  }
+
+  .project-image {
+    width: 70vw;
+  }
+}
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
+ 
+  @include listModule.mobile-portrait;
+  @include footerModule.mobile;
 
   h1 {
     font-size: 40px !important;
@@ -182,26 +181,24 @@
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
   
   @include copyModule.mobile;
+  @include nextProject.mobile-portrait-sm;
 
   .back-to-top {
     transform: translate(33px, 20px);
   }
 
-  .next a img {
-    position: relative !important;
-    opacity: 0.8;
-    transform: translate(-50%, -20%);
-  }
 }
 
 /* Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
   
+  @include listModule.mobile-landscape;
+  @include nextProject.mobile-landscape-sm;
+
   .back-to-top {
     transform: translate(26px, 16px);
   }
 
-  .next a img,
   .project-image {
     width: 75vw;
   }

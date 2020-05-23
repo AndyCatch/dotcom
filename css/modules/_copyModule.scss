@@ -2,7 +2,7 @@
   .copy-module {
     margin: 0 1vh 0 1vh;
     height: fit-content;
-    padding: 25vh 0 0 0;
+    padding: 5vh 0 15vh 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -41,7 +41,7 @@
 @mixin tablet-portait {
   .copy-module {
     margin: 0 1vh 0 1vh;
-
+    
     flex-direction: row;
     flex-basis: 50%;
 
@@ -64,7 +64,7 @@
    
   .copy-module{
     margin:0 8px 0 8px;
-  
+    
     flex-direction: column;
     flex-basis: 90%;
   

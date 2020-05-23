@@ -1,4 +1,6 @@
 @use "modules/copyModule";
+@use "modules/nextProject";
+@use "modules/listModule";
 @use "modules/footerModule";
 
 /*-- iPad 1,2 --*/
@@ -6,49 +8,15 @@
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (hover: none) {
   /* HOMEPAGE STYLE */
 
+  @include listModule.tablet-portrait;
   @include copyModule.tablet-portait;
+  @include nextProject.tablet-portrait;
   @include footerModule.tablet;
-  
-
-  .list a img {
-    position: relative !important;
-    opacity: 1;
-    transform: translate(-50%, 0%);
-  }
-
-  .list a h1 {
-    margin-bottom: 10%;
-  }
-
-  .list {
-    margin-top: 50vh;
-  }
-
-  .next {
-    margin: 42vh 0 0 0;
-  }
-
-  .next a img {
-    width: 75vw;
-    position: relative !important;
-    opacity: 0.8;
-  }
 
 }
 
 /* Portrait */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
-  
-  .list {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin: 44.7vh 0 0 0 !important;
-  }
-
-  .next a img {
-    transform: translate(-50%, -70%);
-  }
 
   .navItem-Index {
     display: list-item;
@@ -57,9 +25,9 @@
 
 /* Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-  .navItem-Index {
-    display: none;
-  }
+  // .navItem-Index {
+  //   display: none;
+  // }
 
   h1 {
     font-size: 70px !important;
@@ -73,34 +41,20 @@
   .semplice-cover .show-more svg {
     margin-bottom: 0px;
   }
-
-  .next a img {
-    transform: translate(-50%, -20%);
-  }
 }
 
-/*  iPad Pro */
+/* ----------- iPad Pro ----------- */
 /* Portrait */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
-
 }
 
 /* Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
- 
 }
 
 /* ----------- iPad Pro 12.9" ----------- */
 /* Landscape */
 /* Declare the same value for min- and max-width to avoid colliding with desktops */
 @media only screen and (min-device-width: 1366px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
-  .list a h1 {
-    margin-bottom: 10%;
-  }
-
-  .list a img {
-    position: relative !important;
-    opacity: 0.9;
-    transform: translate(-50%, 0%);
-  }
+  @include listModule.tablet-landscape;
 }

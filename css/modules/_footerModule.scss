@@ -28,8 +28,8 @@
     }
 
     .footer-links a::after{
-      font-family: Arial, Helvetica, sans-serif;
-      content:" ↗︎";
+      font-family: Arial, Helvetica, sans-serif !important;
+      content:" ●" !important;
     }
 
     .attribution {
@@ -65,7 +65,7 @@
 
 @mixin mobile {
   .footer-module {
-    padding: 20vh 0 7vh 0;
+    padding: 0 0 8px 0;
     flex-direction: column;
     flex-basis: 100%;
 
@@ -75,7 +75,7 @@
       max-width: 100%;
     }
 
-    .footer-links:last-child{
+    .footer-links a:last-child{
       padding-left: 8px;
     }
 
@@ -86,10 +86,13 @@
     }
 
     .attribution {
-      font-size:16px !important;
       line-height: 1.1 !important;
       width: 100%;
       max-width: 100%;
+    }
+
+    .attribution p{
+      font-size:16px !important;
     }
   }
 }

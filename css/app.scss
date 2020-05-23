@@ -1,4 +1,6 @@
 @use "modules/copyModule";
+@use "modules/listModule";
+@use "modules/nextProject";
 @use "modules/footerModule";
 @import "reset";
 @import "typography";
@@ -9,7 +11,7 @@ $background-color: black;
 // Typography
 $title-font: "Monument-Extended";
 $title-font-size: 8.25vw;
-$title-line-height: 0.9;
+$title-line-height: 0.8;
 
 body {
   background-color: $background-color;
@@ -101,12 +103,8 @@ a {
 }
 
 /* ----- Index Page ----- */
-.list {
-  display: inline-block;
-  margin: 45vh 0 25vh 0;
 
-  width: 100%;
-}
+@include listModule.desktop;
 
 .full-height {
   height: 25vh !important;
@@ -130,95 +128,11 @@ a {
   font-size: $title-font-size;
 }
 
-.list a {
-  overflow: hidden;
-  color: #ffffff;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #ffffff;
-  text-transform: uppercase;
-}
-
-.list a:hover {
-  color: #ffffff;
-  -webkit-text-stroke-width: 0px;
-  -webkit-text-fill-color: #ffffff;
-  transition: -webkit-text-fill-color 0.5s;
-}
-
-.list a:hover img {
-  opacity: 0.8;
-}
-
-/*   The animation settings in Semplice will adjust the placement of the image */
-.list a img {
-  opacity: 0;
-  position: fixed !important;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 75vw;
-  /*   this will tell the browser to ignore any default mouse interactions on this img element */
-  pointer-events: none;
-  transition: opacity 0.2s;
-}
-
-.list span {
-  position: relative;
-  z-index: 1;
-}
-
 /* ----- Next Project Module ----- */
-.next {
-  height:100vh !important;
-  display: inline-block;
 
-  width: 100%;
+@include nextProject.desktop;
 
-  h1{
-    margin-top: 50vh !important;
-  }
-
-  a {
-    overflow: hidden;
-    color: #ffffff;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #ffffff;
-    text-transform: uppercase;
-  }
-
-  a img {
-    opacity: 0;
-    position: fixed !important;
-    top: 50%;
-    left: 50%;
-    transform: translate(-20%, -50%);
-    width: 65vw;
-    /*   this will tell the browser to ignore any default mouse interactions on this img element */
-    pointer-events: none;
-    transition: opacity 0.2s;
-  }
-
-  a:hover {
-    color: #ffffff;
-    -webkit-text-stroke-width: 0px;
-    -webkit-text-fill-color: #ffffff;
-    transition: -webkit-text-fill-color 0.5s;
-  }
-
-  a:hover img {
-    opacity: 0.8;
-  }
-
-  span {
-    position: relative;
-    z-index: 1;
-  }
-}
-
-
-/* Project Page Styles */
+/* ----- Project Page Styles ----- */
 .cover_title {
   transform: rotate(-10deg);
 
@@ -237,7 +151,7 @@ a {
 }
 
 .image-section {
-  margin-top: 5vh !important;
+  margin: 5vh 0 5vh 0!important;
 }
 
 .project-cover {
@@ -295,6 +209,12 @@ a {
   position: relative;
 }
 
+.current-menu-item::after{
+  font-family: Arial, Helvetica, sans-serif !important;
+  color:#FF0000;
+  content:" ●" !important;
+}
+
 /* Back to Top  */
 .back-to-top {
   transform: translate(20px, 20px);
@@ -308,7 +228,13 @@ a {
 
 @include footerModule.desktop;
 
-@import "footer.scss";
+.currentYear {
+  color: white !important;
+  font-family: "Common Sans";
+  font-size: 20px;
+  line-height: 1.1;
+  text-align: left;
+}
 
 /* -------------------- Tablets -------------------- */
 
