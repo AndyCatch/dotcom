@@ -1,24 +1,12 @@
+@use "modules/type-stack";
 @use "modules/listModule";
 @use "modules/copyModule";
 @use "modules/nextProject";
 @use "modules/footerModule";
 
-@mixin navItem-mobile-portrait{
+@mixin navItem-exceptions-mobile{
   .navItem-Index {
     display: list-item;
-    // padding-top: calc(120% + 50px);
-  }
-
-  .current-menu-item::after{
-    font-family: Arial, Helvetica, sans-serif !important;
-    display: none;
-  }
-}
-
-@mixin navItem-mobile-landscape{
-  .navItem-Index {
-    display: list-item;
-    // padding-top: calc(20% + 50px);
   }
 
   .current-menu-item::after{
@@ -43,7 +31,7 @@
 @media only screen and (max-device-width: 411px) and (min-device-width: 411px) and (orientation: portrait){
   
   @include copyModule.mobile;
-  @include navItem-mobile-portrait;
+  @include navItem-exceptions-mobile;
 
   .semplice-cover .show-more svg {
     margin-bottom: 0px;
@@ -53,9 +41,9 @@
 
 /* Landscape */
 @media only screen and (max-device-width: 731px) and (min-device-width: 731px) and (orientation: landscape){
-  
+  @include navItem-exceptions-mobile;
+
   @include copyModule.mobile;
-  @include navItem-mobile-landscape;
   @include nextProject.mobile-landscape-med;
 
   .semplice-cover .show-more svg {
@@ -67,21 +55,16 @@
 /* ----------- iPhone 6,7 and 8 PLUS ----------- */
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (hover: none) {
+  @include navItem-exceptions-mobile;
+  @include type-stack.mobile-type-stack;
+
   @include listModule.mobile-portrait;
   @include nextProject.mobile-portrait-med;
   @include footerModule.mobile;
 
-  @include navItem-mobile-portrait;
-
   /* Back to Top  */
   .back-to-top {
     transform: translate(26px, 20px);
-  }
-
-  .title,
-  .right-align,
-  .cover_title h1 span {
-    font-size: 40px !important;
   }
 
   .semplice-cover .show-more svg {
@@ -91,43 +74,28 @@
 
 /* Landscape */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
-  
+  @include navItem-exceptions-mobile;
+
   @include listModule.mobile-landscape;
   @include nextProject.mobile-landscape-med;
   @include copyModule.mobile;
-  @include navItem-mobile-landscape;
 
   /* Back to Top  */
   .back-to-top {
     transform: translate(26px, 18px);
   }
-
 }
 
 /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
   
+  @include navItem-exceptions-mobile;
+  @include type-stack.mobile-type-stack;
   @include listModule.mobile-portrait;
   @include copyModule.mobile;
   @include nextProject.mobile-portrait-med;
   @include footerModule.mobile;
-
-  @include navItem-mobile-portrait;
-
-  /*Need to keep this to allow for the JS*/
-  h1 {
-    font-size: 40px !important;
-  }
-
-  .cover-title h1 span {
-    font-size: 40px !important;
-  }
-
-  .title,
-  .right-align {
-    font-size: 40px !important;
-  }
 
   .semplice-cover .show-more svg {
     margin-bottom: 0px;
@@ -142,10 +110,9 @@
 
 /* Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-
+  @include navItem-exceptions-mobile;
   @include listModule.mobile-landscape;
   @include nextProject.mobile-landscape-med;
-  @include navItem-mobile-landscape;
 
   /* Back to Top  */
   .back-to-top {
@@ -160,20 +127,10 @@
 /* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
- 
+  @include navItem-exceptions-mobile;
+  @include type-stack.mobile-type-stack;
   @include listModule.mobile-portrait;
   @include footerModule.mobile;
-
-  @include navItem-mobile-portrait;
-
-  h1 {
-    font-size: 40px !important;
-  }
-
-  .title,
-  .right-align {
-    font-size: 40px !important;
-  }
 
   .back-to-top {
     transform: translate(33px, 20px);
@@ -202,7 +159,6 @@
   
   @include listModule.mobile-landscape;
   @include nextProject.mobile-landscape-sm;
-  @include navItem-mobile-landscape;
 
   .back-to-top {
     transform: translate(26px, 16px);

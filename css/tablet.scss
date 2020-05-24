@@ -1,36 +1,27 @@
+@use "modules/type-stack";
 @use "modules/copyModule";
 @use "modules/nextProject";
 @use "modules/listModule";
 @use "modules/footerModule";
 
-@mixin navItem-tablet-portrait{
+@mixin navItem-exceptions-tablet{
   .navItem-Index {
     display: list-item;
   }
 
+  // Clears the little dot
   .current-menu-item::after{
     font-family: Arial, Helvetica, sans-serif !important;
     display: none;
   }
 }
-
-@mixin navItem-tablet-landscape{
-  .navItem-Index {
-    display: list-item;
-  }
-
-  .current-menu-item::after{
-    font-family: Arial, Helvetica, sans-serif !important;
-    display: none;
-  }
-}
-
 
 /*-- iPad 1,2 --*/
 /* Portrait & Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (hover: none) {
   /* HOMEPAGE STYLE */
 
+  @include type-stack.tablet-type-stack;
   @include listModule.tablet-portrait;
   @include copyModule.tablet-portait;
   @include nextProject.tablet-portrait;
@@ -42,23 +33,13 @@
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
   
   @include copyModule.tablet-portait;
-  @include navItem-tablet-portrait;
+  @include navItem-exceptions-tablet;
   
 }
 
 /* Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
  
-
-  h1 {
-    font-size: 70px !important;
-  }
-
-  .title,
-  .right-align {
-    font-size: 70px !important;
-  }
-
   .semplice-cover .show-more svg {
     margin-bottom: 0px;
   }
@@ -77,6 +58,7 @@
 /* Landscape */
 /* Declare the same value for min- and max-width to avoid colliding with desktops */
 @media only screen and (min-device-width: 1366px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  @include type-stack.tablet-type-stack;
   @include listModule.tablet-landscape;
   @include nextProject.mobile-landscape-med;
 }

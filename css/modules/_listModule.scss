@@ -15,7 +15,7 @@
   .list {
     display: inline-block;
     margin: 45vh 0 0 0;
-    padding: 0 0 30vh 0;
+    padding: 0 0 30.5vh 0;
     width: 100%;
 
     a {
@@ -90,8 +90,6 @@
 @mixin mobile-landscape {
 
   .list {
-    // margin-top: 48vh;
-
     @include img-settings;
   }
 

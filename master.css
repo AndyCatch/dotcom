@@ -85,7 +85,7 @@ body {
 .copy-module {
   margin: 0 1vh 0 1vh;
   height: fit-content;
-  padding: 5vh 0 15vh 0;
+  padding: 10vh 0 15vh 0;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -103,8 +103,8 @@ body {
   max-width: 100%;
 }
 .copy-module div .eyebrow {
-  margin-top: 16px;
-  color: #5e5e61;
+  margin: 16px 0 0 0 !important;
+  color: #5e5e61 !important;
 }
 
 /* GLOBAL CSS */
@@ -157,20 +157,25 @@ body {
     opacity: 1;
   }
 }
-/* Global Styles */
+/* Global Type Styles */
 p {
   font-family: "Common Sans";
   font-size: 18px !important;
   line-height: 1.1 !important;
   letter-spacing: -0.05rem !important;
   text-align: left;
-  color: white;
+  color: white !important;
 }
 
 h1 {
   font-family: "Monument-Extended";
-  font-size: 8.25vw;
-  line-height: 0.8;
+  font-size: 8.25vw !important;
+  line-height: 0.8 !important;
+}
+
+.logo a {
+  font-size: 2vw !important;
+  color: #ff5000 !important;
 }
 
 .logo ::after {
@@ -178,7 +183,15 @@ h1 {
   white-space: pre;
 }
 
-/* Workaround for Semplice's Menu */
+.currentYear {
+  font-family: "Common Sans";
+  font-size: 18px !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.05rem !important;
+  text-align: left;
+  color: white !important;
+}
+
 /* To help override values + flexbox from Semplice */
 .navbar-right .menu {
   width: 33vw;
@@ -198,7 +211,7 @@ a {
 .list {
   display: inline-block;
   margin: 45vh 0 0 0;
-  padding: 0 0 30vh 0;
+  padding: 0 0 30.5vh 0;
   width: 100%;
   /*   The animation settings in Semplice will adjust the placement of the image */
 }
@@ -250,11 +263,6 @@ a {
   flex-grow: 1;
   flex-wrap: wrap;
   justify-content: space-between;
-}
-
-.title,
-.right-align {
-  font-size: 8.25vw;
 }
 
 /* ----- Profile / About Page ----- */
@@ -317,10 +325,6 @@ a {
 }
 
 /* Handles Project Cover Titles*/
-.cover_title h1 span {
-  font-size: 8.25vw;
-}
-
 .image-section {
   margin: 5vh 0 5vh 0 !important;
 }
@@ -397,12 +401,6 @@ a {
 
 /* -------------------- Footer -------------------- */
 .footer-module {
-  font-family: "Common Sans";
-  font-size: 20px;
-  line-height: 1.1;
-  letter-spacing: -0.05rem;
-  text-align: left;
-  color: white;
   padding: 20vh 0 0 0;
   margin: 0 8px 8px 8px;
   height: fit-content;
@@ -418,10 +416,12 @@ a {
   max-width: 33%;
 }
 .footer-module .footer-links {
+  display: flex;
+  flex-direction: column;
   width: 66%;
   max-width: 66%;
 }
-.footer-module .footer-links a::after {
+.footer-module .footer-links a p::after {
   font-family: Arial, Helvetica, sans-serif !important;
   content: " ●" !important;
 }
@@ -430,19 +430,16 @@ a {
   max-width: 60%;
 }
 
-.currentYear {
-  color: white !important;
-  font-family: "Common Sans";
-  font-size: 20px;
-  line-height: 1.1;
-  text-align: left;
-}
-
 /* -------------------- Tablets -------------------- */
 /*-- iPad 1,2 --*/
 /* Portrait & Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (hover: none) {
   /* HOMEPAGE STYLE */
+  .logo a {
+    font-size: 5vw !important;
+    color: #ff5000 !important;
+  }
+
   .list {
     display: flex;
     flex-direction: column;
@@ -538,15 +535,6 @@ a {
 }
 /* Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-  h1 {
-    font-size: 70px !important;
-  }
-
-  .title,
-.right-align {
-    font-size: 70px !important;
-  }
-
   .semplice-cover .show-more svg {
     margin-bottom: 0px;
   }
@@ -558,6 +546,11 @@ a {
 /* Landscape */
 /* Declare the same value for min- and max-width to avoid colliding with desktops */
 @media only screen and (min-device-width: 1366px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  .logo a {
+    font-size: 5vw !important;
+    color: #ff5000 !important;
+  }
+
   .list a h1 {
     margin-bottom: 10%;
   }
@@ -635,6 +628,15 @@ a {
 }
 /* Landscape */
 @media only screen and (max-device-width: 731px) and (min-device-width: 731px) and (orientation: landscape) {
+  .navItem-Index {
+    display: list-item;
+  }
+
+  .current-menu-item::after {
+    font-family: Arial, Helvetica, sans-serif !important;
+    display: none;
+  }
+
   .copy-module {
     margin: 0 8px 0 8px;
     flex-direction: column;
@@ -651,15 +653,6 @@ a {
     margin-left: 0;
     width: 88%;
     max-width: 88%;
-  }
-
-  .navItem-Index {
-    display: list-item;
-  }
-
-  .current-menu-item::after {
-    font-family: Arial, Helvetica, sans-serif !important;
-    display: none;
   }
 
   .next a img {
@@ -677,6 +670,24 @@ a {
 /* ----------- iPhone 6,7 and 8 PLUS ----------- */
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (hover: none) {
+  .navItem-Index {
+    display: list-item;
+  }
+
+  .current-menu-item::after {
+    font-family: Arial, Helvetica, sans-serif !important;
+    display: none;
+  }
+
+  .logo a {
+    font-size: 9vw !important;
+    color: #ff5000 !important;
+  }
+
+  h1 {
+    font-size: 40px !important;
+  }
+
   .list {
     display: flex;
     flex-direction: column;
@@ -714,6 +725,7 @@ a {
     flex-basis: 100%;
   }
   .footer-module .footer-links {
+    flex-direction: row;
     padding: 0 0 8px 0;
     width: 100%;
     max-width: 100%;
@@ -735,6 +747,17 @@ a {
     font-size: 16px !important;
   }
 
+  /* Back to Top  */
+  .back-to-top {
+    transform: translate(26px, 20px);
+  }
+
+  .semplice-cover .show-more svg {
+    margin-bottom: 0px;
+  }
+}
+/* Landscape */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
   .navItem-Index {
     display: list-item;
   }
@@ -744,23 +767,6 @@ a {
     display: none;
   }
 
-  /* Back to Top  */
-  .back-to-top {
-    transform: translate(26px, 20px);
-  }
-
-  .title,
-.right-align,
-.cover_title h1 span {
-    font-size: 40px !important;
-  }
-
-  .semplice-cover .show-more svg {
-    margin-bottom: 0px;
-  }
-}
-/* Landscape */
-@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
   .list a h1 {
     margin-bottom: 10%;
   }
@@ -795,15 +801,6 @@ a {
     margin-left: 0;
     width: 88%;
     max-width: 88%;
-  }
-
-  .navItem-Index {
-    display: list-item;
-  }
-
-  .current-menu-item::after {
-    font-family: Arial, Helvetica, sans-serif !important;
-    display: none;
   }
 
   /* Back to Top  */
@@ -814,6 +811,24 @@ a {
 /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
+  .navItem-Index {
+    display: list-item;
+  }
+
+  .current-menu-item::after {
+    font-family: Arial, Helvetica, sans-serif !important;
+    display: none;
+  }
+
+  .logo a {
+    font-size: 9vw !important;
+    color: #ff5000 !important;
+  }
+
+  h1 {
+    font-size: 40px !important;
+  }
+
   .list {
     display: flex;
     flex-direction: column;
@@ -869,6 +884,7 @@ a {
     flex-basis: 100%;
   }
   .footer-module .footer-links {
+    flex-direction: row;
     padding: 0 0 8px 0;
     width: 100%;
     max-width: 100%;
@@ -888,29 +904,6 @@ a {
   }
   .footer-module .attribution p {
     font-size: 16px !important;
-  }
-
-  .navItem-Index {
-    display: list-item;
-  }
-
-  .current-menu-item::after {
-    font-family: Arial, Helvetica, sans-serif !important;
-    display: none;
-  }
-
-  /*Need to keep this to allow for the JS*/
-  h1 {
-    font-size: 40px !important;
-  }
-
-  .cover-title h1 span {
-    font-size: 40px !important;
-  }
-
-  .title,
-.right-align {
-    font-size: 40px !important;
   }
 
   .semplice-cover .show-more svg {
@@ -924,6 +917,15 @@ a {
 }
 /* Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  .navItem-Index {
+    display: list-item;
+  }
+
+  .current-menu-item::after {
+    font-family: Arial, Helvetica, sans-serif !important;
+    display: none;
+  }
+
   .list a h1 {
     margin-bottom: 10%;
   }
@@ -940,15 +942,6 @@ a {
     position: relative !important;
     opacity: 0.9;
     transform: translate(-50%, 0%) !important;
-  }
-
-  .navItem-Index {
-    display: list-item;
-  }
-
-  .current-menu-item::after {
-    font-family: Arial, Helvetica, sans-serif !important;
-    display: none;
   }
 
   /* Back to Top  */
@@ -963,6 +956,24 @@ a {
 /* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
+  .navItem-Index {
+    display: list-item;
+  }
+
+  .current-menu-item::after {
+    font-family: Arial, Helvetica, sans-serif !important;
+    display: none;
+  }
+
+  .logo a {
+    font-size: 9vw !important;
+    color: #ff5000 !important;
+  }
+
+  h1 {
+    font-size: 40px !important;
+  }
+
   .list {
     display: flex;
     flex-direction: column;
@@ -985,6 +996,7 @@ a {
     flex-basis: 100%;
   }
   .footer-module .footer-links {
+    flex-direction: row;
     padding: 0 0 8px 0;
     width: 100%;
     max-width: 100%;
@@ -1004,24 +1016,6 @@ a {
   }
   .footer-module .attribution p {
     font-size: 16px !important;
-  }
-
-  .navItem-Index {
-    display: list-item;
-  }
-
-  .current-menu-item::after {
-    font-family: Arial, Helvetica, sans-serif !important;
-    display: none;
-  }
-
-  h1 {
-    font-size: 40px !important;
-  }
-
-  .title,
-.right-align {
-    font-size: 40px !important;
   }
 
   .back-to-top {
@@ -1089,15 +1083,6 @@ a {
     position: relative !important;
     opacity: 0.9;
     transform: translate(-50%, 0%) !important;
-  }
-
-  .navItem-Index {
-    display: list-item;
-  }
-
-  .current-menu-item::after {
-    font-family: Arial, Helvetica, sans-serif !important;
-    display: none;
   }
 
   .back-to-top {

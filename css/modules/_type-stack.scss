@@ -1,16 +1,26 @@
 @mixin desktop-h1-styles{
     font-family: "Monument-Extended";
-    font-size: 8.25vw;
-    line-height: 0.8;
+    font-size: 8.25vw !important;
+    line-height: 0.8 !important;
+}
+
+@mixin tablet-h1-styles{
+    font-size: 70px !important;
+}
+
+@mixin mobile-h1-styles{
+    font-size: 40px !important;
 }
 
 @mixin desktop-p-styles{
+    // These need !important to override Semplice
     font-family: "Common Sans";
     font-size: 18px !important;
     line-height: 1.1 !important;
     letter-spacing: -0.05rem !important;
     text-align: left;
-    color: white;
+    color: white !important;
+
 }
 
 @mixin desktop-type-stack {
@@ -22,14 +32,36 @@
     @include desktop-h1-styles;
   }
 
+  .logo a{
+    font-size: 2vw !important; 
+    color: #ff5000 !important;
+  }
+
   .logo ::after {
     content: "\A Design Director";
     white-space: pre;
   }
+
+  .currentYear {
+    @include desktop-p-styles;
+  }
+
 }
 
 @mixin tablet-type-stack {
+    .logo a{
+        font-size: 5vw !important;
+        color: #ff5000 !important;
+    }
 }
 
 @mixin mobile-type-stack {
+    .logo a{
+        font-size: 9vw !important;
+        color: #ff5000 !important;
+    }
+
+    h1{
+        @include mobile-h1-styles;
+    }
 }

@@ -1,12 +1,5 @@
 @mixin desktop {
   .footer-module {
-    font-family: "Common Sans";
-    font-size: 20px;
-    line-height: 1.1;
-    letter-spacing: -0.05rem;
-    text-align: left;
-    color: white;
-
     padding: 20vh 0 0 0;
     margin: 0 8px 8px 8px;
     height: fit-content;
@@ -17,19 +10,21 @@
     align-items: flex-start;
     flex-basis: 33%;
 
-    .timeStamp{
-      width:33%;
+    .timeStamp {
+      width: 33%;
       max-width: 33%;
     }
 
-    .footer-links{
-      width:66%;
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      width: 66%;
       max-width: 66%;
     }
 
-    .footer-links a::after{
+    .footer-links a p::after {
       font-family: Arial, Helvetica, sans-serif !important;
-      content:" ●" !important;
+      content: " ●" !important;
     }
 
     .attribution {
@@ -44,15 +39,15 @@
     flex-direction: column;
     flex-basis: 100%;
 
-    .footer-links{
+    .footer-links {
       padding: 0 0 8px 0;
-      width:85%;
+      width: 85%;
       max-width: 85%;
     }
 
-    .timeStamp{
+    .timeStamp {
       padding: 0 0 8px 0;
-      width:85%;
+      width: 85%;
       max-width: 85%;
     }
 
@@ -69,19 +64,21 @@
     flex-direction: column;
     flex-basis: 100%;
 
-    .footer-links{
+    .footer-links {
+      flex-direction: row;
       padding: 0 0 8px 0;
-      width:100%;
+      width: 100%;
       max-width: 100%;
+      
     }
 
-    .footer-links a:last-child{
+    .footer-links a:last-child {
       padding-left: 8px;
     }
 
-    .timeStamp{
+    .timeStamp {
       padding: 0 0 8px 0;
-      width:85%;
+      width: 85%;
       max-width: 85%;
     }
 
@@ -91,8 +88,8 @@
       max-width: 100%;
     }
 
-    .attribution p{
-      font-size:16px !important;
+    .attribution p {
+      font-size: 16px !important;
     }
   }
 }
