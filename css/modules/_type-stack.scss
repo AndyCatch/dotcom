@@ -20,7 +20,10 @@
     letter-spacing: -0.05rem !important;
     text-align: left;
     color: white !important;
+}
 
+@mixin desktop-a-styles{
+  @include desktop-p-styles;
 }
 
 @mixin desktop-type-stack {
@@ -30,6 +33,16 @@
 
   h1{
     @include desktop-h1-styles;
+  }
+
+  a{
+    @include desktop-a-styles;
+    transition: color 0.5s ease-out !important;
+  }
+
+  a:hover{
+    color:#ff5000 !important;
+    transition: color 0.5s ease-out !important;
   }
 
   .logo a{

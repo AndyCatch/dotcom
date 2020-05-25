@@ -173,6 +173,21 @@ h1 {
   line-height: 0.8 !important;
 }
 
+a {
+  font-family: "Common Sans";
+  font-size: 18px !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.05rem !important;
+  text-align: left;
+  color: white !important;
+  transition: color 0.5s ease-out !important;
+}
+
+a:hover {
+  color: #ff5000 !important;
+  transition: color 0.5s ease-out !important;
+}
+
 .logo a {
   font-size: 2vw !important;
   color: #ff5000 !important;
@@ -421,7 +436,7 @@ a {
   width: 66%;
   max-width: 66%;
 }
-.footer-module .footer-links a p::after {
+.footer-module .footer-links a::after {
   font-family: Arial, Helvetica, sans-serif !important;
   content: " ●" !important;
 }
