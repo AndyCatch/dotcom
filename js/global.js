@@ -1,12 +1,62 @@
+let navBar;
+let isMobile = false;
+let nextModule
+let observer
+let headerTags
+let scrolling = false
+
 console.log(
   "%c Hello, console friend!",
   "font-family:‘Common Sans’, sans-serif; color:#000; font-weight: 400;font-size:48px;line-height: 1;"
 );
 
+window.addEventListener("load", (event) => {
+  console.log("window is fully loaded Listener");
+
+  init();
+});
+
+const init = function () {
+  // Production
+  navBar = document.querySelectorAll("div.navbar-inner")[0]
+  
+  footerModule = document.getElementsByClassName("footer-module")[0];
+  document.addEventListener("scroll", hideShowNav, { capture: false, passive: true});
+
+  setInterval("updateClock()", 200);  
+
+  let options = {
+    rootMargin: "0px 0px",
+    threshold: 0.99
+  }
+
+  observer = new IntersectionObserver(revealNav, options)
+  document.querySelectorAll('.footer-module').forEach(module => {
+    observer.observe(module)
+  })
+
+  isThisMobile()
+  browserType()
+  hasTouch()
+};
+
+function revealNav(entries, obs){
+  entries.forEach(entry => {
+    if(entry.isIntersecting && entry.intersectionRatio >= 0.99){
+      navBar.classList.remove("hideNav");
+      navBar.classList.add("showNav");
+      document.removeEventListener("scroll", hideShowNav, { capture: false, passive: true});
+    }
+    else{
+      document.addEventListener("scroll", hideShowNav, { capture: false, passive: true});
+    }
+  })
+}
+
+
 function updateClock() {
   // Gets the current time
   const now = new Date();
-
   // Get the hours, minutes and seconds from the current time
   let year = now.getFullYear();
   let hours = now.getHours();
@@ -33,8 +83,6 @@ function updateClock() {
   }
 }
 
-//initiate as false
-var isMobile = false;
 const isThisMobile = function () {
   // device detection
   if (
@@ -45,8 +93,6 @@ const isThisMobile = function () {
     isMobile = true;
   }
 };
-
-isThisMobile();
 
 const showNav = function (element) {
   element.classList.remove("hideNav");
@@ -60,8 +106,9 @@ const hideNav = function (element) {
 
 // hide / show Nav functionality
 let prevScrollpos = window.pageYOffset;
-const navBar = document.getElementsByClassName("semplice-navbar")[0];
 const hideShowNav = function (event) {
+  scrolling = true
+
   let currentScrollPos = window.pageYOffset;
 
   if (navBar) {
@@ -71,34 +118,6 @@ const hideShowNav = function (event) {
       hideNav(navBar);
     }
     prevScrollpos = currentScrollPos;
-  }
-};
-
-document.addEventListener("scroll", hideShowNav);
-// remove hide / show if mobile device
-const checkViewport = function () {
-  if (isMobile) {
-    document.removeEventListener("scroll", hideShowNav);
-  }
-};
-checkViewport();
-
-//* makes sure the nav appears when we get to the end of the page */
-document.body.onscroll = function (ev) {
-  let windowHeight = window.innerHeight + window.pageYOffset;
-  let scrollHeight = Math.max(
-    document.body.scrollHeight,
-    document.documentElement.scrollHeight,
-    document.body.offsetHeight,
-    document.documentElement.offsetHeight,
-    document.body.clientHeight,
-    document.documentElement.clientHeight
-  );
-
-  if (windowHeight >= scrollHeight) {
-    if (navBar) {
-      showNav(navBar);
-    }
   }
 };
 
@@ -129,23 +148,6 @@ if (hasTouch()) {
     }
   } catch (ex) {}
 }
-hasTouch();
-
-var hamburger = document.getElementsByClassName("hamburger")[0];
-function menuChange(boolean) {
-  if (boolean) {
-    // menu is open
-  } else {
-    // menu is closed
-  }
-}
-
-let menuClick = false;
-hamburger.onclick = function () {
-  menuClick = !menuClick;
-  // toggles boolean between true and false
-  menuChange(menuClick);
-};
 
 // Solving for mobile browser vh discrepencies for project image
 // via: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
@@ -153,7 +155,6 @@ hamburger.onclick = function () {
 let vh = window.innerHeight * 0.01;
 // Then we set the value in the --vh custom property to the root of the document
 document.documentElement.style.setProperty("--vh", `${vh}px`);
-
 // We listen to the resize event
 window.addEventListener("resize", () => {
   // We execute the same script as before
@@ -174,9 +175,3 @@ function browserType() {
     }
   }
 }
-
-window.onload = function () {
-  setInterval("updateClock()", 200);
-};
-
-browserType();

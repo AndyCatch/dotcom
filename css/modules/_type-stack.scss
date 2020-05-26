@@ -46,8 +46,14 @@
   }
 
   .logo a{
-    font-size: 2vw !important; 
-    color: #ff5000 !important;
+    height: fit-content !important;
+    font-size: 2vw !important;
+    line-height: 0.9 !important;
+  }
+
+  .logo a:hover{
+    color:#ff5000 !important;
+    transition: color 0.5s ease-out !important;
   }
 
   .logo ::after {
@@ -58,20 +64,17 @@
   .currentYear {
     @include desktop-p-styles;
   }
-
 }
 
 @mixin tablet-type-stack {
     .logo a{
         font-size: 5vw !important;
-        color: #ff5000 !important;
     }
 }
 
 @mixin mobile-type-stack {
     .logo a{
         font-size: 9vw !important;
-        color: #ff5000 !important;
     }
 
     h1{

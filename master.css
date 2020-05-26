@@ -123,18 +123,20 @@ body {
 }
 
 /*Hide Show Nav classes*/
-.hideNav[style] {
-  top: -120px !important;
-  transform: translateY(0) !important;
-  transition-timing-function: ease-out !important;
-  transition: 0.4s !important;
+/* Old props */
+/*Hide Show Nav classes*/
+.navbar-inner {
+  height: calc(10%) !important;
+  position: fixed !important;
+  transition: transform 0.5s cubic-bezier(0.96, 0, 0.4, 1) 100ms !important;
 }
 
-.showNav[style] {
-  top: 0 !important;
+.hideNav {
+  transform: translateY(-100%) !important;
+}
+
+.showNav {
   transform: translateY(0%) !important;
-  transition-timing-function: ease-in !important;
-  transition: 0.7s !important;
 }
 
 /* Bouncing arrow animation / positioning */
@@ -189,8 +191,14 @@ a:hover {
 }
 
 .logo a {
+  height: fit-content !important;
   font-size: 2vw !important;
+  line-height: 0.9 !important;
+}
+
+.logo a:hover {
   color: #ff5000 !important;
+  transition: color 0.5s ease-out !important;
 }
 
 .logo ::after {
@@ -452,7 +460,6 @@ a {
   /* HOMEPAGE STYLE */
   .logo a {
     font-size: 5vw !important;
-    color: #ff5000 !important;
   }
 
   .list {
@@ -563,7 +570,6 @@ a {
 @media only screen and (min-device-width: 1366px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
   .logo a {
     font-size: 5vw !important;
-    color: #ff5000 !important;
   }
 
   .list a h1 {
@@ -696,7 +702,6 @@ a {
 
   .logo a {
     font-size: 9vw !important;
-    color: #ff5000 !important;
   }
 
   h1 {
@@ -837,7 +842,6 @@ a {
 
   .logo a {
     font-size: 9vw !important;
-    color: #ff5000 !important;
   }
 
   h1 {
@@ -982,7 +986,6 @@ a {
 
   .logo a {
     font-size: 9vw !important;
-    color: #ff5000 !important;
   }
 
   h1 {
