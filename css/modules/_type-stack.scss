@@ -1,0 +1,86 @@
+@mixin desktop-h1-styles{
+    font-family: "Monument-Extended";
+    font-size: 8.25vw !important;
+    line-height: 0.8 !important;
+}
+
+@mixin tablet-h1-styles{
+    font-size: 70px !important;
+}
+
+@mixin mobile-h1-styles{
+    font-size: 40px !important;
+}
+
+@mixin desktop-p-styles{
+    // These need !important to override Semplice
+    font-family: "Common Sans";
+    font-size: 18px !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.05rem !important;
+    text-align: left;
+    color: white !important;
+}
+
+@mixin desktop-a-styles{
+  @include desktop-p-styles;
+}
+
+@mixin desktop-type-stack {
+  p {
+    @include desktop-p-styles;
+  }
+
+  h1{
+    @include desktop-h1-styles;
+  }
+
+  a{
+    @include desktop-a-styles;
+    transition: color 0.5s ease-out !important;
+  }
+
+  a:hover{
+    color:#ff5000 !important;
+    transition: color 0.5s ease-out !important;
+  }
+
+  .logo a{
+    mix-blend-mode: difference;
+    height: fit-content !important;
+    font-size: 2vw !important;
+    line-height: 1 !important;
+  }
+
+  .logo a:hover{
+    color:#ff5000 !important;
+    transition: color 0.5s ease-out !important;
+  }
+
+  .logo ::after {
+    content: "\A Design Director";
+    white-space: pre;
+  }
+
+  .currentYear {
+    @include desktop-p-styles;
+  }
+}
+
+@mixin tablet-type-stack {
+    .logo a {
+      margin: 8px 0 0 0;
+      font-size: 3.5vw !important;
+    }
+}
+
+@mixin mobile-type-stack {
+    .logo a {
+      margin: 8px 0 0 0;
+      font-size: 9vw !important;
+    }
+
+    h1{
+        @include mobile-h1-styles;
+    }
+}

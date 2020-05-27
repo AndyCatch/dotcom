@@ -1,0 +1,119 @@
+@mixin a-img-mobile {
+  a img {
+    filter: saturate(110%);
+    width: 75vw;
+    position: relative !important;
+    opacity: 0.9;
+    transform: translate(-50%, 0%) !important;
+  }
+}
+
+@mixin desktop {
+  .next {
+    height: 100vh !important;
+    display: inline-block;
+    width: 100%;
+
+    h1 {
+      margin-top: 50vh !important;
+    }
+
+    a {
+      overflow: hidden;
+      color: #ffffff;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: #ffffff;
+      text-transform: uppercase;
+    }
+
+    a img {
+      opacity: 0;
+      position: fixed !important;
+      top: 50%;
+      left: 50%;
+      transform: translate(-20%, -50%);
+      width: 65vw;
+      /*   this will tell the browser to ignore any default mouse interactions on this img element */
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+
+    a:hover {
+      color: #ffffff;
+      -webkit-text-stroke-width: 0px;
+      -webkit-text-fill-color: #ffffff;
+      transition: -webkit-text-fill-color 0.5s;
+    }
+
+    a:hover img {
+      filter: saturate(110%);
+      opacity: 0.9;
+    }
+
+    span {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+@mixin tablet-portrait {
+  .next {
+    margin: 0 0 0 0 !important;
+    height: 70vh !important;
+
+    h1 {
+      margin-top: 30vh !important;
+    }
+
+    @include a-img-mobile;
+  }
+}
+
+@mixin tablet-landscape {
+  .next {
+    a img {
+      transform: translate(-50%, -20%);
+    }
+  }
+}
+
+@mixin mobile-portrait-med {
+  .next {
+    height: 80vh !important;
+    margin-top: 0vh !important;
+
+    h1 {
+      margin-top: 40vh !important;
+    }
+
+    @include a-img-mobile;
+  }
+}
+
+@mixin mobile-landscape-med {
+  .next {
+    @include a-img-mobile;
+  }
+}
+
+@mixin mobile-portrait-sm {
+  .next {
+    height: 80vh !important;
+    margin-top: 0vh !important;
+
+    h1 {
+      margin-top: 20vh !important;
+    }
+
+    @include a-img-mobile;
+  }
+}
+
+@mixin mobile-landscape-sm {
+  .next {
+
+    @include a-img-mobile;
+  }
+}
