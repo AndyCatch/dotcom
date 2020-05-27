@@ -12,38 +12,24 @@ let options = {
   threshold: 0.99,
 };
 
-let projectImage // element
-let marquee // element
-let headerElements // Array
-let mobileCover // element
-let marqueeText // String
+let projectImage; // element
+let marquee; // element
+let headerElements; // Array
+let mobileCover; // element
+let marqueeText; // String
 
 console.log(
   "%c Hello, console friend!",
   "font-family:‘Common Sans’, sans-serif; color:#000; font-weight: 400;font-size:48px;line-height: 1;"
 );
 
-window.addEventListener("load", (event) => {
-  console.log("window is fully loaded Listener");
+document.addEventListener("DOMContentLoaded", (event) => {
+  console.log("DOM fully loaded and parsed");
 
   init();
 });
 
 const init = function () {
-  // Production
-  projectImage = document.getElementsByClassName("project-cover")[0];
-  marquee = document.querySelector(".cover_title h1 span");
-  headerElements = [
-    document.querySelector('.cover_title div[data-content-for="xl"] h1 span'),
-    document.querySelector('.cover_title div[data-content-for="lg"] h1 span'),
-    document.querySelector('.cover_title div[data-content-for="md"] h1 span'),
-    document.querySelector('.cover_title div[data-content-for="sm"] h1 span'),
-    document.querySelector('.cover_title div[data-content-for="xs"] h1 span'),
-  ];
-
-  mobileCover = document.querySelector('.cover_title div[data-content-for="xs"] h1 span');
-  marqueeText = fillArray(title);
-
   navBar = document.querySelectorAll("div.navbar-inner")[0];
   hamburger = document.getElementsByClassName("hamburger")[0];
   hamburger.addEventListener("click", menuToggle);
@@ -63,6 +49,37 @@ const init = function () {
   isThisMobile();
   browserType();
   hasTouch();
+
+  console.log("Project is: " + public_projectName);
+  console.log("Is it a project? : " + public_isProject);
+  // Production
+  if (public_isProject) {
+    projectImage = document.getElementsByClassName("project-cover")[0];
+    projectImage.classList.add("fade-out");
+
+    marquee = document.querySelector(".cover_title h1 span");
+    marquee.classList.add("fade-out");
+
+    headerElements = [
+      document.querySelector('.cover_title div[data-content-for="xl"] h1 span'),
+      document.querySelector('.cover_title div[data-content-for="lg"] h1 span'),
+      document.querySelector('.cover_title div[data-content-for="md"] h1 span'),
+      document.querySelector('.cover_title div[data-content-for="sm"] h1 span'),
+      document.querySelector('.cover_title div[data-content-for="xs"] h1 span'),
+    ];
+
+    mobileCover = document.querySelector(
+      '.cover_title div[data-content-for="xs"] h1 span'
+    );
+    marqueeText = fillArray(public_projectName);
+
+    populate();
+    fadeIn();
+
+    if (public_isProject) {
+      public_isProject = false;
+    }
+  }
 };
 
 function revealNav(entries, obs) {
@@ -226,7 +243,11 @@ function browserType() {
 }
 
 const fadeIn = () => {
+  projectImage.classList.remove("fade-out");
   projectImage.classList.add("fade-in");
+
+  marquee.classList.remove("fade-out");
+  marquee.classList.add("title-fade-in");
 };
 
 const fillArray = function (titleName) {
@@ -244,4 +265,8 @@ const makeMarquee = function (elArr, text) {
       mobileCover.style.fontSize = 40 + "px";
     }
   }
+};
+
+const populate = function () {
+  makeMarquee(headerElements, marqueeText);
 };

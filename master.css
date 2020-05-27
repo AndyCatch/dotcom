@@ -374,13 +374,19 @@ a {
 .show-first {
   opacity: 0;
   filter: invert(0.8);
+  transition: 0s;
+}
+
+.title-fade-in {
+  opacity: 1;
+  transition: 0.3s ease-in;
+  transition-delay: 1s;
 }
 
 .fade-in {
   opacity: 0.8;
   filter: invert(0);
   transition: 0.3s ease-in;
-  transition-delay: 0.5s;
 }
 
 .project-image-container {
