@@ -46,9 +46,10 @@
   }
 
   .logo a{
+    mix-blend-mode: difference;
     height: fit-content !important;
     font-size: 2vw !important;
-    line-height: 0.9 !important;
+    line-height: 1 !important;
   }
 
   .logo a:hover{
@@ -67,14 +68,16 @@
 }
 
 @mixin tablet-type-stack {
-    .logo a{
-        font-size: 5vw !important;
+    .logo a {
+      margin: 8px 0 0 0;
+      font-size: 3.5vw !important;
     }
 }
 
 @mixin mobile-type-stack {
-    .logo a{
-        font-size: 9vw !important;
+    .logo a {
+      margin: 8px 0 0 0;
+      font-size: 9vw !important;
     }
 
     h1{

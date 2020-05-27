@@ -41,18 +41,11 @@ body {
 }
 
 /*Hide Show Nav classes*/
-/* Old props */
-// .semplice-navbar{
-//   position: fixed !important;
-//   top: 0 !important;
-//   transition: cubic-bezier(0.96, 0, 0.4, 1) transform 0.5s !important;
-// }
-
-/*Hide Show Nav classes*/
 .navbar-inner {
-  height: calc(10%) !important;
+  height: calc(12%) !important;
+  top:0 !important;
   position: fixed !important;
-  transition: transform 0.5s cubic-bezier(0.96, 0, 0.4, 1) 100ms !important;
+  transition: transform 0.4s cubic-bezier(0.96, 0, 0.4, 1) !important;
 }
 
 .hideNav {
@@ -91,10 +84,16 @@ body {
 @include type-stack.desktop-type-stack;
 
 /* To help override values + flexbox from Semplice */
+.menu-icon{
+  margin: 8px 0 0 0;
+}
+
 .navbar-right .menu {
   width: 33vw;
-  flex-direction: column !important;
   height: fit-content !important;
+  flex-direction: column !important;
+  /* Firefox fix, seems to be fine in Chrome + Safari */
+  justify-content: flex-start !important;
 }
 
 .navbar-right .menu li {
@@ -124,6 +123,7 @@ a {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
 
 /* ----- Profile / About Page ----- */
 

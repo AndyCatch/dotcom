@@ -1,9 +1,22 @@
 let navBar;
+let nextModule;
+let hamburger;
+
 let isMobile = false;
-let nextModule
-let observer
-let headerTags
-let scrolling = false
+let menuClick = false;
+
+// For Observer object
+let observer;
+let options = {
+  rootMargin: "0px 0px",
+  threshold: 0.99,
+};
+
+let projectImage // element
+let marquee // element
+let headerElements // Array
+let mobileCover // element
+let marqueeText // String
 
 console.log(
   "%c Hello, console friend!",
@@ -18,41 +31,57 @@ window.addEventListener("load", (event) => {
 
 const init = function () {
   // Production
-  navBar = document.querySelectorAll("div.navbar-inner")[0]
-  
+  projectImage = document.getElementsByClassName("project-cover")[0];
+  marquee = document.querySelector(".cover_title h1 span");
+  headerElements = [
+    document.querySelector('.cover_title div[data-content-for="xl"] h1 span'),
+    document.querySelector('.cover_title div[data-content-for="lg"] h1 span'),
+    document.querySelector('.cover_title div[data-content-for="md"] h1 span'),
+    document.querySelector('.cover_title div[data-content-for="sm"] h1 span'),
+    document.querySelector('.cover_title div[data-content-for="xs"] h1 span'),
+  ];
+
+  mobileCover = document.querySelector('.cover_title div[data-content-for="xs"] h1 span');
+  marqueeText = fillArray(title);
+
+  navBar = document.querySelectorAll("div.navbar-inner")[0];
+  hamburger = document.getElementsByClassName("hamburger")[0];
+  hamburger.addEventListener("click", menuToggle);
   footerModule = document.getElementsByClassName("footer-module")[0];
-  document.addEventListener("scroll", hideShowNav, { capture: false, passive: true});
+  document.addEventListener("scroll", hideShowNav, {
+    capture: false,
+    passive: true,
+  });
 
-  setInterval("updateClock()", 200);  
+  setInterval("updateClock()", 200);
 
-  let options = {
-    rootMargin: "0px 0px",
-    threshold: 0.99
-  }
+  observer = new IntersectionObserver(revealNav, options);
+  document.querySelectorAll(".footer-module").forEach((module) => {
+    observer.observe(module);
+  });
 
-  observer = new IntersectionObserver(revealNav, options)
-  document.querySelectorAll('.footer-module').forEach(module => {
-    observer.observe(module)
-  })
-
-  isThisMobile()
-  browserType()
-  hasTouch()
+  isThisMobile();
+  browserType();
+  hasTouch();
 };
 
-function revealNav(entries, obs){
-  entries.forEach(entry => {
-    if(entry.isIntersecting && entry.intersectionRatio >= 0.99){
+function revealNav(entries, obs) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting && entry.intersectionRatio >= 0.99) {
       navBar.classList.remove("hideNav");
       navBar.classList.add("showNav");
-      document.removeEventListener("scroll", hideShowNav, { capture: false, passive: true});
+      document.removeEventListener("scroll", hideShowNav, {
+        capture: false,
+        passive: true,
+      });
+    } else {
+      document.addEventListener("scroll", hideShowNav, {
+        capture: false,
+        passive: true,
+      });
     }
-    else{
-      document.addEventListener("scroll", hideShowNav, { capture: false, passive: true});
-    }
-  })
+  });
 }
-
 
 function updateClock() {
   // Gets the current time
@@ -107,8 +136,6 @@ const hideNav = function (element) {
 // hide / show Nav functionality
 let prevScrollpos = window.pageYOffset;
 const hideShowNav = function (event) {
-  scrolling = true
-
   let currentScrollPos = window.pageYOffset;
 
   if (navBar) {
@@ -119,6 +146,28 @@ const hideShowNav = function (event) {
     }
     prevScrollpos = currentScrollPos;
   }
+};
+
+function menuChange(boolean) {
+  if (boolean) {
+    // menu is open, ensures menu doesn't scroll away
+    document.removeEventListener("scroll", hideShowNav, {
+      capture: false,
+      passive: true,
+    });
+  } else {
+    // menu is closed
+    document.addEventListener("scroll", hideShowNav, {
+      capture: false,
+      passive: true,
+    });
+  }
+}
+
+const menuToggle = function () {
+  menuClick = !menuClick;
+  // toggles boolean between true and false
+  menuChange(menuClick);
 };
 
 /* Please remove hover styles in mobile ;( */
@@ -175,3 +224,24 @@ function browserType() {
     }
   }
 }
+
+const fadeIn = () => {
+  projectImage.classList.add("fade-in");
+};
+
+const fillArray = function (titleName) {
+  let string = new Array(50).fill(titleName).join(" — ");
+  titleName = string;
+
+  return titleName;
+};
+
+const makeMarquee = function (elArr, text) {
+  for (let i = 0; i < elArr.length; i++) {
+    elArr[i].innerHTML = text;
+
+    if (elArr[i] === mobileCover) {
+      mobileCover.style.fontSize = 40 + "px";
+    }
+  }
+};

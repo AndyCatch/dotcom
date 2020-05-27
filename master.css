@@ -123,12 +123,11 @@ body {
 }
 
 /*Hide Show Nav classes*/
-/* Old props */
-/*Hide Show Nav classes*/
 .navbar-inner {
-  height: calc(10%) !important;
+  height: calc(12%) !important;
+  top: 0 !important;
   position: fixed !important;
-  transition: transform 0.5s cubic-bezier(0.96, 0, 0.4, 1) 100ms !important;
+  transition: transform 0.4s cubic-bezier(0.96, 0, 0.4, 1) !important;
 }
 
 .hideNav {
@@ -191,9 +190,10 @@ a:hover {
 }
 
 .logo a {
+  mix-blend-mode: difference;
   height: fit-content !important;
   font-size: 2vw !important;
-  line-height: 0.9 !important;
+  line-height: 1 !important;
 }
 
 .logo a:hover {
@@ -216,10 +216,16 @@ a:hover {
 }
 
 /* To help override values + flexbox from Semplice */
+.menu-icon {
+  margin: 8px 0 0 0;
+}
+
 .navbar-right .menu {
   width: 33vw;
-  flex-direction: column !important;
   height: fit-content !important;
+  flex-direction: column !important;
+  /* Firefox fix, seems to be fine in Chrome + Safari */
+  justify-content: flex-start !important;
 }
 
 .navbar-right .menu li {
@@ -459,7 +465,8 @@ a {
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (hover: none) {
   /* HOMEPAGE STYLE */
   .logo a {
-    font-size: 5vw !important;
+    margin: 8px 0 0 0;
+    font-size: 3.5vw !important;
   }
 
   .list {
@@ -569,7 +576,8 @@ a {
 /* Declare the same value for min- and max-width to avoid colliding with desktops */
 @media only screen and (min-device-width: 1366px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
   .logo a {
-    font-size: 5vw !important;
+    margin: 8px 0 0 0;
+    font-size: 3.5vw !important;
   }
 
   .list a h1 {
@@ -701,6 +709,7 @@ a {
   }
 
   .logo a {
+    margin: 8px 0 0 0;
     font-size: 9vw !important;
   }
 
@@ -823,6 +832,11 @@ a {
     max-width: 88%;
   }
 
+  .logo a {
+    margin: 8px 0 0 0;
+    font-size: 3.5vw !important;
+  }
+
   /* Back to Top  */
   .back-to-top {
     transform: translate(26px, 18px);
@@ -841,6 +855,7 @@ a {
   }
 
   .logo a {
+    margin: 8px 0 0 0;
     font-size: 9vw !important;
   }
 
@@ -963,6 +978,11 @@ a {
     transform: translate(-50%, 0%) !important;
   }
 
+  .logo a {
+    margin: 8px 0 0 0;
+    font-size: 3.5vw !important;
+  }
+
   /* Back to Top  */
   .back-to-top {
     transform: translate(26px, 14px);
@@ -985,6 +1005,7 @@ a {
   }
 
   .logo a {
+    margin: 8px 0 0 0;
     font-size: 9vw !important;
   }
 
@@ -1101,6 +1122,11 @@ a {
     position: relative !important;
     opacity: 0.9;
     transform: translate(-50%, 0%) !important;
+  }
+
+  .logo a {
+    margin: 8px 0 0 0;
+    font-size: 3.5vw !important;
   }
 
   .back-to-top {
