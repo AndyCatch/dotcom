@@ -1,6 +1,8 @@
 let navBar;
 let nextModule;
 let hamburger;
+let tagsCollection
+let tagsList = []
 
 let isMobile = false;
 let menuClick = false;
@@ -30,17 +32,30 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 
 const init = function () {
+  // Pushes data-project
+  setUpTags()
+
+  // Sets up navigation
   navBar = document.querySelectorAll("div.navbar-inner")[0];
-  hamburger = document.getElementsByClassName("hamburger")[0];
-  hamburger.addEventListener("click", menuToggle);
+
+  if (document.getElementsByClassName("hamburger")[0]) {
+    hamburger = document.getElementsByClassName("hamburger")[0];
+    hamburger.addEventListener("click", menuToggle);
+  }
+
+  // hamburger = document.getElementsByClassName("hamburger")[0];
+  // hamburger.addEventListener("click", menuToggle);
+
   footerModule = document.getElementsByClassName("footer-module")[0];
   document.addEventListener("scroll", hideShowNav, {
     capture: false,
     passive: true,
   });
 
+  // Sets up footer in clock
   setInterval("updateClock()", 200);
 
+  // Nav reveal at the end of page
   observer = new IntersectionObserver(revealNav, options);
   document.querySelectorAll(".footer-module").forEach((module) => {
     observer.observe(module);
@@ -50,9 +65,9 @@ const init = function () {
   browserType();
   hasTouch();
 
+  // Event handling for marquee, uncomment in prod
   console.log("Project is: " + public_projectName);
   console.log("Is it a project? : " + public_isProject);
-  // Production
   if (public_isProject) {
     projectImage = document.getElementsByClassName("project-cover")[0];
     projectImage.classList.add("fade-out");
@@ -81,6 +96,21 @@ const init = function () {
     }
   }
 };
+
+function setUpTags() {
+  tagsCollection = document.getElementsByClassName('list')[0].children
+  // converts a Collection in an Array
+  tagsList = [...tagsCollection]
+  
+  tagsList.forEach(tag =>{
+    tag.addEventListener('click', tagClickHandler)
+  })
+}
+
+function tagClickHandler(ev){
+  public_testProj = ev.currentTarget.dataset.project
+  console.log("public_testProj = " + public_testProj)
+}
 
 function revealNav(entries, obs) {
   entries.forEach((entry) => {
