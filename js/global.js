@@ -1,8 +1,8 @@
 let navBar;
 let nextModule;
 let hamburger;
-let tagsCollection
-let tagsList = []
+let tagsCollection;
+let tagsList = [];
 
 let isMobile = false;
 let menuClick = false;
@@ -16,13 +16,14 @@ let options = {
 
 let projectImage; // element
 let marquee; // element
-let headerElements; // Array
+let breakpoints = Array.from(["xl", "lg", "md", "sm", "xs"])
+let headerElements = []; // Array
 let mobileCover; // element
 let marqueeText; // String
 
 console.log(
-  "%c Hello, console friend!",
-  "font-family:‘Common Sans’, sans-serif; color:#000; font-weight: 400;font-size:48px;line-height: 1;"
+  "%c #############Hi############ ",
+  "font-family:‘Common Sans’, sans-serif; color:#ff5000; font-weight: 400;font-size:18px;line-height: 1;"
 );
 
 document.addEventListener("DOMContentLoaded", (event) => {
@@ -33,7 +34,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 const init = function () {
   // Pushes data-project
-  setUpTags()
+  setUpTags();
 
   // Sets up navigation
   navBar = document.querySelectorAll("div.navbar-inner")[0];
@@ -54,6 +55,7 @@ const init = function () {
 
   // Sets up footer in clock
   setInterval("updateClock()", 200);
+  setInterval("forceNav()", 200)
 
   // Nav reveal at the end of page
   observer = new IntersectionObserver(revealNav, options);
@@ -66,22 +68,20 @@ const init = function () {
   hasTouch();
 
   // Event handling for marquee, uncomment in prod
-  console.log("Project is: " + public_projectName);
-  console.log("Is it a project? : " + public_isProject);
+  // console.log("Project is: " + public_projectName);
+  // console.log("Is it a project? : " + public_isProject);
   if (public_isProject) {
+    public_isProject = false;
+
     projectImage = document.getElementsByClassName("project-cover")[0];
     projectImage.classList.add("fade-out");
 
     marquee = document.querySelector(".cover_title h1 span");
     marquee.classList.add("fade-out");
 
-    headerElements = [
-      document.querySelector('.cover_title div[data-content-for="xl"] h1 span'),
-      document.querySelector('.cover_title div[data-content-for="lg"] h1 span'),
-      document.querySelector('.cover_title div[data-content-for="md"] h1 span'),
-      document.querySelector('.cover_title div[data-content-for="sm"] h1 span'),
-      document.querySelector('.cover_title div[data-content-for="xs"] h1 span'),
-    ];
+    breakpoints.forEach(breakpoint => {
+      headerElements.push(document.querySelector(`.cover_title div[data-content-for=${JSON.stringify(breakpoint)}] h1 span`))
+    })
 
     mobileCover = document.querySelector(
       '.cover_title div[data-content-for="xs"] h1 span'
@@ -90,26 +90,45 @@ const init = function () {
 
     populate();
     fadeIn();
-
-    if (public_isProject) {
-      public_isProject = false;
-    }
   }
 };
 
-function setUpTags() {
-  tagsCollection = document.getElementsByClassName('list')[0].children
-  // converts a Collection in an Array
-  tagsList = [...tagsCollection]
-  
-  tagsList.forEach(tag =>{
-    tag.addEventListener('click', tagClickHandler)
-  })
+function forceNav(){
+  document.removeEventListener("scroll", hideShowNav)
+  document.addEventListener("scroll", hideShowNav, {
+    capture: false,
+    passive: true,
+  });
 }
 
-function tagClickHandler(ev){
-  public_testProj = ev.currentTarget.dataset.project
-  console.log("public_testProj = " + public_testProj)
+function pageReset() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
+
+function onPopState(e) {
+  var state = e.state;
+  if (state !== null) {
+    //load content with ajax
+    console.log("popstate active");
+  }
+}
+
+function setUpTags() {
+  tagsCollection = document.getElementsByClassName("list")[0].children;
+  // converts a Collection in an Array
+  tagsList = [...tagsCollection];
+
+  tagsList.forEach((tag) => {
+    tag.addEventListener("click", tagClickHandler);
+  });
+}
+
+function tagClickHandler(ev) {
+  public_projectName = ev.currentTarget.dataset.project;
+  console.log("public_projectName = " + public_projectName);
 }
 
 function revealNav(entries, obs) {
@@ -170,19 +189,19 @@ const isThisMobile = function () {
   }
 };
 
-const showNav = function (element) {
+function showNav(element) {
   element.classList.remove("hideNav");
   element.classList.add("showNav");
 };
 
-const hideNav = function (element) {
+function hideNav(element) {
   element.classList.remove("showNav");
   element.classList.add("hideNav");
 };
 
 // hide / show Nav functionality
 let prevScrollpos = window.pageYOffset;
-const hideShowNav = function (event) {
+function hideShowNav(event) {
   let currentScrollPos = window.pageYOffset;
 
   if (navBar) {
