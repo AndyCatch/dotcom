@@ -61,7 +61,7 @@ function init() {
       '.cover_title div[data-content-for="xs"] h1 span'
     );
 
-    console.log(projectImage);
+    // console.log(projectImage);
     if (projectImage && marquee) {
       projectImage.classList.add("fade-out");
       marquee.classList.add("fade-out");
