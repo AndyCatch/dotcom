@@ -170,19 +170,22 @@ a {
 .show-first {
   opacity: 0;
   filter: invert(0.8);
-  transition: 0s;
+}
+
+.fade-out{
+  opacity: 0;
+  transition: opacity 0s linear;
 }
 
 .title-fade-in{
   opacity: 1;
-  transition: 0.3s ease-in;
-  transition-delay: 1s;
+  transition: opacity 0.3s ease-in;
 }
 
 .fade-in {
   opacity: 0.8;
   filter: invert(0);
-  transition: 0.3s ease-in;
+  transition: opacity filter 0.3s ease-in;
 }
 
 .project-image-container {

@@ -1,4 +1,3 @@
-const title = 'On Page Guidelines Verizon'
-let event = new CustomEvent('projectname', {detail: {titleName:title, isProject:true }} );
+let event = new CustomEvent('projectname', {detail: {titleName:public_projectName, isProject:true }} );
 document.dispatchEvent(event);
 
