@@ -2,7 +2,6 @@ let navBar;
 let nextModule;
 let hamburger;
 let tagsCollection;
-let tagsList = [];
 
 let isMobile = false;
 let menuClick = false;
@@ -17,16 +16,14 @@ let options = {
 let projectImage; // element
 let marquee; // element
 let breakpoints = Array.from(["xl", "lg", "md", "sm", "xs"]);
-var titles = []; // Array
+var projectTitles = []; // Array
 let mobileCover; // element
 let marqueeText; // String
 
-(function ($) {
-  document.addEventListener("DOMContentLoaded", (event) => {
-    console.log("DOM fully loaded and parsed");
-    init();
-  });
-})(jQuery);
+document.addEventListener("DOMContentLoaded", (event) => {
+  console.log("DOM fully loaded and parsed");
+  init();
+});
 
 function init() {
   navBar = document.querySelectorAll("div.navbar-inner")[0]; // Finds nav
@@ -35,7 +32,7 @@ function init() {
 
   footerModule = document.getElementsByClassName("footer-module")[0];
 
-  document.addEventListener("scroll", hideShowNav, {
+  window.addEventListener("scroll", hideShowNav, {
     capture: false,
     passive: true,
   });
@@ -53,21 +50,20 @@ function init() {
   browserType();
   hasTouch();
 
-  // console.log("Project is: " + public_projectName);
   if (public_isProject) {
+    // We have received a "projectname" event
     projectImage = document.getElementsByClassName("project-cover")[0];
     marquee = document.querySelector(".cover_title h1 span");
     mobileCover = document.querySelector(
       '.cover_title div[data-content-for="xs"] h1 span'
     );
 
-    // console.log(projectImage);
     if (projectImage && marquee) {
       projectImage.classList.add("fade-out");
       marquee.classList.add("fade-out");
     }
-    // pulls a tags from list, adds project data name
-    setUpTitles(); // pushes title elements
+    
+    setProjectTitles(); // pushes project title elements to an array
 
     marqueeText = fillArray(public_projectName);
     populate();
@@ -83,12 +79,12 @@ function setUpHamburger() {
   }
 }
 
-function setUpTitles() {
+function setProjectTitles() {
   for (let i = 0; i < breakpoints.length; i++) {
     let selectorPath = `.cover_title div[data-content-for=${JSON.stringify(
       breakpoints[i]
     )}] h1 span`;
-    titles.push(document.querySelector(selectorPath));
+    projectTitles.push(document.querySelector(selectorPath));
   }
 }
 
@@ -97,12 +93,12 @@ function revealNav(entries, obs) {
     if (entry.isIntersecting && entry.intersectionRatio >= 0.99) {
       navBar.classList.remove("hideNav");
       navBar.classList.add("showNav");
-      document.removeEventListener("scroll", hideShowNav, {
+      window.removeEventListener("scroll", hideShowNav, {
         capture: false,
         passive: true,
       });
     } else {
-      document.addEventListener("scroll", hideShowNav, {
+      window.addEventListener("scroll", hideShowNav, {
         capture: false,
         passive: true,
       });
@@ -280,5 +276,5 @@ function makeMarquee(elArr, text) {
 }
 
 function populate() {
-  makeMarquee(titles, marqueeText);
+  makeMarquee(projectTitles, marqueeText);
 }
