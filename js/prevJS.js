@@ -657,6 +657,14 @@ function menuChange(boolean) {
   }
 }
 
+function pageReset() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
+
+// was trying this for trying to detect back button
 function onPopState(e) {
   var state = e.state;
   if (state !== null) {
