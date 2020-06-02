@@ -1,0 +1,28 @@
+{
+  "name": "dotcom",
+  "version": "1.0.0",
+  "description": "A record of styles and JS for Semplice folio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndyCatch/dotcom.git"
+  },
+  "keywords": [
+    "semplice",
+    "javascript",
+    "sass",
+    "css"
+  ],
+  "author": "Andrew Catchaturyan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndyCatch/dotcom/issues"
+  },
+  "homepage": "https://github.com/AndyCatch/dotcom#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
