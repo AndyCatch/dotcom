@@ -1,13 +1,13 @@
-@mixin img-settings {
+@mixin img-settings-mobile {
   a h1 {
     margin-bottom: 10%;
   }
-
+  
   a img {
     filter: saturate(110%);
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%);
+    transform: translate(-33%, 0%);
   }
 }
 
@@ -49,7 +49,7 @@
       width: 75vw;
       /*   this will tell the browser to ignore any default mouse interactions on this img element */
       pointer-events: none;
-      transition: opacity 0.2s;
+      transition: all 0.4s cubic-bezier(0.96, 0, 0.4, 1);
     }
 
     span {
@@ -66,13 +66,14 @@
     justify-content: space-around;
     margin: 44.7vh 0 0 0 !important;
 
-    @include img-settings;
+
+    @include img-settings-mobile;
   }
 }
 
 @mixin tablet-landscape {
   .list {
-    @include img-settings;
+    @include img-settings-mobile;
   }
 }
 
@@ -83,14 +84,15 @@
     justify-content: space-around;
     margin: 44.7vh 0 0 0;
 
-    @include img-settings;
+
+    @include img-settings-mobile;
   }
 }
 
 @mixin mobile-landscape {
 
   .list {
-    @include img-settings;
+    @include img-settings-mobile;
   }
 
 }

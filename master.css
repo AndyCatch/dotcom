@@ -237,6 +237,10 @@ a {
 }
 
 /* ----- Index Page ----- */
+#content-holder h1 {
+  overflow: hidden;
+}
+
 .list {
   display: inline-block;
   margin: 45vh 0 0 0;
@@ -271,7 +275,7 @@ a {
   width: 75vw;
   /*   this will tell the browser to ignore any default mouse interactions on this img element */
   pointer-events: none;
-  transition: opacity 0.2s;
+  transition: all 0.4s cubic-bezier(0.96, 0, 0.4, 1);
 }
 .list span {
   position: relative;
@@ -401,7 +405,7 @@ a {
 .project-image {
   position: relative;
   z-index: 1;
-  width: 75vw;
+  width: 65vw;
   background-blend-mode: multiply;
 }
 
@@ -491,7 +495,7 @@ a {
     filter: saturate(110%);
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%);
+    transform: translate(-33%, 0%);
   }
 
   .copy-module {
@@ -522,7 +526,7 @@ a {
     width: 75vw;
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%) !important;
+    transform: translate(-33%, 0%) !important;
   }
 
   .footer-module {
@@ -596,7 +600,7 @@ a {
     filter: saturate(110%);
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%);
+    transform: translate(-33%, 0%);
   }
 
   .next a img {
@@ -604,7 +608,7 @@ a {
     width: 75vw;
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%) !important;
+    transform: translate(-33%, 0%) !important;
   }
 }
 /* -------------------- Mobile -------------------- */
@@ -618,7 +622,7 @@ a {
     filter: saturate(110%);
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%);
+    transform: translate(-33%, 0%);
   }
 
   .next a img {
@@ -626,7 +630,7 @@ a {
     width: 75vw;
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%) !important;
+    transform: translate(-33%, 0%) !important;
   }
 }
 /* ----------- Pixel 2 XL ----------- */
@@ -698,7 +702,7 @@ a {
     width: 75vw;
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%) !important;
+    transform: translate(-33%, 0%) !important;
   }
 
   .semplice-cover .show-more svg {
@@ -739,7 +743,7 @@ a {
     filter: saturate(110%);
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%);
+    transform: translate(-33%, 0%);
   }
 
   .next {
@@ -754,7 +758,7 @@ a {
     width: 75vw;
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%) !important;
+    transform: translate(-33%, 0%) !important;
   }
 
   .footer-module {
@@ -812,7 +816,7 @@ a {
     filter: saturate(110%);
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%);
+    transform: translate(-33%, 0%);
   }
 
   .next a img {
@@ -820,7 +824,7 @@ a {
     width: 75vw;
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%) !important;
+    transform: translate(-33%, 0%) !important;
   }
 
   .copy-module {
@@ -885,7 +889,7 @@ a {
     filter: saturate(110%);
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%);
+    transform: translate(-33%, 0%);
   }
 
   .copy-module {
@@ -918,7 +922,7 @@ a {
     width: 75vw;
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%) !important;
+    transform: translate(-33%, 0%) !important;
   }
 
   .footer-module {
@@ -976,7 +980,7 @@ a {
     filter: saturate(110%);
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%);
+    transform: translate(-33%, 0%);
   }
 
   .next a img {
@@ -984,7 +988,7 @@ a {
     width: 75vw;
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%) !important;
+    transform: translate(-33%, 0%) !important;
   }
 
   .logo a {
@@ -1035,7 +1039,7 @@ a {
     filter: saturate(110%);
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%);
+    transform: translate(-33%, 0%);
   }
 
   .footer-module {
@@ -1106,7 +1110,7 @@ a {
     width: 75vw;
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%) !important;
+    transform: translate(-33%, 0%) !important;
   }
 
   .back-to-top {
@@ -1122,7 +1126,7 @@ a {
     filter: saturate(110%);
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%);
+    transform: translate(-33%, 0%);
   }
 
   .next a img {
@@ -1130,7 +1134,7 @@ a {
     width: 75vw;
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%) !important;
+    transform: translate(-33%, 0%) !important;
   }
 
   .logo a {

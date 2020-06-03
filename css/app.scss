@@ -9,11 +9,6 @@
 // Colors
 $background-color: black;
 
-// Typography
-$title-font: "Monument-Extended";
-$title-font-size: 8.25vw;
-$title-line-height: 0.8;
-
 body {
   background-color: $background-color;
 }
@@ -106,6 +101,11 @@ a {
 
 /* ----- Index Page ----- */
 
+// Semplice-only style
+#content-holder h1{
+  overflow: hidden;
+}
+
 @include listModule.desktop;
 
 .full-height {
@@ -197,7 +197,7 @@ a {
 .project-image {
   position: relative;
   z-index: 1;
-  width: 75vw;
+  width: 65vw;
   background-blend-mode: multiply;
 }
 

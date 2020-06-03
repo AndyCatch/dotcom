@@ -13,12 +13,15 @@ let options = {
   threshold: 0.99,
 };
 
-let projectImage; // element
+let projectLabel // element
+let list // element
+let projectImages; // element
 let marquee; // element
 let breakpoints = Array.from(["xl", "lg", "md", "sm", "xs"]);
 var projectTitles = []; // Array
 let mobileCover; // element
 let marqueeText; // String
+let mql = window.matchMedia('(max-width: 375px)');
 
 document.addEventListener("DOMContentLoaded", (event) => {
   console.log("DOM fully loaded and parsed");
@@ -26,11 +29,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 
 function init() {
+  window.addEventListener('resize', windowResize)
+
   navBar = document.querySelectorAll("div.navbar-inner")[0]; // Finds nav
   hamburger = document.getElementsByClassName("hamburger")[0];
   setUpHamburger();
 
   footerModule = document.getElementsByClassName("footer-module")[0];
+
+  
+  list = document.getElementsByClassName("list")[0]
+  projectImages = Array.from(document.querySelectorAll(".list a h1 img"))
+
+  list.addEventListener("mouseover", imageShiftOver)
+  list.addEventListener("mouseout", imageShiftOut)
 
   window.addEventListener("scroll", hideShowNav, {
     capture: false,
@@ -71,6 +83,33 @@ function init() {
 
     public_isProject = false;
   }
+}
+
+function windowResize(){
+  console.log("resize")
+  if(mql.matches){
+    console.log("375px")
+    projectImages.forEach(img => {
+      img.style.transform = `translate(${-33}%, ${0}%)`
+      // img.classList.add("reset")
+    })
+    // list.removeEventListener('mou')
+  }
+}
+
+function imageShiftOver(){
+  projectImages.forEach(img => {
+    const x = Math.floor(Math.random() * 10 - 2)
+    const y = Math.floor(Math.random() * 10 - 2)
+    img.style.transform = `translate(${-50+x}%, ${-50+y}%)`
+  })
+}
+
+function imageShiftOut(){
+  console.log("imageShiftOut")
+  projectImages.forEach(img => {
+    img.style.transform = `translate(${-50}%, ${-50}%)`
+  })
 }
 
 function setUpHamburger() {
@@ -278,3 +317,4 @@ function makeMarquee(elArr, text) {
 function populate() {
   makeMarquee(projectTitles, marqueeText);
 }
+
