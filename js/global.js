@@ -41,8 +41,8 @@ function init() {
   list = document.getElementsByClassName("list")[0]
   projectImages = Array.from(document.querySelectorAll(".list a h1 img"))
 
-  list.addEventListener("mouseover", imageShiftOver)
-  list.addEventListener("mouseout", imageShiftOut)
+  // list.addEventListener("mouseover", imageShiftOver)
+  // list.addEventListener("mouseout", imageShiftOut)
 
   window.addEventListener("scroll", hideShowNav, {
     capture: false,
@@ -93,7 +93,6 @@ function windowResize(){
       img.style.transform = `translate(${-33}%, ${0}%)`
       // img.classList.add("reset")
     })
-    // list.removeEventListener('mou')
   }
 }
 

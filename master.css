@@ -530,18 +530,18 @@ a {
   }
 
   .footer-module {
-    flex-direction: column;
+    flex-direction: row;
     flex-basis: 100%;
   }
   .footer-module .footer-links {
     padding: 0 0 8px 0;
-    width: 85%;
-    max-width: 85%;
+    width: 50%;
+    max-width: 50%;
   }
   .footer-module .timeStamp {
     padding: 0 0 8px 0;
-    width: 85%;
-    max-width: 85%;
+    width: 50%;
+    max-width: 50%;
   }
   .footer-module .attribution {
     width: 85%;
