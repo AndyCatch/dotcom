@@ -1,7 +1,7 @@
-let navBar;
-let nextModule;
-let hamburger;
-let tagsCollection;
+let navBar
+const hamburger = document.getElementsByClassName("hamburger")[0];
+const list = document.getElementsByClassName("list")[0];
+const about = document.querySelector(".navItem-About");
 
 let isMobile = false;
 let menuClick = false;
@@ -13,51 +13,68 @@ let options = {
   threshold: 0.99,
 };
 
-let projectImage; // element
-let marquee; // element
+const projectImage = document.getElementsByClassName("project-cover")[0]; // element
+const marquee = document.querySelector(".cover_title h1 span"); // element
+const mobileCover = document.querySelector(
+  '.cover_title div[data-content-for="xs"] h1 span'
+); // element
+
 let breakpoints = Array.from(["xl", "lg", "md", "sm", "xs"]);
 var projectTitles = []; // Array
-let mobileCover; // element
+
 let marqueeText; // String
-let prevScrollpos; // element
-let about; // element
+let prevScrollpos = window.pageYOffset; // element
 let footerModule; // element
-let mql = window.matchMedia('(max-width: 375px)');
+let mql = window.matchMedia("(max-width: 375px)");
+
+var checker = setInterval("elements()", 200);
+var clock = setInterval("updateClock()", 200);
+var navChecker = setInterval("addNav()", 200)
+  
+window.addEventListener('sempliceTransitionInDone', function (e) {
+	console.log('InDone')
+	isProject()
+	
+}, false);
+
+setUpHamburger();
+isProject();
 
 window.addEventListener("load", (event) => {
   console.log("Window loaded");
-  prevScrollpos = window.pageYOffset;
 
-  about = document.querySelector(".navItem-About");
-  navBar = document.querySelectorAll("div.navbar-inner")[0]; // Finds nav
-  hamburger = document.getElementsByClassName("hamburger")[0];
-  setUpHamburger();
+  // list = document.getElementsByClassName("list")[0]
+  projectImages = Array.from(document.querySelectorAll(".list a h1 img"));
 
-  list = document.getElementsByClassName("list")[0]
-  projectImages = Array.from(document.querySelectorAll(".list a h1 img"))
+  list.addEventListener("mouseover", imageShiftOver);
+  list.addEventListener("mouseout", imageShiftOut);
 
-  list.addEventListener("mouseover", imageShiftOver)
-  list.addEventListener("mouseout", imageShiftOut)
-
-  // Sets up clock in footer
-  setInterval("updateClock()", 200);
-
-  window.addEventListener("scroll", hideShowNav, {
-    capture: false,
-    passive: false,
-  });
+  console.log("/--- load func /");
 });
+
+function elements() {
+  console.log("elements");
+  if (list != "undefined") {
+    console.log(list);
+    clearInterval(checker);
+  } else {
+    console.log("list undefined");
+  }
+}
+  
+function addNav(){
+  	if(navBar != 'undefined'){
+	  window.addEventListener("scroll", hideShowNav, {
+		capture: false,
+		passive: true,
+	  });
+	  clearInterval(navChecker)
+	}
+}
 
 function isProject() {
   if (public_isProject) {
     console.log("public_isProject: " + public_isProject);
-    // We have received a "projectname" event
-    projectImage = document.getElementsByClassName("project-cover")[0];
-    marquee = document.querySelector(".cover_title h1 span");
-    
-    mobileCover = document.querySelector(
-      '.cover_title div[data-content-for="xs"] h1 span'
-    );
 
     if (projectImage && marquee) {
       projectImage.classList.add("fade-out");
@@ -68,32 +85,31 @@ function isProject() {
   }
 }
 
-function windowResize(){
-    console.log("resize")
-    if(mql.matches){
-      console.log("375px")
-      projectImages.forEach(img => {
-        img.style.transform = `translate(${-33}%, ${0}%)`
-        // img.classList.add("reset")
-      })
-    }
+function windowResize() {
+  console.log("resize");
+  if (mql.matches) {
+    // console.log("375px")
+    projectImages.forEach((img) => {
+      img.style.transform = `translate(${-33}%, ${0}%)`;
+      // img.classList.add("reset")
+    });
   }
-  
-  function imageShiftOver(){
-    projectImages.forEach(img => {
-      const x = Math.floor(Math.random() * 10 - 2)
-      const y = Math.floor(Math.random() * 10 - 2)
-      img.style.transform = `translate(${-50+x}%, ${-50+y}%)`
-    })
-  }
-  
-  function imageShiftOut(){
-    console.log("imageShiftOut")
-    projectImages.forEach(img => {
-      img.style.transform = `translate(${-50}%, ${-50}%)`
-    })
-  }
+}
 
+function imageShiftOver() {
+  projectImages.forEach((img) => {
+    const x = Math.floor(Math.random() * 10 - 2);
+    const y = Math.floor(Math.random() * 10 - 2);
+    img.style.transform = `translate(${-50 + x}%, ${-50 + y}%)`;
+  });
+}
+
+function imageShiftOut() {
+  // console.log("imageShiftOut")
+  projectImages.forEach((img) => {
+    img.style.transform = `translate(${-50}%, ${-50}%)`;
+  });
+}
 
 function setUpObserver() {
   observer = new IntersectionObserver(revealNav, options);
@@ -118,7 +134,7 @@ function setProjectTitles() {
   }
 
   marqueeText = fillArray(public_projectName);
-  console.log("marqueeText: " + marqueeText);
+
   populate();
   fadeIn();
 
@@ -133,15 +149,19 @@ function revealNav(entries, obs) {
         navBar.classList.remove("hideNav");
         navBar.classList.add("showNav");
       }
+	  /*
       window.removeEventListener("scroll", hideShowNav, {
         capture: false,
         passive: true,
       });
+	  */
     } else {
+	  /*
       window.addEventListener("scroll", hideShowNav, {
         capture: false,
         passive: true,
       });
+	  */
     }
   });
 }
@@ -150,25 +170,25 @@ function updateClock() {
   // Gets the element we want to inject the clock into
   let elem = document.querySelector(".currentYear");
 
-  const now = new Date(); // Gets the current time
+  if (elem != "undefined") {
+    const now = new Date(); // Gets the current time
 
-  let year = now.getFullYear(); // Get the hours, minutes and seconds from the current time
-  let hours = now.getHours();
-  let minutes = now.getMinutes();
-  let seconds = now.getSeconds();
+    let year = now.getFullYear(); // Get the hours, minutes and seconds from the current time
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let seconds = now.getSeconds();
 
-  if (hours < 10) {
-    hours = "0" + hours; // Format hrs, mins and secs
-  }
-  if (minutes < 10) {
-    minutes = "0" + minutes;
-  }
-  if (seconds < 10) {
-    seconds = "0" + seconds;
-  }
+    if (hours < 10) {
+      hours = "0" + hours; // Format hrs, mins and secs
+    }
+    if (minutes < 10) {
+      minutes = "0" + minutes;
+    }
+    if (seconds < 10) {
+      seconds = "0" + seconds;
+    }
 
-  // Sets the elements inner HTML value to our clock data
-  if (elem) {
+    // Sets the elements inner HTML value to our clock data
     elem.innerHTML = "© " + year + " " + hours + ":" + minutes + ":" + seconds;
   }
 }
@@ -302,7 +322,6 @@ function fadeIn() {
 }
 
 function fillArray(titleName) {
-  console.log("fillArray" + titleName);
   let string = new Array(50).fill(titleName).join(" — ");
   titleName = string;
 
@@ -323,7 +342,6 @@ function populate() {
   makeMarquee(projectTitles, marqueeText);
 }
 
-isProject();
 setUpObserver();
 isThisMobile();
 browserType();
