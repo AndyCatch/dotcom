@@ -1,6 +1,7 @@
 var public_projectName = "Loading.................";
 var public_isProject = false;
 
+
 document.addEventListener("projectname", projectEventHandler);
 
 function projectEventHandler(event) {

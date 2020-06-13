@@ -21,7 +21,7 @@ let mobileCover; // element
 let marqueeText; // String
 let prevScrollpos; // element
 let about; // element
-let footerModule;
+let footerModule; // element
 
 window.addEventListener("load", (event) => {
   console.log("Window loaded");
@@ -44,8 +44,7 @@ function isProject() {
     // We have received a "projectname" event
     projectImage = document.getElementsByClassName("project-cover")[0];
     marquee = document.querySelector(".cover_title h1 span");
-    console.log(projectImage);
-    console.log(marquee);
+    
     mobileCover = document.querySelector(
       '.cover_title div[data-content-for="xs"] h1 span'
     );
@@ -56,14 +55,11 @@ function isProject() {
     }
 
     setProjectTitles(); // pushes project title elements to an array
-
-
   }
 }
 
 function setUpObserver() {
   observer = new IntersectionObserver(revealNav, options);
-  //console.log("observer: " + observer)
 
   document.querySelectorAll(".footer-module").forEach((module) => {
     observer.observe(module);
