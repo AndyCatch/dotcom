@@ -19,41 +19,42 @@ let breakpoints = Array.from(["xl", "lg", "md", "sm", "xs"]);
 var projectTitles = []; // Array
 let mobileCover; // element
 let marqueeText; // String
+let prevScrollpos; // element
+let about; // element
+let footerModule; // element
+let mql = window.matchMedia('(max-width: 375px)');
 
-document.addEventListener("DOMContentLoaded", (event) => {
-  console.log("DOM fully loaded and parsed");
-  init();
-});
+window.addEventListener("load", (event) => {
+  console.log("Window loaded");
+  prevScrollpos = window.pageYOffset;
 
-function init() {
+  about = document.querySelector(".navItem-About");
   navBar = document.querySelectorAll("div.navbar-inner")[0]; // Finds nav
   hamburger = document.getElementsByClassName("hamburger")[0];
   setUpHamburger();
 
-  footerModule = document.getElementsByClassName("footer-module")[0];
+  list = document.getElementsByClassName("list")[0]
+  projectImages = Array.from(document.querySelectorAll(".list a h1 img"))
 
-  window.addEventListener("scroll", hideShowNav, {
-    capture: false,
-    passive: true,
-  });
+  list.addEventListener("mouseover", imageShiftOver)
+  list.addEventListener("mouseout", imageShiftOut)
 
   // Sets up clock in footer
   setInterval("updateClock()", 200);
 
-  // Nav reveal at the end of page
-  observer = new IntersectionObserver(revealNav, options);
-  document.querySelectorAll(".footer-module").forEach((module) => {
-    observer.observe(module);
+  window.addEventListener("scroll", hideShowNav, {
+    capture: false,
+    passive: false,
   });
+});
 
-  isThisMobile();
-  browserType();
-  hasTouch();
-
+function isProject() {
   if (public_isProject) {
+    console.log("public_isProject: " + public_isProject);
     // We have received a "projectname" event
     projectImage = document.getElementsByClassName("project-cover")[0];
     marquee = document.querySelector(".cover_title h1 span");
+    
     mobileCover = document.querySelector(
       '.cover_title div[data-content-for="xs"] h1 span'
     );
@@ -62,15 +63,44 @@ function init() {
       projectImage.classList.add("fade-out");
       marquee.classList.add("fade-out");
     }
-    
+
     setProjectTitles(); // pushes project title elements to an array
-
-    marqueeText = fillArray(public_projectName);
-    populate();
-    fadeIn();
-
-    public_isProject = false;
   }
+}
+
+function windowResize(){
+    console.log("resize")
+    if(mql.matches){
+      console.log("375px")
+      projectImages.forEach(img => {
+        img.style.transform = `translate(${-33}%, ${0}%)`
+        // img.classList.add("reset")
+      })
+    }
+  }
+  
+  function imageShiftOver(){
+    projectImages.forEach(img => {
+      const x = Math.floor(Math.random() * 10 - 2)
+      const y = Math.floor(Math.random() * 10 - 2)
+      img.style.transform = `translate(${-50+x}%, ${-50+y}%)`
+    })
+  }
+  
+  function imageShiftOut(){
+    console.log("imageShiftOut")
+    projectImages.forEach(img => {
+      img.style.transform = `translate(${-50}%, ${-50}%)`
+    })
+  }
+
+
+function setUpObserver() {
+  observer = new IntersectionObserver(revealNav, options);
+
+  document.querySelectorAll(".footer-module").forEach((module) => {
+    observer.observe(module);
+  });
 }
 
 function setUpHamburger() {
@@ -86,13 +116,23 @@ function setProjectTitles() {
     )}] h1 span`;
     projectTitles.push(document.querySelector(selectorPath));
   }
+
+  marqueeText = fillArray(public_projectName);
+  console.log("marqueeText: " + marqueeText);
+  populate();
+  fadeIn();
+
+  // resets
+  public_isProject = false;
 }
 
 function revealNav(entries, obs) {
   entries.forEach((entry) => {
     if (entry.isIntersecting && entry.intersectionRatio >= 0.99) {
-      navBar.classList.remove("hideNav");
-      navBar.classList.add("showNav");
+      if (navBar) {
+        navBar.classList.remove("hideNav");
+        navBar.classList.add("showNav");
+      }
       window.removeEventListener("scroll", hideShowNav, {
         capture: false,
         passive: true,
@@ -107,6 +147,9 @@ function revealNav(entries, obs) {
 }
 
 function updateClock() {
+  // Gets the element we want to inject the clock into
+  let elem = document.querySelector(".currentYear");
+
   const now = new Date(); // Gets the current time
 
   let year = now.getFullYear(); // Get the hours, minutes and seconds from the current time
@@ -123,9 +166,6 @@ function updateClock() {
   if (seconds < 10) {
     seconds = "0" + seconds;
   }
-
-  // Gets the element we want to inject the clock into
-  let elem = document.querySelector(".currentYear");
 
   // Sets the elements inner HTML value to our clock data
   if (elem) {
@@ -155,8 +195,10 @@ function hideNav() {
 }
 
 // hide / show Nav functionality
-let prevScrollpos = window.pageYOffset;
+// relies on let prevScrollpos in window.load
 function hideShowNav(event) {
+  navBar = document.querySelectorAll("div.navbar-inner")[0];
+
   let currentScrollPos = window.pageYOffset;
 
   if (navBar) {
@@ -174,13 +216,13 @@ function menuChange(boolean) {
     // menu is open, ensures menu doesn't scroll away
     document.removeEventListener("scroll", hideShowNav, {
       capture: false,
-      passive: true,
+      passive: false,
     });
   } else {
     // menu is closed
     document.addEventListener("scroll", hideShowNav, {
       capture: false,
-      passive: true,
+      passive: false,
     });
   }
 }
@@ -233,7 +275,7 @@ window.addEventListener("resize", () => {
 });
 
 // hack to adjust margin discrepency in browsers
-const about = document.querySelector(".navItem-About");
+
 function browserType() {
   let userAgent = navigator.userAgent.toLowerCase();
   if (userAgent.indexOf("safari") != -1) {
@@ -243,12 +285,13 @@ function browserType() {
     } else {
       //browser is safari
       console.log("Browser type: Safari");
-      about.style.marginTop = "0";
+      //about.style.marginTop = "0";
     }
   }
 }
 
 function fadeIn() {
+  console.log("fadeIn");
   projectImage.classList.remove("fade-out");
   projectImage.classList.add("fade-in");
 
@@ -259,6 +302,7 @@ function fadeIn() {
 }
 
 function fillArray(titleName) {
+  console.log("fillArray" + titleName);
   let string = new Array(50).fill(titleName).join(" — ");
   titleName = string;
 
@@ -278,3 +322,9 @@ function makeMarquee(elArr, text) {
 function populate() {
   makeMarquee(projectTitles, marqueeText);
 }
+
+isProject();
+setUpObserver();
+isThisMobile();
+browserType();
+hasTouch();
