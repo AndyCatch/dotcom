@@ -1,8 +1,17 @@
-let navBar
 const hamburger = document.getElementsByClassName("hamburger")[0];
 const list = document.getElementsByClassName("list")[0];
 const about = document.querySelector(".navItem-About");
+const projectImage = document.getElementsByClassName("project-cover")[0]; // element
+const marquee = document.querySelector(".cover_title h1 span"); // element
+const mobileCover = document.querySelector(
+  '.cover_title div[data-content-for="xs"] h1 span'
+); // element
 
+let navBar
+let marqueeText; // String
+let prevScrollpos = window.pageYOffset; // element
+let footerModule; // element
+let mql = window.matchMedia("(max-width: 375px)");
 let isMobile = false;
 let menuClick = false;
 
@@ -13,23 +22,14 @@ let options = {
   threshold: 0.99,
 };
 
-const projectImage = document.getElementsByClassName("project-cover")[0]; // element
-const marquee = document.querySelector(".cover_title h1 span"); // element
-const mobileCover = document.querySelector(
-  '.cover_title div[data-content-for="xs"] h1 span'
-); // element
-
 let breakpoints = Array.from(["xl", "lg", "md", "sm", "xs"]);
 var projectTitles = []; // Array
 
-let marqueeText; // String
-let prevScrollpos = window.pageYOffset; // element
-let footerModule; // element
-let mql = window.matchMedia("(max-width: 375px)");
 
 var checker = setInterval("elements()", 200);
 var clock = setInterval("updateClock()", 200);
 var navChecker = setInterval("addNav()", 200)
+var observerChecker = setInterval("setUpObserver()", 200)
   
 window.addEventListener('sempliceTransitionInDone', function (e) {
 	console.log('InDone')
@@ -38,16 +38,17 @@ window.addEventListener('sempliceTransitionInDone', function (e) {
 }, false);
 
 setUpHamburger();
-isProject();
+setUpObserver();
+//isProject();
 
 window.addEventListener("load", (event) => {
   console.log("Window loaded");
 
   // list = document.getElementsByClassName("list")[0]
-  projectImages = Array.from(document.querySelectorAll(".list a h1 img"));
+  //projectImages = Array.from(document.querySelectorAll(".list a h1 img"));
 
-  list.addEventListener("mouseover", imageShiftOver);
-  list.addEventListener("mouseout", imageShiftOut);
+  //list.addEventListener("mouseover", imageShiftOver);
+  //list.addEventListener("mouseout", imageShiftOut);
 
   console.log("/--- load func /");
 });
@@ -112,11 +113,16 @@ function imageShiftOut() {
 }
 
 function setUpObserver() {
-  observer = new IntersectionObserver(revealNav, options);
+  
+  if(document.querySelectorAll(".footer-module") != 'undefined'){
+    observer = new IntersectionObserver(revealNav, options);
 
-  document.querySelectorAll(".footer-module").forEach((module) => {
+    document.querySelectorAll(".footer-module").forEach((module) => {
     observer.observe(module);
   });
+  clearInterval(observerChecker)
+  }
+  
 }
 
 function setUpHamburger() {
@@ -145,7 +151,7 @@ function setProjectTitles() {
 function revealNav(entries, obs) {
   entries.forEach((entry) => {
     if (entry.isIntersecting && entry.intersectionRatio >= 0.99) {
-      if (navBar) {
+      if(navBar != 'undefined'){
         navBar.classList.remove("hideNav");
         navBar.classList.add("showNav");
       }
@@ -205,23 +211,26 @@ function isThisMobile() {
 }
 
 function showNav() {
-  navBar.classList.remove("hideNav");
-  navBar.classList.add("showNav");
+  if(navBar){
+	navBar.classList.remove("hideNav");
+	navBar.classList.add("showNav");
+  }
 }
 
 function hideNav() {
-  navBar.classList.remove("showNav");
-  navBar.classList.add("hideNav");
+  if(navBar){
+	navBar.classList.remove("showNav");
+	navBar.classList.add("hideNav");
+  }
 }
 
 // hide / show Nav functionality
 // relies on let prevScrollpos in window.load
 function hideShowNav(event) {
   navBar = document.querySelectorAll("div.navbar-inner")[0];
-
   let currentScrollPos = window.pageYOffset;
 
-  if (navBar) {
+  if(navBar != 'undefined'){
     if (prevScrollpos > currentScrollPos || currentScrollPos <= 0) {
       showNav();
     } else {
@@ -342,7 +351,6 @@ function populate() {
   makeMarquee(projectTitles, marqueeText);
 }
 
-setUpObserver();
 isThisMobile();
 browserType();
 hasTouch();

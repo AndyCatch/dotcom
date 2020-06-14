@@ -1,3 +1,5 @@
+@use "colors";
+
 @mixin desktop-h1-styles{
     font-family: "Monument-Extended";
     font-size: 8.25vw !important;
@@ -19,7 +21,8 @@
     line-height: 1.1 !important;
     letter-spacing: -0.05rem !important;
     text-align: left;
-    color: white !important;
+
+    @include colors.orange;
 }
 
 @mixin desktop-a-styles{
@@ -41,7 +44,7 @@
   }
 
   a:hover{
-    color:#ff5000 !important;
+    color:white !important;
     transition: color 0.5s ease-out !important;
   }
 
@@ -53,7 +56,7 @@
   }
 
   .logo a:hover{
-    color:#ff5000 !important;
+    color:white !important;
     transition: color 0.5s ease-out !important;
   }
 

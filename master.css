@@ -165,7 +165,7 @@ p {
   line-height: 1.1 !important;
   letter-spacing: -0.05rem !important;
   text-align: left;
-  color: white !important;
+  color: #ff5000 !important;
 }
 
 h1 {
@@ -180,12 +180,12 @@ a {
   line-height: 1.1 !important;
   letter-spacing: -0.05rem !important;
   text-align: left;
-  color: white !important;
+  color: #ff5000 !important;
   transition: color 0.5s ease-out !important;
 }
 
 a:hover {
-  color: #ff5000 !important;
+  color: white !important;
   transition: color 0.5s ease-out !important;
 }
 
@@ -197,7 +197,7 @@ a:hover {
 }
 
 .logo a:hover {
-  color: #ff5000 !important;
+  color: white !important;
   transition: color 0.5s ease-out !important;
 }
 
@@ -212,7 +212,7 @@ a:hover {
   line-height: 1.1 !important;
   letter-spacing: -0.05rem !important;
   text-align: left;
-  color: white !important;
+  color: #ff5000 !important;
 }
 
 /* To help override values + flexbox from Semplice */
@@ -246,16 +246,16 @@ a {
 }
 .list a {
   overflow: hidden;
-  color: #ffffff;
+  color: #ff5000 !important;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #ffffff;
+  -webkit-text-stroke-color: #ff5000;
   text-transform: uppercase;
 }
 .list a:hover {
-  color: #ffffff;
+  color: #ff5000 !important;
   -webkit-text-stroke-width: 0px;
-  -webkit-text-fill-color: #ffffff;
+  -webkit-text-fill-color: #ff5000;
   transition: -webkit-text-fill-color 0.5s;
 }
 .list a:hover img {
@@ -310,10 +310,10 @@ a {
 }
 .next a {
   overflow: hidden;
-  color: #ffffff;
+  color: #0c0f0d;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #ffffff;
+  -webkit-text-stroke-color: #0c0f0d;
   text-transform: uppercase;
 }
 .next a img {
@@ -328,9 +328,9 @@ a {
   transition: opacity 0.2s;
 }
 .next a:hover {
-  color: #ffffff;
+  color: #0c0f0d;
   -webkit-text-stroke-width: 0px;
-  -webkit-text-fill-color: #ffffff;
+  -webkit-text-fill-color: #0c0f0d;
   transition: -webkit-text-fill-color 0.5s;
 }
 .next a:hover img {
@@ -389,7 +389,7 @@ a {
 .fade-in {
   opacity: 0.8;
   filter: invert(0);
-  transition: opacity filter 0.3s ease-in;
+  transition: all 0.3s ease-in;
 }
 
 .project-image-container {
@@ -424,7 +424,7 @@ a {
 
 .current-menu-item::after {
   font-family: Arial, Helvetica, sans-serif !important;
-  color: #FF0000;
+  color: white;
   content: " ●" !important;
 }
 

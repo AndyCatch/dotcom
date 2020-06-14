@@ -1,3 +1,5 @@
+@use "colors";
+
 @mixin img-settings {
   a h1 {
     margin-bottom: 10%;
@@ -20,17 +22,19 @@
 
     a {
       overflow: hidden;
-      color: #ffffff;
+      @include colors.orange;
+
       -webkit-text-fill-color: transparent;
       -webkit-text-stroke-width: 1px;
-      -webkit-text-stroke-color: #ffffff;
+      @include colors.text-stroke;
+      // -webkit-text-stroke-color: #0c0f0d;
       text-transform: uppercase;
     }
 
     a:hover {
-      color: #ffffff;
+      @include colors.orange;
       -webkit-text-stroke-width: 0px;
-      -webkit-text-fill-color: #ffffff;
+      @include colors.text-fill;
       transition: -webkit-text-fill-color 0.5s;
     }
 
