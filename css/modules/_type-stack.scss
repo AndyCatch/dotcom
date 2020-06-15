@@ -22,11 +22,12 @@
     letter-spacing: -0.05rem !important;
     text-align: left;
 
-    @include colors.orange;
+    @include colors.white;
 }
 
 @mixin desktop-a-styles{
   @include desktop-p-styles;
+  @include colors.orange;
 }
 
 @mixin desktop-type-stack {

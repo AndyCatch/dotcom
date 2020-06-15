@@ -9,7 +9,7 @@
     filter: saturate(110%);
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%);
+    transform: translate(-33%, 0%);
   }
 }
 
@@ -27,7 +27,7 @@
       -webkit-text-fill-color: transparent;
       -webkit-text-stroke-width: 1px;
       @include colors.text-stroke;
-      // -webkit-text-stroke-color: #0c0f0d;
+      
       text-transform: uppercase;
     }
 

@@ -165,7 +165,7 @@ p {
   line-height: 1.1 !important;
   letter-spacing: -0.05rem !important;
   text-align: left;
-  color: #ff5000 !important;
+  color: white !important;
 }
 
 h1 {
@@ -180,6 +180,7 @@ a {
   line-height: 1.1 !important;
   letter-spacing: -0.05rem !important;
   text-align: left;
+  color: white !important;
   color: #ff5000 !important;
   transition: color 0.5s ease-out !important;
 }
@@ -212,7 +213,7 @@ a:hover {
   line-height: 1.1 !important;
   letter-spacing: -0.05rem !important;
   text-align: left;
-  color: #ff5000 !important;
+  color: white !important;
 }
 
 /* To help override values + flexbox from Semplice */
@@ -310,10 +311,10 @@ a {
 }
 .next a {
   overflow: hidden;
-  color: #0c0f0d;
+  color: #ff5000 !important;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #0c0f0d;
+  -webkit-text-stroke-color: #ff5000;
   text-transform: uppercase;
 }
 .next a img {
@@ -328,9 +329,9 @@ a {
   transition: opacity 0.2s;
 }
 .next a:hover {
-  color: #0c0f0d;
+  color: #ff5000 !important;
   -webkit-text-stroke-width: 0px;
-  -webkit-text-fill-color: #0c0f0d;
+  -webkit-text-fill-color: #ff5000;
   transition: -webkit-text-fill-color 0.5s;
 }
 .next a:hover img {
@@ -424,7 +425,7 @@ a {
 
 .current-menu-item::after {
   font-family: Arial, Helvetica, sans-serif !important;
-  color: white;
+  color: white !important;
   content: " ●" !important;
 }
 
@@ -491,7 +492,7 @@ a {
     filter: saturate(110%);
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%);
+    transform: translate(-33%, 0%);
   }
 
   .copy-module {
@@ -596,7 +597,7 @@ a {
     filter: saturate(110%);
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%);
+    transform: translate(-33%, 0%);
   }
 
   .next a img {
@@ -618,7 +619,7 @@ a {
     filter: saturate(110%);
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%);
+    transform: translate(-33%, 0%);
   }
 
   .next a img {
@@ -739,7 +740,7 @@ a {
     filter: saturate(110%);
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%);
+    transform: translate(-33%, 0%);
   }
 
   .next {
@@ -812,7 +813,7 @@ a {
     filter: saturate(110%);
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%);
+    transform: translate(-33%, 0%);
   }
 
   .next a img {
@@ -885,7 +886,7 @@ a {
     filter: saturate(110%);
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%);
+    transform: translate(-33%, 0%);
   }
 
   .copy-module {
@@ -976,7 +977,7 @@ a {
     filter: saturate(110%);
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%);
+    transform: translate(-33%, 0%);
   }
 
   .next a img {
@@ -1035,7 +1036,7 @@ a {
     filter: saturate(110%);
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%);
+    transform: translate(-33%, 0%);
   }
 
   .footer-module {
@@ -1122,7 +1123,7 @@ a {
     filter: saturate(110%);
     position: relative !important;
     opacity: 0.9;
-    transform: translate(-50%, 0%);
+    transform: translate(-33%, 0%);
   }
 
   .next a img {
