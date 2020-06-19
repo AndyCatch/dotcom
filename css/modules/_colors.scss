@@ -1,5 +1,5 @@
 @mixin orange {
-  color: #ff5000 !important;
+  color: #f08700 !important;
 }
 
 @mixin black {
@@ -15,9 +15,9 @@
 }
 
 @mixin text-stroke {
-  -webkit-text-stroke-color: #ff5000;
+  -webkit-text-stroke-color: #f08700;
 }
 
 @mixin text-fill {
-  -webkit-text-fill-color: #ff5000;
+  -webkit-text-fill-color: #f08700;
 }

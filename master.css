@@ -74,7 +74,7 @@ input, textarea, select {
   src: url("fonts/CommonSansWeb-Regular.woff2"), url("fonts/CommonSansWeb-Regular.woff");
 }
 body {
-  background-color: black;
+  background-color: #121714;
 }
 
 /* Remove the WP admin bar cos it's annoying  */
@@ -109,14 +109,14 @@ body {
 
 /* GLOBAL CSS */
 #overlay-menu .logo a {
-  color: black !important;
+  color: #121714 !important;
   transform: color !important;
   transition-timing-function: ease-out !important;
   transition: 0.4s !important;
 }
 
 #overlay-menu .hamburger span {
-  background: black !important;
+  background: #121714 !important;
   transform: background !important;
   transition-timing-function: ease-out !important;
   transition: 0.4s !important;
@@ -170,7 +170,7 @@ p {
 
 h1 {
   font-family: "Monument-Extended";
-  font-size: 8.25vw !important;
+  font-size: 6.25vw !important;
   line-height: 0.8 !important;
 }
 
@@ -181,7 +181,7 @@ a {
   letter-spacing: -0.05rem !important;
   text-align: left;
   color: white !important;
-  color: #ff5000 !important;
+  color: #f08700 !important;
   transition: color 0.5s ease-out !important;
 }
 
@@ -247,16 +247,16 @@ a {
 }
 .list a {
   overflow: hidden;
-  color: #ff5000 !important;
+  color: #f08700 !important;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #ff5000;
+  -webkit-text-stroke-color: #f08700;
   text-transform: uppercase;
 }
 .list a:hover {
-  color: #ff5000 !important;
+  color: #f08700 !important;
   -webkit-text-stroke-width: 0px;
-  -webkit-text-fill-color: #ff5000;
+  -webkit-text-fill-color: #f08700;
   transition: -webkit-text-fill-color 0.5s;
 }
 .list a:hover img {
@@ -269,7 +269,7 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 75vw;
+  width: 65vw;
   /*   this will tell the browser to ignore any default mouse interactions on this img element */
   pointer-events: none;
   transition: opacity 0.2s;
@@ -311,10 +311,10 @@ a {
 }
 .next a {
   overflow: hidden;
-  color: #ff5000 !important;
+  color: #f08700 !important;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #ff5000;
+  -webkit-text-stroke-color: #f08700;
   text-transform: uppercase;
 }
 .next a img {
@@ -329,9 +329,9 @@ a {
   transition: opacity 0.2s;
 }
 .next a:hover {
-  color: #ff5000 !important;
+  color: #f08700 !important;
   -webkit-text-stroke-width: 0px;
-  -webkit-text-fill-color: #ff5000;
+  -webkit-text-fill-color: #f08700;
   transition: -webkit-text-fill-color 0.5s;
 }
 .next a:hover img {
@@ -520,7 +520,7 @@ a {
   }
   .next a img {
     filter: saturate(110%);
-    width: 75vw;
+    width: 65vw;
     position: relative !important;
     opacity: 0.9;
     transform: translate(-50%, 0%) !important;
@@ -602,7 +602,7 @@ a {
 
   .next a img {
     filter: saturate(110%);
-    width: 75vw;
+    width: 65vw;
     position: relative !important;
     opacity: 0.9;
     transform: translate(-50%, 0%) !important;
@@ -624,7 +624,7 @@ a {
 
   .next a img {
     filter: saturate(110%);
-    width: 75vw;
+    width: 65vw;
     position: relative !important;
     opacity: 0.9;
     transform: translate(-50%, 0%) !important;
@@ -696,7 +696,7 @@ a {
 
   .next a img {
     filter: saturate(110%);
-    width: 75vw;
+    width: 65vw;
     position: relative !important;
     opacity: 0.9;
     transform: translate(-50%, 0%) !important;
@@ -752,7 +752,7 @@ a {
   }
   .next a img {
     filter: saturate(110%);
-    width: 75vw;
+    width: 65vw;
     position: relative !important;
     opacity: 0.9;
     transform: translate(-50%, 0%) !important;
@@ -818,7 +818,7 @@ a {
 
   .next a img {
     filter: saturate(110%);
-    width: 75vw;
+    width: 65vw;
     position: relative !important;
     opacity: 0.9;
     transform: translate(-50%, 0%) !important;
@@ -916,7 +916,7 @@ a {
   }
   .next a img {
     filter: saturate(110%);
-    width: 75vw;
+    width: 65vw;
     position: relative !important;
     opacity: 0.9;
     transform: translate(-50%, 0%) !important;
@@ -982,7 +982,7 @@ a {
 
   .next a img {
     filter: saturate(110%);
-    width: 75vw;
+    width: 65vw;
     position: relative !important;
     opacity: 0.9;
     transform: translate(-50%, 0%) !important;
@@ -1104,7 +1104,7 @@ a {
   }
   .next a img {
     filter: saturate(110%);
-    width: 75vw;
+    width: 65vw;
     position: relative !important;
     opacity: 0.9;
     transform: translate(-50%, 0%) !important;
@@ -1128,7 +1128,7 @@ a {
 
   .next a img {
     filter: saturate(110%);
-    width: 75vw;
+    width: 65vw;
     position: relative !important;
     opacity: 0.9;
     transform: translate(-50%, 0%) !important;
