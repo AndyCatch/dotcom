@@ -1,23 +1,29 @@
+// Colors
+$orange: #f08700;
+$black: #121714;
+$grey: #5e5e61;
+$white: #ffffff;
+
 @mixin orange {
-  color: #f08700 !important;
+  color: $orange !important;
 }
 
 @mixin black {
-  color: #0c0f0d !important;
+  color: $black !important;
 }
 
 @mixin white {
-  color: white !important;
+  color: $white !important;
 }
 
 @mixin grey {
-  color: #5e5e61 !important;
+  color: $grey !important;
 }
 
 @mixin text-stroke {
-  -webkit-text-stroke-color: #f08700;
+  -webkit-text-stroke-color: $black;
 }
 
 @mixin text-fill {
-  -webkit-text-fill-color: #f08700;
+  -webkit-text-fill-color: $black;
 }

@@ -74,7 +74,7 @@ input, textarea, select {
   src: url("fonts/CommonSansWeb-Regular.woff2"), url("fonts/CommonSansWeb-Regular.woff");
 }
 body {
-  background-color: #121714;
+  background-color: #f08700;
 }
 
 /* Remove the WP admin bar cos it's annoying  */
@@ -109,14 +109,14 @@ body {
 
 /* GLOBAL CSS */
 #overlay-menu .logo a {
-  color: #121714 !important;
+  color: #f08700 !important;
   transform: color !important;
   transition-timing-function: ease-out !important;
   transition: 0.4s !important;
 }
 
 #overlay-menu .hamburger span {
-  background: #121714 !important;
+  background: #f08700 !important;
   transform: background !important;
   transition-timing-function: ease-out !important;
   transition: 0.4s !important;
@@ -165,12 +165,12 @@ p {
   line-height: 1.1 !important;
   letter-spacing: -0.05rem !important;
   text-align: left;
-  color: white !important;
+  color: #ffffff !important;
 }
 
 h1 {
   font-family: "Monument-Extended";
-  font-size: 6.25vw !important;
+  font-size: 7.25vw !important;
   line-height: 0.8 !important;
 }
 
@@ -180,8 +180,8 @@ a {
   line-height: 1.1 !important;
   letter-spacing: -0.05rem !important;
   text-align: left;
-  color: white !important;
-  color: #f08700 !important;
+  color: #ffffff !important;
+  color: #121714 !important;
   transition: color 0.5s ease-out !important;
 }
 
@@ -213,7 +213,7 @@ a:hover {
   line-height: 1.1 !important;
   letter-spacing: -0.05rem !important;
   text-align: left;
-  color: white !important;
+  color: #ffffff !important;
 }
 
 /* To help override values + flexbox from Semplice */
@@ -247,16 +247,16 @@ a {
 }
 .list a {
   overflow: hidden;
-  color: #f08700 !important;
+  color: #121714 !important;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #f08700;
+  -webkit-text-stroke-color: #121714;
   text-transform: uppercase;
 }
 .list a:hover {
   color: #f08700 !important;
   -webkit-text-stroke-width: 0px;
-  -webkit-text-fill-color: #f08700;
+  -webkit-text-fill-color: #121714;
   transition: -webkit-text-fill-color 0.5s;
 }
 .list a:hover img {
@@ -314,7 +314,7 @@ a {
   color: #f08700 !important;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #f08700;
+  -webkit-text-stroke-color: #121714;
   text-transform: uppercase;
 }
 .next a img {
@@ -331,7 +331,7 @@ a {
 .next a:hover {
   color: #f08700 !important;
   -webkit-text-stroke-width: 0px;
-  -webkit-text-fill-color: #f08700;
+  -webkit-text-fill-color: #121714;
   transition: -webkit-text-fill-color 0.5s;
 }
 .next a:hover img {
@@ -425,7 +425,7 @@ a {
 
 .current-menu-item::after {
   font-family: Arial, Helvetica, sans-serif !important;
-  color: white !important;
+  color: #ffffff !important;
   content: " ●" !important;
 }
 

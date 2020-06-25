@@ -2,7 +2,7 @@
 
 @mixin desktop-h1-styles{
     font-family: "Monument-Extended";
-    font-size: 6.25vw !important;
+    font-size: 7.25vw !important;
     line-height: 0.8 !important;
 }
 
@@ -27,7 +27,7 @@
 
 @mixin desktop-a-styles{
   @include desktop-p-styles;
-  @include colors.orange;
+  @include colors.black;
 }
 
 @mixin desktop-type-stack {
