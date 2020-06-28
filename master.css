@@ -73,6 +73,14 @@ input, textarea, select {
   font-family: "Common Sans";
   src: url("fonts/CommonSansWeb-Regular.woff2"), url("fonts/CommonSansWeb-Regular.woff");
 }
+@font-face {
+  font-family: "Sohne-Buch";
+  src: url("fonts/Sohne-Buch.woff2"), url("fonts/Sohne-Buch.woff");
+}
+@font-face {
+  font-family: "Untitled-Sans";
+  src: url("fonts/untitled_sans-webfont.woff2"), url("fonts/untitled_sans-webfont.woff");
+}
 body {
   background-color: #f08700;
 }
@@ -169,9 +177,10 @@ p {
 }
 
 h1 {
-  font-family: "Monument-Extended";
-  font-size: 7.25vw !important;
-  line-height: 0.8 !important;
+  font-family: "Untitled-Sans";
+  font-size: 5.25vw !important;
+  line-height: 0.9 !important;
+  letter-spacing: -0.25rem !important;
 }
 
 a {
@@ -248,10 +257,8 @@ a {
 .list a {
   overflow: hidden;
   color: #121714 !important;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #121714;
-  text-transform: uppercase;
+  text-transform: none;
 }
 .list a:hover {
   color: #f08700 !important;

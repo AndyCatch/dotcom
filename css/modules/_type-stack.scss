@@ -1,9 +1,10 @@
 @use "colors";
 
 @mixin desktop-h1-styles{
-    font-family: "Monument-Extended";
-    font-size: 7.25vw !important;
-    line-height: 0.8 !important;
+    font-family: "Untitled-Sans";
+    font-size: 5.25vw !important;
+    line-height: 0.9 !important;
+    letter-spacing: -0.25rem !important;
 }
 
 @mixin tablet-h1-styles{

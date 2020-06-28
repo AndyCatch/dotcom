@@ -24,11 +24,11 @@
       overflow: hidden;
       @include colors.black;
 
-      -webkit-text-fill-color: transparent;
-      -webkit-text-stroke-width: 1px;
+        // -webkit-text-fill-color: transparent;
+        // -webkit-text-stroke-width: 1px;
       @include colors.text-stroke;
       
-      text-transform: uppercase;
+      text-transform: none;
     }
 
     a:hover {
