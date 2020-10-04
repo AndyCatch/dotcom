@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/AndyCatch/dotcom#readme",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^4.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp4": "^4.0.2"
   }
 }
