@@ -1,11 +1,11 @@
 @font-face {
-  font-family: "Monument-Extended";
-  src: url("fonts/monumentextended-ultrabold-webfont.woff2"),
-    url("fonts/monumentextended-ultrabold-webfont.woff");
-}
-
-@font-face {
   font-family: "Common Sans";
   src: url("fonts/CommonSansWeb-Regular.woff2"),
     url("fonts/CommonSansWeb-Regular.woff");
+}
+
+@font-face {
+  font-family: "Monument";
+  src: url("fonts/monumentextended-ultrabold-webfont.woff2"),
+    url("fonts/monumentextended-ultrabold-webfont.woff");
 }

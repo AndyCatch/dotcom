@@ -10,18 +10,20 @@ var browserSync = require("browser-sync").create()
 
 // Set a function to compile your .scss files
 gulp.task("compileCSS", function () {
-  return gulp
-    .src("src/css/app.scss")
-    .pipe(sourcemaps.init())
-    .pipe(sass().on("error", sass.logError))
-    .pipe(
-      cleanCSS({
-        compatibility: "ie8",
-      })
-    )
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest("dist/css")) // this results in a "app.css" in the dist folder
-    .pipe(browserSync.stream())
+  return (
+    gulp
+      .src("src/css/app.scss")
+      // .pipe(sourcemaps.init())
+      .pipe(sass().on("error", sass.logError))
+      // .pipe(
+      //   cleanCSS({
+      //     compatibility: "ie8",
+      //   })
+      // )
+      // .pipe(sourcemaps.write())
+      .pipe(gulp.dest("dist/css")) // this results in a "app.css" in the dist folder
+      .pipe(browserSync.stream())
+  )
 })
 
 gulp.task("html", function () {
