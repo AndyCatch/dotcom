@@ -27,7 +27,7 @@
     "gulp": "^4.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-dart-scss": "^1.1.0",
-    "gulp-imagemin": "^7.1.0",
+    "gulp-imagemin": "^6.0.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp4": "^4.0.3"
   },

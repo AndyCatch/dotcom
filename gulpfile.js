@@ -4,6 +4,8 @@ var sass = require("gulp-dart-sass")
 var cleanCSS = require("gulp-clean-css")
 var sourcemaps = require("gulp-sourcemaps")
 
+var imagemin = require("gulp-imagemin")
+
 var browserSync = require("browser-sync").create()
 
 // Set a function to compile your .scss files
@@ -23,7 +25,7 @@ gulp.task("compileCSS", function () {
 })
 
 gulp.task("html", function () {
-  return gulp.src("src/index.html").pipe(gulp.dest("dist"))
+  return gulp.src("src/*.html").pipe(gulp.dest("dist"))
 })
 
 gulp.task("fonts", function () {
@@ -31,21 +33,22 @@ gulp.task("fonts", function () {
 })
 
 gulp.task("js", function () {
-  return gulp.src("src/js/*").pipe(gulp.dest("dist/js"))
+  return gulp.src("src/js/*.js").pipe(gulp.dest("dist/js"))
 })
 
 gulp.task("images", function () {
-  return gulp.src("src/images/*").pipe(gulp.dest("dist/images"))
+  return gulp
+    .src("src/images/*")
+    .pipe(imagemin())
+    .pipe(gulp.dest("dist/images"))
 })
 
 // Sets up a function called watch(), containing the gulp.watch method
 gulp.task("watch", function () {
   browserSync.init({ server: { baseDir: "dist" } })
   // If any ".html" file is updated then reruns gulp html task to move files to dist folder and also updates live server
-  gulp
-    .watch("src/index.html", gulp.series("html"))
-    .on("change", browserSync.reload)
-  gulp.watch("src/js/*", gulp.series("js"))
+  gulp.watch("src/*.html", gulp.series("html")).on("change", browserSync.reload)
+  gulp.watch("src/js/*.js", gulp.series("js"))
   gulp.watch("src/fonts/*", gulp.series("fonts"))
   gulp.watch("src/img/*", gulp.series("images"))
 
