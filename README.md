@@ -1,9 +1,10 @@
 # dotcom
-Versioning code from folio
 
-Setting up a project to prototype custom code for my folio.
+Versioning code for my Semplice folio
+This branch is to optimize the "Single Page" version to work as a single page app.
 
 Roadmap:
-Make styles modular with features
-Test out Javascript features
-Set up a repo to eventually port into a new stack
+Add recent projects
+Re-design layout
+Set up better breakpoint modules mapped to Semplice's
+Optimize Gulp environment
