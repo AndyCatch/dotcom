@@ -31,7 +31,7 @@ gulp.task("fonts", function () {
 })
 
 gulp.task("js", function () {
-  return gulp.src("src/js/*.js").pipe(gulp.dest("dist/js"))
+  return gulp.src("src/js/*").pipe(gulp.dest("dist/js"))
 })
 
 gulp.task("images", function () {
@@ -42,7 +42,9 @@ gulp.task("images", function () {
 gulp.task("watch", function () {
   browserSync.init({ server: { baseDir: "dist" } })
   // If any ".html" file is updated then reruns gulp html task to move files to dist folder and also updates live server
-  gulp.watch("src/*.html", gulp.series("html")).on("change", browserSync.reload)
+  gulp
+    .watch("src/index.html", gulp.series("html"))
+    .on("change", browserSync.reload)
   gulp.watch("src/js/*", gulp.series("js"))
   gulp.watch("src/fonts/*", gulp.series("fonts"))
   gulp.watch("src/img/*", gulp.series("images"))
