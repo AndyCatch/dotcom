@@ -4,11 +4,11 @@
 @use "modules/listModule";
 @use "modules/nextProject";
 @use "modules/footerModule";
-@import "reset";
-@import "typography";
+@import 'reset';
+@import 'typography';
 
 // Colors
-$background-color: #f08700;
+$background-color: #ff4848;
 
 body {
   background-color: $background-color;
@@ -219,7 +219,7 @@ a {
   font-family: Arial, Helvetica, sans-serif !important;
   // color: #FF0000;
   @include colors.white;
-  content: " ●" !important;
+  content: ' ●' !important;
 }
 
 /* Back to Top  */
@@ -237,8 +237,8 @@ a {
 
 /* -------------------- Tablets -------------------- */
 
-@import "tablet";
+@import 'tablet';
 
 /* -------------------- Mobile -------------------- */
 
-@import "mobile";
+@import 'mobile';

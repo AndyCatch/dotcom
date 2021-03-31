@@ -1,9 +1,9 @@
 @use "colors";
 
 @mixin desktop-h1-styles {
-  font-family: "Monument";
-  font-size: 5.25vw !important;
-  line-height: 0.9 !important;
+  font-family: 'Beastly72';
+  font-size: 15.278vw !important;
+  line-height: 0.8 !important;
   letter-spacing: -0.25rem !important;
 }
 
@@ -17,7 +17,7 @@
 
 @mixin desktop-p-styles {
   // These need !important to override Semplice
-  font-family: "Common Sans";
+  font-family: 'Common Sans';
   font-size: 18px !important;
   line-height: 1.1 !important;
   letter-spacing: -0.05rem !important;
@@ -63,7 +63,7 @@
   }
 
   .logo ::after {
-    content: "\A Design Director";
+    content: '\A Design Director';
     white-space: pre;
   }
 

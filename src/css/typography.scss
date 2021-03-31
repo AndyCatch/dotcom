@@ -1,11 +1,16 @@
 @font-face {
-  font-family: "Common Sans";
-  src: url("/fonts/CommonSansWeb-Regular.woff2"),
-    url("/fonts/CommonSansWeb-Regular.woff");
+  font-family: 'Common Sans';
+  src: url('/fonts/CommonSansWeb-Regular.woff2'),
+    url('/fonts/CommonSansWeb-Regular.woff');
 }
 
 @font-face {
-  font-family: "Monument";
-  src: url("/fonts/monumentextended-ultrabold-webfont.woff2"),
-    url("/fonts/monumentextended-ultrabold-webfont.woff");
+  font-family: 'Monument';
+  src: url('/fonts/monumentextended-ultrabold-webfont.woff2'),
+    url('/fonts/monumentextended-ultrabold-webfont.woff');
+}
+
+@font-face {
+  font-family: 'Beastly72';
+  src: url('/fonts/Beastly-72_Point.woff2'), url('/fonts/Beastly-72_Point.woff');
 }
