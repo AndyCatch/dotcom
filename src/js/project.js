@@ -1,22 +1,17 @@
+/*–––––––––––––––This lives in Semplice –> Code Module in Each Project ––––––––––––––––––*/
 isProject()
 
 function isProject() {
   let title = 'Homepage Vision Verizon' // setting a title
-  let mobileCover = document.querySelector(
-    '.cover_title div[data-content-for="xs"] h1 span'
-  ) // setting a mobile cover (Not sure what this is tbh)
-
-  let marqueeText // String
-  marqueeText = fillArray(title)
+  let marqueeText = fillArray(title) // String
 
   let projectImage // Element
-  projectImage = document.getElementsByClassName('project-cover')[0] //
+  projectImage = document.getElementsByClassName('project-cover')[0]
 
   let marquee // Element
   marquee = document.querySelector('.cover_title h1 span')
 
   // sets to faded out
-
   if (projectImage) {
     projectImage.classList.add('fade-out')
   }
