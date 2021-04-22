@@ -1,3 +1,4 @@
+/*–––––––––––––––This lives in Semplice –> Advanced -> Javascript ––––––––––––––––––*/
 let prevScrollpos = window.pageYOffset // Number
 
 let isMobile = false
