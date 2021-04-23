@@ -30,7 +30,8 @@
     "gulp-imagemin": "^6.0.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
-    "gulp4": "^4.0.3"
+    "gulp4": "^4.0.3",
+    "readable-stream": "^3.6.0"
   },
   "dependencies": {
     "gulp-dart-sass": "^1.0.2"

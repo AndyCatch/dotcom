@@ -3,7 +3,8 @@ var gulp = require('gulp')
 var sass = require('gulp-dart-sass')
 var cleanCSS = require('gulp-clean-css')
 var sourcemaps = require('gulp-sourcemaps')
-
+var uglify = require('gulp-uglify')
+var pipeline = require('readable-stream').pipeline
 var imagemin = require('gulp-imagemin')
 
 var browserSync = require('browser-sync').create()
@@ -33,8 +34,12 @@ gulp.task('fonts', function () {
   return gulp.src('src/fonts/*').pipe(gulp.dest('dist/fonts'))
 })
 
-gulp.task('js', function () {
-  return gulp.src('src/js/*.js').pipe(gulp.dest('dist/js'))
+// gulp.task('js', function () {
+//   return gulp.src('src/js/*.js').pipe(gulp.dest('dist/js'))
+// })
+
+gulp.task('compress', function () {
+  return pipeline(gulp.src('src/js/*.js'), uglify(), gulp.dest('dist/js'))
 })
 
 gulp.task('images', function () {
@@ -49,7 +54,8 @@ gulp.task('watch', function () {
   browserSync.init({ server: { baseDir: 'dist' } })
   // If any ".html" file is updated then reruns gulp html task to move files to dist folder and also updates live server
   gulp.watch('src/*.html', gulp.series('html')).on('change', browserSync.reload)
-  gulp.watch('src/js/*.js', gulp.series('js'))
+  // gulp.watch('src/js/*.js', gulp.series('js'))
+  gulp.watch('src/js/*.js', gulp.series('compress'))
   gulp.watch('src/fonts/*', gulp.series('fonts'))
   gulp.watch('src/img/*', gulp.series('images'))
 
@@ -58,5 +64,5 @@ gulp.task('watch', function () {
 
 gulp.task(
   'default',
-  gulp.parallel('html', 'compileCSS', 'js', 'fonts', 'images', 'watch')
+  gulp.parallel('html', 'compileCSS', 'compress', 'fonts', 'images', 'watch')
 )
