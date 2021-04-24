@@ -39,7 +39,13 @@ gulp.task('fonts', function () {
 // })
 
 gulp.task('compress', function () {
-  return pipeline(gulp.src('src/js/*.js'), uglify(), gulp.dest('dist/js'))
+  return pipeline(
+    sourcemaps.init(),
+    gulp.src('src/js/*.js'),
+    uglify(),
+    sourcemaps.write(),
+    gulp.dest('dist/js')
+  )
 })
 
 gulp.task('images', function () {
