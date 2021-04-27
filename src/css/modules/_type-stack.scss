@@ -32,6 +32,19 @@
 }
 
 @mixin desktop-type-stack {
+  .logo-display {
+    --minFontSize: 32px;
+    --maxFontSize: 220px;
+    --scaler: 15.278vw;
+    font-size: clamp(
+      var(--minFontSize),
+      var(--scaler),
+      var(--maxFontSize)
+    ) !important;
+
+    @include colors.display-stroke;
+  }
+
   p {
     @include desktop-p-styles;
   }

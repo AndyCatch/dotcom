@@ -4,17 +4,9 @@
 /* Shadow values */
 
 /* E.g */
-/* 
+
 :root {
-    --light-background: ghostwhite;
-    --dark-background: black;
-  
-    --light-text: white;
-    --dark-text: black;
-  
-    --dark-heading-color: pink;
-    --light-heading-color: darkred;
-  
-    --dark-link-color: darkblue;
-    --light-link-color: lightblue;
-  } */
+  --black: #121714;
+
+  --background: var(--black);
+}

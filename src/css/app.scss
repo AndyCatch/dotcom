@@ -6,12 +6,13 @@
 @use "modules/footerModule";
 @import 'reset';
 @import 'typography';
+@import 'design-tokens';
 
 // Colors
 $background-color: #ff4848;
 
 body {
-  background-color: $background-color;
+  background-color: var(--background);
 }
 
 /* Remove the WP admin bar cos it's annoying  */

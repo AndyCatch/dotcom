@@ -20,6 +20,12 @@ $white: #ffffff;
   color: $grey !important;
 }
 
+@mixin display-stroke {
+  -webkit-text-stroke-color: $orange !important;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 2px;
+}
+
 @mixin text-stroke {
   -webkit-text-stroke-color: $black;
 }
