@@ -1,15 +1,11 @@
-@use "modules/colors";
 @use "modules/type-stack";
+@use "modules/homeBranding";
 @use "modules/copyModule";
 @use "modules/listModule";
 @use "modules/nextProject";
 @use "modules/footerModule";
 @import 'reset';
-@import 'typography';
-@import 'design-tokens';
-
-// Colors
-$background-color: #ff4848;
+@import 'designTokens';
 
 body {
   background-color: var(--background);
@@ -20,18 +16,22 @@ body {
   display: none;
 }
 
+/* Branding */
+@include homeBranding.desktop;
+
+/* Copy Module */
 @include copyModule.desktop;
 
 /* GLOBAL CSS */
 #overlay-menu .logo a {
-  color: $background-color !important;
+  color: var(--background) !important;
   transform: color !important;
   transition-timing-function: ease-out !important;
   transition: 0.4s !important;
 }
 
 #overlay-menu .hamburger span {
-  background: $background-color !important;
+  background: var(--background) !important;
   transform: background !important;
   transition-timing-function: ease-out !important;
   transition: 0.4s !important;
@@ -135,10 +135,10 @@ a {
 .cover_title {
   transform: rotate(-10deg);
 
-  color: #ffffff;
-  -webkit-text-fill-color: #ffffff;
+  color: var(--white);
+  -webkit-text-fill-color: var(--white);
   -webkit-text-stroke-width: 0px;
-  -webkit-text-stroke-color: #ffffff;
+  -webkit-text-stroke-color: var(--white);
   text-transform: uppercase;
 
   z-index: 100 !important;
@@ -218,8 +218,7 @@ a {
 
 .current-menu-item::after {
   font-family: Arial, Helvetica, sans-serif !important;
-  // color: #FF0000;
-  @include colors.white;
+  color: var(--white);
   content: ' ●' !important;
 }
 

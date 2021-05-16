@@ -1,0 +1,36 @@
+@mixin desktop {
+  .home-branding {
+    padding: var(--content-margin) 0 0 var(--content-margin);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .branding {
+    color: var(--white);
+  }
+
+  .content {
+    display: grid;
+    grid-column-gap: 24px;
+    column-gap: 24px;
+    grid-template-columns: repeat(12, 1fr);
+    width: 100%;
+  }
+
+  .row {
+    display: block;
+  }
+
+  .row:nth-child(1) {
+    padding-top: var(--top-padding);
+    grid-column-start: 1;
+    grid-column-end: 12;
+  }
+
+  .row:nth-child(2) {
+    grid-column-start: 2;
+    grid-column-end: 12;
+  }
+}

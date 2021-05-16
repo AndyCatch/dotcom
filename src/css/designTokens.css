@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'Common Sans';
+  src: url('/fonts/CommonSansWeb-Regular.woff2'),
+    url('/fonts/CommonSansWeb-Regular.woff');
+}
+
+@font-face {
+  font-family: 'Beastly72';
+  src: url('/fonts/Beastly-72_Point.woff2'), url('/fonts/Beastly-72_Point.woff');
+}
+
+:root {
+  /* Colors */
+  --white: #ffffff !important;
+  --black: #232c26 !important; /* Dusty Black */
+  --purple: #9c94e7 !important; /* Footer Clock */
+  --orange: #ff4848 !important; /* PDP Text */
+  --dark-grey: #5e5e61 !important; /* Copy Headlines */
+
+  --background: var(--black);
+
+  /* Type Sizes */
+  --display-size: 17.361vw; /* Converted from 220px@1440px W*/
+  --display-line: 0.8;
+
+  --display-stroke-w: 2px;
+
+  --subHead-size: 5.556vw; /* Converted to vw from 80px@1440 W*/
+  --subHead-line: 0.8;
+
+  --nav-size: 24px;
+  --nav-line: 1;
+
+  --body-size: 18px;
+  --body-line: 1.11111111;
+
+  /* Spacing */
+  --content-margin: 32px;
+
+  --top-padding: 40px;
+}
+
+/* 
+Formula for clamping / min max fluid type. Hold until visual is more steady
+
+--minFontSize: 32px;
+--maxFontSize: 220px;
+--scaler: 15.278vw;
+font-size: clamp(
+  var(--minFontSize),
+  var(--scaler),
+  var(--maxFontSize)
+) !important; */

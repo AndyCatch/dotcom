@@ -1,10 +1,7 @@
-@use "colors";
-
 @mixin desktop-h1-styles {
   font-family: 'Beastly72';
-  font-size: 15.278vw !important;
-  line-height: 0.8 !important;
-  letter-spacing: -0.25rem !important;
+  font-size: var(--subHead-size);
+  line-height: var(--subHead-line);
 }
 
 @mixin tablet-h1-styles {
@@ -18,39 +15,29 @@
 @mixin desktop-p-styles {
   // These need !important to override Semplice
   font-family: 'Common Sans';
-  font-size: 18px !important;
-  line-height: 1.1 !important;
-  letter-spacing: -0.05rem !important;
+  font-size: var(--body-size) !important;
+  line-height: var(--body-line) !important;
   text-align: left;
 
-  @include colors.white;
+  color: var(--white);
 }
 
 @mixin desktop-a-styles {
   @include desktop-p-styles;
-  @include colors.black;
 }
 
 @mixin desktop-type-stack {
-  .logo-display {
-    --minFontSize: 32px;
-    --maxFontSize: 220px;
-    --scaler: 15.278vw;
-    font-size: clamp(
-      var(--minFontSize),
-      var(--scaler),
-      var(--maxFontSize)
-    ) !important;
-
-    @include colors.display-stroke;
-  }
-
-  p {
-    @include desktop-p-styles;
+  .display-size {
+    font-size: var(--display-size) !important;
+    line-height: var(--display-line);
   }
 
   h1 {
     @include desktop-h1-styles;
+  }
+
+  p {
+    @include desktop-p-styles;
   }
 
   a {
@@ -59,25 +46,21 @@
   }
 
   a:hover {
-    color: white !important;
+    color: var(--orange);
     transition: color 0.5s ease-out !important;
   }
 
   .logo a {
-    mix-blend-mode: difference;
+    mix-blend-mode: exclusion;
     height: fit-content !important;
     font-size: 2vw !important;
     line-height: 1 !important;
+    z-index: 2;
   }
 
   .logo a:hover {
-    color: white !important;
+    color: var(--orange);
     transition: color 0.5s ease-out !important;
-  }
-
-  .logo ::after {
-    content: '\A Design Director';
-    white-space: pre;
   }
 
   .currentYear {

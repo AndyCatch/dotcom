@@ -1,5 +1,3 @@
-@use "colors";
-
 @mixin desktop {
   .copy-module {
     margin: 0 1vh 0 1vh;
@@ -15,7 +13,7 @@
     div {
       width: 33%;
       max-width: 33%;
-      margin-bottom:0 !important;
+      margin-bottom: 0 !important;
     }
 
     .project-title {
@@ -25,7 +23,7 @@
 
     div .eyebrow {
       margin: 16px 0 0 0 !important;
-      @include colors.grey;
+      color: var(--dark-grey);
     }
   }
 }
@@ -33,7 +31,7 @@
 @mixin tablet-portait {
   .copy-module {
     margin: 0 1vh 0 1vh;
-    
+
     flex-direction: row;
     flex-basis: 50%;
 
@@ -52,17 +50,16 @@
   }
 }
 
-@mixin mobile{
-   
-  .copy-module{
-    margin:0 8px 0 8px;
-    
+@mixin mobile {
+  .copy-module {
+    margin: 0 8px 0 8px;
+
     flex-direction: column;
     flex-basis: 100%;
-  
-    div{
+
+    div {
       width: 100%;
-      max-width:100%;
+      max-width: 100%;
     }
 
     .spacer {
@@ -72,9 +69,7 @@
     .project-team {
       margin-left: 0;
       width: 88%;
-      max-width:88%;
+      max-width: 88%;
     }
-
   }
-
 }
