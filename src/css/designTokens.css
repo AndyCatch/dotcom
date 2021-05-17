@@ -36,8 +36,11 @@
 
   /* Spacing */
   --content-margin: 32px;
+  --topBottom-margin: calc(var(--content-margin) * 2);
+  --leftRight-margin: calc(var(--content-margin) * 2);
 
   --top-padding: 40px;
+  --bottom-padding: 40px;
 }
 
 /* 
@@ -45,9 +48,9 @@ Formula for clamping / min max fluid type. Hold until visual is more steady
 
 --minFontSize: 32px;
 --maxFontSize: 220px;
---scaler: 15.278vw;
+--scalar: 15.278vw;
 font-size: clamp(
   var(--minFontSize),
-  var(--scaler),
+  var(--scalar),
   var(--maxFontSize)
 ) !important; */

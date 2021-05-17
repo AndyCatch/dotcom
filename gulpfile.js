@@ -61,6 +61,7 @@ gulp.task('watch', function () {
   gulp.watch('src/img/*', gulp.series('images'))
 
   gulp.watch('src/css/app.scss', gulp.series('compileCSS'))
+  gulp.watch('src/css/modules/*.scss', gulp.series('compileCSS'))
 })
 
 gulp.task(

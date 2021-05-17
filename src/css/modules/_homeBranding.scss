@@ -1,14 +1,8 @@
 @mixin desktop {
   .home-branding {
-    padding: var(--content-margin) 0 0 var(--content-margin);
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .branding {
-    color: var(--white);
+    height: calc(100vh - var(--topBottom-margin));
+    width: calc(100vw - var(--leftRight-margin));
+    margin: var(--content-margin);
   }
 
   .content {
@@ -16,7 +10,11 @@
     grid-column-gap: 24px;
     column-gap: 24px;
     grid-template-columns: repeat(12, 1fr);
-    width: 100%;
+
+    width: inherit;
+    position: absolute;
+    top: 0;
+    transform: translate(0, 40vh);
   }
 
   .row {
@@ -30,7 +28,14 @@
   }
 
   .row:nth-child(2) {
-    grid-column-start: 2;
+    grid-column-start: 3;
     grid-column-end: 12;
+  }
+
+  .branding {
+    position: absolute;
+    bottom: 0;
+    color: var(--white);
+    padding-bottom: calc(var(--bottom-padding) + 24px);
   }
 }
