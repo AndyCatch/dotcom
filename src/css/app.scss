@@ -1,5 +1,6 @@
 @use "modules/type-stack";
 @use "modules/homeBranding";
+@use "modules/letterBackground";
 @use "modules/copyModule";
 @use "modules/listModule";
 @use "modules/nextProject";
@@ -15,6 +16,8 @@ body {
 #wpadminbar {
   display: none;
 }
+/* Letters */
+@include letterBackground.desktop;
 
 /* Branding */
 @include homeBranding.desktop;
@@ -111,14 +114,6 @@ a {
 
 .right-align {
   text-align: right;
-}
-
-.title {
-  display: flex;
-  flex-direction: row;
-  flex-grow: 1;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 /* ----- Profile / About Page ----- */

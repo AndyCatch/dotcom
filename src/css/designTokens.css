@@ -1,12 +1,18 @@
 @font-face {
-  font-family: 'Common Sans';
-  src: url('/fonts/CommonSansWeb-Regular.woff2'),
-    url('/fonts/CommonSansWeb-Regular.woff');
+  font-family: 'Beastly72';
+  src: url('/fonts/Beastly-72_Point.woff2'), url('/fonts/Beastly-72_Point.woff');
 }
 
 @font-face {
-  font-family: 'Beastly72';
-  src: url('/fonts/Beastly-72_Point.woff2'), url('/fonts/Beastly-72_Point.woff');
+  font-family: 'UntitledSans';
+  src: url('/fonts/untitled-sans-web-regular.woff2'),
+    url('/fonts/untitled-sans-web-regular.woff');
+}
+
+@font-face {
+  font-family: 'UntitledSansItalic';
+  src: url('/fonts/untitled-sans-web-regular-italic.woff2'),
+    url('/fonts/untitled-sans-web-regular-italic.woff');
 }
 
 :root {
@@ -19,10 +25,14 @@
 
   --background: var(--black);
 
+  /* Type */
+  --beastly: 'Beastly72';
+  --untitled-reg: 'UntitledSans';
+  --untitled-ita: 'UntitledSansItalic';
+
   /* Type Sizes */
   --display-size: 17.361vw; /* Converted from 220px@1440px W*/
   --display-line: 0.8;
-
   --display-stroke-w: 2px;
 
   --subHead-size: 5.556vw; /* Converted to vw from 80px@1440 W*/

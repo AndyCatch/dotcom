@@ -1,0 +1,39 @@
+@mixin desktop {
+  .letter-container {
+    height: calc(100vh - var(--topBottom-margin));
+    width: calc(100vw - var(--leftRight-margin));
+    margin: var(--content-margin);
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-basis: 50%;
+  }
+
+  .letter {
+    width: calc(50vw - var(--leftRight-margin));
+    height: inherit;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed !important;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: 1;
+  }
+
+  .letter:nth-child(1) {
+    left: 25%;
+  }
+
+  .letter:nth-child(2) {
+    left: 75%;
+  }
+
+  .letter img {
+    height: calc(80vh - var(--topBottom-margin));
+  }
+}

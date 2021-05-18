@@ -1,5 +1,5 @@
 @mixin desktop-h1-styles {
-  font-family: 'Beastly72';
+  font-family: var(--beastly);
   font-size: var(--subHead-size);
   line-height: var(--subHead-line);
 }
@@ -14,7 +14,7 @@
 
 @mixin desktop-p-styles {
   // These need !important to override Semplice
-  font-family: 'Common Sans';
+  font-family: var(--untitled-reg);
   font-size: var(--body-size) !important;
   line-height: var(--body-line) !important;
   text-align: left;
