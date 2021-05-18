@@ -11,6 +11,8 @@
   }
 
   .letter {
+    // opacity: 0.75;
+
     width: calc(50vw - var(--leftRight-margin));
     height: inherit;
 
@@ -34,6 +36,6 @@
   }
 
   .letter img {
-    height: calc(80vh - var(--topBottom-margin));
+    height: calc(72vh - var(--topBottom-margin));
   }
 }
