@@ -25,12 +25,13 @@
 
   .row:nth-child(1) {
     padding-top: var(--top-padding);
-    grid-column-start: 1;
-    grid-column-end: 12;
+    grid-column-start: 3;
+    grid-column-end: 13;
   }
 
-  .row:nth-child(2) {
-    grid-column-start: 3;
+  .row:nth-child(2),
+  .row:nth-child(3) {
+    grid-column-start: 2;
     grid-column-end: 12;
   }
 

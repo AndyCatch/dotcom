@@ -12,12 +12,31 @@
 }
 
 @mixin desktop {
-  .list {
-    display: inline-block;
-    margin: 45vh 0 0 0;
-    padding: 0 0 30.5vh 0;
-    width: 100%;
+  .list-container {
+    display: block;
+    margin: 45vh var(--content-margin) 0 var(--content-margin);
+    width: calc(100vw - var(--leftRight-margin));
+  }
 
+  .list-heading {
+    display: grid;
+    grid-column-gap: 24px;
+    column-gap: 24px;
+    grid-template-columns: repeat(12, 1fr);
+
+    h1 {
+      grid-column-start: 3;
+      grid-column-end: 12;
+    }
+  }
+
+  .outlined {
+    color: var(--white);
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: var(--display-stroke-w);
+  }
+
+  .list {
     a {
       overflow: hidden;
       color: var(--white);
