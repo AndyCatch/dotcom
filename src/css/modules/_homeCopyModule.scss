@@ -1,0 +1,41 @@
+@mixin desktop {
+  .home-copy-module {
+    display: grid;
+    grid-column-gap: 24px;
+    column-gap: 24px;
+    grid-template-columns: repeat(12, 1fr);
+    margin: var(--content-margin);
+  }
+
+  .home-copy-row {
+    display: block;
+  }
+
+  .home-copy-row:nth-child(1),
+  .home-copy-row:nth-child(2),
+  .home-copy-row:nth-child(3) {
+    padding-top: var(--topBottom-margin);
+  }
+
+  .home-copy-row:nth-child(1) {
+    grid-column-start: 3;
+    grid-column-end: 7;
+  }
+
+  .home-copy-row:nth-child(2) {
+    grid-column-start: 5;
+    grid-column-end: 9;
+  }
+
+  .home-copy-row:nth-child(3) {
+    padding-top: calc(var(--topBottom-margin) * 4);
+    grid-column-start: 6;
+    grid-column-end: 13;
+  }
+}
+
+@mixin tablet-portait {
+}
+
+@mixin mobile {
+}

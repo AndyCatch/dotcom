@@ -36,6 +36,10 @@
     @include desktop-h1-styles;
   }
 
+  ul {
+    @include desktop-p-styles;
+  }
+
   p {
     @include desktop-p-styles;
   }

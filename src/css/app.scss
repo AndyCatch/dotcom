@@ -1,6 +1,7 @@
 @use "modules/type-stack";
 @use "modules/homeBranding";
 @use "modules/letterBackground";
+@use "modules/homeCopyModule";
 @use "modules/copyModule";
 @use "modules/listModule";
 @use "modules/nextProject";
@@ -17,11 +18,15 @@ body {
 #wpadminbar {
   display: none;
 }
+
 /* Letters */
 @include letterBackground.desktop;
 
 /* Branding */
 @include homeBranding.desktop;
+
+/* Home Copy Module */
+@include homeCopyModule.desktop;
 
 /* Copy Module */
 @include copyModule.desktop;

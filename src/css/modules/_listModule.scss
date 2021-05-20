@@ -18,12 +18,15 @@
     width: calc(100vw - var(--leftRight-margin));
   }
 
-  .list-heading {
+  .list-heading,
+  .list {
     display: grid;
     grid-column-gap: 24px;
     column-gap: 24px;
     grid-template-columns: repeat(12, 1fr);
+  }
 
+  .list-heading {
     h1 {
       grid-column-start: 3;
       grid-column-end: 12;
@@ -37,12 +40,22 @@
   }
 
   .list {
-    a {
+    a h1 {
       overflow: hidden;
+      padding-bottom: 14px;
+    }
+
+    a h1 span::after {
+      color: var(--white);
+      content: ' ↗' !important;
+    }
+
+    a {
+      display: block;
+      grid-column-start: 5;
+      grid-column-end: 12;
       color: var(--white);
       -webkit-text-fill-color: var(--white);
-
-      text-transform: none;
     }
 
     a:hover {
