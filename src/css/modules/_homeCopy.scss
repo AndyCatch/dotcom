@@ -4,11 +4,13 @@
     grid-column-gap: 24px;
     column-gap: 24px;
     grid-template-columns: repeat(12, 1fr);
-    margin: var(--content-margin);
+    /* top | right | bottom | left */
+    margin: 0 var(--content-margin) 0 var(--content-margin);
   }
 
   .home-copy-row {
     display: block;
+    z-index: 2;
   }
 
   .home-copy-row:nth-child(1),

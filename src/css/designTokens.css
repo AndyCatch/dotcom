@@ -35,6 +35,9 @@
   --display-line: 0.8;
   --display-stroke-w: 2px;
 
+  --clock-size: 15vw;
+  --clock-line: 0.9;
+
   --subHead-size: 5.556vw; /* Converted to vw from 80px@1440 W*/
   --subHead-line: 1;
 

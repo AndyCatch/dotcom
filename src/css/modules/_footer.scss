@@ -1,0 +1,25 @@
+@mixin desktop {
+  .footer-container {
+    position: relative;
+    bottom: 0;
+    margin: 24vh var(--content-margin) 0 var(--content-margin);
+  }
+
+  .clock-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    // justify-content: flex-start;
+
+    h1 {
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+  }
+}
+
+@mixin tablet-portait {
+}
+
+@mixin mobile {
+}

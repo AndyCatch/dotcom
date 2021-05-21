@@ -1,11 +1,12 @@
 @use "modules/type-stack";
 @use "modules/homeBranding";
 @use "modules/letterBackground";
-@use "modules/homeCopyModule";
+@use "modules/homeCopy";
 @use "modules/copyModule";
 @use "modules/listModule";
 @use "modules/nextProject";
-@use "modules/footerModule";
+@use "modules/footer"; // New New
+@use "modules/footerModule"; // Old one
 @import 'reset';
 @import 'designTokens';
 
@@ -19,6 +20,9 @@ body {
   display: none;
 }
 
+/* Footer */
+@include footer.desktop;
+
 /* Letters */
 @include letterBackground.desktop;
 
@@ -26,7 +30,7 @@ body {
 @include homeBranding.desktop;
 
 /* Home Copy Module */
-@include homeCopyModule.desktop;
+@include homeCopy.desktop;
 
 /* Copy Module */
 @include copyModule.desktop;
