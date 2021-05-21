@@ -13,6 +13,17 @@
 html,
 body {
   background-color: var(--background);
+
+  ::-moz-selection {
+    /* Code for Firefox */
+    // color: red;
+    // background: var(--dark-blue);
+  }
+
+  ::selection {
+    // color: red;
+    // background: var(--dark-blue);
+  }
 }
 
 /* Remove the WP admin bar cos it's annoying  */

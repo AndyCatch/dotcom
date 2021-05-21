@@ -17,6 +17,8 @@
   }
 
   .letter {
+    pointer-events: none;
+
     width: calc(50vw - var(--leftRight-margin));
     height: inherit;
 
