@@ -22,7 +22,7 @@
   --purple: #9c94e7 !important; /* Footer Clock */
   --orange: #ff4848 !important; /* PDP Text */
   --dark-grey: #5e5e61 !important; /* Copy Headlines */
-  --dark-blue: #1e176a;
+  --dark-blue: #1e176a; /* Selected text */
 
   --background: var(--black);
 
@@ -32,7 +32,7 @@
   --untitled-ita: 'UntitledSansItalic';
 
   /* Type Sizes */
-  --display-size: 17.361vw; /* Converted from 220px@1440px W*/
+  --display-size: 17vw; /* Converted from 220px@1440px W*/
   --display-line: 0.8;
   --display-stroke-w: 2px;
 

@@ -2,24 +2,34 @@
   .footer-container {
     position: relative;
     bottom: 0;
-    margin: 24vh var(--content-margin) 0 var(--content-margin);
-  }
+    margin: var(--content-margin);
 
-  .social-links {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-
-    z-index: 2;
+    div:nth-child(1) {
+      transform: translate(0, 20%);
+      border-top: 1px var(--dark-grey);
+      border-top-style: dotted;
+    }
   }
 
   .clock-container {
     pointer-events: none;
+
+    height: fit-content;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
+    align-items: flex-start;
+
     z-index: 1;
+
+    .NYCtime {
+      // IDs the NYC element
+    }
+
+    .SYDtime {
+      // IDs the SYD element
+    }
 
     h1 {
       box-sizing: border-box;

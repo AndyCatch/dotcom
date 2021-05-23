@@ -7,6 +7,7 @@
 @use "modules/nextProject";
 @use "modules/footer"; // New New
 @use "modules/footerModule"; // Old one
+@use "modules/socialLinks"; // New New
 @import 'reset';
 @import 'designTokens';
 
@@ -33,6 +34,9 @@ body {
 
 /* Footer */
 @include footer.desktop;
+
+/* Social links */
+@include socialLinks.desktop;
 
 /* Letters */
 @include letterBackground.desktop;

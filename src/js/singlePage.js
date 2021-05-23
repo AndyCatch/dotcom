@@ -12,7 +12,7 @@ let options = {
 
 let observer = new IntersectionObserver(revealNav, options)
 
-var clock = setInterval('updateClock()', 200)
+var clock = setInterval('updateClock()', 1000)
 var navChecker = setInterval('addNav()', 200)
 var observerChecker = setInterval('setUpObserver()', 200)
 
@@ -46,7 +46,7 @@ function addNav() {
 }
 
 function setUpObserver() {
-  document.querySelectorAll('.footer-module').forEach((module) => {
+  document.querySelectorAll('.footer-container').forEach((module) => {
     observer.observe(module)
   })
 }
@@ -63,7 +63,7 @@ function revealNav(entries, obs) {
   let nav = document.querySelectorAll('div.navbar-inner')[0]
 
   entries.forEach((entry) => {
-    if (entry.isIntersecting && entry.intersectionRatio >= 0.99) {
+    if (entry.isIntersecting && entry.intersectionRatio >= 0.9999999) {
       console.log('entry.isIntersecting')
       nav.classList.remove('hideNav')
       nav.classList.add('showNav')
@@ -73,30 +73,17 @@ function revealNav(entries, obs) {
 
 function updateClock() {
   // Gets the element we want to inject the clock into
-  let elem = document.querySelector('.currentYear')
+  let nycTime = document.querySelector('.NYCtime')
+  let sydTime = document.querySelector('.SYDtime')
 
-  if (elem !== 'undefined') {
-    const now = new Date() // Gets the current time
+  if (nycTime !== 'undefined') {
+    let now = luxon.DateTime.now().setZone('America/New_York')
+    nycTime.innerHTML = now.toFormat('HH:mm:ss')
+  }
 
-    let year = now.getFullYear() // Get the hours, minutes and seconds from the current time
-    let hours = now.getHours()
-    let minutes = now.getMinutes()
-    let seconds = now.getSeconds()
-
-    if (hours < 10) {
-      hours = '0' + hours // Format hrs, mins and secs
-    }
-    if (minutes < 10) {
-      minutes = '0' + minutes
-    }
-    if (seconds < 10) {
-      seconds = '0' + seconds
-    }
-
-    // Sets the elements inner HTML value to our clock data
-    if (elem) {
-      elem.innerHTML = '© ' + year + ' ' + hours + ':' + minutes + ':' + seconds
-    }
+  if (sydTime !== 'undefined') {
+    let now = luxon.DateTime.now().setZone('Australia/ACT')
+    sydTime.innerHTML = now.toFormat('HH:mm:ss')
   }
 }
 

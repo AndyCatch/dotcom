@@ -4,6 +4,7 @@ var sass = require('gulp-dart-sass')
 var cleanCSS = require('gulp-clean-css')
 var sourcemaps = require('gulp-sourcemaps')
 var uglify = require('gulp-uglify')
+var options = { sourceMap: true }
 var pipeline = require('readable-stream').pipeline
 var imagemin = require('gulp-imagemin')
 
@@ -36,8 +37,8 @@ gulp.task('fonts', function () {
 
 gulp.task('js', function () {
   return pipeline(
-    sourcemaps.init(),
     gulp.src('src/js/*.js'),
+    sourcemaps.init(),
     uglify(),
     sourcemaps.write(),
     gulp.dest('dist/js')
@@ -60,6 +61,7 @@ gulp.task('watch', function () {
   gulp.watch('src/fonts/*', gulp.series('fonts'))
   gulp.watch('src/img/*', gulp.series('images'))
 
+  // If any ".scss" file is updated then reruns gulp scss task to move files to dist folder
   gulp.watch('src/css/app.scss', gulp.series('compileCSS'))
   gulp.watch('src/css/modules/*.scss', gulp.series('compileCSS'))
 })

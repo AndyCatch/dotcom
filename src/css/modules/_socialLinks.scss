@@ -1,0 +1,31 @@
+@mixin desktop {
+  .social-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    /* top | right | bottom | left */
+    width: calc(25vw - var(--leftRight-margin));
+    margin: 25vh var(--content-margin) 0 var(--content-margin);
+
+    transform: translate(0, 130%);
+
+    // text-align: center;
+
+    a::after {
+      color: var(--white);
+      content: '↗' !important;
+    }
+
+    a {
+      z-index: 2;
+    }
+  }
+}
+
+@mixin tablet-portait {
+}
+
+@mixin mobile {
+}
