@@ -2,6 +2,7 @@
 @use "modules/homeBranding";
 @use "modules/letterBackground";
 @use "modules/homeCopy";
+@use "modules/navigation";
 @use "modules/copyModule";
 @use "modules/listModule";
 @use "modules/nextProject";
@@ -17,13 +18,13 @@ body {
 
   ::-moz-selection {
     /* Code for Firefox */
-    // color: red;
-    // background: var(--dark-blue);
+    color: var(--purple);
+    background: var(--dark-blue);
   }
 
   ::selection {
-    // color: red;
-    // background: var(--dark-blue);
+    color: var(--purple);
+    background: var(--dark-blue);
   }
 }
 
@@ -31,6 +32,9 @@ body {
 #wpadminbar {
   display: none;
 }
+
+/* Global Type Styles */
+@include type-stack.desktop-type-stack;
 
 /* Footer */
 @include footer.desktop;
@@ -50,6 +54,12 @@ body {
 /* Copy Module */
 @include copyModule.desktop;
 
+/* Navigation */
+@include navigation.desktop;
+
+/* ----- List Module ----- */
+@include listModule.desktop;
+
 /* GLOBAL CSS */
 #overlay-menu .logo a {
   color: var(--background) !important;
@@ -63,22 +73,6 @@ body {
   transform: background !important;
   transition-timing-function: ease-out !important;
   transition: 0.4s !important;
-}
-
-/*Hide Show Nav classes*/
-.navbar-inner {
-  height: calc(12%) !important;
-  top: 0 !important;
-  position: fixed !important;
-  transition: transform 0.4s cubic-bezier(0.96, 0, 0.4, 1) !important;
-}
-
-.hideNav {
-  transform: translateY(-100%) !important;
-}
-
-.showNav {
-  transform: translateY(0%) !important;
 }
 
 /* Bouncing arrow animation / positioning */
@@ -102,43 +96,6 @@ body {
     transform: translateY(8px);
     opacity: 1;
   }
-}
-
-/* Global Type Styles */
-
-@include type-stack.desktop-type-stack;
-
-/* To help override values + flexbox from Semplice */
-.menu-icon {
-  margin: 8px 0 0 0;
-}
-
-.navbar-right .menu {
-  width: 33vw;
-  height: fit-content !important;
-  flex-direction: column !important;
-  /* Firefox fix, seems to be fine in Chrome + Safari */
-  justify-content: flex-start !important;
-}
-
-.navbar-right .menu li {
-  text-align: left;
-}
-
-a {
-  text-decoration: none;
-}
-
-/* ----- Index Page ----- */
-
-@include listModule.desktop;
-
-.full-height {
-  height: 25vh !important;
-}
-
-.right-align {
-  text-align: right;
 }
 
 /* ----- Profile / About Page ----- */

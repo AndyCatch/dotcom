@@ -21,6 +21,7 @@
   --black: #232c26 !important; /* Dusty Black */
   --purple: #9c94e7 !important; /* Footer Clock */
   --orange: #ff4848 !important; /* PDP Text */
+  --red: #c92100 !important;
   --dark-grey: #5e5e61 !important; /* Copy Headlines */
   --dark-blue: #1e176a; /* Selected text */
 
@@ -44,6 +45,7 @@
 
   --nav-size: 24px;
   --nav-line: 1;
+  --border-radius: 8px;
 
   --body-size: 18px;
   --body-line: 1.11111111;

@@ -1,17 +1,3 @@
-@mixin desktop-h1-styles {
-  font-family: var(--beastly);
-  font-size: var(--subHead-size);
-  line-height: var(--subHead-line);
-}
-
-@mixin tablet-h1-styles {
-  font-size: 70px !important;
-}
-
-@mixin mobile-h1-styles {
-  font-size: 40px !important;
-}
-
 @mixin desktop-p-styles {
   // These need !important to override Semplice
   font-family: var(--untitled-reg);
@@ -20,10 +6,6 @@
   text-align: left;
 
   color: var(--white);
-}
-
-@mixin desktop-a-styles {
-  @include desktop-p-styles;
 }
 
 @mixin desktop-type-stack {
@@ -52,19 +34,25 @@
   }
 
   h1 {
-    @include desktop-h1-styles;
+    font-family: var(--beastly);
+    font-size: var(--subHead-size);
+    line-height: var(--subHead-line);
   }
 
-  ul {
-    @include desktop-p-styles;
+  .nav-size {
+    font-family: var(--untitled-reg);
+    font-size: var(--nav-size) !important;
+    line-height: var(--nav-line) !important;
   }
 
+  ul,
   p {
     @include desktop-p-styles;
   }
 
   a {
-    @include desktop-a-styles;
+    @include desktop-p-styles;
+    text-decoration: none;
     transition: color 0.5s ease-out !important;
   }
 
@@ -105,6 +93,6 @@
   }
 
   h1 {
-    @include mobile-h1-styles;
+    font-size: 40px !important;
   }
 }

@@ -1,8 +1,38 @@
 @mixin desktop {
-  .nav-container {
+  /*Hide Show Nav classes*/
+  .navbar-inner {
+    height: 12% !important;
+    top: 0 !important;
+    position: fixed !important;
+    transition: transform 0.4s cubic-bezier(0.96, 0, 0.4, 1) !important;
+    width: 100%;
+    text-align: right;
+    z-index: 3;
+
+    /* top | right | bottom | left */
+    padding: var(--content-margin);
+  }
+
+  .hideNav {
+    transform: translateY(-100%) !important;
+  }
+
+  .showNav {
+    transform: translateY(0%) !important;
   }
 
   .nav-item {
+    /* top | right | bottom | left */
+    margin: 0 var(--body-size) 0 0;
+    padding: 0 4px 0 4px;
+
+    border: 1px var(--white);
+    border-style: solid;
+    border-radius: var(--border-radius);
+  }
+
+  .nav-item:nth-child(3) {
+    margin: 0;
   }
 }
 
@@ -10,4 +40,20 @@
 }
 
 @mixin mobile {
+  /* To help override values + flexbox from Semplice */
+  .menu-icon {
+    margin: 8px 0 0 0;
+  }
+
+  .navbar-right .menu {
+    width: 33vw;
+    height: fit-content !important;
+    flex-direction: column !important;
+    /* Firefox fix, seems to be fine in Chrome + Safari */
+    justify-content: flex-start !important;
+  }
+
+  .navbar-right .menu li {
+    text-align: left;
+  }
 }
