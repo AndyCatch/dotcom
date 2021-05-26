@@ -57,7 +57,7 @@ gulp.task('watch', function () {
   browserSync.init({ server: { baseDir: 'dist' } })
   // If any ".html" file is updated then reruns gulp html task to move files to dist folder and also updates live server
   gulp.watch('src/*.html', gulp.series('html')).on('change', browserSync.reload)
-  gulp.watch('src/js/*.js', gulp.series('js'))
+  gulp.watch('src/js/*.js', gulp.series('js')).on('change', browserSync.reload)
   gulp.watch('src/fonts/*', gulp.series('fonts'))
   gulp.watch('src/img/*', gulp.series('images'))
 

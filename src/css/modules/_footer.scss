@@ -5,30 +5,46 @@
     bottom: 0;
     margin: 0 var(--content-margin) var(--content-margin) var(--content-margin);
 
+    display: grid;
+    grid-column-gap: 24px;
+    column-gap: 24px;
+    grid-template-columns: repeat(12, 1fr);
+
     div:nth-child(1) {
+      grid-column-start: 1;
+      grid-column-end: 12;
+
       transform: translate(0, 20%);
-      margin-top: -3%;
+      margin-top: -6%;
+    }
+
+    div:nth-child(2) {
+      grid-column-start: 2;
+      grid-column-end: 13;
     }
   }
 
   .clock-container {
     pointer-events: none;
-
-    height: fit-content;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    // justify-content: space-between;
     align-items: flex-start;
 
     z-index: 1;
 
+    .cityName {
+      transform: translate(0, 31%);
+    }
+
     .NYCtime {
       // IDs the NYC element
+      overflow: hidden;
     }
 
     .SYDtime {
       // IDs the SYD element
+      overflow: hidden;
     }
 
     h1 {

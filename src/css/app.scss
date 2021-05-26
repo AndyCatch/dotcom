@@ -193,12 +193,6 @@ body {
   position: relative;
 }
 
-.current-menu-item::after {
-  font-family: Arial, Helvetica, sans-serif !important;
-  color: var(--white);
-  content: ' ●' !important;
-}
-
 /* Back to Top  */
 .back-to-top {
   transform: translate(20px, 20px);

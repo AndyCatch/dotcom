@@ -2,21 +2,19 @@
   .social-links {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: flex-start;
 
     /* top | right | bottom | left */
-    width: calc(15vw - var(--leftRight-margin));
-    margin: 35vh var(--content-margin) -4% var(--content-margin);
+    width: calc(100vw - var(--leftRight-margin));
+    margin: 35vh var(--content-margin) 0 var(--content-margin);
 
-    a::after {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--white);
-      content: ' ↗' !important;
+    div {
+      z-index: 3;
     }
 
-    a {
-      z-index: 2;
+    div a {
+      padding-right: var(--body-size);
     }
   }
 }

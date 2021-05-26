@@ -6,6 +6,8 @@
   text-align: left;
 
   color: var(--white);
+
+  z-index: 2;
 }
 
 @mixin desktop-type-stack {
@@ -40,7 +42,7 @@
   }
 
   .nav-size {
-    font-family: var(--untitled-reg);
+    font-family: var(--untitled-ita);
     font-size: var(--nav-size) !important;
     line-height: var(--nav-line) !important;
   }
@@ -61,37 +63,15 @@
     transition: color 0.5s ease-out !important;
   }
 
-  .logo a {
-    mix-blend-mode: exclusion;
-    height: fit-content !important;
-    font-size: 2vw !important;
-    line-height: 1 !important;
-    z-index: 2;
-  }
-
-  .logo a:hover {
-    color: var(--orange);
-    transition: color 0.5s ease-out !important;
-  }
-
   .currentYear {
     @include desktop-p-styles;
   }
 }
 
 @mixin tablet-type-stack {
-  .logo a {
-    margin: 8px 0 0 0;
-    font-size: 3.5vw !important;
-  }
 }
 
 @mixin mobile-type-stack {
-  .logo a {
-    margin: 8px 0 0 0;
-    font-size: 9vw !important;
-  }
-
   h1 {
     font-size: 40px !important;
   }
