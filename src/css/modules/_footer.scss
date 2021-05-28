@@ -32,6 +32,8 @@
   }
 
   .clock-container {
+    overflow: hidden;
+
     pointer-events: none;
     display: flex;
     flex-direction: row;
@@ -44,23 +46,13 @@
       content: '•' !important;
     }
 
-    .cityName.open::before {
+    .open::before {
       -webkit-text-fill-color: var(--purple);
       content: '*' !important;
     }
 
     .cityName {
       transform: translate(0, 31%);
-    }
-
-    .NYCtime {
-      // IDs the NYC element
-      overflow: hidden;
-    }
-
-    .SYDtime {
-      // IDs the SYD element
-      overflow: hidden;
     }
 
     h1 {

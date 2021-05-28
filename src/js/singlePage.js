@@ -72,29 +72,24 @@ function revealNav(entries, obs) {
 }
 
 function updateClock() {
-  let nycTime = document.querySelector('.NYCtime')
-  let sydTime = document.querySelector('.SYDtime')
+  let locations = document.querySelectorAll(
+    '.footer-container .clock-container'
+  )
 
-  if (nycTime !== 'undefined') {
-    let now = luxon.DateTime.now().setZone('America/New_York')
+  locations.forEach((location) => {
+    let clockStyle = location.querySelector('.clock-style')
+    let cityName = location.querySelector('.cityName')
+    let timeZone = location.getAttribute('data-timezone')
+    let now = luxon.DateTime.now().setZone(timeZone)
+
+    clockStyle.innerHTML = now.toFormat('HH:mm:ss')
+
     let hour = parseInt(now.toFormat('H'))
-    nycTime.innerHTML = now.toFormat('HH:mm:ss')
-    // checkHour(nycTime, hour)
-  }
 
-  if (sydTime !== 'undefined') {
-    let now = luxon.DateTime.now().setZone('Australia/ACT')
-    let hour = parseInt(now.toFormat('H'))
-    sydTime.innerHTML = now.toFormat('HH:mm:ss')
-    // checkHour(sydTime, hour)
-  }
-}
-
-function checkHour(location, hour) {
-  // console.log(hour)
-  if (hour >= 9 && hour <= 18) {
-    location.classList.add('open')
-  }
+    if (hour >= 9 && hour <= 18) {
+      cityName.classList.add('open')
+    }
+  })
 }
 
 function isThisMobile() {
