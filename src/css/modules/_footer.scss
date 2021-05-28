@@ -10,6 +10,7 @@
     column-gap: 24px;
     grid-template-columns: repeat(12, 1fr);
 
+    // NYC Clock container
     div:nth-child(1) {
       grid-column-start: 1;
       grid-column-end: 12;
@@ -18,10 +19,16 @@
       margin-top: -6%;
     }
 
+    // SYD Clock container
     div:nth-child(2) {
-      grid-column-start: 2;
+      grid-column-start: 1;
       grid-column-end: 13;
     }
+  }
+
+  .open::before {
+    -webkit-text-fill-color: var(--purple);
+    content: '*' !important;
   }
 
   .clock-container {
@@ -32,6 +39,15 @@
     align-items: flex-start;
 
     z-index: 1;
+
+    .cityName::before {
+      content: '•' !important;
+    }
+
+    .cityName.open::before {
+      -webkit-text-fill-color: var(--purple);
+      content: '*' !important;
+    }
 
     .cityName {
       transform: translate(0, 31%);

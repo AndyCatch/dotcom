@@ -14,7 +14,27 @@
     }
 
     div a {
-      padding-right: var(--body-size);
+      padding-right: calc(var(--body-size) + 18px);
+      border: 0px var(--white);
+      border-style: solid;
+      border-radius: var(--border-radius);
+    }
+
+    div a::after {
+      font-family: Arial, Helvetica, sans-serif !important;
+      color: var(--white);
+      content: ' ●' !important;
+    }
+
+    div a:hover {
+      color: var(--black);
+      background: var(--white);
+      transition: all 0.2s ease-in !important;
+    }
+
+    div a:hover::after {
+      color: var(--black);
+      transition: all 0.2s ease-in !important;
     }
   }
 }
