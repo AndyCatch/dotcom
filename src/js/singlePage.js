@@ -28,6 +28,11 @@ setUpHamburger()
 
 window.addEventListener('load', (event) => {
   console.log('Window loaded')
+
+  // luxon library <script> tag
+  let luxonTag = document.createElement('script')
+  luxonTag.src = 'https://moment.github.io/luxon/global/luxon.min.js'
+  document.body.appendChild(luxonTag)
 })
 
 function windowResize() {
@@ -63,7 +68,7 @@ function revealNav(entries, obs) {
   let nav = document.querySelectorAll('div.navbar-inner')[0]
 
   entries.forEach((entry) => {
-    if (entry.isIntersecting && entry.intersectionRatio >= 0.9999999) {
+    if (entry.isIntersecting && entry.intersectionRatio >= 0.75) {
       console.log('entry.isIntersecting')
       nav.classList.remove('hideNav')
       nav.classList.add('showNav')

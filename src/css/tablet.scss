@@ -2,15 +2,15 @@
 @use "modules/copyModule";
 @use "modules/nextProject";
 @use "modules/listModule";
-@use "modules/footerModule";
+// @use "modules/footerModule";
 
-@mixin navItem-exceptions-tablet{
+@mixin navItem-exceptions-tablet {
   .navItem-Index {
     display: list-item;
   }
 
   // Clears the little dot
-  .current-menu-item::after{
+  .current-menu-item::after {
     font-family: Arial, Helvetica, sans-serif !important;
     display: none;
   }
@@ -25,21 +25,17 @@
   @include listModule.tablet-portrait;
   @include copyModule.tablet-portait;
   @include nextProject.tablet-portrait;
-  @include footerModule.tablet;
-
+  // @include footerModule.tablet;
 }
 
 /* Portrait */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
-  
   @include copyModule.tablet-portait;
   @include navItem-exceptions-tablet;
-  
 }
 
 /* Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
- 
   .semplice-cover .show-more svg {
     margin-bottom: 0px;
   }
@@ -52,7 +48,6 @@
 
 /* Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
-
 }
 
 /* ----------- iPad Pro 12.9" ----------- */

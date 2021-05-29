@@ -13,7 +13,7 @@
 
     width: inherit;
     position: absolute;
-    top: 0;
+    top: 10%;
     transform: translate(0, 40vh);
 
     z-index: 2;
@@ -36,11 +36,10 @@
   }
 
   .branding {
-    position: absolute;
-    bottom: 0;
+    position: relative;
+    margin-top: calc(var(--content-margin) + 12px);
     color: var(--white);
-    padding-bottom: calc(var(--bottom-padding) + 24px);
 
-    z-index: 2;
+    z-index: 3;
   }
 }

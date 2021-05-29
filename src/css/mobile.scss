@@ -2,14 +2,14 @@
 @use "modules/listModule";
 @use "modules/copyModule";
 @use "modules/nextProject";
-@use "modules/footerModule";
+// @use "modules/footerModule";
 
-@mixin navItem-exceptions-mobile{
+@mixin navItem-exceptions-mobile {
   .navItem-Index {
     display: list-item;
   }
 
-  .current-menu-item::after{
+  .current-menu-item::after {
     font-family: Arial, Helvetica, sans-serif !important;
     display: none;
   }
@@ -17,30 +17,25 @@
 
 /* ----------- Pixel ----------- */
 /* Landscape */
-@media screen 
-  and (min-device-width: 731px) 
-  and (max-device-width: 731px) 
-  and (orientation: landscape) {
-    @include listModule.mobile-landscape;
-    @include nextProject.mobile-landscape-med;
+@media screen and (min-device-width: 731px) and (max-device-width: 731px) and (orientation: landscape) {
+  @include listModule.mobile-landscape;
+  @include nextProject.mobile-landscape-med;
 }
 
 /* ----------- Pixel 2 XL ----------- */
 /* Portrait */
 /* iPad 1,2 Landscape too*/
-@media only screen and (max-device-width: 411px) and (min-device-width: 411px) and (orientation: portrait){
-  
+@media only screen and (max-device-width: 411px) and (min-device-width: 411px) and (orientation: portrait) {
   @include copyModule.mobile;
   @include navItem-exceptions-mobile;
 
   .semplice-cover .show-more svg {
     margin-bottom: 0px;
   }
-
 }
 
 /* Landscape */
-@media only screen and (max-device-width: 731px) and (min-device-width: 731px) and (orientation: landscape){
+@media only screen and (max-device-width: 731px) and (min-device-width: 731px) and (orientation: landscape) {
   @include navItem-exceptions-mobile;
 
   @include copyModule.mobile;
@@ -49,7 +44,6 @@
   .semplice-cover .show-more svg {
     margin-bottom: 0px;
   }
-
 }
 
 /* ----------- iPhone 6,7 and 8 PLUS ----------- */
@@ -60,7 +54,7 @@
 
   @include listModule.mobile-portrait;
   @include nextProject.mobile-portrait-med;
-  @include footerModule.mobile;
+  // @include footerModule.mobile;
 
   /* Back to Top  */
   .back-to-top {
@@ -92,13 +86,12 @@
 /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
-  
   @include navItem-exceptions-mobile;
   @include type-stack.mobile-type-stack;
   @include listModule.mobile-portrait;
   @include copyModule.mobile;
   @include nextProject.mobile-portrait-med;
-  @include footerModule.mobile;
+  // @include footerModule.mobile;
 
   .semplice-cover .show-more svg {
     margin-bottom: 0px;
@@ -108,7 +101,6 @@
   .back-to-top {
     transform: translate(32px, 20px);
   }
-
 }
 
 /* Landscape */
@@ -134,7 +126,7 @@
   @include navItem-exceptions-mobile;
   @include type-stack.mobile-type-stack;
   @include listModule.mobile-portrait;
-  @include footerModule.mobile;
+  // @include footerModule.mobile;
 
   .back-to-top {
     transform: translate(33px, 20px);
@@ -143,24 +135,20 @@
   .semplice-cover .show-more svg {
     margin-bottom: 0px;
   }
-
 }
 
 /* Portrait */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-  
   @include copyModule.mobile;
   @include nextProject.mobile-portrait-sm;
 
   .back-to-top {
     transform: translate(33px, 20px);
   }
-
 }
 
 /* Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-  
   @include listModule.mobile-landscape;
   @include nextProject.mobile-landscape-sm;
   @include type-stack.tablet-type-stack;

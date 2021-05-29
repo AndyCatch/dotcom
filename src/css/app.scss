@@ -3,12 +3,12 @@
 @use "modules/letterBackground";
 @use "modules/homeCopy";
 @use "modules/navigation";
+@use "modules/about";
 @use "modules/copyModule";
 @use "modules/listModule";
 @use "modules/nextProject";
 @use "modules/footer"; // New New
-@use "modules/footerModule"; // Old one
-@use "modules/socialLinks"; // New New
+@use "modules/socialLinks";
 @import 'reset';
 @import 'designTokens';
 
@@ -47,6 +47,9 @@ body {
 
 /* Branding */
 @include homeBranding.desktop;
+
+/* About */
+@include about.desktop;
 
 /* Home Copy Module */
 @include homeCopy.desktop;
@@ -121,7 +124,7 @@ body {
   z-index: 100 !important;
 }
 
-/* Handles Project Cover Titles*/
+/* Handles Project Cover Titles */
 
 .image-section {
   margin: 5vh 0 5vh 0 !important;
@@ -201,10 +204,6 @@ body {
 .back-to-top svg {
   fill: #f6f6f6;
 }
-
-/* -------------------- Footer -------------------- */
-
-@include footerModule.desktop;
 
 /* -------------------- Tablets -------------------- */
 

@@ -1,0 +1,35 @@
+@mixin desktop {
+  .about {
+    display: flex;
+    flex-direction: column;
+    margin: 0 var(--content-margin);
+  }
+
+  .about-content {
+    display: grid;
+    grid-column-gap: 24px;
+    column-gap: 24px;
+    grid-template-columns: repeat(12, 1fr);
+
+    margin-top: calc(var(--topBottom-margin));
+  }
+
+  .about-heading {
+    margin-top: calc(var(--topBottom-margin));
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  .about-3col {
+    margin-top: calc(var(--topBottom-margin));
+
+    grid-column-start: 4;
+    grid-column-end: 10;
+  }
+}
+
+@mixin tablet {
+}
+
+@mixin mobile {
+}

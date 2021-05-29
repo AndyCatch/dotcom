@@ -14,7 +14,7 @@
 @mixin desktop {
   .list-container {
     display: block;
-    margin: 45vh var(--content-margin) 0 var(--content-margin);
+    margin: 10vh var(--content-margin) 0 var(--content-margin);
     width: calc(100vw - var(--leftRight-margin));
   }
 
