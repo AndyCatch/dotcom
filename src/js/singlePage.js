@@ -15,6 +15,7 @@ let observer = new IntersectionObserver(revealNav, options)
 var clock = setInterval('updateClock()', 1000)
 var navChecker = setInterval('addNav()', 200)
 var observerChecker = setInterval('setUpObserver()', 200)
+var slideChecker = setInterval('slides()', 200)
 
 window.addEventListener(
   'sempliceTransitionInDone',
@@ -37,6 +38,19 @@ window.addEventListener('load', (event) => {
 
 function windowResize() {
   console.log('resize')
+}
+
+function slides() {
+  let slideShow = document.querySelectorAll('div.slideshow')[0]
+  let images = document.querySelectorAll('div.slideshow img')
+
+  if (slideShow !== undefined) {
+    slideShow.addEventListener('mousemove', function (event) {
+      //
+      // console.log(event)
+    })
+    clearInterval(slideChecker)
+  }
 }
 
 function addNav() {

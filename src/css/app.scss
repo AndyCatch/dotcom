@@ -4,6 +4,7 @@
 @use "modules/homeCopy";
 @use "modules/navigation";
 @use "modules/about";
+@use "modules/workIndex";
 @use "modules/copyModule";
 @use "modules/listModule";
 @use "modules/nextProject";
@@ -50,6 +51,9 @@ body {
 
 /* About */
 @include about.desktop;
+
+/* Work Index */
+@include workIndex.desktop;
 
 /* Home Copy Module */
 @include homeCopy.desktop;

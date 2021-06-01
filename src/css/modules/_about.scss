@@ -1,3 +1,5 @@
+@use "layoutUtils";
+
 @mixin desktop {
   .about {
     display: flex;
@@ -5,26 +7,77 @@
     margin: 0 var(--content-margin);
   }
 
-  .about-content {
-    display: grid;
-    grid-column-gap: 24px;
-    column-gap: 24px;
-    grid-template-columns: repeat(12, 1fr);
+  .about-content,
+  .experience,
+  .awards {
+    @include layoutUtils.desktop-grid;
 
-    margin-top: calc(var(--topBottom-margin));
+    margin-top: var(--topBottom-margin);
+  }
+
+  .experience {
+    margin-top: calc(var(--topBottom-margin) * 2);
+  }
+
+  .awards ul:nth-child(3) {
+    margin-top: var(--content-margin);
+  }
+
+  .about-heading,
+  .about-block {
+    margin-top: calc(var(--topBottom-margin) * 2);
   }
 
   .about-heading {
-    margin-top: calc(var(--topBottom-margin));
     grid-column-start: 1;
     grid-column-end: 3;
   }
 
-  .about-3col {
-    margin-top: calc(var(--topBottom-margin));
-
+  .about-block {
     grid-column-start: 4;
-    grid-column-end: 10;
+    grid-column-end: 9;
+  }
+
+  .about-content .about-block:nth-child(3) {
+    grid-column-start: 5;
+    grid-column-end: 8;
+  }
+
+  .about-content .about-block:nth-child(4) {
+    grid-column-start: 6;
+  }
+
+  .about-content .about-block:nth-child(5) {
+    grid-column-start: 7;
+    grid-column-end: 9;
+  }
+
+  .about-content .about-block:nth-child(7) {
+    grid-column-end: 8;
+  }
+
+  .experience-heading {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  .experience-row {
+    grid-column-start: 4;
+    grid-column-end: 6;
+  }
+
+  .experience-place {
+    margin-top: var(--content-margin);
+  }
+
+  .award-heading {
+    grid-column-start: 7;
+    grid-column-end: 9;
+  }
+
+  .award-set {
+    grid-column-start: 9;
+    grid-column-end: 12;
   }
 }
 
