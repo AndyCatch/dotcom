@@ -41,16 +41,37 @@ function windowResize() {
 }
 
 function slides() {
-  let slideShow = document.querySelectorAll('div.slideshow')[0]
-  let images = document.querySelectorAll('div.slideshow img')
+  // Grab all the indexItems
+  let indexItems = document.querySelectorAll('div.index-items a')
 
-  if (slideShow !== undefined) {
-    slideShow.addEventListener('mousemove', function (event) {
-      //
-      // console.log(event)
-    })
-    clearInterval(slideChecker)
-  }
+  // Go through all of them, see which ones have slideshows
+  indexItems.forEach((indexItem) => {
+    if (indexItem.querySelectorAll('div.slideshow')[0]) {
+      // the ones that do, grab some references
+      let slideShow = indexItem.querySelectorAll('div.slideshow')[0]
+      let images = slideShow.querySelectorAll('img')
+
+      // Assuming that any indexItem in here * has * a slideshow, add a mouse move listener to it
+      indexItem.addEventListener('mousemove', function (event) {
+        const x = event.offsetX
+        const width = this.offsetWidth
+        const percentage = x / width
+        const imageNumber = Math.floor(percentage * images.length)
+        console.log(imageNumber)
+
+        images.forEach((image) => {
+          // set the z back to 0
+          image.style.zIndex = 0
+          image.style.opacity = 0
+        })
+
+        images[imageNumber].style.zIndex = 1
+        images[imageNumber].style.opacity = 1
+      })
+    }
+  })
+
+  clearInterval(slideChecker)
 }
 
 function addNav() {
