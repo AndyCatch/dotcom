@@ -53,14 +53,14 @@ function slides() {
 
       // Assuming that any indexItem in here * has * a slideshow, add a mouse move listener to it
       indexItem.addEventListener('mousemove', function (event) {
-        const x = event.offsetX
-        const width = this.offsetWidth
+        // console.log(event.clientX)
+        const x = event.clientX
+        const width = slideShow.offsetWidth
         const percentage = x / width
         const imageNumber = Math.floor(percentage * images.length)
-        console.log(imageNumber)
 
         images.forEach((image) => {
-          // set the z back to 0
+          // set the z back to 0, opacity to 0
           image.style.zIndex = 0
           image.style.opacity = 0
         })
@@ -68,9 +68,16 @@ function slides() {
         images[imageNumber].style.zIndex = 1
         images[imageNumber].style.opacity = 1
       })
+
+      indexItem.addEventListener('mouseout', function (event) {
+        images.forEach((image) => {
+          image.style.opacity = 0
+        })
+      })
     }
   })
 
+  // clearing the interval to stop the brute force
   clearInterval(slideChecker)
 }
 
