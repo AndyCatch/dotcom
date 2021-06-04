@@ -15,7 +15,7 @@ let observer = new IntersectionObserver(revealNav, options)
 var clock = setInterval('updateClock()', 1000)
 var navChecker = setInterval('addNav()', 200)
 var observerChecker = setInterval('setUpObserver()', 200)
-var slideChecker = setInterval('slides()', 200)
+var indexImageChecker = setInterval('indexImage()', 200)
 
 window.addEventListener(
   'sempliceTransitionInDone',
@@ -40,45 +40,45 @@ function windowResize() {
   console.log('resize')
 }
 
-function slides() {
-  // Grab all the indexItems
-  let indexItems = document.querySelectorAll('div.index-items a')
+function indexImage() {
+  let indexItems = Array.from(document.querySelectorAll('div.index-items a'))
 
-  // Go through all of them, see which ones have slideshows
-  indexItems.forEach((indexItem) => {
-    if (indexItem.querySelectorAll('div.slideshow')[0]) {
-      // the ones that do, grab some references
-      let slideShow = indexItem.querySelectorAll('div.slideshow')[0]
-      let images = slideShow.querySelectorAll('img')
+  for (let i = 0; i < indexItems.length; i++) {
+    if (indexItems[i].querySelectorAll('div.image-set')[i]) {
+      // getElementsByClassName returns an HTMLCollection, NOT an Array
+      let imageSets = Array.from(
+        indexItems[i].getElementsByClassName('image-set')
+      )
 
-      // Assuming that any indexItem in here * has * a slideshow, add a mouse move listener to it
-      indexItem.addEventListener('mousemove', function (event) {
-        // console.log(event.clientX)
-        const x = event.clientX
-        const width = slideShow.offsetWidth
-        const percentage = x / width
-        const imageNumber = Math.floor(percentage * images.length)
+      imageSets.forEach((imageSet) => {
+        // in image sets, find the small thumb
+        let thumb = imageSet.getElementsByClassName('small')[0]
+        // extract the data-image attr
+        let lgImageSrc = thumb.getAttribute('data-large')
+        // create the large element
+        let lgImage = document.createElement('img')
+        // add class, src, add to imageSet
+        lgImage.classList.add('large')
+        lgImage.src = lgImageSrc
+        imageSet.appendChild(lgImage)
 
-        images.forEach((image) => {
-          // set the z back to 0, opacity to 0
-          image.style.zIndex = 0
-          image.style.opacity = 0
+        // add listeners to thumbs
+        thumb.addEventListener('mouseover', function (event) {
+          // lgImage.style.display = 'block'
+          lgImage.style.opacity = 1
+          lgImage.style.zIndex = 2
         })
 
-        images[imageNumber].style.zIndex = 1
-        images[imageNumber].style.opacity = 1
-      })
-
-      indexItem.addEventListener('mouseout', function (event) {
-        images.forEach((image) => {
-          image.style.opacity = 0
+        thumb.addEventListener('mouseout', function (event) {
+          // lgImage.style.display = 'none'
+          lgImage.style.opacity = 0
+          lgImage.style.zIndex = 0
         })
       })
     }
-  })
+  }
 
-  // clearing the interval to stop the brute force
-  clearInterval(slideChecker)
+  clearInterval(indexImageChecker)
 }
 
 function addNav() {
@@ -119,24 +119,27 @@ function revealNav(entries, obs) {
 }
 
 function updateClock() {
-  let locations = document.querySelectorAll(
-    '.footer-container .clock-container'
-  )
+  if (luxon) {
+    //
+    let locations = document.querySelectorAll(
+      '.footer-container .clock-container'
+    )
 
-  locations.forEach((location) => {
-    let clockStyle = location.querySelector('.clock-style')
-    let cityName = location.querySelector('.cityName')
-    let timeZone = location.getAttribute('data-timezone')
-    let now = luxon.DateTime.now().setZone(timeZone)
+    locations.forEach((location) => {
+      let clockStyle = location.querySelector('.clock-style')
+      let cityName = location.querySelector('.cityName')
+      let timeZone = location.getAttribute('data-timezone')
+      let now = luxon.DateTime.now().setZone(timeZone)
 
-    clockStyle.innerHTML = now.toFormat('HH:mm:ss')
+      clockStyle.innerHTML = now.toFormat('HH:mm:ss')
 
-    let hour = parseInt(now.toFormat('H'))
+      let hour = parseInt(now.toFormat('H'))
 
-    if (hour >= 9 && hour <= 18) {
-      cityName.classList.add('open')
-    }
-  })
+      if (hour >= 9 && hour <= 18) {
+        cityName.classList.add('open')
+      }
+    })
+  }
 }
 
 function isThisMobile() {
