@@ -69,12 +69,12 @@ function indexImage() {
         // add listeners to thumbs
         thumb.addEventListener('mouseover', function (event) {
           lgImage.style.opacity = 1
-          // lgImage.style.zIndex = 1
+          lgImage.style.zIndex = 4
         })
 
         thumb.addEventListener('mouseout', function (event) {
           lgImage.style.opacity = 0
-          // lgImage.style.zIndex = 0
+          lgImage.style.zIndex = 3
         })
       })
     }
