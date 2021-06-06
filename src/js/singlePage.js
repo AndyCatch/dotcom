@@ -44,6 +44,14 @@ function indexImage() {
   let indexItems = Array.from(document.querySelectorAll('div.index-items a'))
 
   for (let i = 0; i < indexItems.length; i++) {
+    // add mouseover event to set all items to z-Index=0, then set the current z-Index=1
+    indexItems[i].addEventListener('mouseover', function (event) {
+      indexItems.forEach((item) => {
+        item.style.zIndex = 0
+        event.currentTarget.style.zIndex = 1
+      })
+    })
+
     if (indexItems[i].querySelectorAll('div.image-set')[i]) {
       // getElementsByClassName returns an HTMLCollection, NOT an Array
       let imageSets = Array.from(
@@ -51,28 +59,22 @@ function indexImage() {
       )
 
       imageSets.forEach((imageSet) => {
-        // in image sets, find the small thumb
-        let thumb = imageSet.getElementsByClassName('small')[0]
-        // extract the data-image attr
-        let lgImageSrc = thumb.getAttribute('data-large')
-        // create the large element
-        let lgImage = document.createElement('img')
-        // add class, src, add to imageSet
-        lgImage.classList.add('large')
+        let thumb = imageSet.getElementsByClassName('small')[0] // in imageSets, find the small thumb
+        let lgImageSrc = thumb.dataset.large // extract the data-large attribute, .dataset returns object
+        let lgImage = new Image() // === document.createElement('img')
+        lgImage.classList.add('large') // add class, src, add to imageSet
         lgImage.src = lgImageSrc
         imageSet.appendChild(lgImage)
 
         // add listeners to thumbs
         thumb.addEventListener('mouseover', function (event) {
-          // lgImage.style.display = 'block'
           lgImage.style.opacity = 1
-          lgImage.style.zIndex = 2
+          // lgImage.style.zIndex = 1
         })
 
         thumb.addEventListener('mouseout', function (event) {
-          // lgImage.style.display = 'none'
           lgImage.style.opacity = 0
-          lgImage.style.zIndex = 0
+          // lgImage.style.zIndex = 0
         })
       })
     }
