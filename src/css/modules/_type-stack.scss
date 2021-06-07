@@ -7,7 +7,7 @@
 
   color: var(--white);
 
-  z-index: 2;
+  // z-index: 2;
 }
 
 @mixin desktop-type-stack {
@@ -60,7 +60,7 @@
     text-decoration: none;
     transition: color 0.5s ease-out !important;
 
-    z-index: 3;
+    // z-index: 3;
   }
 
   a:hover {

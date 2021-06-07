@@ -3,21 +3,13 @@
     width: calc(100vw - var(--leftRight-margin));
     margin: 0 var(--content-margin);
 
+    h1 {
+      z-index: 0;
+    }
+
     a.none {
       pointer-events: none;
     }
-  }
-
-  div.slideshow img {
-    z-index: 0;
-  }
-
-  div.slideshow {
-    pointer-events: none;
-  }
-
-  div.slideshow img:first-child {
-    z-index: 1;
   }
 
   .index-items {
@@ -26,7 +18,7 @@
     a {
       display: block;
       width: 100%;
-      // z-index: 0 !important;
+      position: relative;
     }
 
     .image-set-wrapper {
@@ -44,32 +36,32 @@
       width: fit-content;
       position: relative !important;
     }
+  }
 
-    .small {
-      opacity: 1;
-      width: 10vw !important;
-      position: relative;
-      float: left;
-      margin-right: calc(var(--content-margin) / 8);
-      z-index: 1;
-    }
+  .small {
+    opacity: 1;
+    width: 10vw !important;
+    position: relative;
+    float: left;
+    margin-right: calc(var(--content-margin) / 8);
+    z-index: 1;
+  }
 
-    // .index-item-wrapper (labels) = 3
-    // .large z-Index = 2
-    // .small z-Index = 1
+  // .index-item-wrapper (labels) = 3
+  // .large z-Index = 2
+  // .small z-Index = 1
 
-    .large {
-      width: 65vw !important;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      position: fixed !important;
-      // display: none;
-      opacity: 0;
-      z-index: 3;
-      pointer-events: none;
-      transition: opacity 0.2s ease-in;
-    }
+  .large {
+    width: 65vw !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed !important;
+    // display: none;
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in;
   }
 
   .index-item-wrapper {

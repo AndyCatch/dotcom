@@ -47,8 +47,8 @@ function indexImage() {
     // add mouseover event to set all items to z-Index=0, then set the current z-Index=1
     indexItems[i].addEventListener('mouseover', function (event) {
       indexItems.forEach((item) => {
-        item.style.zIndex = 0
-        event.currentTarget.style.zIndex = 1
+        item.style.zIndex = 0 // reset all to 0
+        event.currentTarget.style.zIndex = 1 // only bring the current above
       })
     })
 
@@ -69,12 +69,10 @@ function indexImage() {
         // add listeners to thumbs
         thumb.addEventListener('mouseover', function (event) {
           lgImage.style.opacity = 1
-          lgImage.style.zIndex = 4
         })
 
         thumb.addEventListener('mouseout', function (event) {
           lgImage.style.opacity = 0
-          lgImage.style.zIndex = 3
         })
       })
     }
