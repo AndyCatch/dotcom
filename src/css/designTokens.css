@@ -51,12 +51,10 @@
   --body-line: 1.2;
 
   /* Spacing */
-  --content-margin: 32px;
-  --topBottom-margin: calc(var(--content-margin) * 2);
-  --leftRight-margin: calc(var(--content-margin) * 2);
-
-  --top-padding: 40px;
-  --bottom-padding: 40px;
+  --unit: 8px;
+  --content-margin: calc(var(--unit) * 4); /* 32px */
+  --topBottom-margin: calc(var(--content-margin) * 2); /* 64px */
+  --leftRight-margin: calc(var(--content-margin) * 2); /* 64px */
 }
 
 /* 

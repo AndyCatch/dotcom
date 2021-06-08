@@ -34,21 +34,19 @@ window.addEventListener('load', (event) => {
   let luxonTag = document.createElement('script')
   luxonTag.src = 'https://moment.github.io/luxon/global/luxon.min.js'
   document.body.appendChild(luxonTag)
-})
 
-function windowResize() {
-  console.log('resize')
-}
+  // console.log('_docHeight: ' + _docHeight)
+})
 
 function indexImage() {
   let indexItems = Array.from(document.querySelectorAll('div.index-items a'))
 
   for (let i = 0; i < indexItems.length; i++) {
-    // add mouseover event to set all items to z-Index=0, then set the current z-Index=1
+    // add mouseover event to set all items
     indexItems[i].addEventListener('mouseover', function (event) {
       indexItems.forEach((item) => {
         item.style.zIndex = 0 // reset all to 0
-        event.currentTarget.style.zIndex = 1 // only bring the current above
+        event.currentTarget.style.zIndex = 1 // bring the current to 1
       })
     })
 
@@ -93,6 +91,8 @@ function addNav() {
 }
 
 function setUpObserver() {
+  // console.log(document.querySelectorAll('.footer-container'))
+
   document.querySelectorAll('.footer-container').forEach((module) => {
     observer.observe(module)
   })
@@ -110,10 +110,9 @@ function revealNav(entries, obs) {
   let nav = document.querySelectorAll('div.navbar-inner')[0]
 
   entries.forEach((entry) => {
-    if (entry.isIntersecting && entry.intersectionRatio >= 0.75) {
+    if (entry.isIntersecting && entry.intersectionRatio >= 0.99) {
       console.log('entry.isIntersecting')
-      nav.classList.remove('hideNav')
-      nav.classList.add('showNav')
+      showNav(nav)
     }
   })
 }
@@ -167,10 +166,17 @@ function hideNav(elem) {
 // relies on let prevScrollpos in window.load
 function hideShowNav(event) {
   let nav = document.querySelectorAll('div.navbar-inner')[0]
+  let _docHeight =
+    document.height !== undefined ? document.height : document.body.offsetHeight
   let currentScrollPos = window.pageYOffset
+  // console.log(Math.floor((currentScrollPos / _docHeight) * 100))
 
   if (nav != 'undefined') {
-    if (prevScrollpos > currentScrollPos || currentScrollPos <= 0) {
+    if (
+      prevScrollpos > currentScrollPos ||
+      currentScrollPos <= 0 ||
+      Math.floor((currentScrollPos / _docHeight) * 100) > 60
+    ) {
       showNav(nav)
     } else {
       hideNav(nav)
