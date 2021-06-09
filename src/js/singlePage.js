@@ -91,9 +91,7 @@ function addNav() {
 }
 
 function setUpObserver() {
-  // console.log(document.querySelectorAll('.footer-container'))
-
-  document.querySelectorAll('.footer-container').forEach((module) => {
+  document.querySelectorAll('footer').forEach((module) => {
     observer.observe(module)
   })
 }
