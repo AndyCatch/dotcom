@@ -4,17 +4,8 @@ let prevScrollpos = window.pageYOffset // Number
 let isMobile = false
 let menuClick = false
 
-// For Observer object
-let options = {
-  rootMargin: '0px 0px',
-  threshold: 0.99,
-}
-
-let observer = new IntersectionObserver(revealNav, options)
-
 var clock = setInterval('updateClock()', 1000)
 var navChecker = setInterval('addNav()', 200)
-var observerChecker = setInterval('setUpObserver()', 200)
 var indexImageChecker = setInterval('indexImage()', 200)
 
 window.addEventListener(
@@ -34,8 +25,6 @@ window.addEventListener('load', (event) => {
   let luxonTag = document.createElement('script')
   luxonTag.src = 'https://moment.github.io/luxon/global/luxon.min.js'
   document.body.appendChild(luxonTag)
-
-  // console.log('_docHeight: ' + _docHeight)
 })
 
 function indexImage() {
@@ -90,29 +79,12 @@ function addNav() {
   }
 }
 
-function setUpObserver() {
-  document.querySelectorAll('footer').forEach((module) => {
-    observer.observe(module)
-  })
-}
-
 function setUpHamburger() {
   let hamburger = document.getElementsByClassName('hamburger')[0]
 
   if (hamburger) {
     hamburger.addEventListener('click', menuToggle)
   }
-}
-
-function revealNav(entries, obs) {
-  let nav = document.querySelectorAll('div.navbar-inner')[0]
-
-  entries.forEach((entry) => {
-    if (entry.isIntersecting && entry.intersectionRatio >= 0.99) {
-      console.log('entry.isIntersecting')
-      showNav(nav)
-    }
-  })
 }
 
 function updateClock() {
@@ -164,16 +136,16 @@ function hideNav(elem) {
 // relies on let prevScrollpos in window.load
 function hideShowNav(event) {
   let nav = document.querySelectorAll('div.navbar-inner')[0]
-  let _docHeight =
-    document.height !== undefined ? document.height : document.body.offsetHeight
+  let footer = document.querySelector('.clock-container')
   let currentScrollPos = window.pageYOffset
-  // console.log(Math.floor((currentScrollPos / _docHeight) * 100))
+
+  console.log('Footer in view: ' + isInViewport(footer))
 
   if (nav != 'undefined') {
     if (
       prevScrollpos > currentScrollPos ||
       currentScrollPos <= 0 ||
-      Math.floor((currentScrollPos / _docHeight) * 100) > 60
+      isInViewport(footer)
     ) {
       showNav(nav)
     } else {
@@ -181,6 +153,18 @@ function hideShowNav(event) {
     }
     prevScrollpos = currentScrollPos
   }
+}
+
+function isInViewport(elem) {
+  var distance = elem.getBoundingClientRect()
+  return (
+    distance.top >= 0 &&
+    distance.left >= 0 &&
+    distance.bottom <=
+      (window.innerHeight || document.documentElement.clientHeight) &&
+    distance.right <=
+      (window.innerWidth || document.documentElement.clientWidth)
+  )
 }
 
 function menuChange(boolean) {
