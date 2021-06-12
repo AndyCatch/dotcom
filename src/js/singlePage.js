@@ -84,6 +84,8 @@ function setUpHamburger() {
 
   if (hamburger) {
     hamburger.addEventListener('click', menuToggle)
+  } else {
+    console.log('No Hamburger menu')
   }
 }
 
@@ -139,7 +141,7 @@ function hideShowNav(event) {
   let footer = document.querySelector('.clock-container')
   let currentScrollPos = window.pageYOffset
 
-  console.log('Footer in view: ' + isInViewport(footer))
+  // console.log('footer-in-view: ' + isInViewport(footer))
 
   if (nav != 'undefined') {
     if (
