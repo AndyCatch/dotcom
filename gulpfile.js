@@ -4,9 +4,9 @@ var sass = require('gulp-dart-sass')
 var cleanCSS = require('gulp-clean-css')
 var sourcemaps = require('gulp-sourcemaps')
 var uglify = require('gulp-uglify')
-var options = { sourceMap: true }
 var pipeline = require('readable-stream').pipeline
 var imagemin = require('gulp-imagemin')
+var webpack = require('webpack-stream')
 
 var browserSync = require('browser-sync').create()
 
@@ -39,6 +39,11 @@ gulp.task('js', function () {
   return pipeline(
     gulp.src('src/js/*.js'),
     sourcemaps.init(),
+    /* // webpack({
+    //   output: {
+    //     filename: 'app.js',
+    //   },
+    // }),*/
     uglify(),
     sourcemaps.write(),
     gulp.dest('dist/js')
