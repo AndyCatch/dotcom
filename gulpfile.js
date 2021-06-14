@@ -35,37 +35,33 @@ gulp.task('fonts', function () {
   return gulp.src('src/fonts/*').pipe(gulp.dest('dist/fonts'))
 })
 
+/*
 gulp.task('js', function () {
   return pipeline(
     gulp.src('src/js/*.js'),
     sourcemaps.init(),
-    /*
-    webpack({
-      output: {
-        filename: 'app.js',
-      },
-    }),*/
     uglify(),
     sourcemaps.write(),
     gulp.dest('dist/js')
   )
-})
-
-/*
-gulp.task('js', function () {
-  return gulp
-    .src('src/js/singlePage.js')
-    .pipe(sourcemaps.init())
-    .pipe(
-      webpack({
-        output: {
-          filename: 'app.js',
-        },
-      })
-    )
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('dist/js'))
 })*/
+
+// Can't seem to get Webpack to work?
+gulp.task('js', function () {
+  return pipeline(
+    gulp.src('src/js/singlePage.js'),
+    sourcemaps.init(),
+    webpack({
+      mode: 'development',
+      output: {
+        filename: 'singlePage.js',
+      },
+    }),
+    // uglify(),
+    sourcemaps.write(),
+    gulp.dest('dist/js')
+  )
+})
 
 gulp.task('images', function () {
   return gulp
@@ -79,9 +75,15 @@ gulp.task('watch', function () {
   browserSync.init({ server: { baseDir: 'dist' } })
   // If any ".html" file is updated then reruns gulp html task to move files to dist folder and also updates live server
   gulp.watch('src/*.html', gulp.series('html')).on('change', browserSync.reload)
+
+  // Uglify
+  // gulp.watch('src/js/*.js', gulp.series('js')).on('change', browserSync.reload)
+
+  // Webpack
   gulp
     .watch('src/js/singlePage.js', gulp.series('js'))
     .on('change', browserSync.reload)
+
   gulp.watch('src/fonts/*', gulp.series('fonts'))
   gulp.watch('src/img/*', gulp.series('images'))
 

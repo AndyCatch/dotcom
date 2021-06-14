@@ -4,9 +4,38 @@ let prevScrollpos = window.pageYOffset // Number
 let isMobile = false
 let menuClick = false
 
-var clock = setInterval('updateClock()', 1000)
-var navChecker = setInterval('addNav()', 200)
-var indexImageChecker = setInterval('indexImage()', 200)
+var clock
+var navChecker
+var indexImageChecker
+
+import helloMate from './test'
+
+function init() {
+  // luxon library <script> tag
+  let luxonTag = document.createElement('script')
+  luxonTag.src = 'https://moment.github.io/luxon/global/luxon.min.js'
+  document.body.appendChild(luxonTag)
+
+  clock = setInterval(function () {
+    if (updateClock) {
+      updateClock()
+    }
+  }, 1000)
+
+  navChecker = setInterval(function () {
+    if (addNav) {
+      addNav()
+    }
+  }, 200)
+
+  indexImageChecker = setInterval(function () {
+    if (indexImage) {
+      indexImage()
+    }
+  }, 200)
+
+  helloMate()
+}
 
 window.addEventListener(
   'sempliceTransitionInDone',
@@ -19,12 +48,7 @@ window.addEventListener(
 setUpHamburger()
 
 window.addEventListener('load', (event) => {
-  console.log('Window loaded')
-
-  // luxon library <script> tag
-  let luxonTag = document.createElement('script')
-  luxonTag.src = 'https://moment.github.io/luxon/global/luxon.min.js'
-  document.body.appendChild(luxonTag)
+  console.log('Window load event')
 })
 
 function indexImage() {
@@ -141,8 +165,6 @@ function hideShowNav(event) {
   let footer = document.querySelector('.clock-container')
   let currentScrollPos = window.pageYOffset
 
-  // console.log('footer-in-view: ' + isInViewport(footer))
-
   if (nav != 'undefined') {
     if (
       prevScrollpos > currentScrollPos ||
@@ -250,3 +272,9 @@ function browserType() {
 isThisMobile()
 browserType()
 hasTouch()
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  console.log('DOM fully loaded and parsed')
+
+  init()
+})
