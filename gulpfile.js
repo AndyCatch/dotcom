@@ -52,7 +52,7 @@ gulp.task('js', function () {
     gulp.src('src/js/singlePage.js'),
     sourcemaps.init(),
     webpack({
-      mode: 'development',
+      mode: 'none',
       output: {
         filename: 'singlePage.js',
       },

@@ -4,37 +4,18 @@ let prevScrollpos = window.pageYOffset // Number
 let isMobile = false
 let menuClick = false
 
-var clock
-var navChecker
-var indexImageChecker
+import { isInViewport, customVhUnit } from './utils'
+import { updateClock } from './luxonClock'
 
-import helloMate from './test'
+var clock = setInterval(updateClock, 1000)
+var navChecker = setInterval(addNav, 200)
+var indexImageChecker = setInterval(indexImage, 200)
 
 function init() {
   // luxon library <script> tag
   let luxonTag = document.createElement('script')
   luxonTag.src = 'https://moment.github.io/luxon/global/luxon.min.js'
   document.body.appendChild(luxonTag)
-
-  clock = setInterval(function () {
-    if (updateClock) {
-      updateClock()
-    }
-  }, 1000)
-
-  navChecker = setInterval(function () {
-    if (addNav) {
-      addNav()
-    }
-  }, 200)
-
-  indexImageChecker = setInterval(function () {
-    if (indexImage) {
-      indexImage()
-    }
-  }, 200)
-
-  helloMate()
 }
 
 window.addEventListener(
@@ -49,6 +30,11 @@ setUpHamburger()
 
 window.addEventListener('load', (event) => {
   console.log('Window load event')
+})
+
+window.addEventListener('resize', () => {
+  // We execute the same script as before
+  customVhUnit()
 })
 
 function indexImage() {
@@ -113,41 +99,6 @@ function setUpHamburger() {
   }
 }
 
-function updateClock() {
-  if (luxon) {
-    //
-    let locations = document.querySelectorAll(
-      '.footer-container .clock-container'
-    )
-
-    locations.forEach((location) => {
-      let clockStyle = location.querySelector('.clock-style')
-      let cityName = location.querySelector('.cityName')
-      let timeZone = location.getAttribute('data-timezone')
-      let now = luxon.DateTime.now().setZone(timeZone)
-
-      clockStyle.innerHTML = now.toFormat('HH:mm:ss')
-
-      let hour = parseInt(now.toFormat('H'))
-
-      if (hour >= 9 && hour <= 18) {
-        cityName.classList.add('open')
-      }
-    })
-  }
-}
-
-function isThisMobile() {
-  // device detection
-  if (
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent
-    )
-  ) {
-    isMobile = true
-  }
-}
-
 function showNav(elem) {
   elem.classList.remove('hideNav')
   elem.classList.add('showNav')
@@ -177,18 +128,6 @@ function hideShowNav(event) {
     }
     prevScrollpos = currentScrollPos
   }
-}
-
-function isInViewport(elem) {
-  var distance = elem.getBoundingClientRect()
-  return (
-    distance.top >= 0 &&
-    distance.left >= 0 &&
-    distance.bottom <=
-      (window.innerHeight || document.documentElement.clientHeight) &&
-    distance.right <=
-      (window.innerWidth || document.documentElement.clientWidth)
-  )
 }
 
 function menuChange(boolean) {
@@ -241,40 +180,10 @@ if (hasTouch()) {
   } catch (ex) {}
 }
 
-// Solving for mobile browser vh discrepencies for project image
-// via: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
-// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
-let vh = window.innerHeight * 0.01
-// Then we set the value in the --vh custom property to the root of the document
-document.documentElement.style.setProperty('--vh', `${vh}px`)
-// We listen to the resize event
-window.addEventListener('resize', () => {
-  // We execute the same script as before
-  let vh = window.innerHeight * 0.01
-  document.documentElement.style.setProperty('--vh', `${vh}px`)
-})
-
-// hack to adjust margin discrepency in browsers
-function browserType() {
-  let userAgent = navigator.userAgent.toLowerCase()
-  if (userAgent.indexOf('safari') != -1) {
-    if (userAgent.indexOf('chrome') > -1) {
-      //browser is chrome
-      console.log('Browser type: Chrome')
-    } else {
-      //browser is safari
-      console.log('Browser type: Safari')
-      //about.style.marginTop = "0";
-    }
-  }
-}
-
-isThisMobile()
-browserType()
-hasTouch()
-
 document.addEventListener('DOMContentLoaded', (event) => {
   console.log('DOM fully loaded and parsed')
 
+  hasTouch()
+  customVhUnit()
   init()
 })
