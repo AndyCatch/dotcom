@@ -57,7 +57,7 @@ gulp.task('js', function () {
         filename: 'singlePage.js',
       },
     }),
-    // uglify(),
+    uglify(),
     sourcemaps.write(),
     gulp.dest('dist/js')
   )

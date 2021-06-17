@@ -1,4 +1,4 @@
-// Uses Intersection Observer to show end of the page
+// Uses Intersection Observer to show nav at the end of a page
 
 // For Observer object
 let options = {
@@ -7,7 +7,6 @@ let options = {
 }
 
 let observer = new IntersectionObserver(revealNav, options)
-
 var observerChecker = setInterval('setUpObserver()', 200) // Brute force set up Observer; overrides Semplice's load order
 
 function setUpObserver() {

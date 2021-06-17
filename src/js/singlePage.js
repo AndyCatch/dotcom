@@ -6,10 +6,11 @@ let menuClick = false
 
 import { isInViewport, customVhUnit } from './utils'
 import { updateClock } from './luxonClock'
+import { indexImage } from './indexImage'
 
 var clock = setInterval(updateClock, 1000)
 var navChecker = setInterval(addNav, 200)
-var indexImageChecker = setInterval(indexImage, 200)
+var indexImageChecker = setInterval(addIndexImg, 200)
 
 function init() {
   // luxon library <script> tag
@@ -37,43 +38,10 @@ window.addEventListener('resize', () => {
   customVhUnit()
 })
 
-function indexImage() {
-  let indexItems = Array.from(document.querySelectorAll('div.index-items a'))
+function addIndexImg() {
+  let nodeList = document.querySelectorAll('div.index-items a')
 
-  for (let i = 0; i < indexItems.length; i++) {
-    // add mouseover event to set all items
-    indexItems[i].addEventListener('mouseover', function (event) {
-      indexItems.forEach((item) => {
-        item.style.zIndex = 0 // reset all to 0
-        event.currentTarget.style.zIndex = 1 // bring the current to 1
-      })
-    })
-
-    if (indexItems[i].querySelectorAll('div.image-set')[i]) {
-      // getElementsByClassName returns an HTMLCollection, NOT an Array
-      let imageSets = Array.from(
-        indexItems[i].getElementsByClassName('image-set')
-      )
-
-      imageSets.forEach((imageSet) => {
-        let thumb = imageSet.getElementsByClassName('small')[0] // in imageSets, find the small thumb
-        let lgImageSrc = thumb.dataset.large // extract the data-large attribute, .dataset returns object
-        let lgImage = new Image() // === document.createElement('img')
-        lgImage.classList.add('large') // add class, src, add to imageSet
-        lgImage.src = lgImageSrc
-        imageSet.appendChild(lgImage)
-
-        // add listeners to thumbs
-        thumb.addEventListener('mouseover', function (event) {
-          lgImage.style.opacity = 1
-        })
-
-        thumb.addEventListener('mouseout', function (event) {
-          lgImage.style.opacity = 0
-        })
-      })
-    }
-  }
+  indexImage(nodeList)
 
   clearInterval(indexImageChecker)
 }
