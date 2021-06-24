@@ -36,7 +36,7 @@
     a {
       display: block;
       grid-column-start: 4;
-      grid-column-end: 12;
+      grid-column-end: 11;
       color: var(--white);
       -webkit-text-fill-color: var(--white);
       z-index: 1;
@@ -74,7 +74,7 @@
       width: 65vw;
       /*   this will tell the browser to ignore any default mouse interactions on this img element */
       pointer-events: none;
-      transition: opacity 0.2s;
+      transition: opacity 0.2s ease-in;
     }
 
     span {

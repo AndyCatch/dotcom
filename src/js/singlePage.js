@@ -1,5 +1,5 @@
 /*–––––––––––––––This lives in Semplice –> Advanced -> Javascript ––––––––––––––––––*/
-let prevScrollpos = window.pageYOffset // Number
+// let prevScrollPos = window.pageYOffset // Number
 
 let isMobile = false
 let menuClick = false
@@ -7,7 +7,7 @@ let menuClick = false
 import { customVhUnit, removeHoverStyles } from './utils'
 import { updateClock } from './luxonClock'
 import { indexImage } from './indexImage'
-import { hideShowNav } from './hideShowNav'
+import { showNav, hideNav, hideShow } from './hideShowNav'
 
 var clock = setInterval(updateClock, 1000)
 var navChecker = setInterval(addNav, 200)
@@ -18,6 +18,9 @@ function init() {
   let luxonTag = document.createElement('script')
   luxonTag.src = 'https://moment.github.io/luxon/global/luxon.min.js'
   document.body.appendChild(luxonTag)
+
+  setUpHamburger()
+  imageMove()
 }
 
 window.addEventListener(
@@ -27,8 +30,6 @@ window.addEventListener(
   },
   false
 )
-
-setUpHamburger()
 
 window.addEventListener('load', (event) => {
   console.log('Window load event')
@@ -69,8 +70,40 @@ function setUpHamburger() {
   }
 }
 
-function menuChange(boolean) {
-  if (boolean) {
+function imageMove() {
+  let hoverElems = Array.from(document.querySelectorAll('div.list a'))
+  let hoverImages = Array.from(document.querySelectorAll('div.list a h1 img'))
+
+  for (let i = 0; i < hoverElems.length; i++) {
+    hoverElems[i].addEventListener('mouseover', function (event) {
+      hoverImages.forEach((image) => {
+        image.style.opacity = 1
+      })
+    })
+
+    hoverElems[i].addEventListener('mousemove', function (event) {
+      hoverImages.forEach((image) => {
+        image.style.transform = `translate(${
+          event.clientX - window.innerWidth / 2 - image.offsetWidth / 2
+        }px, ${
+          event.clientY - window.innerHeight / 2 - image.offsetHeight / 2
+        }px)`
+      })
+    })
+
+    hoverElems[i].addEventListener('mouseout', function (event) {
+      hoverImages.forEach((image) => {
+        image.style.opacity = 0
+      })
+    })
+  }
+}
+
+function menuToggle() {
+  // toggles boolean between true and false
+  menuClick = !menuClick
+
+  if (menuClick) {
     // menu is open, ensures mobile menu doesn't scroll away
     document.removeEventListener('scroll', navHandler, {
       capture: false,
@@ -85,19 +118,14 @@ function menuChange(boolean) {
   }
 }
 
-function menuToggle() {
-  menuClick = !menuClick
-  // toggles boolean between true and false
-  menuChange(menuClick)
-}
-
-// relies on let prevScrollpos
 function navHandler(event) {
   let nav = document.querySelectorAll('div.navbar-inner')[0]
   let footer = document.querySelector('.clock-container')
   let currentScrollPos = window.pageYOffset
 
-  hideShowNav(nav, footer, currentScrollPos, prevScrollpos)
+  if (nav != 'undefined') {
+    hideShow(nav, footer, currentScrollPos)
+  }
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
