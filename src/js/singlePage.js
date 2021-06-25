@@ -7,7 +7,8 @@ let menuClick = false
 import { customVhUnit, removeHoverStyles } from './utils'
 import { updateClock } from './luxonClock'
 import { indexImage } from './indexImage'
-import { showNav, hideNav, hideShow } from './hideShowNav'
+import { hideShow } from './hideShowNav'
+import { imageMove } from './mouseFollow'
 
 var clock = setInterval(updateClock, 1000)
 var navChecker = setInterval(addNav, 200)
@@ -20,7 +21,7 @@ function init() {
   document.body.appendChild(luxonTag)
 
   setUpHamburger()
-  imageMove()
+  setMouseFollow()
 }
 
 window.addEventListener(
@@ -70,33 +71,12 @@ function setUpHamburger() {
   }
 }
 
-function imageMove() {
+function setMouseFollow() {
+  console.log('setMouseFollow')
   let hoverElems = Array.from(document.querySelectorAll('div.list a'))
   let hoverImages = Array.from(document.querySelectorAll('div.list a h1 img'))
 
-  for (let i = 0; i < hoverElems.length; i++) {
-    hoverElems[i].addEventListener('mouseover', function (event) {
-      hoverImages.forEach((image) => {
-        image.style.opacity = 1
-      })
-    })
-
-    hoverElems[i].addEventListener('mousemove', function (event) {
-      hoverImages.forEach((image) => {
-        image.style.transform = `translate(${
-          event.clientX - window.innerWidth / 2 - image.offsetWidth / 2
-        }px, ${
-          event.clientY - window.innerHeight / 2 - image.offsetHeight / 2
-        }px)`
-      })
-    })
-
-    hoverElems[i].addEventListener('mouseout', function (event) {
-      hoverImages.forEach((image) => {
-        image.style.opacity = 0
-      })
-    })
-  }
+  imageMove(hoverElems, hoverImages)
 }
 
 function menuToggle() {
