@@ -3,12 +3,13 @@ let aimY = null
 let currentX = null
 let currentY = null
 
-function imageMove(hoverElems, hoverImages) {
+let currentImage = null
+
+function imageMove(hoverElems) {
   for (let i = 0; i < hoverElems.length; i++) {
     hoverElems[i].addEventListener('mouseover', function (event) {
-      hoverImages.forEach((image) => {
-        image.style.opacity = 1
-      })
+      currentImage = event.currentTarget.querySelector('img')
+      currentImage.style.opacity = 1
     })
 
     hoverElems[i].addEventListener('mousemove', function (event) {
@@ -19,28 +20,29 @@ function imageMove(hoverElems, hoverImages) {
         currentX = event.clientX
         currentY = event.clientY
       }
-
-      hoverImages.forEach((image) => {
-        image.style.transform = `translate(${
-          currentX - (window.innerWidth + image.offsetWidth) / 2
-        }px, ${currentY - (window.innerHeight + image.offsetHeight) / 2}px)`
-      })
     })
 
     hoverElems[i].addEventListener('mouseout', function (event) {
-      hoverImages.forEach((image) => {
-        image.style.opacity = 0
-      })
+      currentImage.style.opacity = 0
     })
   }
-  draw(hoverImages)
 }
 
-function draw(hoverImages) {
-  currentX = currentX + (aimX - currentX) * 0.05
-  currentY = currentY + (aimY - currentY) * 0.05
+function draw() {
+  currentX = currentX + (aimX - currentX) * 0.2
+  currentY = currentY + (aimY - currentY) * 0.2
+
+  if (currentImage) {
+    currentImage.style.transform = `translate3d(${
+      currentX - (window.innerWidth + currentImage.offsetWidth) / 2
+    }px, ${
+      currentY - (window.innerHeight + currentImage.offsetHeight) / 2
+    }px, 0px)`
+  }
 
   requestAnimationFrame(draw)
 }
+
+draw()
 
 export { imageMove }

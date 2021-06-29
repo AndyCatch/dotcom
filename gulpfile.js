@@ -80,9 +80,7 @@ gulp.task('watch', function () {
   // gulp.watch('src/js/*.js', gulp.series('js')).on('change', browserSync.reload)
 
   // Webpack
-  gulp
-    .watch('src/js/singlePage.js', gulp.series('js'))
-    .on('change', browserSync.reload)
+  gulp.watch('src/js/*.js', gulp.series('js')).on('change', browserSync.reload)
 
   gulp.watch('src/fonts/*', gulp.series('fonts'))
   gulp.watch('src/img/*', gulp.series('images'))

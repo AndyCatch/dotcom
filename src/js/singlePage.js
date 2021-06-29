@@ -1,7 +1,4 @@
 /*–––––––––––––––This lives in Semplice –> Advanced -> Javascript ––––––––––––––––––*/
-// let prevScrollPos = window.pageYOffset // Number
-
-let isMobile = false
 let menuClick = false
 
 import { customVhUnit, removeHoverStyles } from './utils'
@@ -72,11 +69,9 @@ function setUpHamburger() {
 }
 
 function setMouseFollow() {
-  console.log('setMouseFollow')
   let hoverElems = Array.from(document.querySelectorAll('div.list a'))
-  let hoverImages = Array.from(document.querySelectorAll('div.list a h1 img'))
 
-  imageMove(hoverElems, hoverImages)
+  imageMove(hoverElems)
 }
 
 function menuToggle() {
