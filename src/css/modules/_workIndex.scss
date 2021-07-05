@@ -16,10 +16,16 @@
     margin-top: calc(var(--content-margin) * 3);
 
     a {
-      border-top: 1px solid;
       display: block;
       width: 100%;
       position: relative;
+      margin-bottom: calc(var(--content-margin) * 3);
+    }
+
+    a:hover {
+      border-top-color: var(--black) !important;
+      color: var(--black) !important;
+      border-top: 1px solid;
     }
 
     .image-set-wrapper {
@@ -40,6 +46,8 @@
   }
 
   .index-item-wrapper {
+    // pointer-events: none;
+    border-top: 1px solid;
     display: grid;
     grid-template-columns: 2fr 3fr 6fr 5fr;
     padding-bottom: calc(var(--unit) * 2);
@@ -56,11 +64,28 @@
     }
   }
 
+  .thumbBg {
+    pointer-events: none;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background-color: honeydew;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  .headingHover {
+    color: var(--black) !important;
+    z-index: 2 !important;
+  }
+
   .small {
     opacity: 1;
     width: 6vw !important;
     position: relative;
-    float: left;
+    // float: left;
     margin-right: calc(var(--content-margin) / 8);
     z-index: 1;
   }
@@ -71,9 +96,10 @@
 
   .large {
     width: 65vw !important;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    // top: 50%;
+    bottom: 0;
+    right: calc(-var(--content-margin));
+    // transform: translate(-50%, -50%);
     position: fixed !important;
     opacity: 0;
     z-index: 2;

@@ -1,6 +1,6 @@
 import { isInViewport } from './utils'
 
-let prevScrollPos = window.pageYOffset // Number
+let prevScrollPos = window.pageYOffset
 
 function showNav(elem) {
   elem.classList.remove('hideNav')

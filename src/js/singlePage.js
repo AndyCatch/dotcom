@@ -6,10 +6,11 @@ import { updateClock } from './luxonClock'
 import { indexImage } from './indexImage'
 import { hideShow } from './hideShowNav'
 import { imageMove } from './mouseFollow'
+// import
 
 var clock = setInterval(updateClock, 1000)
 var navChecker = setInterval(addNav, 200)
-var indexImageChecker = setInterval(addIndexImg, 200)
+var indexImageChecker = setInterval(addIndexImg, 1000)
 
 function init() {
   // luxon library <script> tag
@@ -38,11 +39,11 @@ window.addEventListener('resize', () => {
 })
 
 function addIndexImg() {
-  let nodeList = document.querySelectorAll('div.index-items a')
-
-  indexImage(nodeList)
-
-  clearInterval(indexImageChecker)
+  if (document.querySelector('body > section.work-index-section > div')) {
+    let nodeList = document.querySelectorAll('div.index-items')
+    indexImage(nodeList)
+    clearInterval(indexImageChecker)
+  }
 }
 
 function addNav() {

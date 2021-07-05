@@ -35,16 +35,15 @@ gulp.task('fonts', function () {
   return gulp.src('src/fonts/*').pipe(gulp.dest('dist/fonts'))
 })
 
-/*
-gulp.task('js', function () {
-  return pipeline(
-    gulp.src('src/js/*.js'),
-    sourcemaps.init(),
-    uglify(),
-    sourcemaps.write(),
-    gulp.dest('dist/js')
-  )
-})*/
+// gulp.task('js', function () {
+//   return pipeline(
+//     gulp.src('src/js/*.js'),
+//     sourcemaps.init(),
+//     uglify(),
+//     sourcemaps.write(),
+//     gulp.dest('dist/js')
+//   )
+// })
 
 // Can't seem to get Webpack to work?
 gulp.task('js', function () {
