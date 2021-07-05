@@ -23,9 +23,7 @@
     }
 
     a:hover {
-      border-top-color: var(--black) !important;
       color: var(--black) !important;
-      border-top: 1px solid;
     }
 
     .image-set-wrapper {
@@ -46,11 +44,12 @@
   }
 
   .index-item-wrapper {
-    // pointer-events: none;
     border-top: 1px solid;
     display: grid;
     grid-template-columns: 2fr 3fr 6fr 5fr;
     padding-bottom: calc(var(--unit) * 2);
+
+    pointer-events: none;
 
     div {
       z-index: 3;

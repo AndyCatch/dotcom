@@ -10,8 +10,8 @@ function indexImage(itemsNodeList) {
     indexItems[i].addEventListener('mouseover', function (event) {
       indexItems.forEach((item) => {
         item.style.zIndex = 0 // reset all to 0
-        header.classList.remove('headingHover')
       })
+
       bgHover.style.opacity = 1
       header.classList.add('headingHover')
       event.currentTarget.style.zIndex = 1 // bring the current to 1
