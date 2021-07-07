@@ -19,7 +19,7 @@
       display: block;
       width: 100%;
       position: relative;
-      margin-bottom: calc(var(--content-margin) * 3);
+      margin-bottom: var(--topBottom-margin);
     }
 
     a:hover {
@@ -31,7 +31,6 @@
       flex-direction: row;
       flex-wrap: nowrap;
       justify-content: flex-start;
-      padding-bottom: var(--content-margin);
     }
 
     .image-set {

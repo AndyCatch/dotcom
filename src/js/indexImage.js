@@ -29,24 +29,34 @@ function indexImage(itemsNodeList) {
       )
 
       imageSets.forEach((imageSet) => {
-        let smlImageSrc = imageSet.dataset.small
-        let lgImageSrc = imageSet.dataset.large // extract the data-large attribute, .dataset returns object
         let smlImage = new Image()
         let lgImage = new Image() // === document.createElement('img')
 
+        smlImage.src = imageSet.dataset.small
+        lgImage.src = imageSet.dataset.large
         smlImage.classList.add('small')
-        smlImage.src = smlImageSrc
         lgImage.classList.add('large') // add class, src, add to imageSet
-        lgImage.src = lgImageSrc
         imageSet.appendChild(smlImage)
         imageSet.appendChild(lgImage)
 
         // add listeners to thumbs
         smlImage.addEventListener('mouseover', function (event) {
+          imageSets.forEach((item) => {
+            let thumb = item.getElementsByClassName('small')
+            // console.log(thumb[0])
+            // thumb[0].style.opacity = 0.25
+          })
+          // event.currentTarget.style.border = '1px solid'
           lgImage.style.opacity = 1
         })
 
         smlImage.addEventListener('mouseout', function (event) {
+          imageSets.forEach((item) => {
+            // let thumb = item.getElementsByClassName('small')
+            // console.log(thumb[0])
+            // thumb[0].style.opacity = 1
+          })
+          // event.currentTarget.style.border = 'none'
           lgImage.style.opacity = 0
         })
       })
