@@ -29,8 +29,9 @@
     .image-set-wrapper {
       display: flex;
       flex-direction: row;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       justify-content: flex-start;
+      width: 35vw;
     }
 
     .image-set {
@@ -70,7 +71,7 @@
     top: 0;
     left: 0;
     opacity: 0;
-    background-color: honeydew;
+    background-color: var(--white);
     transition: opacity 0.2s ease-in-out;
   }
 
@@ -81,10 +82,11 @@
 
   .small {
     opacity: 1;
-    width: 6vw !important;
+    width: 5.5vw !important;
     position: relative;
     // float: left;
     margin-right: calc(var(--content-margin) / 8);
+    margin-top: calc(var(--content-margin) / 8);
     z-index: 1;
   }
 
