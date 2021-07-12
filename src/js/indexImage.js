@@ -35,28 +35,31 @@ function indexImage(itemsNodeList) {
         smlImage.src = imageSet.dataset.small
         lgImage.src = imageSet.dataset.large
         smlImage.classList.add('small')
-        lgImage.classList.add('large') // add class, src, add to imageSet
+        lgImage.classList.add('large')
+
         imageSet.appendChild(smlImage)
         imageSet.appendChild(lgImage)
 
         // add listeners to thumbs
         smlImage.addEventListener('mouseover', function (event) {
+          let current = event.currentTarget
           imageSets.forEach((item) => {
             let thumb = item.getElementsByClassName('small')
-            // console.log(thumb[0])
-            // thumb[0].style.opacity = 0.25
+            thumb[0].style.opacity = 0.25
           })
-          // event.currentTarget.style.border = '1px solid'
+          current.style.opacity = 1
+          // current.classList.add('thumbBum')
           lgImage.style.opacity = 1
         })
 
         smlImage.addEventListener('mouseout', function (event) {
+          let current = event.currentTarget
           imageSets.forEach((item) => {
-            // let thumb = item.getElementsByClassName('small')
+            let thumb = item.getElementsByClassName('small')
             // console.log(thumb[0])
-            // thumb[0].style.opacity = 1
+            thumb[0].style.opacity = 1
           })
-          // event.currentTarget.style.border = 'none'
+          // current.classList.remove('thumbBum')
           lgImage.style.opacity = 0
         })
       })

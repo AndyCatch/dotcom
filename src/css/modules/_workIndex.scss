@@ -83,16 +83,22 @@
   .small {
     opacity: 1;
     width: 5.5vw !important;
+    height: auto;
     position: relative;
-    // float: left;
     margin-right: calc(var(--content-margin) / 8);
     margin-top: calc(var(--content-margin) / 8);
     z-index: 1;
+    transition: all 0.2s ease-in-out;
   }
 
   // .index-item-wrapper (labels) = 3
   // .large z-Index = 2
   // .small z-Index = 1
+
+  .thumbBum {
+    z-index: 3;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+  }
 
   .large {
     width: 65vw !important;
