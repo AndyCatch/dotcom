@@ -58,12 +58,12 @@
   a {
     @include desktop-p-styles;
     text-decoration: none;
-    transition: color 0.5s ease-out !important;
+    transition: color 0.2s ease-out !important;
   }
 
   a:hover {
     color: var(--orange);
-    transition: color 0.5s ease-out !important;
+    transition: color 0.2s ease-out !important;
   }
 
   .currentYear {
