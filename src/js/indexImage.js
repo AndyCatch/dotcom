@@ -3,8 +3,19 @@ function indexImage(itemsNodeList) {
   let header = document.querySelector('h1')
 
   for (let i = 0; i < indexItems.length; i++) {
+    let wrappers = Array.from(
+      indexItems[i].querySelectorAll('div.image-set-wrapper')
+    )
+
+    let numLabel = document.createElement('p')
+    numLabel.classList.add('numImages')
+    numLabel.innerHTML = 0
+    if (wrappers[0]) {
+      wrappers[0].appendChild(numLabel)
+    }
     let bgHover = document.createElement('div')
     bgHover.classList.add('thumbBg')
+
     indexItems[i].appendChild(bgHover)
 
     indexItems[i].addEventListener('mouseover', function (event) {
@@ -13,6 +24,7 @@ function indexImage(itemsNodeList) {
       })
 
       bgHover.style.opacity = 1
+      numLabel.style.color = 'var(--black)'
       header.classList.add('headingHover')
       event.currentTarget.style.zIndex = 1 // bring the current to 1
     })
@@ -20,6 +32,7 @@ function indexImage(itemsNodeList) {
     indexItems[i].addEventListener('mouseout', function (event) {
       bgHover.style.opacity = 0
       header.classList.remove('headingHover')
+      numLabel.style.color = 'var(--white)'
     })
 
     if (indexItems[i].querySelectorAll('div.image-set')[i]) {
@@ -27,6 +40,7 @@ function indexImage(itemsNodeList) {
       let imageSets = Array.from(
         indexItems[i].getElementsByClassName('image-set')
       )
+      numLabel.innerHTML = imageSets.length
 
       imageSets.forEach((imageSet) => {
         let smlImage = new Image()
@@ -48,7 +62,6 @@ function indexImage(itemsNodeList) {
             thumb[0].style.opacity = 0.25
           })
           current.style.opacity = 1
-          // current.classList.add('thumbBum')
           lgImage.style.opacity = 1
         })
 
@@ -56,10 +69,8 @@ function indexImage(itemsNodeList) {
           let current = event.currentTarget
           imageSets.forEach((item) => {
             let thumb = item.getElementsByClassName('small')
-            // console.log(thumb[0])
             thumb[0].style.opacity = 1
           })
-          // current.classList.remove('thumbBum')
           lgImage.style.opacity = 0
         })
       })

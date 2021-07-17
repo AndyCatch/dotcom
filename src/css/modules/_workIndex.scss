@@ -75,6 +75,20 @@
     transition: opacity 0.2s ease-in-out;
   }
 
+  .numImages {
+    font-family: var(--untitled-ita);
+    z-index: 2 !important;
+    transition: color 0.5s ease-out !important;
+  }
+
+  .numImages::before {
+    content: '[';
+  }
+
+  .numImages::after {
+    content: ']';
+  }
+
   .headingHover {
     color: var(--black) !important;
     z-index: 2 !important;
@@ -94,11 +108,6 @@
   // .index-item-wrapper (labels) = 3
   // .large z-Index = 2
   // .small z-Index = 1
-
-  .thumbBum {
-    z-index: 3;
-    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
-  }
 
   .large {
     width: 65vw !important;
