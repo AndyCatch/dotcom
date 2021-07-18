@@ -6,7 +6,7 @@
     h1 {
       z-index: 0;
     }
-
+    //
     a.none {
       pointer-events: none;
     }
@@ -44,7 +44,6 @@
   }
 
   .index-item-wrapper {
-    border-top: 1px solid;
     display: grid;
     grid-template-columns: 2fr 3fr 6fr 5fr;
     padding-bottom: calc(var(--unit) * 2);
@@ -53,7 +52,12 @@
 
     div {
       z-index: 3;
+      border-top: 1px solid;
       font-size: var(--nav-size);
+
+      div {
+        border-top: none;
+      }
     }
 
     .arrow-item {
