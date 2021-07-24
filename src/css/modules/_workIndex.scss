@@ -98,6 +98,18 @@
     z-index: 2 !important;
   }
 
+  .caption {
+    font-family: var(--untitled-ita);
+    position: fixed !important;
+    z-index: 3;
+    bottom: 0;
+    transform: translate(16px, -16px);
+    mix-blend-mode: exclusion;
+    color: var(--white);
+    opacity: 0;
+    transition: opacity 0.1s ease-out;
+  }
+
   .small {
     opacity: 1;
     width: 5.5vw !important;
@@ -115,10 +127,8 @@
 
   .large {
     width: 65vw !important;
-    // top: 50%;
     bottom: 0;
     right: calc(-var(--content-margin));
-    // transform: translate(-50%, -50%);
     position: fixed !important;
     opacity: 0;
     z-index: 2;

@@ -41,33 +41,40 @@ function indexImage(itemsNodeList) {
       imageSets.forEach((imageSet) => {
         let smlImage = new Image()
         let lgImage = new Image() // === document.createElement('img')
+        let caption = document.createElement('p')
 
+        if (imageSet.dataset.caption) {
+          caption.innerHTML = imageSet.dataset.caption
+        }
         smlImage.src = imageSet.dataset.small
         lgImage.src = imageSet.dataset.large
+
+        caption.classList.add('caption')
         smlImage.classList.add('small')
         lgImage.classList.add('large')
 
         imageSet.appendChild(smlImage)
         imageSet.appendChild(lgImage)
+        imageSet.appendChild(caption)
 
         // add listeners to thumbs
         smlImage.addEventListener('mouseover', function (event) {
-          let current = event.currentTarget
           imageSets.forEach((item) => {
             let thumb = item.getElementsByClassName('small')
             thumb[0].style.opacity = 0.25
           })
-          current.style.opacity = 1
+          event.currentTarget.style.opacity = 1
           lgImage.style.opacity = 1
+          caption.style.opacity = 1
         })
 
         smlImage.addEventListener('mouseout', function (event) {
-          let current = event.currentTarget
           imageSets.forEach((item) => {
             let thumb = item.getElementsByClassName('small')
             thumb[0].style.opacity = 1
           })
           lgImage.style.opacity = 0
+          caption.style.opacity = 0
         })
       })
     }
