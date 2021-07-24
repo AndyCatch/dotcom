@@ -42,6 +42,7 @@ function indexImage(itemsNodeList) {
         let smlImage = new Image()
         let lgImage = new Image() // === document.createElement('img')
         let caption = document.createElement('p')
+        let childItems = [smlImage, lgImage, caption]
 
         if (imageSet.dataset.caption) {
           caption.innerHTML = imageSet.dataset.caption
@@ -53,9 +54,9 @@ function indexImage(itemsNodeList) {
         smlImage.classList.add('small')
         lgImage.classList.add('large')
 
-        imageSet.appendChild(smlImage)
-        imageSet.appendChild(lgImage)
-        imageSet.appendChild(caption)
+        childItems.forEach((childItem) => {
+          imageSet.appendChild(childItem)
+        })
 
         // add listeners to thumbs
         smlImage.addEventListener('mouseover', function (event) {

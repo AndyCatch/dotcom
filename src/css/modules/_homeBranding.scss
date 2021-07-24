@@ -28,9 +28,13 @@
     grid-column-end: 13;
   }
 
-  .row:nth-child(2),
+  .row:nth-child(2) {
+    grid-column-start: 1;
+    grid-column-end: 12;
+  }
+
   .row:nth-child(3) {
-    grid-column-start: 2;
+    grid-column-start: 7;
     grid-column-end: 12;
   }
 
