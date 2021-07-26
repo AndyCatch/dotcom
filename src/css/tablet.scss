@@ -2,6 +2,8 @@
 @use "modules/copyModule";
 @use "modules/nextProject";
 @use "modules/listModule";
+@use "modules/homeBranding";
+@use "modules/letterBackground";
 // @use "modules/footerModule";
 
 @mixin navItem-exceptions-tablet {
@@ -25,6 +27,8 @@
   @include listModule.tablet-portrait;
   @include copyModule.tablet-portait;
   @include nextProject.tablet-portrait;
+  @include homeBranding.tablet;
+  @include letterBackground.tablet;
   // @include footerModule.tablet;
 }
 
@@ -57,4 +61,6 @@
   @include type-stack.tablet-type-stack;
   @include listModule.tablet-landscape;
   @include nextProject.mobile-landscape-med;
+  @include homeBranding.tablet;
+  @include letterBackground.tablet;
 }

@@ -41,3 +41,29 @@
     height: calc(72vh - var(--topBottom-margin));
   }
 }
+
+@mixin tablet {
+  .letter-container {
+    flex-direction: column;
+  }
+
+  .letter:nth-child(1) {
+    justify-content: left;
+  }
+
+  .letter:nth-child(2) {
+    justify-content: flex-end;
+  }
+
+  .letter {
+    width: calc(100vw - var(--leftRight-margin));
+    height: 50vh;
+  }
+
+  .letter img {
+    height: calc(50vh - var(--topBottom-margin));
+  }
+}
+
+@mixin mobile {
+}

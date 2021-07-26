@@ -72,6 +72,9 @@
 }
 
 @mixin tablet-type-stack {
+  .display-size {
+    font-size: var(--display-size-tablet) !important;
+  }
 }
 
 @mixin mobile-type-stack {

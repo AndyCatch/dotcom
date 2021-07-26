@@ -28,13 +28,15 @@
     grid-column-end: 13;
   }
 
+  // I've worked across...
   .row:nth-child(2) {
     grid-column-start: 1;
     grid-column-end: 12;
   }
 
+  // I’m currently a Design Director at R/GA NY
   .row:nth-child(3) {
-    grid-column-start: 7;
+    grid-column-start: 1;
     grid-column-end: 12;
   }
 
@@ -43,4 +45,13 @@
     padding-top: calc(var(--content-margin) + 12px);
     color: var(--white);
   }
+}
+
+@mixin tablet {
+  .branding {
+    padding-top: calc(var(--topBottom-margin));
+  }
+}
+
+@mixin mobile {
 }
