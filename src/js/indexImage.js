@@ -12,6 +12,10 @@ function indexImage(itemsNodeList) {
   header = document.querySelector('h1')
 
   renderElems(indexItems)
+
+  document.addEventListener('click', function (event) {
+    console.log(event.target)
+  })
 }
 
 function renderElems(indexItems) {

@@ -1,5 +1,6 @@
 @mixin desktop {
   .letter-container {
+    pointer-events: none;
     height: calc(100vh - var(--topBottom-margin));
     width: calc(100vw - var(--leftRight-margin));
     margin: var(--content-margin);
@@ -17,8 +18,6 @@
   }
 
   .letter {
-    pointer-events: none;
-
     width: calc(50vw - var(--leftRight-margin));
     height: inherit;
 
