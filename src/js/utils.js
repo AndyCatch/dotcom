@@ -40,6 +40,7 @@ function hasTouch() {
 }
 
 function removeHoverStyles() {
+  console.log('remove Hover Styles')
   if (hasTouch()) {
     // remove all :hover stylesheets
     try {
@@ -53,6 +54,28 @@ function removeHoverStyles() {
 
           if (styleSheet.rules[ri].selectorText.match(':hover')) {
             styleSheet.deleteRule(ri)
+          }
+        }
+      }
+    } catch (ex) {}
+  }
+}
+
+function addHoverStyles() {
+  if (hasTouch()) {
+    // add all :hover stylesheets
+    try {
+      // prevent exception on browsers not supporting DOM styleSheets properly
+      for (var si in document.styleSheets) {
+        var styleSheet = document.styleSheets[si]
+        if (!styleSheet.rules) continue
+
+        for (var ri = styleSheet.rules.length - 1; ri >= 0; ri--) {
+          if (!styleSheet.rules[ri].selectorText) continue
+
+          if (styleSheet.rules[ri].selectorText.match(':hover')) {
+            console.log('addin')
+            styleSheet.addRule(ri)
           }
         }
       }
@@ -79,4 +102,5 @@ export {
   customVhUnit,
   customVwUnit,
   removeHoverStyles,
+  addHoverStyles,
 }

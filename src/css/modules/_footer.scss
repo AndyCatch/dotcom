@@ -62,7 +62,10 @@
   }
 }
 
-@mixin tablet-portait {
+@mixin tablet {
+  h1.clock-style.NYCtime {
+    margin-bottom: calc(var(--unit) * 2);
+  }
 }
 
 @mixin mobile {

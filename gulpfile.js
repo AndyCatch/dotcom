@@ -86,6 +86,7 @@ gulp.task('watch', function () {
 
   // If any ".scss" file is updated then reruns gulp scss task to move files to dist folder
   gulp.watch('src/css/app.scss', gulp.series('compileCSS'))
+  gulp.watch('src/css/designTokens.css', gulp.series('compileCSS'))
   gulp.watch('src/css/mobile.scss', gulp.series('compileCSS'))
   gulp.watch('src/css/tablet.scss', gulp.series('compileCSS'))
   gulp.watch('src/css/modules/*.scss', gulp.series('compileCSS'))

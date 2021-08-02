@@ -39,7 +39,10 @@
   }
 }
 
-@mixin tablet-portait {
+@mixin tablet {
+  .social-links {
+    margin: 60vh var(--content-margin) 0 var(--content-margin);
+  }
 }
 
 @mixin mobile {

@@ -75,6 +75,14 @@
   .display-size {
     font-size: var(--display-size-tablet) !important;
   }
+
+  .clock-style {
+    font-size: var(--clock-size-tablet);
+  }
+
+  h1 {
+    font-size: var(--subHead-size-tablet);
+  }
 }
 
 @mixin mobile-type-stack {

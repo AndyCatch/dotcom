@@ -3,8 +3,10 @@
 @use "modules/nextProject";
 @use "modules/listModule";
 @use "modules/homeBranding";
+@use "modules/workIndex";
 @use "modules/letterBackground";
-// @use "modules/footerModule";
+@use "modules/socialLinks";
+@use "modules/footer";
 
 @mixin navItem-exceptions-tablet {
   .navItem-Index {
@@ -29,7 +31,9 @@
   @include nextProject.tablet-portrait;
   @include homeBranding.tablet;
   @include letterBackground.tablet;
-  // @include footerModule.tablet;
+  @include workIndex.tablet;
+  @include socialLinks.tablet;
+  @include footer.tablet;
 }
 
 /* Portrait */
@@ -63,4 +67,7 @@
   @include nextProject.mobile-landscape-med;
   @include homeBranding.tablet;
   @include letterBackground.tablet;
+  @include workIndex.tablet;
+  @include socialLinks.tablet;
+  @include footer.tablet;
 }

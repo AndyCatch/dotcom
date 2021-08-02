@@ -51,6 +51,19 @@
   .branding {
     padding-top: calc(var(--topBottom-margin));
   }
+
+  .row:nth-child(2),
+  .row:nth-child(3) {
+    margin-top: var(--content-margin);
+  }
+
+  .row:nth-child(1) {
+    grid-column-end: 12;
+  }
+
+  .row:nth-child(2) {
+    grid-column-end: 9;
+  }
 }
 
 @mixin mobile {
