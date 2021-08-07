@@ -61,10 +61,10 @@
     transition: color 0.2s ease-out !important;
   }
 
-  a:hover {
-    color: var(--orange);
-    transition: color 0.2s ease-out !important;
-  }
+  // a:hover {
+  //   color: var(--orange);
+  //   transition: color 0.2s ease-out !important;
+  // }
 
   .currentYear {
     @include desktop-p-styles;

@@ -1,9 +1,24 @@
-import { iPad } from './mediaQueries'
+import {
+  desktop,
+  desktopWide,
+  tablet,
+  tabletWide,
+  mobile,
+} from './mediaQueries'
+import { hasTouch } from './utils'
 
 let indexItems
 let bgHover
 let header
 let bodyTag
+
+// let devices = [
+//   { isDesktop: desktop },
+//   { isDesktopWide: desktopWide },
+//   { isTablet: tablet },
+//   { isTabletWide: tabletWide },
+//   { isMobile: mobile },
+// ]
 
 function indexImage(itemsNodeList) {
   bodyTag = document.body
@@ -12,10 +27,6 @@ function indexImage(itemsNodeList) {
   header = document.querySelector('h1')
 
   renderElems(indexItems)
-
-  document.addEventListener('click', function (event) {
-    console.log(event.target)
-  })
 }
 
 function renderElems(indexItems) {
@@ -51,14 +62,20 @@ function renderElems(indexItems) {
     })
   }
 
-  addDesktopLayer()
+  desktop.addEventListener('change', desktopHandler)
+  desktopHandler(desktop)
+  desktopWide.addEventListener('change', desktopHandler)
+  desktopHandler(desktopWide)
+  tablet.addEventListener('change', tabletHandler)
+  desktopHandler(tablet)
+  tabletWide.addEventListener('change', tabletHandler)
+  tabletHandler(tabletWide)
+  // mobile.
 
-  iPad.addEventListener('change', handleTabletChange)
-  handleTabletChange(iPad)
+  // console.log(mobileCheck())
 }
 
 function addDesktopLayer() {
-  console.log('Desktop active!')
   for (let i = 0; i < indexItems.length; i++) {
     indexItems[i].addEventListener('mouseover', indexItemHandler)
     indexItems[i].addEventListener('mouseout', indexItemHandler)
@@ -75,7 +92,6 @@ function addDesktopLayer() {
 }
 
 function removeDesktopLayer() {
-  console.log('remove Desktop')
   for (let i = 0; i < indexItems.length; i++) {
     indexItems[i].removeEventListener('mouseover', indexItemHandler)
     indexItems[i].removeEventListener('mouseout', indexItemHandler)
@@ -98,9 +114,11 @@ function indexItemHandler(event) {
       item.style.zIndex = 0 // reset all to 0
     })
     current.style.zIndex = 1 // bring the current to 1
+    current.classList.add('indexHover')
     header.classList.add('headingHover')
     bgHover.classList.add('fullOpacity')
   } else if (event.type === 'mouseout') {
+    current.classList.remove('indexHover')
     header.classList.remove('headingHover')
     bgHover.classList.remove('fullOpacity')
   }
@@ -133,7 +151,6 @@ function desktopThumbHandler(event) {
 }
 
 function addTabletLayer() {
-  console.log('iPad Active!')
   for (let i = 0; i < indexItems.length; i++) {
     let imageSets = Array.from(
       indexItems[i].getElementsByClassName('image-set')
@@ -153,6 +170,7 @@ function nthParent(element, n) {
 }
 
 function tabletThumbHandler(event) {
+  console.log('tablet thumb handler')
   let current = event.currentTarget //
   let parent = current.parentNode // need this to track the large image / caption / cover
   let superParent = nthParent(parent, 2)
@@ -163,11 +181,12 @@ function tabletThumbHandler(event) {
   bodyTag.classList.add('disableScroll')
 
   if (event.type === 'click' || 'touchstart') {
+    console.log(event.type)
     indexItems.forEach((item) => {
       item.style.zIndex = 0 // reset all to 0
     })
     superParent.style.zIndex = 1
-    superParent.style.color = 'var(--black) !important'
+    superParent.classList.add('indexHover')
     for (let i = 0; i < indexItems.length; i++) {
       let thumbs = Array.from(indexItems[i].getElementsByClassName('small'))
       thumbs.forEach((thumb) => {
@@ -185,18 +204,29 @@ function tabletThumbHandler(event) {
 
 function removeTabletLayer() {
   bodyTag.classList.remove('disableScroll')
-  header.classList.remove('headingHover', 'touchHeading')
-  bgHover.classList.remove('touchCover')
+  header.classList.remove('headingHover')
+  let opacityItems = []
   for (let i = 0; i < indexItems.length; i++) {
     let imageSets = Array.from(
       indexItems[i].getElementsByClassName('image-set')
     )
     imageSets.forEach((imageSet) => {
       let thumb = imageSet.getElementsByClassName('small')[0]
+      let touchCover = imageSet.getElementsByClassName('touchCover')[0]
+      let large = imageSet.getElementsByClassName('large')[0]
+      let caption = imageSet.getElementsByClassName('caption')[0]
+      opacityItems.push(large, touchCover, caption)
+      thumb.style.pointerEvents = 'auto'
       thumb.removeEventListener('click', tabletThumbHandler)
       thumb.removeEventListener('touchStart', tabletThumbHandler)
     })
   }
+
+  opacityItems.forEach((item) => {
+    if (item.classList.contains('fullOpacity')) {
+      item.classList.remove('fullOpacity')
+    }
+  })
 }
 
 function isDesktop() {
@@ -209,11 +239,18 @@ function isTablet() {
   addTabletLayer()
 }
 
-function handleTabletChange(event) {
-  if (event.matches) {
+function isMobile() {
+  console.log('isMobile func')
+}
+
+function desktopHandler(event) {
+  isDesktop()
+}
+
+function tabletHandler(event) {
+  if (hasTouch()) {
     isTablet()
   } else {
-    //
     isDesktop()
   }
 }

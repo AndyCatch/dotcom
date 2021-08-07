@@ -39,7 +39,7 @@ window.addEventListener('resize', () => {
 })
 
 function addIndexImg() {
-  console.log('index Image Handler')
+  console.log('indexImage Handler Added')
   if (document.querySelector('body > section.work-index-section > div')) {
     let nodeList = document.querySelectorAll('div.index-items')
     indexImage(nodeList)
