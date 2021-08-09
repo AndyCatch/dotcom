@@ -1,28 +1,26 @@
-import {
-  desktop,
-  desktopWide,
-  tablet,
-  tabletWide,
-  mobile,
-} from './mediaQueries'
+import { tablets, desktops } from './mediaQueries'
 import { hasTouch } from './utils'
+import { showNav } from './hideShowNav'
 
 let indexItems
 let bgHover
 let header
 let bodyTag
+let navBar
+let close
 
-// let devices = [
-//   { isDesktop: desktop },
-//   { isDesktopWide: desktopWide },
-//   { isTablet: tablet },
-//   { isTabletWide: tabletWide },
-//   { isMobile: mobile },
-// ]
+let thumbs
+let itemLabels
+let captions
+let largeImages
+let touchCovers
+let opacityItems
 
 function indexImage(itemsNodeList) {
-  bodyTag = document.body
   indexItems = Array.from(itemsNodeList[0].querySelectorAll('a'))
+  bodyTag = document.body
+  close = document.querySelectorAll('.close')[0]
+  navBar = document.querySelectorAll('div.navbar-inner')[0]
   bgHover = document.getElementsByClassName('thumbBg')[0]
   header = document.querySelector('h1')
 
@@ -62,49 +60,55 @@ function renderElems(indexItems) {
     })
   }
 
-  desktop.addEventListener('change', desktopHandler)
-  desktopHandler(desktop)
-  desktopWide.addEventListener('change', desktopHandler)
-  desktopHandler(desktopWide)
-  tablet.addEventListener('change', tabletHandler)
-  desktopHandler(tablet)
-  tabletWide.addEventListener('change', tabletHandler)
-  tabletHandler(tabletWide)
-  // mobile.
+  setUpElementArrays()
 
-  // console.log(mobileCheck())
+  desktops.forEach((desktop) => {
+    desktop.addEventListener('change', desktopHandler)
+    desktopHandler(desktop)
+  })
+
+  tablets.forEach((tablet) => {
+    tablet.addEventListener('change', tabletHandler)
+    tabletHandler(tablet)
+  })
+
+  close.addEventListener('click', function (event) {
+    closeLightBox()
+  })
+}
+
+function setUpElementArrays() {
+  thumbs = Array.from(document.querySelectorAll('.small'))
+  largeImages = Array.from(document.querySelectorAll('.large'))
+  touchCovers = Array.from(document.querySelectorAll('.touchCover'))
+  itemLabels = Array.from(document.querySelectorAll('.index-item-wrapper'))
+  captions = Array.from(document.querySelectorAll('.caption'))
+
+  opacityItems = [largeImages, touchCovers, captions]
 }
 
 function addDesktopLayer() {
-  for (let i = 0; i < indexItems.length; i++) {
-    indexItems[i].addEventListener('mouseover', indexItemHandler)
-    indexItems[i].addEventListener('mouseout', indexItemHandler)
+  indexItems.forEach((indexItem) => {
+    indexItem.addEventListener('mouseover', indexItemHandler)
+    indexItem.addEventListener('mouseout', indexItemHandler)
+  })
 
-    let imageSets = Array.from(
-      indexItems[i].getElementsByClassName('image-set')
-    )
-    imageSets.forEach((imageSet) => {
-      let thumb = imageSet.getElementsByClassName('small')[0]
-      thumb.addEventListener('mouseover', desktopThumbHandler)
-      thumb.addEventListener('mouseout', desktopThumbHandler)
-    })
-  }
+  thumbs.forEach((thumb) => {
+    thumb.addEventListener('mouseover', desktopThumbHandler)
+    thumb.addEventListener('mouseout', desktopThumbHandler)
+  })
 }
 
 function removeDesktopLayer() {
-  for (let i = 0; i < indexItems.length; i++) {
-    indexItems[i].removeEventListener('mouseover', indexItemHandler)
-    indexItems[i].removeEventListener('mouseout', indexItemHandler)
+  indexItems.forEach((indexItem) => {
+    indexItem.removeEventListener('mouseover', indexItemHandler)
+    indexItem.removeEventListener('mouseout', indexItemHandler)
+  })
 
-    let imageSets = Array.from(
-      indexItems[i].getElementsByClassName('image-set')
-    )
-    imageSets.forEach((imageSet) => {
-      let thumb = imageSet.getElementsByClassName('small')[0]
-      thumb.removeEventListener('mouseover', desktopThumbHandler)
-      thumb.removeEventListener('mouseout', desktopThumbHandler)
-    })
-  }
+  thumbs.forEach((thumb) => {
+    thumb.addEventListener('mouseover', desktopThumbHandler)
+    thumb.addEventListener('mouseout', desktopThumbHandler)
+  })
 }
 
 function indexItemHandler(event) {
@@ -151,16 +155,10 @@ function desktopThumbHandler(event) {
 }
 
 function addTabletLayer() {
-  for (let i = 0; i < indexItems.length; i++) {
-    let imageSets = Array.from(
-      indexItems[i].getElementsByClassName('image-set')
-    )
-    imageSets.forEach((imageSet) => {
-      let thumb = imageSet.getElementsByClassName('small')[0]
-      thumb.addEventListener('click', tabletThumbHandler)
-      thumb.addEventListener('touchStart', tabletThumbHandler)
-    })
-  }
+  thumbs.forEach((thumb) => {
+    thumb.addEventListener('click', tabletThumbHandler)
+    thumb.addEventListener('touchStart', tabletThumbHandler)
+  })
 }
 
 // Non-recursive helper function
@@ -170,30 +168,27 @@ function nthParent(element, n) {
 }
 
 function tabletThumbHandler(event) {
-  console.log('tablet thumb handler')
   let current = event.currentTarget //
   let parent = current.parentNode // need this to track the large image / caption / cover
   let superParent = nthParent(parent, 2)
   let cover = parent.getElementsByClassName('touchCover')[0]
   let lgImg = parent.getElementsByClassName('large')[0]
   let caption = parent.getElementsByClassName('caption')[0]
+  let itemLabel = superParent.querySelector('.index-item-wrapper')
 
   bodyTag.classList.add('disableScroll')
+  close.classList.add('showClose')
 
   if (event.type === 'click' || 'touchstart') {
-    console.log(event.type)
+    showNav(navBar)
     indexItems.forEach((item) => {
       item.style.zIndex = 0 // reset all to 0
     })
     superParent.style.zIndex = 1
-    superParent.classList.add('indexHover')
-    for (let i = 0; i < indexItems.length; i++) {
-      let thumbs = Array.from(indexItems[i].getElementsByClassName('small'))
-      thumbs.forEach((thumb) => {
-        thumb.style.pointerEvents = 'none'
-      })
-    }
-    header.classList.add('headingHover')
+    itemLabel.classList.add('zeroOpacity')
+    thumbs.forEach((thumb) => {
+      thumb.style.pointerEvents = 'none'
+    })
     cover.classList.add('fullOpacity')
     lgImg.classList.add('fullOpacity')
     caption.classList.add('fullOpacity')
@@ -203,29 +198,37 @@ function tabletThumbHandler(event) {
 }
 
 function removeTabletLayer() {
+  closeLightBox()
+  removeThumbHandlers()
+}
+
+function closeLightBox() {
   bodyTag.classList.remove('disableScroll')
-  header.classList.remove('headingHover')
-  let opacityItems = []
-  for (let i = 0; i < indexItems.length; i++) {
-    let imageSets = Array.from(
-      indexItems[i].getElementsByClassName('image-set')
-    )
-    imageSets.forEach((imageSet) => {
-      let thumb = imageSet.getElementsByClassName('small')[0]
-      let touchCover = imageSet.getElementsByClassName('touchCover')[0]
-      let large = imageSet.getElementsByClassName('large')[0]
-      let caption = imageSet.getElementsByClassName('caption')[0]
-      opacityItems.push(large, touchCover, caption)
-      thumb.style.pointerEvents = 'auto'
-      thumb.removeEventListener('click', tabletThumbHandler)
-      thumb.removeEventListener('touchStart', tabletThumbHandler)
+  close.classList.remove('showClose')
+
+  for (let i = 0; i < opacityItems.length; i++) {
+    opacityItems[i].forEach((item) => {
+      if (item.classList.contains('fullOpacity')) {
+        item.classList.remove('fullOpacity')
+      }
     })
   }
 
-  opacityItems.forEach((item) => {
-    if (item.classList.contains('fullOpacity')) {
-      item.classList.remove('fullOpacity')
+  itemLabels.forEach((itemLabel) => {
+    if (itemLabel.classList.contains('zeroOpacity')) {
+      itemLabel.classList.remove('zeroOpacity')
     }
+  })
+
+  thumbs.forEach((thumb) => {
+    thumb.style.pointerEvents = 'auto'
+  })
+}
+
+function removeThumbHandlers() {
+  thumbs.forEach((thumb) => {
+    thumb.removeEventListener('click', tabletThumbHandler)
+    thumb.removeEventListener('touchStart', tabletThumbHandler)
   })
 }
 

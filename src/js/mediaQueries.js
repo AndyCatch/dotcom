@@ -6,18 +6,29 @@ const desktop = window.matchMedia(
 )
 
 const tabletWide = window.matchMedia(
-  'screen and (max-width: 991px) and (min-width: 768px)'
+  'screen and (max-width: 991px) and (min-width: 768px) and (hover: none)'
 )
 
 const tablet = window.matchMedia(
-  'screen and (max-width: 767px) and (min-width: 544px)'
+  'screen and (max-width: 767px) and (min-width: 544px) and (hover: none)'
 )
 
 const mobile = window.matchMedia('screen and (max-width: 543px)')
 
 const devices = [desktopWide, desktop, tabletWide, tablet, mobile]
+const desktops = [desktopWide, desktop]
+const tablets = [tabletWide, tablet]
 
-export { desktopWide, desktop, tabletWide, tablet, mobile, devices }
+export {
+  desktopWide,
+  desktop,
+  tabletWide,
+  tablet,
+  mobile,
+  devices,
+  desktops,
+  tablets,
+}
 
 // const iPad = window.matchMedia(
 //   '(min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (hover: none)'

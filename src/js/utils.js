@@ -10,7 +10,7 @@ function isInViewport(elem) {
   )
 }
 
-// This is globally scoped
+// This is globally scoped, call from anywhere
 window.mobileCheck = function () {
   let check = false
   ;(function (a) {
