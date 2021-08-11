@@ -61,7 +61,9 @@
     grid-column-end: 12;
   }
 
+  // I've worked across...
   .row:nth-child(2) {
+    grid-column-start: 1;
     grid-column-end: 9;
   }
 }

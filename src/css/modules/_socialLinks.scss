@@ -7,7 +7,7 @@
 
     /* top | right | bottom | left */
     width: calc(100vw - var(--leftRight-margin));
-    margin: 35vh var(--content-margin) 0 var(--content-margin);
+    margin: 60vh var(--content-margin) 0 var(--content-margin);
 
     div {
       z-index: 3;
@@ -40,9 +40,6 @@
 }
 
 @mixin tablet {
-  .social-links {
-    margin: 60vh var(--content-margin) 0 var(--content-margin);
-  }
 }
 
 @mixin mobile {

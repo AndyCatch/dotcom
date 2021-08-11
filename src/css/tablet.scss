@@ -3,6 +3,7 @@
 @use "modules/nextProject";
 @use "modules/listModule";
 @use "modules/homeBranding";
+@use "modules/homeCopy";
 @use "modules/workIndex";
 @use "modules/letterBackground";
 @use "modules/socialLinks";
@@ -30,6 +31,7 @@
   @include copyModule.tablet-portait;
   @include nextProject.tablet-portrait;
   @include homeBranding.tablet;
+  @include homeCopy.tablet;
   @include letterBackground.tablet;
   @include workIndex.tablet;
   @include socialLinks.tablet;

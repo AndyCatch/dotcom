@@ -5,8 +5,7 @@ import { customVhUnit, removeHoverStyles } from './utils'
 import { updateClock } from './luxonClock'
 import { indexImage } from './indexImage'
 import { hideShow } from './hideShowNav'
-import { imageMove } from './mouseFollow'
-// import
+import { imageMove, stopDraw } from './mouseFollow'
 
 var clock = setInterval(updateClock, 1000)
 var navChecker = setInterval(addNav, 200)
@@ -39,7 +38,6 @@ window.addEventListener('resize', () => {
 })
 
 function addIndexImg() {
-  console.log('indexImage Handler Added')
   if (document.querySelector('body > section.work-index-section > div')) {
     let nodeList = document.querySelectorAll('div.index-items')
     indexImage(nodeList)

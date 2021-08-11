@@ -1,5 +1,5 @@
 import { tablets, desktops } from './mediaQueries'
-import { hasTouch } from './utils'
+import { hasTouch, nthParent } from './utils'
 import { showNav } from './hideShowNav'
 
 let indexItems
@@ -106,23 +106,27 @@ function removeDesktopLayer() {
   })
 
   thumbs.forEach((thumb) => {
-    thumb.addEventListener('mouseover', desktopThumbHandler)
-    thumb.addEventListener('mouseout', desktopThumbHandler)
+    thumb.removeEventListener('mouseover', desktopThumbHandler)
+    thumb.removeEventListener('mouseout', desktopThumbHandler)
   })
 }
 
 function indexItemHandler(event) {
   let current = event.currentTarget
+  let numImage = current.querySelector('.numImages')
+  // console.log(numImage)
   if (event.type === 'mouseover') {
     indexItems.forEach((item) => {
       item.style.zIndex = 0 // reset all to 0
     })
     current.style.zIndex = 1 // bring the current to 1
     current.classList.add('indexHover')
+    numImage.style.color = 'var(--black)'
     header.classList.add('headingHover')
     bgHover.classList.add('fullOpacity')
   } else if (event.type === 'mouseout') {
     current.classList.remove('indexHover')
+    numImage.style.color = 'var(--white)'
     header.classList.remove('headingHover')
     bgHover.classList.remove('fullOpacity')
   }
@@ -131,23 +135,21 @@ function indexItemHandler(event) {
 function desktopThumbHandler(event) {
   let current = event.currentTarget
   let parent = current.parentNode
-  let imageSetWrapper = Array.from(
-    parent.parentNode.getElementsByClassName('image-set')
-  )
+  let setThumbs = Array.from(nthParent(parent, 2).querySelectorAll('.small'))
 
-  let lgImg = parent.getElementsByClassName('large')[0]
-  let caption = parent.getElementsByClassName('caption')[0]
+  let lgImg = parent.querySelector('.large')
+  let caption = parent.querySelector('.caption')
 
   if (event.type === 'mouseover') {
-    imageSetWrapper.forEach((imageSet) => {
-      imageSet.getElementsByClassName('small')[0].style.opacity = 0.25
+    setThumbs.forEach((setThumb) => {
+      setThumb.style.opacity = 0.25
     })
     current.style.opacity = 1
     lgImg.classList.add('fullOpacity')
     caption.classList.add('fullOpacity')
-  } else {
-    imageSetWrapper.forEach((imageSet) => {
-      imageSet.getElementsByClassName('small')[0].style.opacity = 1
+  } else if (event.type === 'mouseout') {
+    setThumbs.forEach((setThumb) => {
+      setThumb.style.opacity = 1
     })
     lgImg.classList.remove('fullOpacity')
     caption.classList.remove('fullOpacity')
@@ -161,19 +163,13 @@ function addTabletLayer() {
   })
 }
 
-// Non-recursive helper function
-function nthParent(element, n) {
-  while (n-- && element) element = element.parentNode
-  return element
-}
-
 function tabletThumbHandler(event) {
   let current = event.currentTarget //
   let parent = current.parentNode // need this to track the large image / caption / cover
   let superParent = nthParent(parent, 2)
-  let cover = parent.getElementsByClassName('touchCover')[0]
-  let lgImg = parent.getElementsByClassName('large')[0]
-  let caption = parent.getElementsByClassName('caption')[0]
+  let cover = parent.querySelector('.touchCover')
+  let lgImg = parent.querySelector('.large')
+  let caption = parent.querySelector('.caption')
   let itemLabel = superParent.querySelector('.index-item-wrapper')
 
   bodyTag.classList.add('disableScroll')

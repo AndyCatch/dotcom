@@ -13,7 +13,9 @@ const tablet = window.matchMedia(
   'screen and (max-width: 767px) and (min-width: 544px) and (hover: none)'
 )
 
-const mobile = window.matchMedia('screen and (max-width: 543px)')
+const mobile = window.matchMedia(
+  'screen and (max-width: 543px) and (hover: none)'
+)
 
 const devices = [desktopWide, desktop, tabletWide, tablet, mobile]
 const desktops = [desktopWide, desktop]

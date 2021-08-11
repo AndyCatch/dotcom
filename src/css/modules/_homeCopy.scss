@@ -19,25 +19,35 @@
     padding-top: var(--topBottom-margin);
   }
 
+  // Past clients...
   .home-copy-row:nth-child(1) {
-    grid-column-start: 3;
+    grid-column-start: 4;
     grid-column-end: 7;
   }
-
+  // Phase...
   .home-copy-row:nth-child(2) {
     grid-column-start: 5;
     grid-column-end: 9;
   }
-
+  // Acknowledgement...
   .home-copy-row:nth-child(3) {
-    padding-top: calc(var(--topBottom-margin) * 4);
+    padding-top: calc(var(--topBottom-margin));
     grid-column-start: 6;
     grid-column-end: 13;
   }
 }
 
-@mixin tablet-portait {
-}
+@mixin tablet {
+  .home-copy-row:nth-child(3) {
+    padding-top: calc(var(--topBottom-margin));
+  }
 
-@mixin mobile {
+  .home-copy-row:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 7;
+  }
+  .home-copy-row:nth-child(2) {
+    grid-column-start: 6;
+    grid-column-end: 13;
+  }
 }

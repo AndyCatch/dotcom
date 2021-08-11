@@ -1,3 +1,6 @@
+var cancelAnimationFrame =
+  window.cancelAnimationFrame || window.mozCancelAnimationFrame
+
 function isInViewport(elem) {
   var distance = elem.getBoundingClientRect()
   return (
@@ -39,6 +42,12 @@ function browserType() {
       //e.g about.style.marginTop = "0";
     }
   }
+}
+
+// Non-recursive helper function
+function nthParent(element, n) {
+  while (n-- && element) element = element.parentNode
+  return element
 }
 
 /* Checks if device has touchEvents */
@@ -91,4 +100,6 @@ export {
   customVwUnit,
   removeHoverStyles,
   hasTouch,
+  nthParent,
+  cancelAnimationFrame,
 }

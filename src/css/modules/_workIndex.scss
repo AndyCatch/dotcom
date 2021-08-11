@@ -6,7 +6,6 @@
     h1 {
       z-index: 0;
     }
-    //
   }
 
   .index-items {
@@ -28,6 +27,7 @@
   .indexHover {
     color: var(--black) !important;
     transition: color 0.2s ease-out !important;
+    border-bottom: 1px solid;
   }
 
   .image-set-wrapper {
@@ -114,12 +114,12 @@
 
   .close {
     position: fixed;
+    bottom: -40px;
+    right: var(--content-margin);
     display: none;
     opacity: 0;
-    right: 6%;
-    bottom: 1%;
     color: var(--black);
-    font-size: calc(var(--nav-size) * 2);
+    font-size: calc(var(--nav-size) * 4);
     font-family: var(--beastly);
     transform: translate(4%, -50%);
     z-index: 2;
@@ -127,7 +127,7 @@
   }
 
   .close::after {
-    content: 'C L O S E';
+    content: '×';
   }
 
   .showClose {
@@ -173,12 +173,6 @@
     a {
       pointer-events: none !important;
     }
-  }
-
-  .caption {
-    // left: 10%;
-    bottom: 27%;
-    // transform: translate(-50%, 0);
   }
 
   .index-item-wrapper {
