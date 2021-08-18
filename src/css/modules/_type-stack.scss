@@ -1,19 +1,17 @@
 @mixin desktop-p-styles {
   // These need !important to override Semplice
-  font-family: var(--untitled-reg);
+  font-family: var(--untitled-reg) !important;
   font-size: var(--body-size) !important;
   line-height: var(--body-line) !important;
   text-align: left;
 
-  color: var(--white);
-
-  // z-index: 2;
+  color: var(--white) !important;
 }
 
 @mixin desktop-type-stack {
   .display-size {
     font-size: var(--display-size) !important;
-    line-height: var(--display-line);
+    line-height: var(--display-line) !important;
   }
 
   .outlined,
@@ -23,31 +21,34 @@
   }
 
   .outlined {
-    color: var(--white);
+    color: var(--white) !important;
   }
 
   .city-style,
   .clock-style {
-    color: var(--purple);
+    color: var(--purple) !important;
   }
 
   .clock-style {
-    font-size: var(--clock-size);
-    line-height: var(--clock-line);
+    font-size: var(--clock-size) !important;
+    line-height: var(--clock-line) !important;
   }
 
   h1 {
-    font-family: var(--beastly);
-    font-size: var(--subHead-size);
+    font-family: var(--beastly) !important;
+    font-size: var(--subHead-size) !important;
     line-height: var(--subHead-line);
 
     z-index: 2;
   }
 
   .nav-size {
-    font-family: var(--untitled-ita);
-    font-size: var(--nav-size) !important;
     line-height: var(--nav-line) !important;
+    font-size: var(--nav-size) !important;
+
+    span {
+      font-size: var(--nav-size) !important;
+    }
   }
 
   ul,
@@ -72,11 +73,11 @@
   }
 
   .clock-style {
-    font-size: var(--clock-size-tablet);
+    font-size: var(--clock-size-tablet) !important;
   }
 
   h1 {
-    font-size: var(--subHead-size-tablet);
+    font-size: var(--subHead-size-tablet) !important;
   }
 }
 

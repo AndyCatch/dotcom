@@ -8,14 +8,17 @@
 @use "modules/copyModule";
 @use "modules/listModule";
 @use "modules/nextProject";
-@use "modules/footer"; // New New
+@use "modules/footer";
 @use "modules/socialLinks";
+@use "modules/sempliceHelpers";
 @import 'reset';
 @import 'designTokens';
 
 html,
 body {
-  background-color: var(--background);
+  // background-color: var(--background);
+
+  background-color: var(--black);
 
   ::-moz-selection {
     /* Code for Firefox */
@@ -36,6 +39,12 @@ body {
 
 /* Global Type Styles */
 @include type-stack.desktop-type-stack;
+
+/* ----- Semplice specific ----- */
+@include sempliceHelpers.desktop;
+
+/* Navigation */
+@include navigation.desktop;
 
 /* Footer */
 @include footer.desktop;
@@ -61,59 +70,23 @@ body {
 /* Copy Module */
 @include copyModule.desktop;
 
-/* Navigation */
-@include navigation.desktop;
-
 /* ----- List Module ----- */
 @include listModule.desktop;
 
 /* GLOBAL CSS */
-#overlay-menu .logo a {
-  color: var(--background) !important;
-  transform: color !important;
-  transition-timing-function: ease-out !important;
-  transition: 0.4s !important;
+.disableScroll {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
-#overlay-menu .hamburger span {
-  background: var(--background) !important;
-  transform: background !important;
-  transition-timing-function: ease-out !important;
-  transition: 0.4s !important;
+.fullOpacity {
+  opacity: 1;
 }
 
-/* Bouncing arrow animation / positioning */
-.semplice-cover .show-more svg {
-  animation: 1s arrow-down infinite alternate ease-in-out;
-  margin-bottom: 44px;
+.zeroOpacity {
+  opacity: 0;
 }
-
-@keyframes arrow-down {
-  0% {
-    transform: translateY(0);
-    opacity: 0.2;
-  }
-
-  80% {
-    transform: translateY(8px);
-    opacity: 0.9;
-  }
-
-  100% {
-    transform: translateY(8px);
-    opacity: 1;
-  }
-}
-
-/* ----- Profile / About Page ----- */
-
-.about-top-item {
-  margin: 45vh 0 0 0;
-}
-
-/* ----- Next Project Module ----- */
-
-@include nextProject.desktop;
 
 /* ----- Project Page Styles ----- */
 .cover_title {
@@ -198,15 +171,6 @@ body {
   white-space: nowrap;
   display: block;
   position: relative;
-}
-
-/* Back to Top  */
-.back-to-top {
-  transform: translate(20px, 20px);
-}
-
-.back-to-top svg {
-  fill: #f6f6f6;
 }
 
 /* -------------------- Tablets -------------------- */

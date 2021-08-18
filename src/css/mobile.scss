@@ -5,9 +5,9 @@
 // @use "modules/footerModule";
 
 @mixin navItem-exceptions-mobile {
-  .navItem-Index {
-    display: list-item;
-  }
+  // .navItem-Index {
+  //   display: list-item;
+  // }
 
   .current-menu-item::after {
     font-family: Arial, Helvetica, sans-serif !important;

@@ -5,7 +5,7 @@
     column-gap: 24px;
     grid-template-columns: repeat(12, 1fr);
     /* top | right | bottom | left */
-    margin: 0 var(--content-margin) 0 var(--content-margin);
+    margin: 0 var(--four-units) 0 var(--four-units);
   }
 
   .home-copy-row {
@@ -16,7 +16,7 @@
   .home-copy-row:nth-child(1),
   .home-copy-row:nth-child(2),
   .home-copy-row:nth-child(3) {
-    padding-top: var(--topBottom-margin);
+    padding-top: var(--eight-units);
   }
 
   // Past clients...
@@ -31,7 +31,7 @@
   }
   // Acknowledgement...
   .home-copy-row:nth-child(3) {
-    padding-top: calc(var(--topBottom-margin));
+    padding-top: calc(var(--eight-units));
     grid-column-start: 6;
     grid-column-end: 13;
   }
@@ -39,7 +39,7 @@
 
 @mixin tablet {
   .home-copy-row:nth-child(3) {
-    padding-top: calc(var(--topBottom-margin));
+    padding-top: calc(var(--eight-units));
   }
 
   .home-copy-row:nth-child(1) {

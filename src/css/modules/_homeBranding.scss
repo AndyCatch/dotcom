@@ -2,9 +2,9 @@
 
 @mixin desktop {
   .home-branding {
-    height: calc(100vh - var(--topBottom-margin));
-    width: calc(100vw - var(--leftRight-margin));
-    margin: 0 var(--content-margin);
+    height: calc(100vh - var(--eight-units));
+    width: calc(100vw - var(--eight-units));
+    margin: 0 var(--four-units);
   }
 
   .content {
@@ -42,19 +42,19 @@
 
   .branding {
     position: relative;
-    padding-top: calc(var(--content-margin) + 12px);
+    padding-top: calc(var(--four-units) + 12px);
     color: var(--white);
   }
 }
 
 @mixin tablet {
   .branding {
-    padding-top: calc(var(--topBottom-margin));
+    padding-top: calc(var(--eight-units));
   }
 
   .row:nth-child(2),
   .row:nth-child(3) {
-    margin-top: var(--content-margin);
+    margin-top: var(--four-units);
   }
 
   .row:nth-child(1) {

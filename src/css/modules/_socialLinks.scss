@@ -6,8 +6,8 @@
     align-items: flex-start;
 
     /* top | right | bottom | left */
-    width: calc(100vw - var(--leftRight-margin));
-    margin: 60vh var(--content-margin) 0 var(--content-margin);
+    width: calc(100vw - var(--eight-units));
+    margin: 60vh var(--four-units) 0 var(--four-units);
 
     div {
       z-index: 3;

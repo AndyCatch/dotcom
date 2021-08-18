@@ -4,7 +4,7 @@
   .about {
     display: flex;
     flex-direction: column;
-    margin: 0 var(--content-margin);
+    margin: 0 var(--four-units);
 
     p,
     ul {
@@ -17,20 +17,20 @@
   .awards {
     @include layoutUtils.desktop-grid;
 
-    margin-top: var(--topBottom-margin);
+    margin-top: var(--eight-units);
   }
 
   .experience {
-    margin-top: calc(var(--topBottom-margin) * 2);
+    margin-top: calc(var(--eight-units) * 2);
   }
 
   .awards ul:nth-child(3) {
-    margin-top: var(--content-margin);
+    margin-top: var(--four-units);
   }
 
   .about-heading,
   .about-block {
-    margin-top: calc(var(--topBottom-margin) * 2);
+    margin-top: calc(var(--eight-units) * 2);
   }
 
   .about-heading {
@@ -72,7 +72,7 @@
   }
 
   .experience-place {
-    margin-top: var(--content-margin);
+    margin-top: var(--four-units);
   }
 
   .award-heading {

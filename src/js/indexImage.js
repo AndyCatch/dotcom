@@ -114,7 +114,6 @@ function removeDesktopLayer() {
 function indexItemHandler(event) {
   let current = event.currentTarget
   let numImage = current.querySelector('.numImages')
-  // console.log(numImage)
   if (event.type === 'mouseover') {
     indexItems.forEach((item) => {
       item.style.zIndex = 0 // reset all to 0
@@ -202,6 +201,7 @@ function closeLightBox() {
   bodyTag.classList.remove('disableScroll')
   close.classList.remove('showClose')
 
+  // opacityItems is an Array of arrays
   for (let i = 0; i < opacityItems.length; i++) {
     opacityItems[i].forEach((item) => {
       if (item.classList.contains('fullOpacity')) {
@@ -229,16 +229,21 @@ function removeThumbHandlers() {
 }
 
 function isDesktop() {
+  //removeMobileLayer()
   removeTabletLayer()
   addDesktopLayer()
 }
 
 function isTablet() {
+  //removeMobileLayer()
   removeDesktopLayer()
   addTabletLayer()
 }
 
 function isMobile() {
+  removeDesktopLayer()
+  removeTabletLayer()
+  // addMobileLayer()
   console.log('isMobile func')
 }
 
@@ -252,6 +257,10 @@ function tabletHandler(event) {
   } else {
     isDesktop()
   }
+}
+
+function mobileHandler(event) {
+  isMobile()
 }
 
 export { indexImage }

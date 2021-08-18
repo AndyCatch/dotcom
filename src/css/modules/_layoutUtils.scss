@@ -4,21 +4,3 @@
   column-gap: 24px;
   grid-template-columns: repeat(12, 1fr);
 }
-
-.disableScroll {
-  margin: 0;
-  height: 100%;
-  overflow: hidden;
-}
-
-.fullOpacity {
-  opacity: 1;
-}
-
-.zeroOpacity {
-  opacity: 0;
-}
-
-.zIndexOne {
-  z-index: 1 !important;
-}

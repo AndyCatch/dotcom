@@ -1,24 +1,24 @@
 @mixin desktop {
   .letter-container {
     pointer-events: none;
-    height: calc(100vh - var(--topBottom-margin));
-    width: calc(100vw - var(--leftRight-margin));
-    margin: var(--content-margin);
+    height: calc(100vh - var(--eight-units)) !important;
+    width: calc(100vw - var(--eight-units)) !important;
+    margin: 0 var(--four-units) !important;
 
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     flex-basis: 50%;
 
-    position: fixed !important;
-    top: 0;
-    left: 0;
-
-    mix-blend-mode: exclusion;
+    // Setting with Semplice Helpers
+    // position: fixed !important;
+    // top: 0;
+    // left: 0;
+    filter: contrast(0.65);
   }
 
   .letter {
-    width: calc(50vw - var(--leftRight-margin));
+    width: calc(50vw - var(--eight-units));
     height: inherit;
 
     display: flex;
@@ -37,7 +37,7 @@
   }
 
   .letter img {
-    height: calc(72vh - var(--topBottom-margin));
+    height: calc(72vh - var(--eight-units));
   }
 }
 
@@ -55,12 +55,12 @@
   }
 
   .letter {
-    width: calc(100vw - var(--leftRight-margin));
+    width: calc(100vw - var(--eight-units));
     height: 50vh;
   }
 
   .letter img {
-    height: calc(50vh - var(--topBottom-margin));
+    height: calc(50vh - var(--eight-units));
   }
 }
 

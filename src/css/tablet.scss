@@ -10,9 +10,9 @@
 @use "modules/footer";
 
 @mixin navItem-exceptions-tablet {
-  .navItem-Index {
-    display: list-item;
-  }
+  // .navItem-Index {
+  //   display: list-item;
+  // }
 
   // Clears the little dot
   .current-menu-item::after {

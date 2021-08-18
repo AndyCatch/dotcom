@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Beastly72';
+  font-family: 'Beastly 72 Point';
   src: url('/fonts/Beastly-72_Point.woff2'), url('/fonts/Beastly-72_Point.woff');
 }
 
@@ -17,7 +17,7 @@
 
 :root {
   /* Colors */
-  --white: honeydew !important;
+  --white: #f0fff0 !important;
   --black: #232c26 !important; /* Dusty Black */
   --purple: #9c94e7 !important; /* Footer Clock */
   --orange: #ff4848 !important; /* PDP Text */
@@ -28,7 +28,7 @@
   --background: var(--black);
 
   /* Type */
-  --beastly: 'Beastly72';
+  --beastly: 'Beastly 72 Point';
   --untitled-reg: 'UntitledSans';
   --untitled-ita: 'UntitledSansItalic';
 
@@ -42,7 +42,7 @@
   --clock-size: 15vw;
   --clock-line: 0.9;
 
-  --clock-size-tablet: 20vw;
+  --clock-size-tablet: 14vw;
 
   --subHead-size: 5.556vw; /* Converted to vw from 80px@1440 W*/
   --subHead-line: 1;
@@ -58,20 +58,8 @@
 
   /* Spacing */
   --unit: 8px;
-  --two-units: calc(var(--unit) * 2);
-  --content-margin: calc(var(--unit) * 4); /* 32px */
-  --topBottom-margin: calc(var(--content-margin) * 2); /* 64px */
-  --leftRight-margin: calc(var(--content-margin) * 2); /* 64px */
+  --two-units: calc(var(--unit) * 2); /* 16px */
+  --three-units: calc(var(--unit) * 3); /* 24px */
+  --four-units: calc(var(--unit) * 4); /* 32px */
+  --eight-units: calc(var(--unit) * 8); /* 64px */
 }
-
-/* 
-Formula for clamping / min max fluid type. Hold until visual is more steady
-
---minFontSize: 32px;
---maxFontSize: 220px;
---scalar: 15.278vw;
-font-size: clamp(
-  var(--minFontSize),
-  var(--scalar),
-  var(--maxFontSize)
-) !important; */

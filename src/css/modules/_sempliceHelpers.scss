@@ -1,0 +1,69 @@
+// All the CSS in here is drawn from Semplice
+
+@mixin desktop {
+  .transition-wrap {
+    background-color: var(--black) !important;
+  }
+
+  .sections {
+    margin: 0 var(--four-units) !important;
+  }
+
+  .fixed-section {
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+  }
+
+  #overlay-menu .logo a {
+    color: var(--background) !important;
+    transform: color !important;
+    transition-timing-function: ease-out !important;
+    transition: 0.4s !important;
+  }
+
+  #overlay-menu .hamburger span {
+    background: var(--background) !important;
+    transform: background !important;
+    transition-timing-function: ease-out !important;
+    transition: 0.4s !important;
+  }
+
+  /* Bouncing arrow animation / positioning */
+  .semplice-cover .show-more svg {
+    animation: 1s arrow-down infinite alternate ease-in-out;
+    margin-bottom: 44px;
+  }
+
+  @keyframes arrow-down {
+    0% {
+      transform: translateY(0);
+      opacity: 0.2;
+    }
+
+    80% {
+      transform: translateY(8px);
+      opacity: 0.9;
+    }
+
+    100% {
+      transform: translateY(8px);
+      opacity: 1;
+    }
+  }
+
+  /* Back to Top  */
+  .back-to-top {
+    transform: translate(20px, 20px);
+  }
+
+  .back-to-top svg {
+    fill: var(--white);
+  }
+}
+
+@mixin tablet {
+}
+
+@mixin mobile {
+}

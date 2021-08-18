@@ -1,7 +1,7 @@
 @mixin desktop {
   .work-index-section {
-    width: calc(100vw - var(--leftRight-margin));
-    margin: 0 var(--content-margin);
+    width: calc(100vw - var(--eight-units));
+    margin: 0 var(--four-units);
 
     h1 {
       z-index: 0;
@@ -9,14 +9,14 @@
   }
 
   .index-items {
-    margin-top: calc(var(--content-margin) * 3);
+    margin-top: calc(var(--four-units) * 3);
     margin-right: var(--two-units);
 
     a {
       display: block;
-      width: calc(100vw - var(--leftRight-margin));
+      width: calc(100vw - var(--eight-units));
       position: relative;
-      margin-bottom: var(--topBottom-margin);
+      margin-bottom: var(--eight-units);
     }
 
     a.none {
@@ -105,8 +105,8 @@
     font-family: var(--untitled-ita);
     position: fixed !important;
     z-index: 3;
-    bottom: var(--content-margin);
-    left: var(--content-margin);
+    bottom: var(--four-units);
+    left: var(--four-units);
     color: var(--black);
     opacity: 0;
     transition: opacity 0.1s ease-out;
@@ -115,7 +115,7 @@
   .close {
     position: fixed;
     bottom: -40px;
-    right: var(--content-margin);
+    right: var(--four-units);
     display: none;
     opacity: 0;
     color: var(--black);
@@ -161,7 +161,7 @@
     opacity: 0;
     transition: opacity 0.1s ease-out;
     z-index: 3;
-    transform: translate3d(5.5vw, 0, 0);
+    transform: translate3d(calc(5.5vw + 4px), 0, 0);
   }
 }
 
@@ -187,7 +187,7 @@
 
   .large {
     z-index: 3;
-    width: calc(100vw - var(--leftRight-margin));
+    width: calc(100vw - var(--eight-units));
     top: 50%;
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
