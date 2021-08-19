@@ -1,7 +1,7 @@
 @mixin desktop {
   .work-index-section {
-    width: calc(100vw - var(--eight-units));
-    margin: 0 var(--four-units);
+    width: 100%;
+    // margin: 0 var(--four-units);
 
     h1 {
       z-index: 0;
@@ -10,11 +10,11 @@
 
   .index-items {
     margin-top: calc(var(--four-units) * 3);
-    margin-right: var(--two-units);
+    // margin-right: var(--two-units);
 
     a {
       display: block;
-      width: calc(100vw - var(--eight-units));
+      // width: calc(100vw - var(--eight-units));
       position: relative;
       margin-bottom: var(--eight-units);
     }

@@ -42,16 +42,8 @@
     z-index: 2;
   }
 
-  .nav-size {
-    line-height: var(--nav-line) !important;
-    font-size: var(--nav-size) !important;
-
-    span {
-      font-size: var(--nav-size) !important;
-    }
-  }
-
   ul,
+  li,
   p {
     @include desktop-p-styles;
   }

@@ -12,12 +12,11 @@
 @use "modules/socialLinks";
 @use "modules/sempliceHelpers";
 @import 'reset';
+@import 'typography';
 @import 'designTokens';
 
 html,
 body {
-  // background-color: var(--background);
-
   background-color: var(--black);
 
   ::-moz-selection {

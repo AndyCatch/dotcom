@@ -38,7 +38,11 @@ window.addEventListener('resize', () => {
 })
 
 function addIndexImg() {
-  if (document.querySelector('body > section.work-index-section > div')) {
+  if (
+    document.querySelector(
+      'body > div.sections > section.work-index-section > div'
+    )
+  ) {
     let nodeList = document.querySelectorAll('div.index-items')
     indexImage(nodeList)
     clearInterval(indexImageChecker)

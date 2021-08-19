@@ -1,20 +1,3 @@
-@font-face {
-  font-family: 'Beastly 72 Point';
-  src: url('/fonts/Beastly-72_Point.woff2'), url('/fonts/Beastly-72_Point.woff');
-}
-
-@font-face {
-  font-family: 'UntitledSans';
-  src: url('/fonts/untitled-sans-web-regular.woff2'),
-    url('/fonts/untitled-sans-web-regular.woff');
-}
-
-@font-face {
-  font-family: 'UntitledSansItalic';
-  src: url('/fonts/untitled-sans-web-regular-italic.woff2'),
-    url('/fonts/untitled-sans-web-regular-italic.woff');
-}
-
 :root {
   /* Colors */
   --white: #f0fff0 !important;
@@ -28,9 +11,9 @@
   --background: var(--black);
 
   /* Type */
-  --beastly: 'Beastly 72 Point';
-  --untitled-reg: 'UntitledSans';
-  --untitled-ita: 'UntitledSansItalic';
+  --beastly: 'Beastly-72_Point';
+  --untitled-reg: 'untitled-sans-web-regular';
+  --untitled-ita: 'untitled-sans-web-regular-italic';
 
   /* Type Sizes */
   --display-size: 17.2vw; /* Converted from 220px@1440px W*/
@@ -42,7 +25,7 @@
   --clock-size: 15vw;
   --clock-line: 0.9;
 
-  --clock-size-tablet: 14vw;
+  --clock-size-tablet: 20vw;
 
   --subHead-size: 5.556vw; /* Converted to vw from 80px@1440 W*/
   --subHead-line: 1;
@@ -51,7 +34,7 @@
 
   --nav-size: 24px;
   --nav-line: 1;
-  --border-radius: 8px;
+  --border-radius: 4px;
 
   --body-size: 18px;
   --body-line: 1.2;

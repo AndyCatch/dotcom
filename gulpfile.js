@@ -51,7 +51,7 @@ gulp.task('fonts', function () {
 gulp.task('js', function () {
   return pipeline(
     gulp.src('src/js/singlePage.js'),
-    sourcemaps.init(),
+    // sourcemaps.init(),
     webpack({
       mode: 'none',
       output: {
@@ -59,7 +59,7 @@ gulp.task('js', function () {
       },
     }),
     uglify(),
-    sourcemaps.write(),
+    // sourcemaps.write(),
     gulp.dest('dist/js')
   )
 })
@@ -88,6 +88,7 @@ gulp.task('watch', function () {
 
   // If any ".scss" file is updated then reruns gulp scss task to move files to dist folder
   gulp.watch('src/css/app.scss', gulp.series('compileCSS'))
+  gulp.watch('src/css/typography.css', gulp.series('compileCSS'))
   gulp.watch('src/css/designTokens.css', gulp.series('compileCSS'))
   gulp.watch('src/css/mobile.scss', gulp.series('compileCSS'))
   gulp.watch('src/css/tablet.scss', gulp.series('compileCSS'))

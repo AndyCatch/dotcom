@@ -4,8 +4,6 @@
     grid-column-gap: 24px;
     column-gap: 24px;
     grid-template-columns: repeat(12, 1fr);
-    /* top | right | bottom | left */
-    margin: 0 var(--four-units) 0 var(--four-units);
   }
 
   .home-copy-row {

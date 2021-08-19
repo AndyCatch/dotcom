@@ -17,8 +17,7 @@
 @mixin desktop {
   .list-container {
     display: block;
-    margin: 10vh var(--four-units) 0 var(--four-units);
-    width: calc(100vw - var(--eight-units));
+    width: 100%;
   }
 
   .list-heading,
@@ -94,9 +93,11 @@
   }
 
   .imageMoveOn {
+    transform-origin: top left;
     opacity: 0;
     top: 50%;
     left: 50%;
+    transform: translate3d(0px, 0px, 0px);
   }
 }
 

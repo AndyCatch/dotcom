@@ -6,18 +6,22 @@
     align-items: flex-start;
 
     /* top | right | bottom | left */
-    width: calc(100vw - var(--eight-units));
-    margin: 60vh var(--four-units) 0 var(--four-units);
+    width: 100%;
+    margin: 60vh 0 0 0;
 
     div {
       z-index: 3;
     }
 
     div a {
-      padding-right: calc(var(--body-size) + 18px);
+      margin-right: var(--two-units);
       border: 0px var(--white);
+      padding: 0 4px 0 4px;
       border-style: solid;
       border-radius: var(--border-radius);
+    }
+    div a:nth-child(3) {
+      margin-right: 0;
     }
 
     div a::after {
@@ -27,8 +31,8 @@
     }
 
     div a:hover {
-      color: var(--black);
-      background: var(--white);
+      color: var(--black) !important;
+      background-color: var(--white);
       transition: all 0.2s ease-in !important;
     }
 

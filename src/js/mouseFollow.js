@@ -91,9 +91,9 @@ function draw() {
   if (!isPaused) {
     if (currentImage) {
       currentImage.style.transform = `translate3d(${
-        currentX - (window.innerWidth + currentImage.offsetWidth) / 2
+        currentX - (currentImage.offsetWidth + window.innerWidth) / 2
       }px, ${
-        currentY - (window.innerHeight + currentImage.offsetHeight) / 2
+        currentY - (currentImage.offsetHeight + window.innerHeight) / 2
       }px, 0px)`
     }
   }

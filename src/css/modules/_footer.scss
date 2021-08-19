@@ -2,69 +2,58 @@
 
 @mixin desktop {
   .footer-container {
-    @include layoutUtils.desktop-grid;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
 
-    position: relative;
-    left: 0;
-    bottom: 0;
-    // margin: 0 var(--four-units);
-    padding-bottom: var(--four-units);
-
-    // NYC Clock container
     div:nth-child(1) {
-      grid-column-start: 1;
-      grid-column-end: 12;
-
+      /* NYC Clock container */
       transform: translate(0, 20%);
       margin-top: -6%;
     }
-
-    // SYD Clock container
-    div:nth-child(2) {
-      grid-column-start: 1;
-      grid-column-end: 13;
-    }
-  }
-
-  .open::before {
-    -webkit-text-fill-color: var(--purple);
-    content: '*' !important;
   }
 
   .clock-container {
     overflow: hidden;
 
     pointer-events: none;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    position: relative;
+    width: 100%;
 
     z-index: 1;
-
-    .cityName::before {
-      content: '•' !important;
-    }
-
-    .open::before {
-      -webkit-text-fill-color: var(--purple);
-      content: '*' !important;
-    }
-
-    .cityName {
-      transform: translate(0, 31%);
-    }
 
     h1 {
       box-sizing: border-box;
       overflow: hidden;
     }
   }
+
+  .clock-wrapper {
+    width: 100%;
+  }
+
+  .cityName {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: var(--eight-units);
+
+    ::after {
+      font-family: Arial, Helvetica, sans-serif !important;
+      content: ' ●' !important;
+    }
+  }
+
+  .open::after {
+    -webkit-text-fill-color: var(--purple);
+    font-family: Arial, Helvetica, sans-serif !important;
+    content: ' ●' !important;
+  }
 }
 
 @mixin tablet {
-  h1.clock-style.NYCtime {
-    margin-bottom: calc(var(--unit) * 2);
+  .cityName {
+    padding-top: var(--four-units);
   }
 }
 
