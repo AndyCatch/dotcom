@@ -1,5 +1,6 @@
 @mixin desktop {
-  /*Hide Show Nav classes*/
+  //
+  /* Semplice Class */
   .navbar-inner {
     height: 5% !important;
     top: 0 !important;
@@ -8,16 +9,33 @@
     width: 100%;
     text-align: right;
     z-index: 5;
-
-    /* top | right | bottom | left */
-    // padding: var(--four-units);
     mix-blend-mode: exclusion;
+
+    margin-top: var(--two-units);
   }
 
   /* Semplice Class */
   .menu {
-    padding-top: var(--four-units) !important;
     padding-right: var(--four-units) !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding: 0;
+    height: 100%;
+
+    li {
+      margin-right: var(--two-units);
+    }
+
+    li:hover {
+      color: var(--black) !important;
+      background-color: var(--white) !important;
+      transition: all 0.2s ease-in !important;
+    }
+
+    :nth-child(3) {
+      margin: 0;
+    }
   }
 
   /* Semplice Class */
@@ -25,6 +43,25 @@
     display: none !important;
   }
 
+  /* Semplice Class */
+  .navbar-right {
+    display: block;
+    position: absolute;
+    height: 100%;
+    right: 0;
+  }
+
+  /* - - - - - - - - - */
+
+  .showLogo {
+    display: auto !important;
+  }
+
+  .hideLogo {
+    display: none !important;
+  }
+
+  /* Hide Show Nav classes */
   .hideNav {
     transform: translateY(-100%) !important;
   }
@@ -37,51 +74,25 @@
     font-family: var(--untitled-ita) !important;
     line-height: var(--nav-line) !important;
     font-size: var(--nav-size) !important;
-    /* top | right | bottom | left */
-    margin: 0 var(--two-units) 0 0;
-    padding: 0 4px 0 4px;
+    padding: var(--unit) var(--two-units) var(--unit) var(--two-units);
 
     border: 1px var(--white);
     border-style: solid;
-    border-radius: var(--border-radius);
+    border-radius: var(--four-units);
 
     span {
       font-size: var(--nav-size) !important;
     }
   }
 
-  li.nav-item > a > span {
-    font-family: var(--untitled-ita) !important;
-    font-size: var(--nav-size) !important;
-  }
-
-  a.nav-item:hover {
-    color: var(--black);
-    background: var(--white);
-    transition: all 0.2s ease-in !important;
-  }
-
-  li.nav-item:hover {
-    color: var(--black) !important;
-    background: var(--white) !important;
-    transition: all 0.2s ease-in !important;
-  }
-
-  .nav-item:nth-child(3) {
-    margin: 0;
-  }
-
   .current-menu-item {
-    filter: invert(1);
     pointer-events: none;
-    color: var(--black);
-    background: var(--white);
-  }
+    background-color: var(--purple) !important;
+    border: 1px var(--purple) !important;
 
-  .current-menu-item::after {
-    font-family: Arial, Helvetica, sans-serif !important;
-    color: var(--black);
-    content: ' ●' !important;
+    span {
+      color: var(--white) !important;
+    }
   }
 }
 

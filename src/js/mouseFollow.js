@@ -77,10 +77,10 @@ function removeImageMove() {
   })
 
   images.forEach((image) => {
-    image.classList.add('imageMoveOff')
     if (image.classList.contains('imageMoveOn')) {
       image.classList.remove('imageMoveOn')
     }
+    image.classList.add('imageMoveOff')
   })
 }
 

@@ -16,9 +16,9 @@
     div a {
       margin-right: var(--two-units);
       border: 0px var(--white);
-      padding: 0 4px 0 4px;
+      padding: 0 var(--unit) 0 var(--unit);
       border-style: solid;
-      border-radius: var(--border-radius);
+      border-radius: var(--four-units);
     }
     div a:nth-child(3) {
       margin-right: 0;

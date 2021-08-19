@@ -1,15 +1,15 @@
 /*–––––––––––––––This lives in Semplice –> Advanced -> Javascript ––––––––––––––––––*/
 let menuClick = false
 
-import { customVhUnit, removeHoverStyles } from './utils'
 import { updateClock } from './luxonClock'
 import { indexImage } from './indexImage'
 import { hideShow } from './hideShowNav'
-import { imageMove, stopDraw } from './mouseFollow'
+import { imageMove } from './mouseFollow'
 
 var clock = setInterval(updateClock, 1000)
-var navChecker = setInterval(addNav, 200)
-var indexImageChecker = setInterval(addIndexImg, 1000)
+var navChecker = setInterval(addNav, 400)
+var indexImageChecker = setInterval(addIndexImg, 400)
+var mouseFollowChecker = setInterval(setMouseFollow, 400)
 
 function init() {
   // luxon library <script> tag
@@ -18,12 +18,13 @@ function init() {
   document.body.appendChild(luxonTag)
 
   setUpHamburger()
-  setMouseFollow()
+  // setMouseFollow()
 }
 
 window.addEventListener(
   'sempliceTransitionInDone',
   function (e) {
+    // init()
     isProject()
   },
   false
@@ -34,8 +35,17 @@ window.addEventListener('load', (event) => {
 })
 
 window.addEventListener('resize', () => {
-  customVhUnit() // updates the injected var
+  // customVhUnit() // updates the injected var
 })
+
+function setMouseFollow() {
+  console.log('set Mouse Follow')
+  if (document.querySelector('div.list')) {
+    let hoverElems = Array.from(document.querySelectorAll('div.list a'))
+    imageMove(hoverElems)
+    clearInterval(mouseFollowChecker)
+  }
+}
 
 function addIndexImg() {
   if (
@@ -72,12 +82,6 @@ function setUpHamburger() {
   }
 }
 
-function setMouseFollow() {
-  let hoverElems = Array.from(document.querySelectorAll('div.list a'))
-
-  imageMove(hoverElems)
-}
-
 function menuToggle() {
   // toggles boolean between true and false
   menuClick = !menuClick
@@ -111,6 +115,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
   console.log('DOM fully loaded and parsed')
 
   // removeHoverStyles()
-  customVhUnit()
+  // customVhUnit()
   init()
 })

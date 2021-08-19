@@ -11,7 +11,7 @@
 
     width: 100%;
     top: 10%;
-    transform: translate(0, 24vh);
+    transform: translate(0, 10vh);
 
     z-index: 2;
   }
@@ -20,21 +20,24 @@
     display: block;
   }
 
+  /* I've worked across... */
   .row:nth-child(1) {
     padding-top: var(--top-padding);
-    grid-column-start: 4;
-    grid-column-end: 12;
+    grid-column-start: 3;
   }
 
-  // I've worked across...
+  /* I've worked across... */
   .row:nth-child(2) {
-    grid-column-start: 1;
-    grid-column-end: 12;
+    grid-column-start: 4;
   }
 
-  // I’m currently a Design Director at R/GA NY
+  /* I’m currently a Design Director... */
   .row:nth-child(3) {
-    grid-column-start: 1;
+    grid-column-start: 5;
+  }
+  .row:nth-child(1),
+  .row:nth-child(2),
+  .row:nth-child(3) {
     grid-column-end: 12;
   }
 

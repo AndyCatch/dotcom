@@ -17,6 +17,7 @@ gulp.task('compileCSS', function () {
       .src('src/css/app.scss')
       // .pipe(sourcemaps.init())
       .pipe(sass().on('error', sass.logError))
+      // UnComment in final build
       // .pipe(
       //   cleanCSS({
       //     compatibility: 'ie8',
@@ -37,18 +38,8 @@ gulp.task('fonts', function () {
   return gulp.src('src/fonts/*').pipe(gulp.dest('dist/fonts'))
 })
 
-// gulp.task('js', function () {
-//   return pipeline(
-//     gulp.src('src/js/*.js'),
-//     sourcemaps.init(),
-//     uglify(),
-//     sourcemaps.write(),
-//     gulp.dest('dist/js')
-//   )
-// })
-
 // Can't seem to get Webpack to work?
-gulp.task('js', function () {
+gulp.task('singlePageJS', function () {
   return pipeline(
     gulp.src('src/js/singlePage.js'),
     // sourcemaps.init(),
@@ -56,6 +47,22 @@ gulp.task('js', function () {
       mode: 'none',
       output: {
         filename: 'singlePage.js',
+      },
+    }),
+    uglify(),
+    // sourcemaps.write(),
+    gulp.dest('dist/js')
+  )
+})
+
+gulp.task('projectJS', function () {
+  return pipeline(
+    gulp.src('src/js/project.js'),
+    // sourcemaps.init(),
+    webpack({
+      mode: 'none',
+      output: {
+        filename: 'project.js',
       },
     }),
     uglify(),
@@ -74,28 +81,40 @@ gulp.task('images', function () {
 // Sets up a function called watch(), containing the gulp.watch method
 gulp.task('watch', function () {
   browserSync.init({ server: { baseDir: 'dist' } })
-  // If any ".html" file is updated then reruns gulp html task to move files to dist folder and also updates live server
+  // HTML Watchers
   gulp.watch('src/*.html', gulp.series('html')).on('change', browserSync.reload)
 
-  // Uglify
-  // gulp.watch('src/js/*.js', gulp.series('js')).on('change', browserSync.reload)
+  // JS Watchets
+  gulp
+    .watch('src/js/singlePage.js', gulp.series('singlePageJS'))
+    .on('change', browserSync.reload)
 
-  // Webpack
-  gulp.watch('src/js/*.js', gulp.series('js')).on('change', browserSync.reload)
+  gulp
+    .watch('src/js/project.js', gulp.series('projectJS'))
+    .on('change', browserSync.reload)
 
-  gulp.watch('src/fonts/*', gulp.series('fonts'))
-  gulp.watch('src/img/*', gulp.series('images'))
-
-  // If any ".scss" file is updated then reruns gulp scss task to move files to dist folder
+  // CSS / .SCSS Watchers
   gulp.watch('src/css/app.scss', gulp.series('compileCSS'))
   gulp.watch('src/css/typography.css', gulp.series('compileCSS'))
   gulp.watch('src/css/designTokens.css', gulp.series('compileCSS'))
   gulp.watch('src/css/mobile.scss', gulp.series('compileCSS'))
   gulp.watch('src/css/tablet.scss', gulp.series('compileCSS'))
   gulp.watch('src/css/modules/*.scss', gulp.series('compileCSS'))
+
+  // Misc Watchers
+  gulp.watch('src/fonts/*', gulp.series('fonts'))
+  gulp.watch('src/img/*', gulp.series('images'))
 })
 
 gulp.task(
   'default',
-  gulp.parallel('html', 'compileCSS', 'js', 'fonts', 'images', 'watch')
+  gulp.parallel(
+    'html',
+    'compileCSS',
+    'singlePageJS',
+    'projectJS',
+    'fonts',
+    'images',
+    'watch'
+  )
 )
