@@ -30,7 +30,8 @@
   }
 
   .clock-style {
-    font-size: var(--clock-size) !important;
+    // font-size: var(--clock-size) !important;
+    font-size: var(--display-size) !important;
     line-height: var(--clock-line) !important;
   }
 

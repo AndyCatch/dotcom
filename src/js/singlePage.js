@@ -7,9 +7,9 @@ import { hideShow } from './hideShowNav'
 import { imageMove } from './mouseFollow'
 
 var clock = setInterval(updateClock, 1000)
-var navChecker = setInterval(addNav, 400)
-var indexImageChecker = setInterval(addIndexImg, 400)
-var mouseFollowChecker = setInterval(setMouseFollow, 400)
+var navChecker = setInterval(addNav, 500)
+var indexImageChecker = setInterval(addIndexImg, 500)
+var mouseFollowChecker = setInterval(setMouseFollow, 500)
 
 function init() {
   // luxon library <script> tag
@@ -18,13 +18,11 @@ function init() {
   document.body.appendChild(luxonTag)
 
   setUpHamburger()
-  // setMouseFollow()
 }
 
 window.addEventListener(
   'sempliceTransitionInDone',
   function (e) {
-    // init()
     isProject()
   },
   false
@@ -39,7 +37,6 @@ window.addEventListener('resize', () => {
 })
 
 function setMouseFollow() {
-  console.log('set Mouse Follow')
   if (document.querySelector('div.list')) {
     let hoverElems = Array.from(document.querySelectorAll('div.list a'))
     imageMove(hoverElems)
@@ -48,11 +45,9 @@ function setMouseFollow() {
 }
 
 function addIndexImg() {
-  if (
-    document.querySelector(
-      'body > div.sections > section.work-index-section > div'
-    )
-  ) {
+  console.log('add Index Image')
+  // 'body > div.sections > section.work-index-section > div')
+  if (document.querySelector('section.work-index-section > div')) {
     let nodeList = document.querySelectorAll('div.index-items')
     indexImage(nodeList)
     clearInterval(indexImageChecker)

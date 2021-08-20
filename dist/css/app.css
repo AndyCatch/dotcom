@@ -177,7 +177,7 @@ body ::selection {
 }
 
 .clock-style {
-  font-size: var(--clock-size) !important;
+  font-size: var(--display-size) !important;
   line-height: var(--clock-line) !important;
 }
 
@@ -282,6 +282,11 @@ a {
 
 /* Navigation */
 /* Semplice Class */
+.semplice-navbar {
+  mix-blend-mode: exclusion !important;
+}
+
+/* Semplice Class */
 .navbar-inner {
   height: 5% !important;
   top: 0 !important;
@@ -290,7 +295,6 @@ a {
   width: 100%;
   text-align: right;
   z-index: 5;
-  mix-blend-mode: exclusion;
   margin-top: var(--two-units);
 }
 
@@ -300,7 +304,6 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  padding: 0;
   height: 100%;
 }
 .menu li {
@@ -316,16 +319,40 @@ a {
 }
 
 /* Semplice Class */
-.logo {
-  display: none !important;
-}
-
-/* Semplice Class */
+.navbar-left,
 .navbar-right {
   display: block;
   position: absolute;
   height: 100%;
+}
+
+/* Semplice Class */
+.navbar-left {
+  left: 0;
+}
+
+/* Semplice Class */
+.navbar-right {
   right: 0;
+}
+
+/* Semplice Class */
+.logo {
+  display: block !important;
+  margin-left: var(--four-units);
+}
+.logo a {
+  font-size: var(--nav-size) !important;
+  line-height: var(--nav-line) !important;
+  padding: var(--unit) var(--two-units) var(--unit) var(--two-units) !important;
+  border: 1px var(--white) !important;
+  border-style: solid !important;
+  border-radius: 100% !important;
+}
+.logo a:hover {
+  color: var(--black) !important;
+  background-color: var(--white) !important;
+  transition: all 0.2s ease-in !important;
 }
 
 /* - - - - - - - - - */
@@ -339,7 +366,7 @@ a {
 
 /* Hide Show Nav classes */
 .hideNav {
-  transform: translateY(-100%) !important;
+  transform: translateY(-110%) !important;
 }
 
 .showNav {
@@ -361,11 +388,11 @@ a {
 
 .current-menu-item {
   pointer-events: none;
-  background-color: var(--purple) !important;
+  background-color: var(--white) !important;
   border: 1px var(--purple) !important;
 }
 .current-menu-item span {
-  color: var(--white) !important;
+  color: var(--black) !important;
 }
 
 /* Footer */
@@ -528,7 +555,6 @@ a {
 .about {
   display: flex;
   flex-direction: column;
-  margin: 0 var(--four-units);
 }
 .about p,
 .about ul {

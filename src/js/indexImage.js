@@ -16,6 +16,8 @@ let largeImages
 let touchCovers
 let opacityItems
 
+let hasRendered = false
+
 function indexImage(itemsNodeList) {
   indexItems = Array.from(itemsNodeList[0].querySelectorAll('a'))
   bodyTag = document.body
@@ -53,6 +55,8 @@ function renderElems(indexItems) {
       smlImage.classList.add('small')
       lgImage.classList.add('large')
       caption.classList.add('caption')
+
+      imageSet.replaceChildren() // think this clears this element
 
       childItems.forEach((childItem) => {
         imageSet.appendChild(childItem)
