@@ -45,7 +45,6 @@ function setMouseFollow() {
 }
 
 function addIndexImg() {
-  console.log('add Index Image')
   // 'body > div.sections > section.work-index-section > div')
   if (document.querySelector('section.work-index-section > div')) {
     let nodeList = document.querySelectorAll('div.index-items')

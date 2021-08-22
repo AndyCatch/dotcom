@@ -1,0 +1,101 @@
+@mixin desktop {
+  /* ----- Project Page Styles ----- */
+  .cover_title {
+    transform: rotate(-10deg);
+
+    color: var(--white);
+    -webkit-text-fill-color: var(--white);
+    -webkit-text-stroke-width: 0px;
+    -webkit-text-stroke-color: var(--white);
+    text-transform: uppercase;
+
+    z-index: 100 !important;
+  }
+
+  /* Handles Project Cover Titles */
+
+  .image-section {
+    margin: 5vh 0 5vh 0 !important;
+  }
+
+  .project-cover {
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    /* Fallback for browsers that do not support Custom Properties, uses {customVhUnit} from utils.js */
+    // height: calc(var(--vh, 1vh) * 100);
+    align-items: center;
+    margin-top: -100vh;
+    // margin-top: calc(var(--vh, 1vh) * -100);
+    transition: 0.3s ease-in;
+  }
+
+  .show-first {
+    opacity: 0;
+    filter: invert(0.8);
+  }
+
+  .title-fade-in {
+    opacity: 1 !important;
+    transition: opacity 0.3s ease-in;
+  }
+
+  .project-cover-fade-in {
+    opacity: 0.8;
+    filter: invert(0);
+    transition: all 0.3s ease-in;
+  }
+
+  .project-image-container {
+    position: relative;
+    transform-origin: center center;
+    transition: 0.3s ease-in;
+  }
+
+  .project-image {
+    position: relative;
+    z-index: 1;
+    width: 75vw;
+    background-blend-mode: multiply;
+  }
+
+  .cover_title div[data-content-for='xl'] h1 span,
+  .cover_title div[data-content-for='lg'] h1 span,
+  .cover_title div[data-content-for='md'] h1 span,
+  .cover_title div[data-content-for='sm'] h1 span,
+  .cover_title div[data-content-for='xs'] h1 span {
+    opacity: 0;
+  }
+
+  /*-----Marquee Movement-----*/
+  @keyframes moveLeft {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-3000vw);
+    }
+  }
+
+  .cover_title {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .cover_title span {
+    animation: moveLeft 300s infinite;
+    animation-timing-function: linear;
+    white-space: nowrap;
+    display: block;
+    position: relative;
+  }
+}
+
+@mixin tablet {
+}
+
+@mixin mobile {
+}

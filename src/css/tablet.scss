@@ -1,5 +1,4 @@
 @use "modules/type-stack";
-@use "modules/copyModule";
 @use "modules/nextProject";
 @use "modules/listModule";
 @use "modules/homeBranding";
@@ -9,18 +8,6 @@
 @use "modules/socialLinks";
 @use "modules/footer";
 
-@mixin navItem-exceptions-tablet {
-  // .navItem-Index {
-  //   display: list-item;
-  // }
-
-  // Clears the little dot
-  .current-menu-item::after {
-    font-family: Arial, Helvetica, sans-serif !important;
-    display: none;
-  }
-}
-
 /*-- iPad 1,2 --*/
 /* Portrait & Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (hover: none) {
@@ -28,7 +15,6 @@
 
   @include type-stack.tablet-type-stack;
   @include listModule.tablet-portrait;
-  @include copyModule.tablet-portait;
   @include nextProject.tablet-portrait;
   @include homeBranding.tablet;
   @include homeCopy.tablet;
@@ -40,8 +26,6 @@
 
 /* Portrait */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
-  @include copyModule.tablet-portait;
-  @include navItem-exceptions-tablet;
 }
 
 /* Landscape */

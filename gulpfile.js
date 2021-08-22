@@ -30,15 +30,25 @@ gulp.task('compileCSS', function () {
   )
 })
 
-gulp.task('html', function () {
-  return gulp.src('src/*.html').pipe(gulp.dest('dist'))
+gulp.task('compileTypeCSS', function () {
+  return (
+    gulp
+      .src('src/css/typography.scss')
+      // .pipe(sourcemaps.init())
+      .pipe(sass().on('error', sass.logError))
+      // UnComment in final build
+      // .pipe(
+      //   cleanCSS({
+      //     compatibility: 'ie8',
+      //     rebase: false,
+      //   })
+      // )
+      // .pipe(sourcemaps.write())
+      .pipe(gulp.dest('dist/css')) // this results in a "typography.css" in the dist folder
+      .pipe(browserSync.stream())
+  )
 })
 
-gulp.task('fonts', function () {
-  return gulp.src('src/fonts/*').pipe(gulp.dest('dist/fonts'))
-})
-
-// Can't seem to get Webpack to work?
 gulp.task('singlePageJS', function () {
   return pipeline(
     gulp.src('src/js/singlePage.js'),
@@ -71,6 +81,14 @@ gulp.task('projectJS', function () {
   )
 })
 
+gulp.task('html', function () {
+  return gulp.src('src/*.html').pipe(gulp.dest('dist'))
+})
+
+gulp.task('fonts', function () {
+  return gulp.src('src/fonts/*').pipe(gulp.dest('dist/fonts'))
+})
+
 gulp.task('images', function () {
   return gulp
     .src('src/images/*')
@@ -84,9 +102,9 @@ gulp.task('watch', function () {
   // HTML Watchers
   gulp.watch('src/*.html', gulp.series('html')).on('change', browserSync.reload)
 
-  // JS Watchets
+  // JS Watchers
   gulp
-    .watch('src/js/singlePage.js', gulp.series('singlePageJS'))
+    .watch(['src/js/*.js', '!src/js/project.js'], gulp.series('singlePageJS'))
     .on('change', browserSync.reload)
 
   gulp
@@ -94,12 +112,23 @@ gulp.task('watch', function () {
     .on('change', browserSync.reload)
 
   // CSS / .SCSS Watchers
-  gulp.watch('src/css/app.scss', gulp.series('compileCSS'))
-  gulp.watch('src/css/typography.css', gulp.series('compileCSS'))
-  gulp.watch('src/css/designTokens.css', gulp.series('compileCSS'))
-  gulp.watch('src/css/mobile.scss', gulp.series('compileCSS'))
-  gulp.watch('src/css/tablet.scss', gulp.series('compileCSS'))
-  gulp.watch('src/css/modules/*.scss', gulp.series('compileCSS'))
+  gulp
+    .watch('src/css/app.scss', gulp.series('compileCSS'))
+    .on('change', browserSync.reload)
+  gulp
+    .watch('src/css/designTokens.css', gulp.series('compileCSS'))
+    .on('change', browserSync.reload)
+  gulp
+    .watch('src/css/mobile.scss', gulp.series('compileCSS'))
+    .on('change', browserSync.reload)
+  gulp
+    .watch('src/css/tablet.scss', gulp.series('compileCSS'))
+    .on('change', browserSync.reload)
+  gulp
+    .watch('src/css/modules/*.scss', gulp.series('compileCSS'))
+    .on('change', browserSync.reload)
+
+  gulp.watch('src/css/typography.scss', gulp.series('compileTypeCSS'))
 
   // Misc Watchers
   gulp.watch('src/fonts/*', gulp.series('fonts'))
@@ -111,6 +140,7 @@ gulp.task(
   gulp.parallel(
     'html',
     'compileCSS',
+    'compileTypeCSS',
     'singlePageJS',
     'projectJS',
     'fonts',

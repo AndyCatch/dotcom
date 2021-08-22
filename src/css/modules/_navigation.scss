@@ -21,7 +21,7 @@
 
   /* Semplice Class */
   .menu {
-    padding-right: var(--four-units) !important;
+    padding-right: var(--two-units) !important;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
@@ -61,7 +61,7 @@
   /* Semplice Class */
   .logo {
     display: block !important;
-    margin-left: var(--four-units);
+    margin-left: var(--two-units);
     a {
       font-size: var(--nav-size) !important;
       line-height: var(--nav-line) !important;

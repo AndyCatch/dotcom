@@ -6,6 +6,15 @@
     width: 100%;
   }
 
+  .title-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
   .content {
     @include layoutUtils.desktop-grid;
 
@@ -43,7 +52,7 @@
 
   .branding {
     position: relative;
-    padding-top: calc(var(--four-units) + 12px);
+    padding-top: var(--three-units);
     color: var(--white);
   }
 }
