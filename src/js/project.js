@@ -7,7 +7,6 @@ function isProject() {
   let projectCover // Element
 
   projectCover = document.getElementsByClassName('project-cover')[0]
-  // console.log('isProject')
 
   let marquee // Element
   marquee = document.querySelector('.cover_title div h1 span')
@@ -47,7 +46,7 @@ function fadeIn(projectCover, marquee) {
 }
 
 function fillArray(titleName) {
-  let string = new Array(50).fill(titleName).join(' — ')
+  let string = new Array(5).fill(titleName).join(' — ')
   titleName = string
 
   return titleName

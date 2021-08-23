@@ -25,28 +25,28 @@
     z-index: 2;
   }
 
-  .row {
+  .home-branding-row {
     display: block;
   }
 
   /* I've worked across... */
-  .row:nth-child(1) {
+  .home-branding-row:nth-child(1) {
     padding-top: var(--top-padding);
     grid-column-start: 3;
   }
 
   /* I've worked across... */
-  .row:nth-child(2) {
+  .home-branding-row:nth-child(2) {
     grid-column-start: 4;
   }
 
   /* I’m currently a Design Director... */
-  .row:nth-child(3) {
+  .home-branding-row:nth-child(3) {
     grid-column-start: 5;
   }
-  .row:nth-child(1),
-  .row:nth-child(2),
-  .row:nth-child(3) {
+  .home-branding-row:nth-child(1),
+  .home-branding-row:nth-child(2),
+  .home-branding-row:nth-child(3) {
     grid-column-end: 12;
   }
 

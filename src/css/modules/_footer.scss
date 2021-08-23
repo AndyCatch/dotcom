@@ -28,6 +28,11 @@
     }
   }
 
+  footer div:nth-child(1) h1,
+  footer div:nth-child(2) h1 {
+    transform: translate(0px, var(--two-units));
+  }
+
   .clock-wrapper {
     width: 100%;
   }

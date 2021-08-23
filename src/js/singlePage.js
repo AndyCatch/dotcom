@@ -45,7 +45,6 @@ function setMouseFollow() {
 }
 
 function addIndexImg() {
-  // 'body > div.sections > section.work-index-section > div')
   if (document.querySelector('section.work-index-section > div')) {
     let nodeList = document.querySelectorAll('div.index-items')
     indexImage(nodeList)
@@ -108,7 +107,5 @@ function navHandler(event) {
 document.addEventListener('DOMContentLoaded', (event) => {
   console.log('DOM fully loaded and parsed')
 
-  // removeHoverStyles()
-  // customVhUnit()
   init()
 })

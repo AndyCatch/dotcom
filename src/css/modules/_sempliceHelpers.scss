@@ -64,8 +64,13 @@
 
   /* Back to Top  */
   .back-to-top {
-    bottom: var(--four-units) !important;
-    right: var(--four-units) !important;
+    mix-blend-mode: difference !important;
+    bottom: var(--two-units) !important;
+    right: var(--two-units) !important;
+
+    a {
+      padding: 0px !important;
+    }
   }
 }
 
