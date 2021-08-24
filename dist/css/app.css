@@ -114,6 +114,7 @@ input, textarea, select {
   /* 32px */
   --eight-units:calc(var(--unit) * 8);
   /* 64px */
+  --navbar-height: 5rem;
 }
 
 html,
@@ -274,7 +275,7 @@ a {
 
 /* Semplice Class */
 .navbar-inner {
-  height: 5% !important;
+  height: var(--navbar-height) !important;
   top: 0 !important;
   position: fixed !important;
   transition: transform 0.4s cubic-bezier(0.65, 0.05, 0.36, 1) !important;
@@ -305,32 +306,27 @@ a {
 }
 
 /* Semplice Class */
-.navbar-left,
 .navbar-right {
   display: block;
   position: absolute;
   height: 100%;
-}
-
-/* Semplice Class */
-.navbar-left {
-  left: 0;
-}
-
-/* Semplice Class */
-.navbar-right {
   right: 0;
 }
 
 /* Semplice Class */
-.logo {
-  display: block !important;
-  margin-left: var(--two-units);
+.navbar-left {
+  display: block;
+  position: absolute;
+  height: 100%;
+  left: var(--two-units) !important;
 }
+
+/* Semplice Class */
 .logo a {
   font-size: var(--nav-size) !important;
   line-height: var(--nav-line) !important;
-  padding: var(--unit) var(--two-units) var(--unit) var(--two-units) !important;
+  box-sizing: border-box;
+  padding: var(--unit) 12px var(--unit) 12px;
   border: 1px var(--white) !important;
   border-style: solid !important;
   border-radius: 100% !important;
@@ -547,7 +543,7 @@ footer div:nth-child(2) h1 {
 
 .branding {
   position: relative;
-  padding-top: var(--three-units);
+  padding-top: calc(var(--navbar-height) - var(--four-units));
   color: var(--white);
 }
 
@@ -731,6 +727,7 @@ footer div:nth-child(2) h1 {
 }
 
 .caption {
+  color: var(--black) !important;
   text-align: center;
   font-family: var(--untitled-ita);
   position: fixed !important;

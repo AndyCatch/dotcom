@@ -122,9 +122,9 @@ function indexItemHandler(event) {
     indexItems.forEach((item) => {
       item.style.zIndex = 0 // reset all to 0
     })
+    numImage.style.setProperty('color', 'var(--black)', 'important')
     current.style.zIndex = 1 // bring the current to 1
     current.classList.add('indexHover')
-    numImage.style.color = 'var(--black)'
     header.classList.add('headingHover')
     bgHover.classList.add('fullOpacity')
   } else if (event.type === 'mouseout') {
@@ -144,6 +144,7 @@ function desktopThumbHandler(event) {
   let caption = parent.querySelector('.caption')
 
   if (event.type === 'mouseover') {
+    console.log(caption)
     setThumbs.forEach((setThumb) => {
       setThumb.style.opacity = 0.25
     })

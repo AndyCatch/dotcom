@@ -91,10 +91,18 @@ function draw() {
   if (!isPaused) {
     if (currentImage) {
       currentImage.style.transform = `translate3d(${
-        currentX - (currentImage.offsetWidth + window.innerWidth) / 2
+        currentX -
+        (currentImage.offsetWidth + document.documentElement.clientWidth) / 2
       }px, ${
-        currentY - (currentImage.offsetHeight + window.innerHeight) / 2
+        currentY -
+        (currentImage.offsetHeight + document.documentElement.clientHeight) / 2
       }px, 0px)`
+      //
+      // currentImage.style.transform = `translate3d(${
+      //   currentX - (currentImage.offsetWidth + window.innerWidth) / 2
+      // }px, ${
+      //   currentY - (currentImage.offsetHeight + window.innerHeight) / 2
+      // }px, 0px)`
     }
   }
 

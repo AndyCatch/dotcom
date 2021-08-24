@@ -52,7 +52,7 @@
 
   .branding {
     position: relative;
-    padding-top: var(--three-units);
+    padding-top: calc(var(--navbar-height) - var(--four-units));
     color: var(--white);
   }
 }

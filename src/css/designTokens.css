@@ -39,4 +39,6 @@
   --three-units: calc(var(--unit) * 3); /* 24px */
   --four-units: calc(var(--unit) * 4); /* 32px */
   --eight-units: calc(var(--unit) * 8); /* 64px */
+
+  --navbar-height: 5rem;
 }
