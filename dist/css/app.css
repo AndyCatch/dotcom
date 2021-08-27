@@ -523,21 +523,18 @@ footer div:nth-child(2) h1 {
 .home-branding-row:nth-child(1) {
   padding-top: var(--top-padding);
   grid-column-start: 3;
+  grid-column-end: 12;
 }
 
 /* I've worked across... */
 .home-branding-row:nth-child(2) {
   grid-column-start: 4;
+  grid-column-end: 12;
 }
 
 /* I’m currently a Design Director... */
 .home-branding-row:nth-child(3) {
   grid-column-start: 5;
-}
-
-.home-branding-row:nth-child(1),
-.home-branding-row:nth-child(2),
-.home-branding-row:nth-child(3) {
   grid-column-end: 12;
 }
 
@@ -880,22 +877,6 @@ footer div:nth-child(2) h1 {
   z-index: 1;
 }
 
-.imageMoveOff {
-  pointer-events: none;
-  opacity: 1 !important;
-  top: 50%;
-  left: 0%;
-  transform: translate3d(0px, 0px, 0px) !important;
-}
-
-.imageMoveOn {
-  transform-origin: top left;
-  opacity: 0;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(0px, 0px, 0px);
-}
-
 /* ----- Project ----- */
 /* ----- Project Page Styles ----- */
 .cover_title {
@@ -1020,14 +1001,13 @@ footer div:nth-child(2) h1 {
     justify-content: space-around;
     margin: 0 0 0 0 !important;
   }
-  .list a h1 {
-    margin-bottom: 10%;
+  .list a {
+    margin-top: 10%;
   }
   .list a img {
     filter: saturate(110%);
     position: relative !important;
     opacity: 0.9;
-    left: 0%;
   }
 
   .list-heading h1 {
@@ -1172,14 +1152,24 @@ footer div:nth-child(2) h1 {
     font-size: var(--subHead-size-tablet) !important;
   }
 
-  .list a h1 {
-    margin-bottom: 10%;
+  .list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0 0 0 0 !important;
+  }
+  .list a {
+    margin-top: 10%;
   }
   .list a img {
     filter: saturate(110%);
     position: relative !important;
     opacity: 0.9;
-    left: 0%;
+  }
+
+  .list-heading h1 {
+    grid-column-start: 4;
+    grid-column-end: 12;
   }
 
   .next a img {
@@ -1276,16 +1266,6 @@ footer div:nth-child(2) h1 {
 /* ----------- Pixel ----------- */
 /* Landscape */
 @media screen and (min-device-width: 731px) and (max-device-width: 731px) and (orientation: landscape) {
-  .list a h1 {
-    margin-bottom: 10%;
-  }
-  .list a img {
-    filter: saturate(110%);
-    position: relative !important;
-    opacity: 0.9;
-    left: 0%;
-  }
-
   .next a img {
     filter: saturate(110%);
     width: 65vw;
@@ -1380,16 +1360,6 @@ footer div:nth-child(2) h1 {
     display: none;
   }
 
-  .list a h1 {
-    margin-bottom: 10%;
-  }
-  .list a img {
-    filter: saturate(110%);
-    position: relative !important;
-    opacity: 0.9;
-    left: 0%;
-  }
-
   .next a img {
     filter: saturate(110%);
     width: 65vw;
@@ -1462,16 +1432,6 @@ footer div:nth-child(2) h1 {
   .current-menu-item::after {
     font-family: Arial, Helvetica, sans-serif !important;
     display: none;
-  }
-
-  .list a h1 {
-    margin-bottom: 10%;
-  }
-  .list a img {
-    filter: saturate(110%);
-    position: relative !important;
-    opacity: 0.9;
-    left: 0%;
   }
 
   .next a img {
@@ -1549,16 +1509,6 @@ footer div:nth-child(2) h1 {
 }
 /* Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-  .list a h1 {
-    margin-bottom: 10%;
-  }
-  .list a img {
-    filter: saturate(110%);
-    position: relative !important;
-    opacity: 0.9;
-    left: 0%;
-  }
-
   .next a img {
     filter: saturate(110%);
     width: 65vw;

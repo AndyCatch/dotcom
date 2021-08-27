@@ -33,20 +33,18 @@
   .home-branding-row:nth-child(1) {
     padding-top: var(--top-padding);
     grid-column-start: 3;
+    grid-column-end: 12;
   }
 
   /* I've worked across... */
   .home-branding-row:nth-child(2) {
     grid-column-start: 4;
+    grid-column-end: 12;
   }
 
   /* I’m currently a Design Director... */
   .home-branding-row:nth-child(3) {
     grid-column-start: 5;
-  }
-  .home-branding-row:nth-child(1),
-  .home-branding-row:nth-child(2),
-  .home-branding-row:nth-child(3) {
     grid-column-end: 12;
   }
 

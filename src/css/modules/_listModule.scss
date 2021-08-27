@@ -10,7 +10,7 @@
     position: relative !important;
     opacity: 0.9;
     left: 0%;
-    // transform: translate3d(-33%, 0%, 0);
+    // transform: translate3d(0px, 0px, 0px);
   }
 }
 
@@ -69,9 +69,6 @@
     a img {
       opacity: 0;
       position: fixed !important;
-      // top: 50%;
-      // left: 50%;
-      // transform: translate3d(-50%, -50%, 0);
       width: 65vw;
       /*   this will tell the browser to ignore any default mouse interactions on this img element */
       pointer-events: none;
@@ -83,43 +80,30 @@
       z-index: 1;
     }
   }
-
-  .imageMoveOff {
-    pointer-events: none;
-    opacity: 1 !important;
-    top: 50%;
-    left: 0%;
-    transform: translate3d(0px, 0px, 0px) !important;
-  }
-
-  .imageMoveOn {
-    transform-origin: top left;
-    opacity: 0;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(0px, 0px, 0px);
-  }
 }
 
-@mixin tablet-portrait {
+@mixin tablet {
   .list {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     margin: 0 0 0 0 !important;
 
-    @include img-settings;
+    a {
+      margin-top: 10%;
+    }
+
+    a img {
+      filter: saturate(110%);
+      position: relative !important;
+      opacity: 0.9;
+      // transform: translate3d(0px, 0px, 0px);
+    }
   }
 
   .list-heading h1 {
     grid-column-start: 4;
     grid-column-end: 12;
-  }
-}
-
-@mixin tablet-landscape {
-  .list {
-    @include img-settings;
   }
 }
 
@@ -130,12 +114,19 @@
     justify-content: space-around;
     margin: 44.7vh 0 0 0;
 
-    @include img-settings;
+    a h1 {
+      margin-bottom: 10%;
+    }
+
+    a img {
+      filter: saturate(110%);
+      position: relative !important;
+      opacity: 0.9;
+      left: 0%;
+      // transform: translate3d(0px, 0px, 0px);
+    }
   }
 }
 
 @mixin mobile-landscape {
-  .list {
-    @include img-settings;
-  }
 }

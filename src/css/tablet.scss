@@ -14,7 +14,7 @@
   /* HOMEPAGE STYLE */
 
   @include type-stack.tablet-type-stack;
-  @include listModule.tablet-portrait;
+  @include listModule.tablet;
   @include nextProject.tablet-portrait;
   @include homeBranding.tablet;
   @include homeCopy.tablet;
@@ -49,7 +49,7 @@
 /* Declare the same value for min- and max-width to avoid colliding with desktops */
 @media only screen and (min-device-width: 1366px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
   @include type-stack.tablet-type-stack;
-  @include listModule.tablet-landscape;
+  @include listModule.tablet;
   @include nextProject.mobile-landscape-med;
   @include homeBranding.tablet;
   @include letterBackground.tablet;
