@@ -94,7 +94,7 @@ input, textarea, select {
   --clock-size: 15vw;
   --clock-line: 0.9;
   --clock-size-tablet: 20vw;
-  --subHead-size: 5.556vw;
+  --subHead-size: 3.5vw;
   /* Converted to vw from 80px@1440 W*/
   --subHead-line: 1;
   --subHead-size-tablet: 8vw;
@@ -435,7 +435,7 @@ footer div:nth-child(2) h1 {
   align-items: flex-start;
   /* top | right | bottom | left */
   width: 100%;
-  margin: 60vh 0 0 0;
+  margin: 33vh 0 0 0;
 }
 .social-links div {
   z-index: 3;
@@ -451,7 +451,7 @@ footer div:nth-child(2) h1 {
   margin-right: 0;
 }
 .social-links div a::after {
-  font-family: Arial, Helvetica, sans-serif !important;
+  font-family: Helvetica, Arial, sans-serif !important;
   color: var(--white);
   content: " ↗︎" !important;
 }
@@ -491,7 +491,7 @@ footer div:nth-child(2) h1 {
 
 /* Branding */
 .home-branding {
-  height: calc(100vh - var(--eight-units));
+  height: 60vh;
   width: 100%;
 }
 
@@ -504,43 +504,31 @@ footer div:nth-child(2) h1 {
   align-items: flex-start;
 }
 
-.content {
+.home-branding-content {
   display: grid;
   grid-column-gap: 24px;
   column-gap: 24px;
   grid-template-columns: repeat(12, 1fr);
+  padding-top: calc(var(--navbar-height) + var(--unit));
   width: 100%;
-  top: 10%;
-  transform: translate(0, 10vh);
   z-index: 2;
 }
 
 .home-branding-row {
   display: block;
+  z-index: 2;
+  width: 100%;
 }
 
 /* I've worked across... */
 .home-branding-row:nth-child(1) {
-  padding-top: var(--top-padding);
-  grid-column-start: 3;
-  grid-column-end: 12;
-}
-
-/* I've worked across... */
-.home-branding-row:nth-child(2) {
-  grid-column-start: 4;
-  grid-column-end: 12;
-}
-
-/* I’m currently a Design Director... */
-.home-branding-row:nth-child(3) {
-  grid-column-start: 5;
-  grid-column-end: 12;
+  grid-column-start: 1;
+  grid-column-end: 8;
 }
 
 .branding {
   position: relative;
-  padding-top: calc(var(--navbar-height) - var(--four-units));
+  margin-top: calc(var(--four-units) * -1);
   color: var(--white);
 }
 
@@ -794,7 +782,6 @@ footer div:nth-child(2) h1 {
   z-index: 2;
 }
 
-.home-copy-row:nth-child(1),
 .home-copy-row:nth-child(2),
 .home-copy-row:nth-child(3) {
   padding-top: var(--eight-units);
@@ -822,7 +809,6 @@ footer div:nth-child(2) h1 {
   width: 100%;
 }
 
-.list-heading,
 .list {
   display: grid;
   grid-column-gap: 24px;
@@ -830,35 +816,65 @@ footer div:nth-child(2) h1 {
   grid-template-columns: repeat(12, 1fr);
 }
 
-.list-heading h1 {
-  grid-column-start: 6;
+.list-heading {
+  z-index: 3 !important;
+}
+.list-heading p {
+  width: 100%;
+  border-top: 1px solid;
+  border-color: var(--white) !important;
+  grid-column-start: 1;
   grid-column-end: 12;
 }
 
 .list {
   /*   The animation settings in Semplice will adjust the placement of the image */
 }
+.list :nth-child(1) {
+  grid-column-start: 2;
+}
+.list :nth-child(2) {
+  grid-column-start: 7;
+}
+.list :nth-child(3) {
+  grid-column-start: 3;
+}
+.list :nth-child(4) {
+  grid-column-start: 8;
+}
+.list :nth-child(5) {
+  grid-column-start: 4;
+}
+.list :nth-child(2),
+.list :nth-child(3),
+.list :nth-child(4),
+.list :nth-child(5) {
+  padding-top: var(--eight-units);
+  grid-column-end: 12;
+}
 .list a {
+  margin-bottom: calc(var(--unit) * -1);
   width: fit-content;
   display: block;
-  grid-column-start: 4;
-  grid-column-end: 11;
+  grid-column-start: 5;
+  grid-column-end: 12;
   color: var(--white);
   -webkit-text-fill-color: var(--white);
   z-index: 1;
 }
 .list a h1 {
-  overflow: hidden;
-}
-.list a h1 span::after {
-  color: var(--white);
-  content: "→" !important;
+  letter-spacing: calc(var(--half-unit) * -1);
+  font-family: var(--untitled-reg) !important;
 }
 .list a:hover {
   -webkit-text-stroke-width: var(--display-stroke-w);
   -webkit-text-fill-color: transparent;
-  transition: -webkit-text-fill-color 0.5s;
+  transition: all 0.5s;
   z-index: 3;
+}
+.list a:hover ::after {
+  color: var(--white);
+  content: " ↗︎" !important;
 }
 .list a:hover img {
   filter: saturate(110%);
@@ -868,7 +884,6 @@ footer div:nth-child(2) h1 {
   opacity: 0;
   position: fixed !important;
   width: 65vw;
-  /*   this will tell the browser to ignore any default mouse interactions on this img element */
   pointer-events: none;
   transition: opacity 0.2s ease-out;
 }

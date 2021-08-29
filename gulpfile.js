@@ -52,7 +52,7 @@ gulp.task('compileTypeCSS', function () {
 gulp.task('singlePageJS', function () {
   return pipeline(
     gulp.src('src/js/singlePage.js'),
-    // sourcemaps.init(),
+    sourcemaps.init(),
     webpack({
       mode: 'none',
       output: {
@@ -60,7 +60,7 @@ gulp.task('singlePageJS', function () {
       },
     }),
     uglify(),
-    // sourcemaps.write(),
+    sourcemaps.write(),
     gulp.dest('dist/js')
   )
 })

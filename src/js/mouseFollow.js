@@ -117,12 +117,12 @@ function isTablet() {
 }
 
 function desktopHandler(event) {
-  console.log(event)
+  // console.log(event)
   isDesktop()
 }
 
 function tabletHandler(event) {
-  console.log('tabletHandler')
+  // console.log('tabletHandler')
   /* Uncomment if statement for prod */
   // isTablet()
   if (hasTouch()) {
