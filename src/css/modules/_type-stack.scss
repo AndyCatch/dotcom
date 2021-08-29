@@ -49,7 +49,11 @@
   }
 
   a {
-    @include desktop-p-styles;
+    font-size: var(--body-size) !important;
+    line-height: var(--body-line) !important;
+    text-align: left;
+
+    color: var(--white) !important;
     text-decoration: none;
     transition: color 0.2s ease-out !important;
   }

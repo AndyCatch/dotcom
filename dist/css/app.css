@@ -182,7 +182,6 @@ p {
 }
 
 a {
-  font-family: var(--untitled-reg) !important;
   font-size: var(--body-size) !important;
   line-height: var(--body-line) !important;
   text-align: left;
@@ -336,7 +335,6 @@ a {
 }
 
 .nav-item {
-  font-family: var(--untitled-ita) !important;
   line-height: var(--nav-line) !important;
   font-size: var(--nav-size) !important;
   padding: var(--unit) var(--two-units) var(--unit) var(--two-units);
@@ -350,10 +348,12 @@ a {
 
 .current-menu-item {
   pointer-events: none;
-  font-family: var(--untitled-reg) !important;
   background-color: var(--white) !important;
 }
-.current-menu-item span {
+.current-menu-item a {
+  font-family: var(--untitled-reg) !important;
+}
+.current-menu-item a span {
   color: var(--black) !important;
 }
 
@@ -421,6 +421,7 @@ footer div:nth-child(2) h1 {
   z-index: 3;
 }
 .social-links div a {
+  font-family: var(--untitled-reg) !important;
   margin-right: var(--two-units);
   border: 0px var(--white);
   padding: 0 var(--unit) 0 var(--unit);
@@ -836,6 +837,7 @@ footer div:nth-child(2) h1 {
 }
 .list :nth-child(1) {
   grid-column-start: 2;
+  grid-column-end: 5;
 }
 .list :nth-child(2) {
   grid-column-start: 7;
@@ -853,7 +855,6 @@ footer div:nth-child(2) h1 {
 .list :nth-child(3),
 .list :nth-child(4),
 .list :nth-child(5) {
-  padding-top: var(--eight-units);
   grid-column-end: 12;
 }
 .list a {

@@ -86,7 +86,6 @@
   }
 
   .nav-item {
-    font-family: var(--untitled-ita) !important;
     line-height: var(--nav-line) !important;
     font-size: var(--nav-size) !important;
     padding: var(--unit) var(--two-units) var(--unit) var(--two-units);
@@ -102,10 +101,13 @@
 
   .current-menu-item {
     pointer-events: none;
-    font-family: var(--untitled-reg) !important;
     background-color: var(--white) !important;
 
-    span {
+    a {
+      font-family: var(--untitled-reg) !important;
+    }
+
+    a span {
       color: var(--black) !important;
     }
   }
