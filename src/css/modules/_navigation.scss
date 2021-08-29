@@ -59,30 +59,21 @@
 
   /* Semplice Class */
   .logo {
-    a {
-      font-size: var(--nav-size) !important;
-      line-height: var(--nav-line) !important;
-      box-sizing: border-box;
-      padding: var(--unit) 12px var(--unit) 12px;
-      border: 1px var(--white) !important;
-      border-style: solid !important;
-      border-radius: 100% !important;
-    }
-    a:hover {
-      color: var(--black) !important;
-      background-color: var(--white) !important;
-      transition: all 0.2s ease-in !important;
-    }
-  }
-
-  /* - - - - - - - - - */
-
-  .showLogo {
-    display: auto !important;
-  }
-
-  .hideLogo {
     display: none !important;
+    // a {
+    //   font-size: var(--nav-size) !important;
+    //   line-height: var(--nav-line) !important;
+    //   box-sizing: border-box;
+    //   padding: var(--unit) 12px var(--unit) 12px;
+    //   border: 1px var(--white) !important;
+    //   border-style: solid !important;
+    //   border-radius: 100% !important;
+    // }
+    // a:hover {
+    //   color: var(--black) !important;
+    //   background-color: var(--white) !important;
+    //   transition: all 0.2s ease-in !important;
+    // }
   }
 
   /* Hide Show Nav classes */
@@ -111,8 +102,8 @@
 
   .current-menu-item {
     pointer-events: none;
+    font-family: var(--untitled-reg) !important;
     background-color: var(--white) !important;
-    border: 1px var(--purple) !important;
 
     span {
       color: var(--black) !important;

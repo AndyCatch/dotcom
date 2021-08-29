@@ -29,8 +29,8 @@
     z-index: 3 !important;
     p {
       width: 100%;
-      border-top: 1px solid;
-      border-color: var(--white) !important;
+      // border-top: 1px solid;
+      // border-color: var(--white) !important;
       grid-column-start: 1;
       grid-column-end: 12;
     }
@@ -84,11 +84,11 @@
 
       transition: all 0.5s;
       z-index: 3;
-      ::after {
-        // font-family: Helvetica, Arial, sans-serif !important;
-        color: var(--white);
-        content: ' ↗︎' !important;
-      }
+      // ::after {
+      //   // font-family: Helvetica, Arial, sans-serif !important;
+      //   color: var(--white);
+      //   content: '↗︎' !important;
+      // }
     }
 
     a:hover img {

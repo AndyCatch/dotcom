@@ -18,7 +18,7 @@
   .home-branding-content {
     @include layoutUtils.desktop-grid;
 
-    padding-top: calc(var(--navbar-height) + var(--unit));
+    padding-top: calc(var(--navbar-height) * 3);
     width: 100%;
     z-index: 2;
   }
@@ -31,26 +31,24 @@
 
   /* I've worked across... */
   .home-branding-row:nth-child(1) {
-    // padding-top: var(--top-padding);
     grid-column-start: 1;
+    grid-column-end: 4;
+  }
+
+  .home-branding-row:nth-child(2) {
+    grid-column-start: 5;
     grid-column-end: 8;
   }
 
-  // .home-branding-row:nth-child(2) {
-  //   grid-column-start: 1;
-  //   grid-column-end: 5;
-  // }
-
   // /* I’m currently a Design Director... */
-  // .home-branding-row:nth-child(3) {
-  //   grid-column-start: 1;
-  //   grid-column-end: 4;
-  // }
+  .home-branding-row:nth-child(3) {
+    grid-column-start: 9;
+    grid-column-end: 11;
+  }
 
   .branding {
     position: relative;
-    margin-top: calc(var(--four-units) * -1);
-    // padding-top: calc(var(--navbar-height) - var(--four-units));
+    transform: translate(0px, calc(var(--four-units) * -1));
     color: var(--white);
   }
 }
