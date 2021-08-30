@@ -41,11 +41,11 @@ function mouseOut(event) {
 }
 
 function mouseMove(event) {
-  aimX = event.clientX
-  aimY = event.clientY
+  aimX = event.pageX
+  aimY = event.pageY
   if (currentX === null) {
-    currentX = event.clientX
-    currentY = event.clientY
+    currentX = event.pageX
+    currentY = event.pageY
   }
 }
 
@@ -71,8 +71,6 @@ function draw() {
 
   if (!isPaused) {
     if (currentImage) {
-      // image.style.top = '0%'
-      // image.style.left = '50%'
       currentImage.style.transform = `translate3d(${
         currentX - (currentImage.offsetWidth + window.innerWidth) / 2
       }px, ${

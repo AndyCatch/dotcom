@@ -10,7 +10,6 @@ var clock = setInterval(updateClock, 1000)
 var navChecker = setInterval(addNav, 500)
 var indexImageChecker = setInterval(addIndexImg, 500)
 var mouseFollowChecker = setInterval(setMouseFollow, 500)
-var currentMenuChecker = setInterval(setCurrentMenuItem, 500)
 
 function init() {
   // luxon library <script> tag

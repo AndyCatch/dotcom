@@ -100,7 +100,7 @@ input, textarea, select {
   --subHead-size-tablet: 8vw;
   --nav-size: 28px;
   --nav-line: 1;
-  --body-size: 20px;
+  --body-size: 18px;
   --body-line: 1.1;
   /* Spacing */
   --unit: 8px;
@@ -325,6 +325,7 @@ a {
   display: none !important;
 }
 
+/* - - - Current-item-override, Semplice - - - */
 /* Hide Show Nav classes */
 .hideNav {
   transform: translateY(-110%) !important;
@@ -351,6 +352,8 @@ a {
   background-color: var(--white) !important;
 }
 .current-menu-item a {
+  font-weight: normal !important;
+  font-style: normal !important;
   font-family: var(--untitled-reg) !important;
 }
 .current-menu-item a span {
@@ -620,6 +623,7 @@ footer div:nth-child(2) h1 {
   margin-top: calc(var(--four-units) * 3);
 }
 .index-items a {
+  font-family: var(--untitled-ita);
   display: block;
   position: relative;
   margin-bottom: var(--four-units);
@@ -789,6 +793,7 @@ footer div:nth-child(2) h1 {
   z-index: 2;
 }
 
+.home-copy-row:nth-child(1),
 .home-copy-row:nth-child(2),
 .home-copy-row:nth-child(3) {
   padding-top: var(--eight-units);
@@ -832,9 +837,6 @@ footer div:nth-child(2) h1 {
   grid-column-end: 12;
 }
 
-.list {
-  /*   The animation settings in Semplice will adjust the placement of the image */
-}
 .list :nth-child(1) {
   grid-column-start: 2;
   grid-column-end: 5;
@@ -843,7 +845,7 @@ footer div:nth-child(2) h1 {
   grid-column-start: 7;
 }
 .list :nth-child(3) {
-  grid-column-start: 3;
+  grid-column-start: 4;
 }
 .list :nth-child(4) {
   grid-column-start: 8;
@@ -859,7 +861,7 @@ footer div:nth-child(2) h1 {
 }
 .list a {
   margin-bottom: calc(var(--unit) * -1);
-  width: fit-content;
+  width: 100%;
   display: block;
   grid-column-start: 5;
   grid-column-end: 12;
@@ -871,24 +873,26 @@ footer div:nth-child(2) h1 {
   letter-spacing: calc(var(--half-unit) * -1);
   font-family: var(--untitled-reg) !important;
 }
-.list a:hover {
+.list a :hover {
   -webkit-text-stroke-width: var(--display-stroke-w);
   -webkit-text-fill-color: transparent;
   transition: all 0.5s;
   z-index: 3;
 }
-.list a:hover img {
-  filter: saturate(110%);
-  opacity: 0.99;
-}
 .list a img {
   opacity: 0;
-  position: fixed !important;
+  position: fixed;
   width: 65vw;
   pointer-events: none;
   transition: opacity 0.2s ease-out;
 }
-.list span {
+
+a:hover img {
+  filter: saturate(110%);
+  opacity: 0.99;
+}
+
+span {
   position: relative;
   z-index: 1;
 }

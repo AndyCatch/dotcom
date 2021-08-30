@@ -1,5 +1,6 @@
 @mixin desktop-p-styles {
   // These need !important to override Semplice
+
   font-family: var(--untitled-reg) !important;
   font-size: var(--body-size) !important;
   line-height: var(--body-line) !important;

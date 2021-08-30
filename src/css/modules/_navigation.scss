@@ -76,6 +76,15 @@
     // }
   }
 
+  /* - - - Current-item-override, Semplice - - - */
+  // .font_4hnd4m404,
+  // [data-font='font_4hnd4m404'],
+  // [data-font='font_4hnd4m404'] li a {
+  //   font-family: 'untitled-sans-web-regular-italic', sans-serif;
+  //   font-weight: normal;
+  //   font-style: normal !important;
+  // }
+
   /* Hide Show Nav classes */
   .hideNav {
     transform: translateY(-110%) !important;
@@ -104,6 +113,8 @@
     background-color: var(--white) !important;
 
     a {
+      font-weight: normal !important;
+      font-style: normal !important;
       font-family: var(--untitled-reg) !important;
     }
 
