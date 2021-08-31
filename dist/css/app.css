@@ -865,7 +865,7 @@ footer div:nth-child(2) h1 {
 }
 .list a img {
   opacity: 0;
-  position: fixed;
+  position: fixed !important;
   /* Not sure if this should be fixed or absolute */
   width: 65vw;
   pointer-events: none;

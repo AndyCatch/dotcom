@@ -91,6 +91,7 @@ function stopDraw() {
 function isDesktop() {
   isPaused = false
   images.forEach((image) => {
+    image.style.setProperty('position', 'fixed', '!important')
     image.style.opacity = 0
     image.style.transform = `none`
     image.style.pointerEvents = 'none'
