@@ -71,7 +71,9 @@ function draw() {
       currentImage.style.transform = `translate3d(${
         currentX - currentImage.offsetWidth / 2 - window.innerWidth / 2
       }px, ${
-        currentY - currentImage.offsetHeight / 2 - window.innerHeight / 2
+        currentY -
+        (currentImage.offsetHeight + window.innerHeight) / 2 +
+        window.pageYOffset
       }px, 0px)`
     }
   }
