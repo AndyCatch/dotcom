@@ -144,6 +144,7 @@ function desktopThumbHandler(event) {
   let caption = parent.querySelector('.caption')
 
   if (event.type === 'mouseover') {
+    console.log(lgImg)
     setThumbs.forEach((setThumb) => {
       setThumb.style.opacity = 0.25
     })

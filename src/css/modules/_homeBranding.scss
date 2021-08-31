@@ -32,18 +32,18 @@
   /* I've worked across... */
   .home-branding-row:nth-child(1) {
     grid-column-start: 1;
-    grid-column-end: 4;
+    grid-column-end: 9;
   }
 
   .home-branding-row:nth-child(2) {
     grid-column-start: 5;
-    grid-column-end: 8;
+    grid-column-end: 11;
   }
 
   // /* I’m currently a Design Director... */
   .home-branding-row:nth-child(3) {
     grid-column-start: 9;
-    grid-column-end: 11;
+    grid-column-end: 12;
   }
 
   .branding {

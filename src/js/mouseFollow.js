@@ -41,11 +41,11 @@ function mouseOut(event) {
 }
 
 function mouseMove(event) {
-  aimX = event.pageX
-  aimY = event.pageY
+  aimX = event.clientX
+  aimY = event.clientY
   if (currentX === null) {
-    currentX = event.pageX
-    currentY = event.pageY
+    currentX = event.clientX
+    currentY = event.clientY
   }
 }
 
@@ -66,18 +66,18 @@ function removeImageMove() {
 }
 
 function draw() {
-  currentX = currentX + (aimX - currentX) * 0.2
-  currentY = currentY + (aimY - currentY) * 0.2
-
   if (!isPaused) {
     if (currentImage) {
       currentImage.style.transform = `translate3d(${
-        currentX - (currentImage.offsetWidth + window.innerWidth) / 2
+        currentX - currentImage.offsetWidth / 2 - window.innerWidth / 2
       }px, ${
-        currentY - (currentImage.offsetHeight + window.innerHeight) / 2
+        currentY - currentImage.offsetHeight / 2 - window.innerHeight / 2
       }px, 0px)`
     }
   }
+
+  currentX = currentX + (aimX - currentX) * 0.2
+  currentY = currentY + (aimY - currentY) * 0.2
 
   requestID = window.requestAnimationFrame(draw)
 }
@@ -92,6 +92,7 @@ function isDesktop() {
     image.style.opacity = 0
     image.style.transform = `none`
     image.style.pointerEvents = 'none'
+
     image.style.top = '50%'
     image.style.left = '50%'
   })
