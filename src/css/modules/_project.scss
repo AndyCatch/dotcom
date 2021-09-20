@@ -9,6 +9,18 @@
     z-index: 999 !important;
   }
 
+  .project-info {
+    display: grid;
+    grid-column-gap: 24px;
+    column-gap: 24px;
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .project-team-row {
+    grid-column-start: 9;
+    grid-column-end: 12;
+  }
+
   /* Handles Project Cover Titles */
 
   .image-section {
@@ -24,9 +36,19 @@
     /* Fallback for browsers that do not support Custom Properties, uses {customVhUnit} from utils.js */
     // height: calc(var(--vh, 1vh) * 100);
     align-items: center;
-    margin-top: -100vh;
+    margin-top: -50vh;
     // margin-top: calc(var(--vh, 1vh) * -100);
     transition: 0.3s ease-in;
+  }
+
+  .project-display {
+    margin-top: var(--navbar-height) !important;
+
+    font-family: var(--untitled-reg) !important;
+    font-size: var(--project-display) !important;
+    letter-spacing: var(--project-letterSpace) !important;
+    line-height: var(--project-display-line) !important;
+    color: var(--white);
   }
 
   .show-first {
@@ -81,6 +103,29 @@
   @keyframes move {
     to {
       transform: translate(calc(50vw - 100%));
+    }
+  }
+
+  /* Bouncing arrow animation / positioning */
+  .semplice-cover .show-more svg {
+    animation: 1s arrow-down infinite alternate ease-in-out;
+    margin-bottom: 44px;
+  }
+
+  @keyframes arrow-down {
+    0% {
+      transform: translateY(0);
+      opacity: 0.2;
+    }
+
+    80% {
+      transform: translateY(8px);
+      opacity: 0.9;
+    }
+
+    100% {
+      transform: translateY(8px);
+      opacity: 1;
     }
   }
 

@@ -2,8 +2,10 @@
 
 @mixin desktop {
   .home-branding {
-    height: 60vh;
+    height: 68vh;
+    display: inline-block;
     width: 100%;
+    z-index: 2;
   }
 
   .title-wrapper {
@@ -15,12 +17,25 @@
     align-items: flex-start;
   }
 
+  .main-logo {
+    padding-top: var(--eight-units);
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+
   .home-branding-content {
     @include layoutUtils.desktop-grid;
-
-    padding-top: calc(var(--navbar-height) * 3);
-    width: 100%;
     z-index: 2;
+    width: 100%;
+
+    /* I've worked across... */
+    :nth-child(1) {
+      text-align: left;
+      grid-column-start: 2;
+      grid-column-end: 7;
+    }
   }
 
   .home-branding-row {
@@ -29,27 +44,10 @@
     width: 100%;
   }
 
-  /* I've worked across... */
-  .home-branding-row:nth-child(1) {
-    grid-column-start: 1;
-    grid-column-end: 9;
-  }
-
-  .home-branding-row:nth-child(2) {
-    grid-column-start: 5;
-    grid-column-end: 11;
-  }
-
-  // /* I’m currently a Design Director... */
-  .home-branding-row:nth-child(3) {
-    text-align: right;
-    grid-column-start: 9;
-    grid-column-end: 13;
-  }
-
   .branding {
+    padding-top: var(--eight-units);
     position: relative;
-    transform: translate(0px, calc(var(--four-units) * -1));
+    // transform: translate(0px, calc(var(--four-units) * -1));
     color: var(--white);
   }
 }
@@ -57,21 +55,6 @@
 @mixin tablet {
   .branding {
     padding-top: calc(var(--eight-units));
-  }
-
-  .row:nth-child(2),
-  .row:nth-child(3) {
-    margin-top: var(--four-units);
-  }
-
-  .row:nth-child(1) {
-    grid-column-end: 12;
-  }
-
-  // I've worked across...
-  .row:nth-child(2) {
-    grid-column-start: 1;
-    grid-column-end: 9;
   }
 }
 

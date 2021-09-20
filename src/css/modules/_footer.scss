@@ -28,11 +28,6 @@
     }
   }
 
-  footer div:nth-child(1) h1,
-  footer div:nth-child(2) h1 {
-    transform: translate(0px, var(--two-units));
-  }
-
   .clock-wrapper {
     width: 100%;
   }
@@ -41,7 +36,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    padding-top: var(--eight-units);
+    padding-top: var(--four-units);
 
     ::after {
       font-family: Arial, Helvetica, sans-serif !important;

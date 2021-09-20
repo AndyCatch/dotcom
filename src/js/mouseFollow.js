@@ -31,12 +31,23 @@ function imageMove(hoverElems) {
 }
 
 function mouseOver(event) {
+  let current = event.currentTarget
+  let label = current.querySelector('h1')
   currentImage = event.currentTarget.querySelector('img')
+  hoverElements.forEach((hoverElem) => {
+    hoverElem.style.zIndex = 0
+  })
+  current.style.zIndex = 1
   currentImage.style.opacity = 1
+  currentImage.style.zIndex = -1
+  label.style.transform = 'translate(var(--four-units, 0px))'
 }
 
 function mouseOut(event) {
   currentImage = event.currentTarget.querySelector('img')
+  hoverElements.forEach((hoverElem) => {
+    hoverElem.querySelector('h1').style.transform = 'translate(0px, 0px)'
+  })
   currentImage.style.opacity = 0
 }
 
@@ -96,7 +107,11 @@ function isDesktop() {
     image.style.transform = `none`
     image.style.pointerEvents = 'none'
 
-    image.style.top = '50%'
+    /* - - - - Semplice Setting - - - */
+    image.style.top = '-25%'
+
+    /* - - - - Proto Setting - - - */
+    // image.style.top = '50%'
     image.style.left = '50%'
   })
 

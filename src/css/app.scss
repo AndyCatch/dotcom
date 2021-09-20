@@ -30,6 +30,10 @@ body {
   }
 }
 
+body {
+  overflow-y: inherit !important;
+}
+
 /* Remove the WP admin bar cos it's annoying  */
 #wpadminbar {
   display: none;

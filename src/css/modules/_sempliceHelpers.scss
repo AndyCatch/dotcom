@@ -6,7 +6,6 @@
   }
 
   .sections {
-    // margin: 0 var(--four-units) !important;
     margin: 0 var(--two-units) var(--two-units) var(--two-units) !important;
     overflow-x: visible !important;
     overflow-y: visible !important;
@@ -38,29 +37,6 @@
     transform: background !important;
     transition-timing-function: ease-out !important;
     transition: 0.4s !important;
-  }
-
-  /* Bouncing arrow animation / positioning */
-  .semplice-cover .show-more svg {
-    animation: 1s arrow-down infinite alternate ease-in-out;
-    margin-bottom: 44px;
-  }
-
-  @keyframes arrow-down {
-    0% {
-      transform: translateY(0);
-      opacity: 0.2;
-    }
-
-    80% {
-      transform: translateY(8px);
-      opacity: 0.9;
-    }
-
-    100% {
-      transform: translateY(8px);
-      opacity: 1;
-    }
   }
 
   /* Back to Top  */

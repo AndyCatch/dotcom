@@ -36,7 +36,7 @@
       transition: all 0.2s ease-in !important;
     }
 
-    :nth-child(3) {
+    :nth-child(2) {
       margin: 0;
     }
   }
@@ -59,31 +59,9 @@
 
   /* Semplice Class */
   .logo {
-    display: none !important;
-    // a {
-    //   font-size: var(--nav-size) !important;
-    //   line-height: var(--nav-line) !important;
-    //   box-sizing: border-box;
-    //   padding: var(--unit) 12px var(--unit) 12px;
-    //   border: 1px var(--white) !important;
-    //   border-style: solid !important;
-    //   border-radius: 100% !important;
-    // }
-    // a:hover {
-    //   color: var(--black) !important;
-    //   background-color: var(--white) !important;
-    //   transition: all 0.2s ease-in !important;
-    // }
+    margin-right: var(--two-units);
+    // display: none !important;
   }
-
-  /* - - - Current-item-override, Semplice - - - */
-  // .font_4hnd4m404,
-  // [data-font='font_4hnd4m404'],
-  // [data-font='font_4hnd4m404'] li a {
-  //   font-family: 'untitled-sans-web-regular-italic', sans-serif;
-  //   font-weight: normal;
-  //   font-style: normal !important;
-  // }
 
   /* Hide Show Nav classes */
   .hideNav {

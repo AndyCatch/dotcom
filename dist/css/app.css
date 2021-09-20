@@ -98,10 +98,13 @@ input, textarea, select {
   /* Converted to vw from 80px@1440 W*/
   --subHead-line: 1;
   --subHead-size-tablet: 8vw;
+  --project-display: 4vw;
+  --project-letterSpace: -4px;
+  --project-display-line: 0.98;
   --nav-size: 28px;
   --nav-line: 1;
   --body-size: 18px;
-  --body-line: 1.1;
+  --body-line: 1.2;
   /* Spacing */
   --unit: 8px;
   --half-unit:calc(var(--unit) / 2);
@@ -131,6 +134,10 @@ html ::selection,
 body ::selection {
   color: var(--purple);
   background: var(--dark-blue);
+}
+
+body {
+  overflow-y: inherit !important;
 }
 
 /* Remove the WP admin bar cos it's annoying  */
@@ -237,26 +244,6 @@ a {
   transition: 0.4s !important;
 }
 
-/* Bouncing arrow animation / positioning */
-.semplice-cover .show-more svg {
-  animation: 1s arrow-down infinite alternate ease-in-out;
-  margin-bottom: 44px;
-}
-
-@keyframes arrow-down {
-  0% {
-    transform: translateY(0);
-    opacity: 0.2;
-  }
-  80% {
-    transform: translateY(8px);
-    opacity: 0.9;
-  }
-  100% {
-    transform: translateY(8px);
-    opacity: 1;
-  }
-}
 /* Back to Top  */
 .back-to-top {
   mix-blend-mode: difference !important;
@@ -301,7 +288,7 @@ a {
   background-color: var(--white) !important;
   transition: all 0.2s ease-in !important;
 }
-.menu :nth-child(3) {
+.menu :nth-child(2) {
   margin: 0;
 }
 
@@ -323,10 +310,9 @@ a {
 
 /* Semplice Class */
 .logo {
-  display: none !important;
+  margin-right: var(--two-units);
 }
 
-/* - - - Current-item-override, Semplice - - - */
 /* Hide Show Nav classes */
 .hideNav {
   transform: translateY(-110%) !important;
@@ -385,11 +371,6 @@ a {
   overflow: hidden;
 }
 
-footer div:nth-child(1) h1,
-footer div:nth-child(2) h1 {
-  transform: translate(0px, var(--two-units));
-}
-
 .clock-wrapper {
   width: 100%;
 }
@@ -398,7 +379,7 @@ footer div:nth-child(2) h1 {
   position: absolute;
   top: 0;
   left: 0;
-  padding-top: var(--eight-units);
+  padding-top: var(--four-units);
 }
 .cityName ::after {
   font-family: Arial, Helvetica, sans-serif !important;
@@ -476,8 +457,10 @@ footer div:nth-child(2) h1 {
 
 /* Branding */
 .home-branding {
-  height: 60vh;
+  height: 68vh;
+  display: inline-block;
   width: 100%;
+  z-index: 2;
 }
 
 .title-wrapper {
@@ -489,14 +472,27 @@ footer div:nth-child(2) h1 {
   align-items: flex-start;
 }
 
+.main-logo {
+  padding-top: var(--eight-units);
+  width: 100%;
+}
+.main-logo img {
+  width: 100%;
+}
+
 .home-branding-content {
   display: grid;
   grid-column-gap: 24px;
   column-gap: 24px;
   grid-template-columns: repeat(12, 1fr);
-  padding-top: calc(var(--navbar-height) * 3);
-  width: 100%;
   z-index: 2;
+  width: 100%;
+  /* I've worked across... */
+}
+.home-branding-content :nth-child(1) {
+  text-align: left;
+  grid-column-start: 2;
+  grid-column-end: 7;
 }
 
 .home-branding-row {
@@ -505,26 +501,9 @@ footer div:nth-child(2) h1 {
   width: 100%;
 }
 
-/* I've worked across... */
-.home-branding-row:nth-child(1) {
-  grid-column-start: 1;
-  grid-column-end: 9;
-}
-
-.home-branding-row:nth-child(2) {
-  grid-column-start: 5;
-  grid-column-end: 11;
-}
-
-.home-branding-row:nth-child(3) {
-  text-align: right;
-  grid-column-start: 9;
-  grid-column-end: 13;
-}
-
 .branding {
+  padding-top: var(--eight-units);
   position: relative;
-  transform: translate(0px, calc(var(--four-units) * -1));
   color: var(--white);
 }
 
@@ -824,10 +803,8 @@ footer div:nth-child(2) h1 {
 }
 
 .list {
-  display: grid;
-  grid-column-gap: 24px;
-  column-gap: 24px;
-  grid-template-columns: repeat(12, 1fr);
+  display: flex;
+  flex-direction: column;
 }
 
 .list-heading {
@@ -839,31 +816,34 @@ footer div:nth-child(2) h1 {
   grid-column-end: 12;
 }
 
-.list :nth-child(1),
-.list :nth-child(2),
-.list :nth-child(3),
-.list :nth-child(4),
-.list :nth-child(5) {
-  grid-column-start: 1;
-  grid-column-end: 12;
+.work-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
+
 .list a {
-  margin-bottom: calc(var(--two-units) * -1);
+  overflow: hidden;
   width: 100%;
+  z-index: 0;
+  border-color: var(--white) !important;
+  border-top: 1px solid;
+  padding-bottom: var(--unit);
+  cursor: url("https://andycatch.com/proto/wp-content/uploads/2021/09/Go-Cursor.png") 64 64, auto !important;
   display: block;
-  grid-column-start: 5;
-  grid-column-end: 12;
   color: var(--white);
   -webkit-text-fill-color: var(--white);
-  z-index: 1;
 }
 .list a :hover {
   -webkit-text-stroke-width: var(--display-stroke-w);
   -webkit-text-fill-color: transparent;
-  transition: all 0.5s;
-  z-index: 3;
+  transition: all 0.5s ease-out;
+}
+.list a h1 {
+  transition: all 0.2s ease-out !important;
 }
 .list a img {
+  border-radius: var(--unit);
   opacity: 0;
   position: fixed !important;
   /* Not sure if this should be fixed or absolute */
@@ -878,7 +858,6 @@ a:hover img {
 
 span {
   position: relative;
-  z-index: 1;
 }
 
 /* ----- Project ----- */
@@ -889,6 +868,18 @@ span {
   -webkit-text-stroke-width: 0px;
   -webkit-text-stroke-color: var(--white);
   z-index: 999 !important;
+}
+
+.project-info {
+  display: grid;
+  grid-column-gap: 24px;
+  column-gap: 24px;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.project-team-row {
+  grid-column-start: 9;
+  grid-column-end: 12;
 }
 
 /* Handles Project Cover Titles */
@@ -904,8 +895,17 @@ span {
   height: 100vh;
   /* Fallback for browsers that do not support Custom Properties, uses {customVhUnit} from utils.js */
   align-items: center;
-  margin-top: -100vh;
+  margin-top: -50vh;
   transition: 0.3s ease-in;
+}
+
+.project-display {
+  margin-top: var(--navbar-height) !important;
+  font-family: var(--untitled-reg) !important;
+  font-size: var(--project-display) !important;
+  letter-spacing: var(--project-letterSpace) !important;
+  line-height: var(--project-display-line) !important;
+  color: var(--white);
 }
 
 .show-first {
@@ -949,6 +949,26 @@ span {
 @keyframes move {
   to {
     transform: translate(calc(50vw - 100%));
+  }
+}
+/* Bouncing arrow animation / positioning */
+.semplice-cover .show-more svg {
+  animation: 1s arrow-down infinite alternate ease-in-out;
+  margin-bottom: 44px;
+}
+
+@keyframes arrow-down {
+  0% {
+    transform: translateY(0);
+    opacity: 0.2;
+  }
+  80% {
+    transform: translateY(8px);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(8px);
+    opacity: 1;
   }
 }
 .cover_title {
@@ -1005,9 +1025,6 @@ span {
     justify-content: space-around;
     margin: 0 0 0 0 !important;
   }
-  .list a {
-    margin-top: 10%;
-  }
   .list a img {
     filter: saturate(110%);
     position: relative !important;
@@ -1036,20 +1053,6 @@ span {
 
   .branding {
     padding-top: calc(var(--eight-units));
-  }
-
-  .row:nth-child(2),
-.row:nth-child(3) {
-    margin-top: var(--four-units);
-  }
-
-  .row:nth-child(1) {
-    grid-column-end: 12;
-  }
-
-  .row:nth-child(2) {
-    grid-column-start: 1;
-    grid-column-end: 9;
   }
 
   .home-copy-row:nth-child(3) {
@@ -1166,9 +1169,6 @@ span {
     justify-content: space-around;
     margin: 0 0 0 0 !important;
   }
-  .list a {
-    margin-top: 10%;
-  }
   .list a img {
     filter: saturate(110%);
     position: relative !important;
@@ -1190,20 +1190,6 @@ span {
 
   .branding {
     padding-top: calc(var(--eight-units));
-  }
-
-  .row:nth-child(2),
-.row:nth-child(3) {
-    margin-top: var(--four-units);
-  }
-
-  .row:nth-child(1) {
-    grid-column-end: 12;
-  }
-
-  .row:nth-child(2) {
-    grid-column-start: 1;
-    grid-column-end: 9;
   }
 
   .letter-container {
