@@ -6,10 +6,15 @@ let aimY = null
 let currentX = null
 let currentY = null
 let currentImage = null
+
 let hoverElements
 let images = []
 let isPaused
 let requestID
+
+const params = {
+  pageOffset: 0.75,
+}
 
 function imageMove(hoverElems) {
   hoverElements = hoverElems
@@ -26,11 +31,11 @@ function imageMove(hoverElems) {
     tablet.addEventListener('change', tabletHandler)
     tabletHandler(tablet)
   })
-
-  draw()
+  // draw()
 }
 
 function mouseOver(event) {
+  // look into z-Indexes effecting the "switch off"
   let current = event.currentTarget
   let label = current.querySelector('h1')
   currentImage = event.currentTarget.querySelector('img')
@@ -49,6 +54,7 @@ function mouseOut(event) {
     hoverElem.querySelector('h1').style.transform = 'translate(0px, 0px)'
   })
   currentImage.style.opacity = 0
+  // currentImage.style.zIndex = 0
 }
 
 function mouseMove(event) {
@@ -83,11 +89,27 @@ function draw() {
         currentX - currentImage.offsetWidth / 2 - window.innerWidth / 2
       }px, ${
         currentY -
-        (currentImage.offsetHeight + window.innerHeight) / 2 +
-        window.pageYOffset
+        (currentImage.offsetHeight / 2 - window.innerHeight / 2) +
+        currentImage.offsetHeight * 0.75 * -1
       }px, 0px)`
     }
   }
+
+  /*+
+        window.pageYOffset -
+        currentImage.offsetHeight * 0.25  * params.pageOffset*/
+  // if (!isPaused) {
+  //   if (currentImage) {
+  //     currentImage.style.transform = `translate3d(${
+  //       currentX - currentImage.offsetWidth / 2 - window.innerWidth / 2
+  //     }px, ${
+  //       currentY -
+  //       (currentImage.offsetHeight + window.innerHeight) / 2 +
+  //       window.pageYOffset /*-
+  //       currentImage.offsetHeight * 0.25  * params.pageOffset*/
+  //     }px, 0px)`
+  //   }
+  // }
 
   currentX = currentX + (aimX - currentX) * 0.2
   currentY = currentY + (aimY - currentY) * 0.2
@@ -106,9 +128,10 @@ function isDesktop() {
     image.style.opacity = 0
     image.style.transform = `none`
     image.style.pointerEvents = 'none'
+    image.style.top = '0%'
 
     /* - - - - Semplice Setting - - - */
-    image.style.top = '-25%'
+    // image.style.top = '-25%'
 
     /* - - - - Proto Setting - - - */
     // image.style.top = '50%'

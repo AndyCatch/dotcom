@@ -805,6 +805,7 @@ a {
 .list {
   display: flex;
   flex-direction: column;
+  z-index: 0 !important;
 }
 
 .list-heading {
