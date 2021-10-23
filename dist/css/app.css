@@ -877,6 +877,9 @@ span {
   column-gap: 24px;
   grid-template-columns: repeat(12, 1fr);
 }
+.project-info :nth-child(n) {
+  z-index: 1;
+}
 
 .project-team-row {
   grid-column-start: 9;

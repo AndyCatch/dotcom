@@ -12,10 +12,6 @@ let images = []
 let isPaused
 let requestID
 
-const params = {
-  pageOffset: 0.75,
-}
-
 function imageMove(hoverElems) {
   hoverElements = hoverElems
   hoverElements.forEach((hoverElem) => {
@@ -31,11 +27,9 @@ function imageMove(hoverElems) {
     tablet.addEventListener('change', tabletHandler)
     tabletHandler(tablet)
   })
-  // draw()
 }
 
 function mouseOver(event) {
-  // look into z-Indexes effecting the "switch off"
   let current = event.currentTarget
   let label = current.querySelector('h1')
   currentImage = event.currentTarget.querySelector('img')
@@ -54,7 +48,6 @@ function mouseOut(event) {
     hoverElem.querySelector('h1').style.transform = 'translate(0px, 0px)'
   })
   currentImage.style.opacity = 0
-  // currentImage.style.zIndex = 0
 }
 
 function mouseMove(event) {
@@ -95,21 +88,10 @@ function draw() {
     }
   }
 
-  /*+
+  /*
         window.pageYOffset -
-        currentImage.offsetHeight * 0.25  * params.pageOffset*/
-  // if (!isPaused) {
-  //   if (currentImage) {
-  //     currentImage.style.transform = `translate3d(${
-  //       currentX - currentImage.offsetWidth / 2 - window.innerWidth / 2
-  //     }px, ${
-  //       currentY -
-  //       (currentImage.offsetHeight + window.innerHeight) / 2 +
-  //       window.pageYOffset /*-
-  //       currentImage.offsetHeight * 0.25  * params.pageOffset*/
-  //     }px, 0px)`
-  //   }
-  // }
+        currentImage.offsetHeight * 0.25  * params.pageOffset
+  */
 
   currentX = currentX + (aimX - currentX) * 0.2
   currentY = currentY + (aimY - currentY) * 0.2
@@ -129,13 +111,13 @@ function isDesktop() {
     image.style.transform = `none`
     image.style.pointerEvents = 'none'
     image.style.top = '0%'
+    image.style.left = '50%'
 
+    /* - - - - Keeping these here just in case - - - */
     /* - - - - Semplice Setting - - - */
     // image.style.top = '-25%'
-
     /* - - - - Proto Setting - - - */
     // image.style.top = '50%'
-    image.style.left = '50%'
   })
 
   addImageMove()
@@ -157,12 +139,10 @@ function isTablet() {
 }
 
 function desktopHandler(event) {
-  // console.log(event)
   isDesktop()
 }
 
 function tabletHandler(event) {
-  // console.log('tabletHandler')
   /* Uncomment if statement for prod */
   // isTablet()
   if (hasTouch()) {

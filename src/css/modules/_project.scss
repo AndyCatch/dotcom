@@ -14,6 +14,10 @@
     grid-column-gap: 24px;
     column-gap: 24px;
     grid-template-columns: repeat(12, 1fr);
+
+    :nth-child(n) {
+      z-index: 1;
+    }
   }
 
   .project-team-row {
