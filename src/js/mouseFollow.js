@@ -82,8 +82,8 @@ function draw() {
         currentX - currentImage.offsetWidth / 2 - window.innerWidth / 2
       }px, ${
         currentY -
-        (currentImage.offsetHeight / 2 - window.innerHeight / 2) +
-        currentImage.offsetHeight * 0.75 * -1
+        (currentImage.offsetHeight / 2 - window.innerHeight / 2) -
+        currentImage.offsetHeight * 0.75
       }px, 0px)`
     }
   }

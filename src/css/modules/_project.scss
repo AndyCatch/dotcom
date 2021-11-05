@@ -20,27 +20,62 @@
     }
   }
 
-  .project-team-row {
-    grid-column-start: 9;
+  .role {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  .years {
+    grid-column-start: 3;
+    grid-column-end: 4;
+  }
+
+  .agency {
+    grid-column-start: 4;
     grid-column-end: 12;
   }
 
-  /* Handles Project Cover Titles */
-
-  .image-section {
-    margin: 5vh 0 5vh 0 !important;
+  .project-team-row {
+    grid-column-start: 1;
+    grid-column-end: 9;
   }
 
+  .vsc-controller {
+    display: none;
+  }
+
+  .overlay {
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .sticky-title {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 45vh;
+  }
+
+  /* Parent section to Sticky Headers */
+  .image-section {
+    margin: 5vh 0 5vh 0 !important;
+    position: relative;
+  }
+
+  /* Handles Project Cover Titles */
   .project-cover {
     opacity: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
-    height: 100vh;
     /* Fallback for browsers that do not support Custom Properties, uses {customVhUnit} from utils.js */
     // height: calc(var(--vh, 1vh) * 100);
     align-items: center;
     margin-top: -50vh;
+    margin-bottom: 10vh;
     // margin-top: calc(var(--vh, 1vh) * -100);
     transition: 0.3s ease-in;
   }
@@ -72,16 +107,27 @@
   }
 
   .project-image-container {
+    height: fit-content;
     position: relative;
     transform-origin: center center;
     transition: 0.3s ease-in;
   }
 
+  .video-project-square {
+    border-radius: var(--half-unit);
+    aspect-ratio: 1 / 1;
+    width: 49vw;
+  }
+
   .project-image {
+    width: 66vw;
+  }
+
+  .project-image,
+  .video-project-square {
     position: relative;
     z-index: 1;
-    width: 75vw;
-    background-blend-mode: multiply;
+    height: fit-content;
   }
 
   .cover_title div[data-content-for='xl'] h1 span,
@@ -111,9 +157,18 @@
   }
 
   /* Bouncing arrow animation / positioning */
-  .semplice-cover .show-more svg {
+  // .semplice-cover .show-more svg {
+  //   animation: 1s arrow-down infinite alternate ease-in-out;
+  //   margin-bottom: 44px;
+  // }
+
+  .semplice-cover .show-more {
+    justify-content: end !important;
+    padding-right: 24vw !important; /* pushes the arrow 25% in */
+  }
+
+  .semplice-cover .show-more img {
     animation: 1s arrow-down infinite alternate ease-in-out;
-    margin-bottom: 44px;
   }
 
   @keyframes arrow-down {
