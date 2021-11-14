@@ -29,23 +29,16 @@
   }
   // Acknowledgement...
   .home-copy-row:nth-child(3) {
-    padding-top: calc(var(--eight-units));
     grid-column-start: 6;
     grid-column-end: 10;
   }
 }
 
 @mixin tablet {
+  .home-copy-row:nth-child(1),
+  .home-copy-row:nth-child(2),
   .home-copy-row:nth-child(3) {
-    padding-top: calc(var(--eight-units));
-  }
-
-  .home-copy-row:nth-child(1) {
     grid-column-start: 1;
-    grid-column-end: 7;
-  }
-  .home-copy-row:nth-child(2) {
-    grid-column-start: 6;
-    grid-column-end: 13;
+    grid-column-end: 10;
   }
 }

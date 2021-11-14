@@ -5,10 +5,13 @@ import { updateClock } from './luxonClock'
 import { indexImage } from './indexImage'
 import { hideShow } from './hideShowNav'
 import { imageMove } from './mouseFollow'
+import { preventScroll } from './utils'
 
 var clock = setInterval(updateClock, 1000)
 var navChecker = setInterval(addNav, 500)
+var navItemChecker = setInterval(addPreventScroll, 500)
 var indexImageChecker = setInterval(addIndexImg, 500)
+var hamburgerChecker = setInterval(setUpHamburger, 1000)
 var mouseFollowChecker = setInterval(setMouseFollow, 500)
 
 function init() {
@@ -17,7 +20,7 @@ function init() {
   luxonTag.src = 'https://moment.github.io/luxon/global/luxon.min.js'
   document.body.appendChild(luxonTag)
 
-  setUpHamburger()
+  // setUpHamburger()
 }
 
 window.addEventListener(
@@ -52,11 +55,31 @@ function addIndexImg() {
   }
 }
 
+function navItemHandler(e) {
+  document.querySelector('html').classList.remove('disableScroll')
+}
+
+function addPreventScroll() {
+  let menuItems = Array.from(document.querySelectorAll('.nav-item'))
+  let logo = document.getElementsByClassName('logo')[0]
+
+  if (logo) {
+    menuItems.push(logo)
+  }
+
+  if (menuItems) {
+    menuItems.forEach((menuItem) => {
+      menuItem.addEventListener('click', navItemHandler)
+    })
+
+    clearInterval(navItemChecker)
+  }
+}
+
 function addNav() {
   let nav = document.querySelectorAll('div.navbar-inner')[0]
 
   if (nav) {
-    //  or use !== 'undefined' ?
     window.addEventListener('scroll', navHandler, {
       capture: false,
       passive: true,
@@ -70,6 +93,7 @@ function setUpHamburger() {
 
   if (hamburger) {
     hamburger.addEventListener('click', menuToggle)
+    clearInterval(hamburgerChecker)
   } else {
     console.log('No Hamburger menu')
   }
@@ -80,17 +104,13 @@ function menuToggle() {
   menuClick = !menuClick
 
   if (menuClick) {
-    // menu is open, ensures mobile menu doesn't scroll away
-    document.removeEventListener('scroll', navHandler, {
-      capture: false,
-      passive: false,
-    })
+    // menu is open
+    // Prevent scroll events while open
+    document.querySelector('html').classList.add('disableScroll')
   } else {
     // menu is closed
-    document.addEventListener('scroll', navHandler, {
-      capture: false,
-      passive: false,
-    })
+    // Re-enable scroll events when closes
+    document.querySelector('html').classList.remove('disableScroll')
   }
 }
 

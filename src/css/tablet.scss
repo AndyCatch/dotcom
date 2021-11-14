@@ -1,26 +1,29 @@
-@use "modules/type-stack";
-@use "modules/nextProject";
-@use "modules/listModule";
-@use "modules/homeBranding";
-@use "modules/homeCopy";
-@use "modules/workIndex";
-@use "modules/letterBackground";
-@use "modules/socialLinks";
-@use "modules/footer";
+@use 'modules/type-stack';
+@use 'modules/nextProject';
+@use 'modules/listModule';
+@use 'modules/homeBranding';
+@use 'modules/homeCopy';
+@use 'modules/workIndex';
+@use 'modules/letterBackground';
+@use 'modules/navigation';
+@use 'modules/socialLinks';
+@use 'modules/project';
+@use 'modules/footer';
+@use 'modules/sempliceHelpers';
 
-/*-- iPad 1,2 --*/
-/* Portrait & Landscape */
+/*-- iPad 1,2 --*/ /* Portrait & Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (hover: none) {
-  /* HOMEPAGE STYLE */
-
   @include type-stack.tablet-type-stack;
   @include listModule.tablet;
+  @include project.tablet;
   @include nextProject.tablet-portrait;
   @include homeBranding.tablet;
   @include homeCopy.tablet;
   @include letterBackground.tablet;
   @include workIndex.tablet;
   @include socialLinks.tablet;
+  @include sempliceHelpers.tablet;
+  @include navigation.tablet;
   @include footer.tablet;
 }
 
@@ -35,25 +38,36 @@
   }
 }
 
-/* ----------- iPad Pro ----------- */
-/* Portrait */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
-}
-
-/* Landscape */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
-}
-
 /* ----------- iPad Pro 12.9" ----------- */
-/* Landscape */
 /* Declare the same value for min- and max-width to avoid colliding with desktops */
-@media only screen and (min-device-width: 1366px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+/* Portrait + Landscape*/
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
   @include type-stack.tablet-type-stack;
   @include listModule.tablet;
-  @include nextProject.mobile-landscape-med;
-  @include homeBranding.tablet;
+  // @include homeBranding.tablet;
+  @include project.tablet;
+  @include homeCopy.tablet;
   @include letterBackground.tablet;
   @include workIndex.tablet;
   @include socialLinks.tablet;
+  @include sempliceHelpers.tablet;
+  @include navigation.iPadPro;
   @include footer.tablet;
 }
+
+/* Portrait */
+@media only screen and (min-device-width: 1024) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 1366px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+}
+
+/* ----------- iPad Pro ----------- */
+/* Portrait */
+// @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+// }
+
+/* Landscape */
+// @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+// }

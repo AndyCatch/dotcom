@@ -1,6 +1,13 @@
 var cancelAnimationFrame =
   window.cancelAnimationFrame || window.mozCancelAnimationFrame
 
+function preventScroll(e) {
+  e.preventDefault()
+  e.stopPropagation()
+
+  return false
+}
+
 function isInViewport(elem) {
   var distance = elem.getBoundingClientRect()
   return (
@@ -102,4 +109,5 @@ export {
   hasTouch,
   nthParent,
   cancelAnimationFrame,
+  preventScroll,
 }

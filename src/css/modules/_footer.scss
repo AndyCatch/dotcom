@@ -1,4 +1,4 @@
-@use "layoutUtils";
+@use 'layoutUtils';
 
 @mixin desktop {
   .footer-container {
@@ -54,6 +54,16 @@
 @mixin tablet {
   .cityName {
     padding-top: var(--four-units);
+  }
+
+  .footer-container {
+    div:nth-child(1) {
+      margin-top: -4.15%;
+    }
+
+    div:nth-child(2) {
+      transform: translate(0, 10px);
+    }
   }
 }
 

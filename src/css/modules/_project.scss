@@ -127,7 +127,7 @@
   .video-project-square {
     position: relative;
     z-index: 1;
-    height: fit-content;
+    // height: fit-content;
   }
 
   .cover_title div[data-content-for='xl'] h1 span,
@@ -163,8 +163,12 @@
   // }
 
   .semplice-cover .show-more {
-    justify-content: end !important;
-    padding-right: 24vw !important; /* pushes the arrow 25% in */
+    border: 1px var(--white);
+    border-style: solid;
+    border-radius: var(--four-units);
+
+    justify-content: flex-end !important;
+    padding-right: 80px !important; /* pushes the arrow in */
   }
 
   .semplice-cover .show-more img {
@@ -210,6 +214,31 @@
 }
 
 @mixin tablet {
+  .project-display {
+    font-size: var(--project-display-tablet) !important;
+  }
+
+  .project-cover {
+    margin-top: -30vh;
+  }
+
+  .video-project-square {
+    width: 70vw;
+  }
+
+  .role {
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+  .years {
+    grid-column-start: 4;
+    grid-column-end: 6;
+  }
+
+  .agency {
+    grid-column-start: 7;
+    grid-column-end: 12;
+  }
 }
 
 @mixin mobile {

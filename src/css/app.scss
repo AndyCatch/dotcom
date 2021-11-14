@@ -79,7 +79,8 @@ body {
 .disableScroll {
   margin: 0;
   height: 100%;
-  overflow: hidden;
+  overflow: hidden !important;
+  overflow-y: hidden !important;
 }
 
 .fullOpacity {

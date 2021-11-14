@@ -198,6 +198,10 @@
 
   .index-item-wrapper {
     grid-template-columns: 2fr 2fr 3fr 0fr;
+
+    div {
+      font-size: var(--body-size);
+    }
   }
 
   .image-set-wrapper {

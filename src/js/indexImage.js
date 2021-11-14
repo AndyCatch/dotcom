@@ -144,7 +144,6 @@ function desktopThumbHandler(event) {
   let caption = parent.querySelector('.caption')
 
   if (event.type === 'mouseover') {
-    console.log(lgImg)
     setThumbs.forEach((setThumb) => {
       setThumb.style.opacity = 0.25
     })
@@ -176,7 +175,10 @@ function tabletThumbHandler(event) {
   let caption = parent.querySelector('.caption')
   let itemLabel = superParent.querySelector('.index-item-wrapper')
 
-  bodyTag.classList.add('disableScroll')
+  // bodyTag.classList.add('disableScroll')
+  // bodyTag.addEventListener('wheel', preventScroll, { passive: false })
+  // bodyTag.addEventListener('touchmove', preventScroll, { passive: false })
+  document.querySelector('html').classList.add('disableScroll')
   close.classList.add('showClose')
 
   if (event.type === 'click' || 'touchstart') {
@@ -203,7 +205,10 @@ function removeTabletLayer() {
 }
 
 function closeLightBox() {
-  bodyTag.classList.remove('disableScroll')
+  document.querySelector('html').classList.remove('disableScroll')
+  // bodyTag.classList.remove('disableScroll')
+  // bodyTag.removeEventListener('wheel', preventScroll)
+  // bodyTag.removeEventListener('touchmove', preventScroll)
   close.classList.remove('showClose')
 
   // opacityItems is an Array of arrays

@@ -18,6 +18,13 @@
     margin-top: var(--two-units);
   }
 
+  /* Semplice Class – needed to override defaults :( */
+  .semplice-navbar [data-nav='logo-right-menu-left'] nav ul li:first-child a,
+  .semplice-navbar [data-nav='logo-right-menu-left'] nav ul li:last-child a {
+    padding-left: var(--two-units) !important;
+    padding-right: var(--two-units) !important;
+  }
+
   /* Semplice Class */
   .menu {
     padding-right: var(--two-units) !important;
@@ -28,16 +35,24 @@
 
     li {
       margin-right: var(--two-units);
-    }
+      margin-top: var(--two-units);
 
-    li:hover {
-      color: var(--black) !important;
-      background-color: var(--white) !important;
-      transition: all 0.2s ease-in !important;
-    }
+      a {
+        line-height: var(--nav-line) !important;
+        font-size: var(--nav-size) !important;
+        padding-top: var(--unit) !important;
+        padding-bottom: var(--unit) !important;
 
-    :nth-child(2) {
-      margin: 0;
+        border: 1px var(--white);
+        border-style: solid;
+        border-radius: var(--four-units);
+      }
+
+      a:hover {
+        color: var(--black) !important;
+        background-color: var(--white) !important;
+        transition: all 0.2s ease-in !important;
+      }
     }
   }
 
@@ -73,36 +88,56 @@
   }
 
   .nav-item {
-    line-height: var(--nav-line) !important;
-    font-size: var(--nav-size) !important;
-    padding: var(--unit) var(--two-units) var(--unit) var(--two-units);
-
-    border: 1px var(--white);
-    border-style: solid;
-    border-radius: var(--four-units);
+    width: initial;
+    height: initial;
 
     span {
       font-size: var(--nav-size) !important;
     }
   }
 
-  .current-menu-item {
-    pointer-events: none;
-    background-color: var(--white) !important;
-
+  .nav-item.menu-item.current-menu-item {
     a {
       font-weight: normal !important;
       font-style: normal !important;
       font-family: var(--untitled-reg) !important;
+      background-color: var(--white);
     }
-
     a span {
       color: var(--black) !important;
     }
   }
 }
 
-@mixin tablet-portait {
+@mixin tablet {
+  .nav-item {
+    width: calc(50% - var(--two-units));
+    height: calc(25vh - var(--two-units));
+
+    mix-blend-mode: exclusion;
+    border: 1px var(--white);
+    border-style: solid;
+    border-radius: var(--four-units);
+
+    padding-top: 1rem !important;
+  }
+
+  .nav-item.menu-item.current-menu-item {
+    background-color: var(--white) !important;
+    a {
+      font-weight: normal !important;
+      font-style: normal !important;
+      font-family: var(--untitled-reg) !important;
+      background-color: transparent;
+    }
+  }
+}
+
+@mixin iPadPro {
+  .nav-item {
+    width: initial;
+    height: initial;
+  }
 }
 
 @mixin mobile {

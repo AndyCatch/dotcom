@@ -76,22 +76,23 @@ function removeImageMove() {
 }
 
 function draw() {
+  let viewportWidth = window.innerWidth || document.documentElement.clientWidth
+  let viewportHeight =
+    window.innerHeight || document.documentElement.clientHeight
+
   if (!isPaused) {
     if (currentImage) {
       currentImage.style.transform = `translate3d(${
-        currentX - currentImage.offsetWidth / 2 - window.innerWidth / 2
+        currentX - currentImage.offsetWidth / 2 - viewportWidth / 2
       }px, ${
-        currentY -
-        (currentImage.offsetHeight / 2 - window.innerHeight / 2) -
-        currentImage.offsetHeight * 0.75
+        currentY - (currentImage.offsetHeight / 2 - viewportHeight / 2)
       }px, 0px)`
     }
   }
 
-  /*
-        window.pageYOffset -
-        currentImage.offsetHeight * 0.25  * params.pageOffset
-  */
+  // Just in case
+  // (currentImage.offsetHeight / 2 - window.innerHeight / 2) -
+  // currentImage.offsetHeight * 0.75}px, 0px)
 
   currentX = currentX + (aimX - currentX) * 0.2
   currentY = currentY + (aimY - currentY) * 0.2
@@ -104,14 +105,12 @@ function stopDraw() {
 }
 
 function isDesktop() {
+  // CSS sets img to be position:fixed
   isPaused = false
   images.forEach((image) => {
-    image.style.setProperty('position', 'fixed', '!important')
     image.style.opacity = 0
-    image.style.transform = `none`
+    image.style.transform = `translate3d(0px, 0px, 0px)`
     image.style.pointerEvents = 'none'
-    image.style.top = '0%'
-    image.style.left = '50%'
 
     /* - - - - Keeping these here just in case - - - */
     /* - - - - Semplice Setting - - - */
@@ -125,17 +124,16 @@ function isDesktop() {
 }
 
 function isTablet() {
+  removeImageMove()
+  stopDraw()
+
+  // CSS sets img to be position:relative
   isPaused = true
   images.forEach((image) => {
     image.style.opacity = 1
-    image.style.transform = `none`
+    image.style.transform = `translate3d(0px, 0px, 0px)`
     image.style.pointerEvents = 'auto'
-    image.style.top = '50%'
-    image.style.left = '0%'
   })
-
-  removeImageMove()
-  stopDraw()
 }
 
 function desktopHandler(event) {
