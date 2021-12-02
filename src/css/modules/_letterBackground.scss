@@ -54,4 +54,27 @@
 }
 
 @mixin mobile {
+  .letter-container {
+    flex-direction: column;
+  }
+
+  /* LETTER A */
+  /* LETTER C */
+  .letter:nth-child(1),
+  .letter:nth-child(2) {
+    justify-content: flex-start;
+
+    img {
+      padding-left: var(--four-units);
+    }
+  }
+
+  .letter {
+    width: 100%;
+    height: 50vh;
+  }
+
+  .letter img {
+    height: calc(50vh - var(--eight-units));
+  }
 }

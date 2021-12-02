@@ -25,13 +25,18 @@
     color: var(--white) !important;
   }
 
+  .label-caption,
+  .label-caption li {
+    font-size: var(--caption-size) !important;
+  }
+
   .city-style,
   .clock-style {
-    color: var(--purple) !important;
+    color: var(--white) !important;
   }
 
   .clock-style {
-    font-size: var(--display-size) !important;
+    font-size: var(--clock-size) !important;
     line-height: var(--clock-line) !important;
   }
 
@@ -79,6 +84,10 @@
 }
 
 @mixin mobile-type-stack {
+  .display-size {
+    font-size: var(--display-size-mobile) !important;
+  }
+
   h1 {
     font-size: 40px !important;
   }

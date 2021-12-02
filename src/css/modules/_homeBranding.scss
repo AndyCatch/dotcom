@@ -34,8 +34,14 @@
     /* I've worked across... */
     :nth-child(1) {
       text-align: left;
-      grid-column-start: 2;
+      grid-column-start: 1;
       grid-column-end: 7;
+    }
+
+    :nth-child(2) {
+      text-align: left;
+      grid-column-start: 8;
+      grid-column-end: 12;
     }
   }
 
@@ -57,15 +63,7 @@
   }
 }
 
-@mixin tablet {
-  .home-branding-content {
-    /* I've worked across... */
-    :nth-child(1) {
-      grid-column-start: 1;
-      grid-column-end: 10;
-    }
-  }
-
+@mixin touch-device {
   .branding {
     padding-top: calc(var(--eight-units));
     text-align: right;
@@ -80,5 +78,24 @@
   }
 }
 
+@mixin tablet {
+  .home-branding-content {
+    /* I've worked across... */
+    :nth-child(1) {
+      grid-column-start: 1;
+      grid-column-end: 10;
+    }
+  }
+  @include touch-device;
+}
+
 @mixin mobile {
+  .home-branding-content {
+    /* I've worked across... */
+    :nth-child(1) {
+      grid-column-start: 1;
+      grid-column-end: 12;
+    }
+  }
+  @include touch-device;
 }

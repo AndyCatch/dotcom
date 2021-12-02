@@ -1,6 +1,7 @@
 :root {
   /* Colors */
   --white: #f0fff0 !important;
+  --image-black: #121714 !important;
   --black: #232c26 !important; /* Dusty Black */
   --purple: #9c94e7 !important; /* Footer Clock */
   --orange: #ff4848 !important; /* PDP Text */
@@ -21,7 +22,8 @@
   --display-line: 0.815;
   --display-stroke-w: 2px;
   --display-size-tablet: 24vw;
-  --clock-size: 15vw;
+  --display-size-mobile: 96px;
+  --clock-size: calc(var(--display-size) * 0.6);
   --clock-line: 0.9;
   --clock-size-tablet: 20vw;
   --subHead-size: 7vw; /* Converted to vw from 80px@1440 W*/
@@ -29,12 +31,16 @@
   --subHead-size-tablet: 8vw;
   --project-display: 4vw;
   --project-display-tablet: 7vw;
+  --project-display-mobile: calc(var(--unit) * 3.5);
   --project-letterSpace: -4px;
+  --project-letterSpace-mobile: -2px;
   --project-display-line: 0.98;
-  --nav-size: 28px;
+  --nav-size: 24px;
   --nav-line: 1;
-  --body-size: 18px;
+  --body-size: 20px;
   --body-line: 1.2;
+  --caption-size: 16px;
+  --micro-size: 12px;
 
   /* Spacing */
   --unit: 8px;

@@ -1,5 +1,4 @@
 @mixin desktop {
-  //
   /* Semplice Class */
   .semplice-navbar {
     mix-blend-mode: exclusion !important;
@@ -23,6 +22,9 @@
   .semplice-navbar [data-nav='logo-right-menu-left'] nav ul li:last-child a {
     padding-left: var(--two-units) !important;
     padding-right: var(--two-units) !important;
+  }
+
+  .social-item {
   }
 
   /* Semplice Class */

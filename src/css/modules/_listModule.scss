@@ -20,6 +20,37 @@
     }
   }
 
+  .legend {
+    display: flex;
+    flex-direction: row;
+    justify-items: flex-start;
+  }
+
+  .work-type-circle {
+    width: 3vw;
+    height: 3vw;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    position: relative;
+    margin-top: 0.2vw;
+    margin-right: var(--unit);
+  }
+
+  .work-type-abr {
+    opacity: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .work-type-label {
+    width: 3vw;
+    margin-top: 0.2vw;
+    font-size: var(--micro-size) !important;
+    text-align: center;
+  }
+
   .work-item {
     display: flex;
     flex-direction: row;
@@ -31,30 +62,12 @@
       overflow: hidden;
       width: 100%;
       z-index: 0;
-
-      border-color: var(--white) !important;
-      border-top: 1px solid;
-
-      padding-bottom: var(--unit);
-
       cursor: url('https://andycatch.com/proto/wp-content/uploads/2021/09/Go-Cursor.png')
           64 64,
         auto !important;
 
       display: block;
       color: var(--white);
-      -webkit-text-fill-color: var(--white);
-
-      :hover {
-        -webkit-text-stroke-width: var(--display-stroke-w);
-        -webkit-text-fill-color: transparent;
-
-        transition: all 0.5s ease-out;
-      }
-
-      h1 {
-        transition: all 0.2s ease-out !important;
-      }
 
       img {
         /* Removing !important */
@@ -70,6 +83,25 @@
         left: 50%;
       }
     }
+  }
+
+  a h1 {
+    -webkit-text-fill-color: var(--white);
+    transition: all 0.2s ease-out !important;
+  }
+
+  a:hover div.legend div.work-type-circle {
+    background-color: var(--white);
+    transition: all 0.2s ease-out !important;
+  }
+
+  a:hover div.legend div.work-type-circle p.work-type-abr {
+    color: var(--black) !important;
+  }
+
+  a:hover h1 {
+    -webkit-text-stroke-width: var(--display-stroke-w);
+    -webkit-text-fill-color: transparent;
   }
 
   a:hover img {
@@ -90,6 +122,7 @@
     margin: 0 0 0 0 !important;
 
     a img {
+      border-radius: var(--half-unit);
       /* Removing !important */
       position: relative;
       /* Seems to override javascript */
@@ -111,18 +144,24 @@
 
 @mixin mobile-portrait {
   .list {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin: 44.7vh 0 0 0;
+    a {
+      padding-bottom: calc(var(--unit) * 12);
+    }
 
     a h1 {
       margin-bottom: 10%;
     }
 
     a img {
+      border-radius: var(--half-unit);
       position: relative;
-      opacity: 1;
+      /* Seems to override javascript */
+      opacity: 1 !important;
+      transform: translate3d(0px, 0px, 0px) !important;
+
+      width: 100%;
+
+      top: 50%;
       left: 0%;
     }
   }

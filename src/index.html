@@ -12,12 +12,10 @@
 
 <body>
   <div class="semplice-navbar navbar-inner">
-    <!-- <div class="logo navbar-left"><a href="#" title="Andy Catch">A</a></div> -->
     <nav class="standard navbar-right">
       <ul class="menu">
         <li><a class="nav-item" href="https://andycatch.com/about"><span>Index</span></a></li>
         <li><a class="nav-item" href="https://andycatch.com/"><span>About</span></a></li>
-        <li><a class="nav-item current-menu-item" href="https://andycatch.com/"><span>A</span></a></li>
       </ul>
     </nav>
   </div>
@@ -50,27 +48,119 @@
     <!-- WORK LIST -->
     <section class="list-container">
       <div class="list-heading">
-        <p>Some selected work:</p>
+        <p class="label-caption">Some selected work:</p>
+      </div>
+      <div class="legend">
+        <div class="work-type">
+          <div class="work-type-circle">
+            <p class="label-caption work-type-abr">DD</p>
+          </div>
+          <p class="work-type-label">Design Direction</p>
+        </div>
+        <div class="work-type">
+          <div class="work-type-circle">
+            <p class="label-caption work-type-abr">DR</p>
+          </div>
+          <p class="work-type-label">Design Research</p>
+        </div>
+        <div class="work-type">
+          <div class="work-type-circle">
+            <p class="label-caption work-type-abr">UX</p>
+          </div>
+          <p class="work-type-label">User Experience</p>
+        </div>
+        <div class="work-type">
+          <div class="work-type-circle">
+            <p class="label-caption work-type-abr">P</p>
+          </div>
+          <p class="work-type-label">Personal</p>
+        </div>
+        <div class="work-type">
+          <div class="work-type-circle">
+            <p class="label-caption work-type-abr">X</p>
+          </div>
+          <p class="work-type-label">Experiment</p>
+        </div>
       </div>
       <div class="list">
         <a href="#" data-project="Verizon Vision">
-          <h1><span>01. Verizon Vision</span></h1>
+          <div class="legend">
+            <h1><span>Verizon Vision</span></h1>
+            <div class="work-type">
+              <div class="work-type-circle">
+                <p class="label-caption work-type-abr">DD</p>
+              </div>
+            </div>
+          </div>
           <img src="images/HomePage-Project-Graphic@1.5x.png" />
         </a>
         <a href="#" data-project="Verizon Systems">
-          <h1><span>02. Verizon Systems</span></h1>
+          <div class="legend">
+            <h1><span>Verizon Systems</span></h1>
+            <div class="work-type">
+              <div class="work-type-circle">
+                <p class="label-caption work-type-abr">DD</p>
+              </div>
+            </div>
+            <div class="work-type">
+              <div class="work-type-circle">
+                <p class="label-caption work-type-abr">DR</p>
+              </div>
+            </div>
+          </div>
           <img src="images/OnPage-Project-Graphic@1x.png" />
         </a>
         <a href="#" data-project="Sonic Drive-In">
-          <h1><span>03. Sonic Drive-In</span></h1>
+          <div class="legend">
+            <h1><span>Sonic Drive-In</span></h1>
+            <div class="work-type">
+              <div class="work-type-circle">
+                <p class="label-caption work-type-abr">DD</p>
+              </div>
+            </div>
+            <div class="work-type">
+              <div class="work-type-circle">
+                <p class="label-caption work-type-abr">UX</p>
+              </div>
+            </div>
+          </div>
           <img src="images/PWA-Project-Graphic.png" />
         </a>
         <a href="#" data-project="Process">
-          <h1><span>04. Process</span></h1>
+          <div class="legend">
+            <h1><span>Process</span></h1>
+            <div class="work-type">
+              <div class="work-type-circle">
+                <p class="label-caption work-type-abr">DD</p>
+              </div>
+            </div>
+            <div class="work-type">
+              <div class="work-type-circle">
+                <p class="label-caption work-type-abr">P</p>
+              </div>
+            </div>
+            <div class="work-type">
+              <div class="work-type-circle">
+                <p class="label-caption work-type-abr">X</p>
+              </div>
+            </div>
+          </div>
           <img src="images/TBNY-Project-Graphic@1.5x.png" />
         </a>
         <a href="#" data-project="Archive">
-          <h1><span>05. Archive</span></h1>
+          <div class="legend">
+            <h1><span>Archive</span></h1>
+            <div class="work-type">
+              <div class="work-type-circle">
+                <p class="label-caption work-type-abr">P</p>
+              </div>
+            </div>
+            <div class="work-type">
+              <div class="work-type-circle">
+                <p class="label-caption work-type-abr">X</p>
+              </div>
+            </div>
+          </div>
           <img src="images/Archive-Project-Cover@1.5x.png" />
         </a>
       </div>
@@ -80,7 +170,7 @@
     <section class="home-copy-module">
       <div class="home-copy-row">
         <ul>
-          <li>Past clients:</li>
+          <li class="label-caption">Past clients:</li>
           <li>AMEX</li>
           <li>UNIQLO</li>
           <li>Mercedes-Benz</li>
@@ -96,36 +186,41 @@
         </ul>
       </div>
       <div class="home-copy-row">
-        <p>Phase:</p>
-        <p>This phase is essentially a sketch pad, “zoomed out” perspectives on work groupings (notably “Vision” and
-          “Systems”). In the future I’ll be looking to build out more thorough case studies.</p>
+        <ul>
+          <li class="label-caption">Phase:</li>
+          <li>This phase is a “zoomed out” perspective on my recent work. Given my main client for the
+            past five years has been Verizon, the initial challenge was landing on logical project groupings. Hence why
+            we have "Vision" and "Systems" pages. In the future I’ll be looking to build out more thorough case studies.
+          </li>
+        </ul>
       </div>
       <div class="home-copy-row">
-        <p>Acknowledgement:</p>
-        <p>I grew up on unceded Gadigal land. I acknowledge the traditional owners, and pay my respects to Elders past
-          and
-          present. Always was, always will be Aboriginal land. I currently live and work on the land of the Munsee
-          people
-          of the greater Lenape Nation, and respectfully acknowledge their traditions, language and culture.</p>
+        <ul>
+          <li class="label-caption">Acknowledgement:</li>
+          <li>I grew up on Gadigal land. I acknowledge the traditional owners, and pay my respects to Elders past
+            and present. Always was, always will be Aboriginal land. I currently live and work on the land of the Lenape
+            Nation, and respectfully acknowledge their traditions, language and culture.</li>
+        </ul>
       </div>
     </section>
 
     <!-- SOCIAL LINKS -->
     <nav class="social-links">
-      <a href="http://github.com/andyCatch">Github</a>
-      <a href="https://www.instagram.com/itsandycatch/">Instagram</a>
-      <a href="https://twitter.com/AndyCatch">Twitter</a>
+      <ul>
+        <li class="label-caption">©2021</li>
+        <li>Coding things over at<a href="http://github.com/andyCatch">Github</a></li>
+        <li>Posting things on to<a href="https://www.instagram.com/itsandycatch/">Instagram</a></li>
+        <li>Making quips at<a href="https://twitter.com/AndyCatch">Twitter</a></li>
+      </ul>
     </nav>
 
     <!-- FOOTER -->
     <footer class="footer-container">
       <div id="footer-edge" class="clock-container" data-timezone="America/New_York">
-        <p class="cityName">New York</p>
-        <h1 class="clock-style">18:35:22</h1>
+        <h1 data-city="NYC" class="clock-style">18:35:22</h1>
       </div>
       <div class="clock-container" data-timezone="Australia/ACT">
-        <p class="cityName">Sydney</p>
-        <h1 class="clock-style">02:35:22</h1>
+        <h1 data-city="SYD" class="clock-style">02:35:22</h1>
       </div>
     </footer>
   </div>

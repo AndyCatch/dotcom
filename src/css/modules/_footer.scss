@@ -7,9 +7,9 @@
     flex-direction: column;
 
     div:nth-child(1) {
-      /* NYC Clock container */
+      /* NYC Clock, tightens to SYD */
       transform: translate(0, 20%);
-      margin-top: -6%;
+      margin-top: -3%;
     }
   }
 
@@ -32,22 +32,9 @@
     width: 100%;
   }
 
-  .cityName {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding-top: var(--four-units);
-
-    ::after {
-      font-family: Arial, Helvetica, sans-serif !important;
-      content: ' ●' !important;
-    }
-  }
-
-  .open::after {
-    -webkit-text-fill-color: var(--purple);
-    font-family: Arial, Helvetica, sans-serif !important;
-    content: ' ●' !important;
+  .open {
+    -webkit-text-fill-color: var(--white);
+    -webkit-text-stroke-width: 0;
   }
 }
 
@@ -57,13 +44,13 @@
   }
 
   .footer-container {
-    div:nth-child(1) {
-      margin-top: -4.15%;
-    }
+    // div:nth-child(1) {
+    //   margin-top: -4.15%;
+    // }
 
-    div:nth-child(2) {
-      transform: translate(0, 10px);
-    }
+    // div:nth-child(2) {
+    //   transform: translate(0, 10px);
+    // }
   }
 }
 

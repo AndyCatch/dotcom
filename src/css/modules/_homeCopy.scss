@@ -11,26 +11,22 @@
     z-index: 2;
   }
 
-  .home-copy-row:nth-child(1),
-  .home-copy-row:nth-child(2),
-  .home-copy-row:nth-child(3) {
-    padding-top: var(--eight-units);
-  }
-
   // Past clients...
   .home-copy-row:nth-child(1) {
-    grid-column-start: 4;
-    grid-column-end: 7;
+    grid-column-start: 3;
+    grid-column-end: 5;
   }
   // Phase...
   .home-copy-row:nth-child(2) {
-    grid-column-start: 5;
-    grid-column-end: 9;
+    margin-top: 20vh;
+    grid-column-start: 3;
+    grid-column-end: 7;
   }
   // Acknowledgement...
   .home-copy-row:nth-child(3) {
-    grid-column-start: 6;
-    grid-column-end: 10;
+    margin-top: 35vh;
+    grid-column-start: 7;
+    grid-column-end: 11;
   }
 }
 
@@ -40,5 +36,14 @@
   .home-copy-row:nth-child(3) {
     grid-column-start: 1;
     grid-column-end: 10;
+  }
+}
+
+@mixin mobile {
+  .home-copy-row:nth-child(1),
+  .home-copy-row:nth-child(2),
+  .home-copy-row:nth-child(3) {
+    grid-column-start: 1;
+    grid-column-end: 12;
   }
 }

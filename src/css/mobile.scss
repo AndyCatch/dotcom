@@ -1,7 +1,11 @@
-@use "modules/type-stack";
-@use "modules/listModule";
-@use "modules/nextProject";
-// @use "modules/footerModule";
+@use 'modules/type-stack';
+@use 'modules/listModule';
+@use 'modules/nextProject';
+@use 'modules/project';
+@use 'modules/homeBranding';
+@use 'modules/letterBackground';
+@use 'modules/homeCopy';
+@use 'modules/sempliceHelpers';
 
 @mixin navItem-exceptions-mobile {
   .current-menu-item::after {
@@ -10,16 +14,13 @@
   }
 }
 
-/* ----------- Pixel ----------- */
-/* Landscape */
+/* ----------- Pixel Landscape ----------- */
 @media screen and (min-device-width: 731px) and (max-device-width: 731px) and (orientation: landscape) {
   @include listModule.mobile-landscape;
   @include nextProject.mobile-landscape-med;
 }
 
-/* ----------- Pixel 2 XL ----------- */
-/* Portrait */
-/* iPad 1,2 Landscape too*/
+/* ----------- Pixel 2 XL Portrait / iPad 1,2 Landscape ----------- */
 @media only screen and (max-device-width: 411px) and (min-device-width: 411px) and (orientation: portrait) {
   @include navItem-exceptions-mobile;
 
@@ -28,7 +29,7 @@
   }
 }
 
-/* Landscape */
+/* ----------- Pixel 2 XL Landscape ----------- */
 @media only screen and (max-device-width: 731px) and (min-device-width: 731px) and (orientation: landscape) {
   @include navItem-exceptions-mobile;
 
@@ -39,8 +40,7 @@
   }
 }
 
-/* ----------- iPhone 6,7 and 8 PLUS ----------- */
-/* Portrait and Landscape */
+/* ----------- iPhone 6,7,8 PLUS, Portrait + Landscape ----------- */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (hover: none) {
   @include navItem-exceptions-mobile;
   @include type-stack.mobile-type-stack;
@@ -53,7 +53,7 @@
   }
 }
 
-/* Landscape */
+/* ----------- iPhone 6,7,8 PLUS Landscape ----------- */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
   @include navItem-exceptions-mobile;
 
@@ -64,14 +64,17 @@
   @include type-stack.tablet-type-stack;
 }
 
-/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
-/* Portrait and Landscape */
+/* ----------- iPhone 6, 6S, 7, 8 Portrait and Landscape ----------- */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
-  @include navItem-exceptions-mobile;
+  // @include navItem-exceptions-mobile;
+  @include project.mobile;
+  @include homeBranding.mobile;
+  @include homeCopy.mobile;
   @include type-stack.mobile-type-stack;
   @include listModule.mobile-portrait;
   @include nextProject.mobile-portrait-med;
-  // @include footerModule.mobile;
+  @include sempliceHelpers.mobile;
+  @include letterBackground.mobile;
 
   .semplice-cover .show-more svg {
     margin-bottom: 0px;

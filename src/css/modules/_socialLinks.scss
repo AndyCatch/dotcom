@@ -2,7 +2,7 @@
   .social-links {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: flex-start;
 
     /* top | right | bottom | left */
@@ -27,7 +27,7 @@
     a::after {
       font-family: Helvetica, Arial, sans-serif !important;
       color: var(--white);
-      content: ' ↗︎' !important;
+      content: '↗︎' !important;
     }
 
     a:hover {

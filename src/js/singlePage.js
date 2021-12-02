@@ -19,8 +19,6 @@ function init() {
   let luxonTag = document.createElement('script')
   luxonTag.src = 'https://moment.github.io/luxon/global/luxon.min.js'
   document.body.appendChild(luxonTag)
-
-  // setUpHamburger()
 }
 
 window.addEventListener(

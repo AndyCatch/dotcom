@@ -6,17 +6,19 @@ function updateClock() {
     )
 
     locations.forEach((location) => {
-      let clockStyle = location.querySelector('.clock-style')
-      let cityName = location.querySelector('.cityName')
+      let clock = location.querySelector('h1')
+      let city = clock.getAttribute('data-city')
       let timeZone = location.getAttribute('data-timezone')
       let now = luxon.DateTime.now().setZone(timeZone)
 
-      clockStyle.innerHTML = now.toFormat('HH:mm:ss')
+      clock.innerHTML = `${city}` + ' ' + now.toFormat('HH:mm:ss')
 
-      let hour = parseInt(now.toFormat('H'))
+      let hour = parseInt(now.toFormat('HH'))
 
       if (hour >= 9 && hour <= 18) {
-        cityName.classList.add('open')
+        clock.classList.add('open')
+      } else {
+        clock.classList.remove('open')
       }
     })
   }
