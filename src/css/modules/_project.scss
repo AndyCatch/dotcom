@@ -20,11 +20,6 @@
     }
   }
 
-  // .work-types {
-  //   grid-column-start: 1;
-  //   grid-column-end: 1;
-  // }
-
   .project-description {
     grid-column-start: 1;
     grid-column-end: 6;
@@ -32,21 +27,21 @@
 
   .project-team {
     grid-column-start: 7;
-    grid-column-end: 10;
+    grid-column-end: 11;
   }
 
   .role {
     grid-column-start: 1;
-    grid-column-end: 2;
-  }
-
-  .years {
-    grid-column-start: 2;
     grid-column-end: 3;
   }
 
-  .agency {
+  .years {
     grid-column-start: 3;
+    grid-column-end: 4;
+  }
+
+  .agency {
+    grid-column-start: 4;
     grid-column-end: 12;
   }
 

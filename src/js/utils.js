@@ -88,7 +88,7 @@ function removeHoverStyles() {
   }
 }
 
-// Solving for mobile browser vh/vw discrepencies in differen browsers
+// Solving for mobile browser vh/vw discrepencies in different browsers
 // via: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
 function customVhUnit() {
   let vh = window.innerHeight * 0.01
@@ -109,5 +109,4 @@ export {
   hasTouch,
   nthParent,
   cancelAnimationFrame,
-  preventScroll,
 }

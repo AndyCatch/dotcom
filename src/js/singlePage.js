@@ -5,7 +5,6 @@ import { updateClock } from './luxonClock'
 import { indexImage } from './indexImage'
 import { hideShow } from './hideShowNav'
 import { imageMove } from './mouseFollow'
-import { preventScroll } from './utils'
 
 var clock = setInterval(updateClock, 1000)
 var navChecker = setInterval(addNav, 500)

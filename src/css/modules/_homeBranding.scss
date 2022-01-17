@@ -1,101 +1,101 @@
 @use 'layoutUtils';
 
 @mixin desktop {
-  .home-branding {
-    height: 68vh;
-    display: inline-block;
-    width: 100%;
-    z-index: 2;
-  }
+	.home-branding {
+		height: 44vh;
+		display: inline-block;
+		width: 100%;
+		z-index: 2;
+	}
 
-  .title-wrapper {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
+	.title-wrapper {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
 
-  .main-logo {
-    display: block;
-    padding-top: var(--eight-units);
-    width: 100%;
-    img {
-      width: 100%;
-    }
-  }
+	.main-logo {
+		display: block;
+		padding-top: var(--eight-units);
+		width: 100%;
+		img {
+			width: 100%;
+		}
+	}
 
-  .home-branding-content {
-    @include layoutUtils.desktop-grid;
-    z-index: 2;
-    width: 100%;
+	.home-branding-content {
+		@include layoutUtils.desktop-grid;
+		z-index: 2;
+		width: 100%;
 
-    /* I've worked across... */
-    :nth-child(1) {
-      text-align: left;
-      grid-column-start: 1;
-      grid-column-end: 7;
-    }
+		/* I've worked across... */
+		:nth-child(1) {
+			text-align: left;
+			grid-column-start: 1;
+			grid-column-end: 6;
+		}
 
-    :nth-child(2) {
-      text-align: left;
-      grid-column-start: 8;
-      grid-column-end: 12;
-    }
-  }
+		:nth-child(2) {
+			text-align: left;
+			grid-column-start: 7;
+			grid-column-end: 12;
+		}
+	}
 
-  .home-branding-row {
-    display: block;
-    z-index: 2;
-    width: 100%;
-  }
+	.home-branding-row {
+		display: block;
+		z-index: 2;
+		width: 100%;
+	}
 
-  .branding {
-    padding-top: var(--eight-units);
-    position: relative;
-    // transform: translate(0px, calc(var(--four-units) * -1));
-    color: var(--white);
-  }
+	.branding {
+		padding-top: var(--eight-units);
+		position: relative;
+		// transform: translate(0px, calc(var(--four-units) * -1));
+		color: var(--white);
+	}
 
-  .touch-branding {
-    display: none;
-  }
+	.touch-branding {
+		display: none;
+	}
 }
 
 @mixin touch-device {
-  .branding {
-    padding-top: calc(var(--eight-units));
-    text-align: right;
-  }
+	.branding {
+		padding-top: calc(var(--eight-units));
+		text-align: right;
+	}
 
-  .touch-branding {
-    display: block;
-  }
+	.touch-branding {
+		display: block;
+	}
 
-  .main-logo {
-    display: none;
-  }
+	.main-logo {
+		display: none;
+	}
 }
 
 @mixin tablet {
-  .home-branding-content {
-    /* I've worked across... */
-    :nth-child(1) {
-      grid-column-start: 1;
-      grid-column-end: 10;
-    }
-  }
-  @include touch-device;
+	.home-branding-content {
+		/* I've worked across... */
+		:nth-child(1) {
+			grid-column-start: 1;
+			grid-column-end: 10;
+		}
+	}
+	@include touch-device;
 }
 
 @mixin mobile {
-  .home-branding-content {
-    /* I've worked across... */
-    :nth-child(1) {
-      grid-column-start: 1;
-      grid-column-end: 12;
-    }
-  }
-  @include touch-device;
+	.home-branding-content {
+		/* I've worked across... */
+		:nth-child(1) {
+			grid-column-start: 1;
+			grid-column-end: 12;
+		}
+	}
+	@include touch-device;
 }

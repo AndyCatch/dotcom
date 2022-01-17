@@ -175,9 +175,6 @@ function tabletThumbHandler(event) {
   let caption = parent.querySelector('.caption')
   let itemLabel = superParent.querySelector('.index-item-wrapper')
 
-  // bodyTag.classList.add('disableScroll')
-  // bodyTag.addEventListener('wheel', preventScroll, { passive: false })
-  // bodyTag.addEventListener('touchmove', preventScroll, { passive: false })
   document.querySelector('html').classList.add('disableScroll')
   close.classList.add('showClose')
 
@@ -206,9 +203,6 @@ function removeTabletLayer() {
 
 function closeLightBox() {
   document.querySelector('html').classList.remove('disableScroll')
-  // bodyTag.classList.remove('disableScroll')
-  // bodyTag.removeEventListener('wheel', preventScroll)
-  // bodyTag.removeEventListener('touchmove', preventScroll)
   close.classList.remove('showClose')
 
   // opacityItems is an Array of arrays
