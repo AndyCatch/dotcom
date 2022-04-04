@@ -1,170 +1,201 @@
 @mixin desktop {
-  .list-container {
-    display: block;
-    width: 100%;
-  }
+	.list-container {
+		display: block;
+		width: 100%;
+	}
 
-  .list {
-    display: flex;
-    flex-direction: column;
+	.list {
+		display: flex;
+		flex-direction: column;
 
-    z-index: 0 !important;
-  }
+		z-index: 0 !important;
+	}
 
-  .list-heading {
-    z-index: 3 !important;
-    p {
-      width: 100%;
-      grid-column-start: 1;
-      grid-column-end: 12;
-    }
-  }
+	.list-heading {
+		z-index: 3 !important;
+		p {
+			width: 100%;
+			grid-column-start: 1;
+			grid-column-end: 12;
+		}
+	}
 
-  .legend {
-    display: flex;
-    flex-direction: row;
-    justify-items: flex-start;
-  }
+	.legend {
+		display: flex;
+		flex-direction: row;
+		justify-items: flex-start;
+	}
 
-  .work-type-circle {
-    width: 3vw;
-    height: 3vw;
-    border: 1px solid #fff;
-    border-radius: 50%;
-    position: relative;
-    margin-top: 0.2vw;
-    margin-right: var(--unit);
-  }
+	.work-type {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
 
-  .work-type-abr {
-    opacity: 1;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+	.work-type-circle {
+		width: 60px;
+		height: 60px;
+		border: 1px solid #fff;
+		border-radius: 50%;
+		position: relative;
+		margin-top: 0.2vw;
+		margin-right: var(--unit);
+	}
 
-  .work-type-label {
-    width: 3vw;
-    margin-top: 0.2vw;
-    font-size: var(--micro-size) !important;
-    text-align: center;
-  }
+	.work-type-abr {
+		opacity: 1;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
 
-  .work-item {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+	.work-type-label {
+		width: auto;
+		margin-top: 0.2vw;
+		font-size: var(--micro-size) !important;
+		text-align: left;
+	}
 
-  .list {
-    a {
-      overflow: hidden;
-      width: 100%;
-      z-index: 0;
-      cursor: url('https://andycatch.com/proto/wp-content/uploads/2021/09/Go-Cursor.png')
-          64 64,
-        auto !important;
+	.list {
+		a {
+			overflow: hidden;
+			width: 100%;
+			z-index: 0;
+			cursor: url('https://andycatch.com/proto/wp-content/uploads/2021/09/Go-Cursor.png')
+					64 64,
+				auto !important;
 
-      display: block;
-      color: var(--white);
+			display: block;
+			color: var(--white);
 
-      img {
-        /* Removing !important */
-        position: fixed;
-        filter: saturate(110%);
-        border-radius: var(--unit);
-        opacity: 0;
-        width: 65vw;
-        pointer-events: none;
-        transition: opacity 0.2s ease-out;
+			img {
+				/* Removing !important */
+				position: fixed;
+				filter: saturate(110%);
+				border-radius: var(--unit);
+				opacity: 0;
+				width: 65vw;
+				pointer-events: none;
+				transition: opacity 0.2s ease-out;
 
-        top: -50%;
-        left: 50%;
-      }
-    }
-  }
+				top: -50%;
+				left: 50%;
+			}
+		}
+	}
 
-  a h1 {
-    -webkit-text-fill-color: var(--white);
-    transition: all 0.2s ease-out !important;
-  }
+	a h1 {
+		-webkit-text-fill-color: var(--white);
+		transition: all 0.2s ease-out !important;
+	}
 
-  a:hover div.legend div.work-type-circle {
-    background-color: var(--white);
-    transition: all 0.2s ease-out !important;
-  }
+	a:hover div.legend div.work-type-circle {
+		background-color: var(--white);
+		transition: all 0.2s ease-out !important;
+	}
 
-  a:hover div.legend div.work-type-circle p.work-type-abr {
-    color: var(--black) !important;
-  }
+	a:hover div.legend div.work-type-circle p.work-type-abr {
+		color: var(--black) !important;
+	}
 
-  a:hover h1 {
-    -webkit-text-stroke-width: var(--display-stroke-w);
-    -webkit-text-fill-color: transparent;
-  }
+	a:hover h1 {
+		-webkit-text-stroke-width: var(--display-stroke-w);
+		-webkit-text-fill-color: transparent;
+	}
 
-  a:hover img {
-    filter: saturate(110%);
-  }
+	a:hover img {
+		filter: saturate(110%);
+	}
 
-  span {
-    position: relative;
-    // z-index: 1;
-  }
+	span {
+		position: relative;
+		// z-index: 1;
+	}
 }
 
 @mixin tablet {
-  .list {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin: 0 0 0 0 !important;
+	.list {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		margin: 0 0 0 0 !important;
 
-    a img {
-      border-radius: var(--half-unit);
-      /* Removing !important */
-      position: relative;
-      /* Seems to override javascript */
-      opacity: 1 !important;
-      transform: translate3d(0px, 0px, 0px) !important;
+		a img {
+			border-radius: var(--half-unit);
+			/* Removing !important */
+			position: relative;
+			/* Seems to override javascript */
+			opacity: 1 !important;
+			transform: translate3d(0px, 0px, 0px) !important;
 
-      width: 80vw;
+			width: 80vw;
 
-      top: 50%;
-      left: 0%;
-    }
-  }
+			top: 50%;
+			left: 0%;
+		}
+	}
 
-  .list-heading h1 {
-    grid-column-start: 4;
-    grid-column-end: 12;
-  }
+	.list-heading h1 {
+		grid-column-start: 4;
+		grid-column-end: 12;
+	}
 }
 
 @mixin mobile-portrait {
-  .list {
-    a {
-      padding-bottom: calc(var(--unit) * 12);
-    }
+	.list {
+		a {
+			padding-bottom: calc(var(--unit) * 12);
+		}
 
-    a h1 {
-      margin-bottom: 10%;
-    }
+		a h1 {
+			margin-bottom: 10%;
+		}
 
-    a img {
-      border-radius: var(--half-unit);
-      position: relative;
-      /* Seems to override javascript */
-      opacity: 1 !important;
-      transform: translate3d(0px, 0px, 0px) !important;
+		a img {
+			border-radius: var(--half-unit);
+			position: relative;
+			/* Seems to override javascript */
+			opacity: 1 !important;
+			transform: translate3d(0px, 0px, 0px) !important;
 
-      width: 100%;
+			width: 100%;
 
-      top: 50%;
-      left: 0%;
-    }
-  }
+			top: 50%;
+			left: 0%;
+		}
+	}
+
+	.legend {
+		display: flex;
+		flex-direction: column;
+		justify-items: flex-start;
+	}
+
+	.work-type-circle {
+		border: 1px solid #fff;
+		border-radius: 50%;
+		position: relative;
+		margin-top: 0.2vw;
+		margin-right: var(--unit);
+	}
+
+	.work-type-abr {
+		opacity: 1;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.work-type {
+		width: auto;
+		margin-right: var(--unit);
+		margin-bottom: var(--unit);
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+	}
 }
 
 @mixin mobile-landscape {

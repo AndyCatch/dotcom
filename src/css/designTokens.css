@@ -1,54 +1,55 @@
 :root {
-  /* Colors */
-  --white: #f0fff0 !important;
-  --image-black: #121714 !important;
-  --black: #232c26 !important; /* Dusty Black */
-  --purple: #9c94e7 !important; /* Footer Clock */
-  --orange: #ff4848 !important; /* PDP Text */
-  --terracotta: #9a3f27 !important;
-  --red: #c92100 !important;
-  --dark-grey: #5e5e61 !important; /* Copy Headlines */
-  --dark-blue: #1e176a; /* Selected text */
+	/* Colors */
+	--white: #f0fff0 !important;
+	--image-black: #121714 !important;
+	--black: #232c26 !important; /* Dusty Black */
+	--purple: #9c94e7 !important; /* Footer Clock */
+	--orange: #ff4848 !important; /* PDP Text */
+	--terracotta: #9a3f27 !important;
+	--red: #c92100 !important;
+	--dark-grey: #5e5e61 !important; /* Copy Headlines */
+	--dark-blue: #1e176a; /* Selected text */
 
-  --background: var(--black);
+	--background: var(--black);
 
-  /* Type */
-  --beastly: 'Beastly-72_Point';
-  --untitled-reg: 'untitled-sans-web-regular';
-  --untitled-ita: 'untitled-sans-web-regular-italic';
+	/* Type */
+	--beastly: 'Beastly-72_Point';
+	--untitled-reg: 'untitled-sans-web-regular';
+	--untitled-ita: 'untitled-sans-web-regular-italic';
 
-  /* Type Sizes */
-  --display-size: 14vw; /* Converted from 220px@1440px W*/
-  --display-line: 0.815;
-  --display-stroke-w: 2px;
-  --display-size-tablet: 24vw;
-  --display-size-mobile: 96px;
-  --clock-size: calc(var(--display-size) * 0.6);
-  --clock-line: 0.9;
-  --clock-size-tablet: 20vw;
-  --subHead-size: 7vw; /* Converted to vw from 80px@1440 W*/
-  --subHead-line: 1;
-  --subHead-size-tablet: 8vw;
-  --project-display: 4vw;
-  --project-display-tablet: 7vw;
-  --project-display-mobile: calc(var(--unit) * 3.5);
-  --project-letterSpace: -4px;
-  --project-letterSpace-mobile: -2px;
-  --project-display-line: 0.98;
-  --nav-size: 24px;
-  --nav-line: 1;
-  --body-size: 20px;
-  --body-line: 1.2;
-  --caption-size: 16px;
-  --micro-size: 12px;
+	/* Spacing */
+	--unit: 8px;
+	--half-unit: calc(var(--unit) / 2); /* 4px */
+	--two-units: calc(var(--unit) * 2); /* 16px */
+	--three-units: calc(var(--unit) * 3); /* 24px */
+	--four-units: calc(var(--unit) * 4); /* 32px */
+	--eight-units: calc(var(--unit) * 8); /* 64px */
 
-  /* Spacing */
-  --unit: 8px;
-  --half-unit: calc(var(--unit) / 2); /* 4px */
-  --two-units: calc(var(--unit) * 2); /* 16px */
-  --three-units: calc(var(--unit) * 3); /* 24px */
-  --four-units: calc(var(--unit) * 4); /* 32px */
-  --eight-units: calc(var(--unit) * 8); /* 64px */
+	--navbar-height: 5rem;
 
-  --navbar-height: 5rem;
+	/* Type Sizes */
+	--display-size: 14vw; /* Converted from 220px@1440px W*/
+	--display-line: 0.815;
+	--display-stroke-w: 2px;
+	--display-size-tablet: 24vw;
+	--display-size-mobile: 96px;
+	--clock-size: calc(var(--display-size) * 0.6);
+	--clock-line: 0.9;
+	--clock-size-tablet: 20vw;
+	--clock-size-mobile: var(--eight-units);
+	--subHead-size: 7vw; /* Converted to vw from 80px@1440 W*/
+	--subHead-line: 1;
+	--subHead-size-tablet: 8vw;
+	--project-display: 4vw;
+	--project-display-tablet: 7vw;
+	--project-display-mobile: calc(var(--unit) * 3.5);
+	--project-letterSpace: -4px;
+	--project-letterSpace-mobile: -2px;
+	--project-display-line: 0.98;
+	--nav-size: 24px;
+	--nav-line: 1;
+	--body-size: 18px;
+	--body-line: 1.2;
+	--caption-size: 16px;
+	--micro-size: 12px;
 }

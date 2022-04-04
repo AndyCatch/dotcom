@@ -1,162 +1,162 @@
 @mixin desktop {
-  /* Semplice Class */
-  .semplice-navbar {
-    mix-blend-mode: exclusion !important;
-  }
+	/* Semplice Class */
+	.semplice-navbar {
+		// mix-blend-mode: exclusion !important;
+	}
 
-  /* Semplice Class */
-  .navbar-inner {
-    height: var(--navbar-height) !important;
-    top: 0 !important;
-    position: fixed !important;
-    transition: transform 0.4s cubic-bezier(0.65, 0.05, 0.36, 1) !important;
-    width: 100%;
-    text-align: right;
-    z-index: 5;
+	/* Semplice Class */
+	.navbar-inner {
+		height: var(--navbar-height) !important;
+		top: 0 !important;
+		position: fixed !important;
+		transition: transform 0.4s cubic-bezier(0.65, 0.05, 0.36, 1) !important;
+		width: 100%;
+		text-align: right;
+		z-index: 5;
 
-    margin-top: var(--two-units);
-  }
+		margin-top: var(--two-units);
+	}
 
-  /* Semplice Class – needed to override defaults :( */
-  .semplice-navbar [data-nav='logo-right-menu-left'] nav ul li:first-child a,
-  .semplice-navbar [data-nav='logo-right-menu-left'] nav ul li:last-child a {
-    padding-left: var(--two-units) !important;
-    padding-right: var(--two-units) !important;
-  }
+	/* Semplice Class – needed to override defaults :( */
+	.semplice-navbar [data-nav='logo-right-menu-left'] nav ul li:first-child a,
+	.semplice-navbar [data-nav='logo-right-menu-left'] nav ul li:last-child a {
+		padding-left: var(--two-units) !important;
+		padding-right: var(--two-units) !important;
+	}
 
-  .social-item {
-  }
+	.social-item {
+	}
 
-  /* Semplice Class */
-  .menu {
-    padding-right: var(--two-units) !important;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    height: 100%;
+	/* Semplice Class */
+	.menu {
+		padding-right: var(--two-units) !important;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		height: 100%;
 
-    li {
-      margin-right: var(--two-units);
-      margin-top: var(--two-units);
+		li {
+			margin-right: var(--two-units);
+			margin-top: var(--two-units);
 
-      a {
-        line-height: var(--nav-line) !important;
-        font-size: var(--nav-size) !important;
-        padding-top: var(--unit) !important;
-        padding-bottom: var(--unit) !important;
+			a {
+				line-height: var(--nav-line) !important;
+				font-size: var(--nav-size) !important;
+				padding-top: var(--unit) !important;
+				padding-bottom: var(--unit) !important;
 
-        border: 1px var(--white);
-        border-style: solid;
-        border-radius: var(--four-units);
-      }
+				border: 1px var(--white);
+				border-style: solid;
+				border-radius: var(--four-units);
+			}
 
-      a:hover {
-        color: var(--black) !important;
-        background-color: var(--white) !important;
-        transition: all 0.2s ease-in !important;
-      }
-    }
-  }
+			a:hover {
+				color: var(--black) !important;
+				background-color: var(--white) !important;
+				transition: all 0.2s ease-in !important;
+			}
+		}
+	}
 
-  /* Semplice Class */
-  .navbar-right {
-    display: block;
-    position: absolute;
-    height: 100%;
-    right: 0;
-  }
+	/* Semplice Class */
+	.navbar-right {
+		display: block;
+		position: absolute;
+		height: 100%;
+		right: 0;
+	}
 
-  /* Semplice Class */
-  .navbar-left {
-    display: block;
-    position: absolute;
-    height: 100%;
-    left: var(--two-units) !important;
-  }
+	/* Semplice Class */
+	.navbar-left {
+		display: block;
+		position: absolute;
+		height: 100%;
+		left: var(--two-units) !important;
+	}
 
-  /* Semplice Class */
-  .logo {
-    margin-right: var(--two-units);
-    // display: none !important;
-  }
+	/* Semplice Class */
+	.logo {
+		margin-right: var(--two-units);
+		// display: none !important;
+	}
 
-  /* Hide Show Nav classes */
-  .hideNav {
-    transform: translateY(-110%) !important;
-  }
+	/* Hide Show Nav classes */
+	.hideNav {
+		transform: translateY(-110%) !important;
+	}
 
-  .showNav {
-    transform: translateY(0%) !important;
-  }
+	.showNav {
+		transform: translateY(0%) !important;
+	}
 
-  .nav-item {
-    width: initial;
-    height: initial;
+	.nav-item {
+		width: initial;
+		height: initial;
 
-    span {
-      font-size: var(--nav-size) !important;
-    }
-  }
+		span {
+			font-size: var(--nav-size) !important;
+		}
+	}
 
-  .nav-item.menu-item.current-menu-item {
-    a {
-      font-weight: normal !important;
-      font-style: normal !important;
-      font-family: var(--untitled-reg) !important;
-      background-color: var(--white);
-    }
-    a span {
-      color: var(--black) !important;
-    }
-  }
+	.nav-item.menu-item.current-menu-item {
+		a {
+			font-weight: normal !important;
+			font-style: normal !important;
+			font-family: var(--untitled-reg) !important;
+			background-color: var(--white);
+		}
+		a span {
+			color: var(--black) !important;
+		}
+	}
 }
 
 @mixin tablet {
-  .nav-item {
-    width: calc(50% - var(--two-units));
-    height: calc(25vh - var(--two-units));
+	.nav-item {
+		width: calc(50% - var(--two-units));
+		height: calc(25vh - var(--two-units));
 
-    mix-blend-mode: exclusion;
-    border: 1px var(--white);
-    border-style: solid;
-    border-radius: var(--four-units);
+		// mix-blend-mode: exclusion;
+		border: 1px var(--white);
+		border-style: solid;
+		border-radius: var(--four-units);
 
-    padding-top: 1rem !important;
-  }
+		padding-top: 1rem !important;
+	}
 
-  .nav-item.menu-item.current-menu-item {
-    background-color: var(--white) !important;
-    a {
-      font-weight: normal !important;
-      font-style: normal !important;
-      font-family: var(--untitled-reg) !important;
-      background-color: transparent;
-    }
-  }
+	.nav-item.menu-item.current-menu-item {
+		background-color: var(--white) !important;
+		a {
+			font-weight: normal !important;
+			font-style: normal !important;
+			font-family: var(--untitled-reg) !important;
+			background-color: transparent;
+		}
+	}
 }
 
 @mixin iPadPro {
-  .nav-item {
-    width: initial;
-    height: initial;
-  }
+	.nav-item {
+		width: initial;
+		height: initial;
+	}
 }
 
 @mixin mobile {
-  /* To help override values + flexbox from Semplice */
-  .menu-icon {
-    margin: 8px 0 0 0;
-  }
+	/* To help override values + flexbox from Semplice */
+	.menu-icon {
+		margin: 8px 0 0 0;
+	}
 
-  .navbar-right .menu {
-    width: 33vw;
-    height: fit-content !important;
-    flex-direction: column !important;
-    /* Firefox fix, seems to be fine in Chrome + Safari */
-    justify-content: flex-start !important;
-  }
+	.navbar-right .menu {
+		width: 33vw;
+		height: fit-content !important;
+		flex-direction: column !important;
+		/* Firefox fix, seems to be fine in Chrome + Safari */
+		justify-content: flex-start !important;
+	}
 
-  .navbar-right .menu li {
-    text-align: left;
-  }
+	.navbar-right .menu li {
+		text-align: left;
+	}
 }

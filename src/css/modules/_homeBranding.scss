@@ -37,12 +37,6 @@
 			grid-column-start: 1;
 			grid-column-end: 6;
 		}
-
-		:nth-child(2) {
-			text-align: left;
-			grid-column-start: 7;
-			grid-column-end: 12;
-		}
 	}
 
 	.home-branding-row {
@@ -66,7 +60,7 @@
 @mixin touch-device {
 	.branding {
 		padding-top: calc(var(--eight-units));
-		text-align: right;
+		text-align: left;
 	}
 
 	.touch-branding {
@@ -90,6 +84,10 @@
 }
 
 @mixin mobile {
+	.home-branding {
+		height: 84vh;
+	}
+
 	.home-branding-content {
 		/* I've worked across... */
 		:nth-child(1) {

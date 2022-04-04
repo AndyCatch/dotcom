@@ -1,94 +1,98 @@
 @mixin desktop-p-styles {
-  // These need !important to override Semplice
+	// These need !important to override Semplice
 
-  font-family: var(--untitled-reg) !important;
-  font-size: var(--body-size) !important;
-  line-height: var(--body-line) !important;
-  text-align: left;
+	font-family: var(--untitled-reg) !important;
+	font-size: var(--body-size) !important;
+	line-height: var(--body-line) !important;
+	text-align: left;
 
-  color: var(--white) !important;
+	color: var(--white) !important;
 }
 
 @mixin desktop-type-stack {
-  .display-size {
-    font-size: var(--display-size) !important;
-    line-height: var(--display-line) !important;
-  }
+	.display-size {
+		font-size: var(--display-size) !important;
+		line-height: var(--display-line) !important;
+	}
 
-  .outlined,
-  .clock-style {
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: var(--display-stroke-w);
-  }
+	.outlined,
+	.clock-style {
+		-webkit-text-fill-color: transparent;
+		-webkit-text-stroke-width: var(--display-stroke-w);
+	}
 
-  .outlined {
-    color: var(--white) !important;
-  }
+	.outlined {
+		color: var(--white) !important;
+	}
 
-  .label-caption,
-  .label-caption li {
-    font-size: var(--caption-size) !important;
-  }
+	.label-caption,
+	.label-caption li {
+		font-size: var(--caption-size) !important;
+	}
 
-  .city-style,
-  .clock-style {
-    color: var(--white) !important;
-  }
+	.city-style,
+	.clock-style {
+		color: var(--white) !important;
+	}
 
-  .clock-style {
-    font-size: var(--clock-size) !important;
-    line-height: var(--clock-line) !important;
-  }
+	.clock-style {
+		font-size: var(--clock-size) !important;
+		line-height: var(--clock-line) !important;
+	}
 
-  h1 {
-    font-family: var(--beastly) !important;
-    font-size: var(--subHead-size) !important;
-    line-height: var(--subHead-line);
+	h1 {
+		font-family: var(--beastly) !important;
+		font-size: var(--subHead-size) !important;
+		line-height: var(--subHead-line);
 
-    z-index: 2;
-  }
+		z-index: 2;
+	}
 
-  ul,
-  li,
-  p {
-    @include desktop-p-styles;
-  }
+	ul,
+	li,
+	p {
+		@include desktop-p-styles;
+	}
 
-  a {
-    font-size: var(--body-size) !important;
-    line-height: var(--body-line) !important;
-    text-align: left;
+	a {
+		font-size: var(--body-size) !important;
+		line-height: var(--body-line) !important;
+		text-align: left;
 
-    color: var(--white) !important;
-    text-decoration: none;
-    transition: color 0.2s ease-out !important;
-  }
+		color: var(--white) !important;
+		text-decoration: none;
+		transition: color 0.2s ease-out !important;
+	}
 
-  .currentYear {
-    @include desktop-p-styles;
-  }
+	.currentYear {
+		@include desktop-p-styles;
+	}
 }
 
 @mixin tablet-type-stack {
-  .display-size {
-    font-size: var(--display-size-tablet) !important;
-  }
+	.display-size {
+		font-size: var(--display-size-tablet) !important;
+	}
 
-  .clock-style {
-    font-size: var(--clock-size-tablet) !important;
-  }
+	.clock-style {
+		font-size: var(--clock-size-tablet) !important;
+	}
 
-  h1 {
-    font-size: var(--subHead-size-tablet) !important;
-  }
+	h1 {
+		font-size: var(--subHead-size-tablet) !important;
+	}
 }
 
 @mixin mobile-type-stack {
-  .display-size {
-    font-size: var(--display-size-mobile) !important;
-  }
+	.display-size {
+		font-size: var(--display-size-mobile) !important;
+	}
 
-  h1 {
-    font-size: 40px !important;
-  }
+	.clock-style {
+		font-size: var(--clock-size-mobile) !important;
+	}
+
+	h1 {
+		font-size: 40px !important;
+	}
 }

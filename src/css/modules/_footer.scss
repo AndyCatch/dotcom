@@ -1,58 +1,73 @@
 @use 'layoutUtils';
 
 @mixin desktop {
-  .footer-container {
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
+	.footer-container {
+		height: fit-content;
+		display: flex;
+		flex-direction: column;
 
-    div:nth-child(1) {
-      /* NYC Clock, tightens to SYD */
-      transform: translate(0, 20%);
-      margin-top: -3%;
-    }
-  }
+		div:nth-child(1) {
+			/* NYC Clock, tightens to SYD */
+			transform: translate(0, 20%);
+			margin-top: -3%;
+		}
+	}
 
-  .clock-container {
-    overflow: hidden;
+	.clock-container {
+		overflow: hidden;
 
-    pointer-events: none;
-    position: relative;
-    width: 100%;
+		pointer-events: none;
+		position: relative;
+		width: 100%;
 
-    z-index: 1;
+		z-index: 1;
 
-    h1 {
-      box-sizing: border-box;
-      overflow: hidden;
-    }
-  }
+		h1 {
+			box-sizing: border-box;
+			overflow: hidden;
+		}
+	}
 
-  .clock-wrapper {
-    width: 100%;
-  }
+	.clock-wrapper {
+		width: 100%;
+	}
 
-  .open {
-    -webkit-text-fill-color: var(--white);
-    -webkit-text-stroke-width: 0;
-  }
+	.open {
+		-webkit-text-fill-color: var(--white);
+		-webkit-text-stroke-width: 0;
+	}
 }
 
 @mixin tablet {
-  .cityName {
-    padding-top: var(--four-units);
-  }
+	.cityName {
+		padding-top: var(--four-units);
+	}
 
-  .footer-container {
-    // div:nth-child(1) {
-    //   margin-top: -4.15%;
-    // }
+	.footer-container {
+		// div:nth-child(1) {
+		//   margin-top: -4.15%;
+		// }
 
-    // div:nth-child(2) {
-    //   transform: translate(0, 10px);
-    // }
-  }
+		// div:nth-child(2) {
+		//   transform: translate(0, 10px);
+		// }
+	}
 }
 
 @mixin mobile {
+	.footer-container {
+		padding-bottom: calc(16vh + var(--two-units));
+
+		div:nth-child(1) {
+			transform: translate(0, 0);
+			margin-top: 0;
+		}
+	}
+
+	.clock-container {
+		h1 {
+			font-family: var(--untitled-reg) !important;
+			font-size: var(--body-size) !important;
+		}
+	}
 }
