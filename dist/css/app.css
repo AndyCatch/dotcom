@@ -114,6 +114,7 @@ input, textarea, select {
   /* Converted to vw from 80px@1440 W*/
   --subHead-line: 1;
   --subHead-size-tablet: 8vw;
+  --subHead-size-mobile:calc(var(--unit) * 6);
   --project-display: 4vw;
   --project-display-tablet: 7vw;
   --project-display-mobile:calc(var(--unit) * 3.5);
@@ -1019,17 +1020,13 @@ span {
 
 /* Parent section to Sticky Headers */
 .image-section {
-  margin: 5vh 0 5vh 0 !important;
+  margin: 5vh 0 0 0 !important;
   position: relative;
 }
 
 /* top | right | bottom | left */
-.image-section-top {
-  margin: 5vh 0 0 0 !important;
-}
-
 .image-section-bottom {
-  margin: 0 0 5vh 0 !important;
+  margin-top: 0 !important;
 }
 
 /* Handles Project Cover Titles */
@@ -1050,6 +1047,10 @@ span {
   display: flex;
   align-items: center;
   margin-bottom: 10vh;
+}
+
+.project-opener {
+  margin-top: 10vh;
 }
 
 .display-align-left {
@@ -1272,7 +1273,7 @@ span {
   }
 
   .image-section {
-    margin: 15vh 0 5vh 0 !important;
+    margin: 15vh 0 0 0 !important;
   }
 
   .next {
@@ -1531,7 +1532,7 @@ span {
   }
 
   .image-section {
-    margin: 15vh 0 5vh 0 !important;
+    margin: 15vh 0 0 0 !important;
   }
 
   .home-copy-row:nth-child(1),
@@ -1716,7 +1717,7 @@ span {
   }
 
   h1 {
-    font-size: 40px !important;
+    font-size: var(--subHead-size-mobile) !important;
   }
 
   .list a {
@@ -1819,6 +1820,14 @@ span {
     width: calc(100vw - 32px);
   }
 
+  .project-ender {
+    margin-bottom: 10vh !important;
+  }
+
+  .display-container {
+    margin-bottom: var(--two-units);
+  }
+
   .project-display {
     font-size: var(--project-display-mobile) !important;
     letter-spacing: var(--project-letterSpace-mobile) !important;
@@ -1906,7 +1915,7 @@ span {
   }
 
   h1 {
-    font-size: 40px !important;
+    font-size: var(--subHead-size-mobile) !important;
   }
 
   .list a {
@@ -2093,7 +2102,7 @@ span {
   }
 
   h1 {
-    font-size: 40px !important;
+    font-size: var(--subHead-size-mobile) !important;
   }
 
   .list a {

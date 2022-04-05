@@ -67,17 +67,13 @@
 
 	/* Parent section to Sticky Headers */
 	.image-section {
-		margin: 5vh 0 5vh 0 !important;
+		margin: 5vh 0 0 0 !important;
 		position: relative;
 	}
 
 	/* top | right | bottom | left */
-	.image-section-top {
-		margin: 5vh 0 0 0 !important;
-	}
-
 	.image-section-bottom {
-		margin: 0 0 5vh 0 !important;
+		margin-top: 0 !important;
 	}
 
 	/* Handles Project Cover Titles */
@@ -100,6 +96,10 @@
 		display: flex;
 		align-items: center;
 		margin-bottom: 10vh;
+	}
+
+	.project-opener {
+		margin-top: 10vh;
 	}
 
 	.display-align-left {
@@ -293,13 +293,21 @@
 	}
 
 	.image-section {
-		margin: 15vh 0 5vh 0 !important;
+		margin: 15vh 0 0 0 !important;
 	}
 }
 
 @mixin mobile {
 	.video-project-square {
 		width: calc(100vw - 32px);
+	}
+
+	.project-ender {
+		margin-bottom: 10vh !important;
+	}
+
+	.display-container {
+		margin-bottom: var(--two-units);
 	}
 
 	.project-display {
