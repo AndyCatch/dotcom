@@ -452,9 +452,6 @@ a.menu-icon.open-menu {
   width: 100%;
   margin: 33vh 0 0 0;
 }
-.social-links .label-caption {
-  display: none;
-}
 .social-links a {
   z-index: 3;
   font-family: var(--untitled-reg) !important;
@@ -1865,13 +1862,14 @@ span {
   }
 
   .semplice-cover .show-more {
-    height: 15%;
-    padding: 16px !important;
+    height: calc(9 * var(--unit)) !important;
+    padding: var(--two-units) !important;
     border-radius: var(--two-units) !important;
   }
   .semplice-cover .show-more img {
-    height: 80% !important;
+    height: 90% !important;
     width: 20% !important;
+    padding-right: var(--four-units);
   }
 
   .home-branding {
@@ -1879,6 +1877,7 @@ span {
   }
 
   .home-branding-content {
+    display: flex;
     /* I've worked across... */
   }
   .home-branding-content :nth-child(1) {
@@ -1897,6 +1896,11 @@ span {
 
   .main-logo {
     display: none;
+  }
+
+  .home-copy-module {
+    display: flex;
+    flex-direction: column;
   }
 
   .home-copy-row:nth-child(1),
@@ -1988,18 +1992,20 @@ span {
   .back-to-top a {
     text-align: right;
     background-color: var(--white);
-    height: 100px !important;
-    padding: 16px !important;
+    height: calc(9 * var(--unit)) !important;
+    padding: var(--two-units) !important;
     border-radius: var(--two-units) !important;
   }
   .back-to-top a img {
     mix-blend-mode: difference !important;
     width: 20% !important;
-    height: 80% !important;
+    height: 96% !important;
+    padding-left: var(--four-units);
   }
 
   .letter-container {
     flex-direction: column;
+    transition: all 0.3s ease-in 0.1s;
   }
 
   /* LETTER A */
@@ -2015,7 +2021,7 @@ span {
 
   .letter {
     width: 100%;
-    height: 50vh;
+    height: 50%;
   }
 
   .letter img {
@@ -2023,7 +2029,7 @@ span {
   }
 
   .footer-container {
-    padding-bottom: calc(16vh + var(--two-units));
+    padding-bottom: calc(12vh + var(--two-units));
   }
   .footer-container div:nth-child(1) {
     transform: translate(0, 0);

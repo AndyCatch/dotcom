@@ -1,80 +1,82 @@
 @mixin desktop {
-  .letter-container {
-    pointer-events: none;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    flex-basis: 50%;
+	.letter-container {
+		pointer-events: none;
+		height: 100vh;
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		flex-basis: 50%;
 
-    filter: contrast(0.65);
-    z-index: 0;
-  }
+		filter: contrast(0.65);
+		z-index: 0;
+	}
 
-  .letter {
-    width: 50%;
-    height: inherit;
+	.letter {
+		width: 50%;
+		height: inherit;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
-    z-index: 0;
+		z-index: 0;
 
-    img {
-      height: calc(72vh - var(--eight-units));
-    }
-  }
+		img {
+			height: calc(72vh - var(--eight-units));
+		}
+	}
 }
 
 @mixin tablet {
-  .letter-container {
-    flex-direction: column;
-  }
+	.letter-container {
+		flex-direction: column;
+	}
 
-  /* LETTER A */
-  /* LETTER C */
-  .letter:nth-child(1),
-  .letter:nth-child(2) {
-    justify-content: flex-start;
+	/* LETTER A */
+	/* LETTER C */
+	.letter:nth-child(1),
+	.letter:nth-child(2) {
+		justify-content: flex-start;
 
-    img {
-      padding-left: var(--four-units);
-    }
-  }
+		img {
+			padding-left: var(--four-units);
+		}
+	}
 
-  .letter {
-    width: 100%;
-    height: 50vh;
-  }
+	.letter {
+		width: 100%;
+		height: 50vh;
+	}
 
-  .letter img {
-    height: calc(50vh - var(--eight-units));
-  }
+	.letter img {
+		height: calc(50vh - var(--eight-units));
+	}
 }
 
 @mixin mobile {
-  .letter-container {
-    flex-direction: column;
-  }
+	.letter-container {
+		flex-direction: column;
+		transition: all 0.3s ease-in 0.1s;
+	}
 
-  /* LETTER A */
-  /* LETTER C */
-  .letter:nth-child(1),
-  .letter:nth-child(2) {
-    justify-content: flex-start;
+	/* LETTER A */
+	/* LETTER C */
+	.letter:nth-child(1),
+	.letter:nth-child(2) {
+		justify-content: flex-start;
+		img {
+			padding-left: var(--four-units);
+		}
+	}
 
-    img {
-      padding-left: var(--four-units);
-    }
-  }
+	.letter {
+		width: 100%;
+		height: 50%;
+	}
 
-  .letter {
-    width: 100%;
-    height: 50vh;
-  }
-
-  .letter img {
-    height: calc(50vh - var(--eight-units));
-  }
+	.letter img {
+		// height: calc(33 * var(--unit));
+		// max-height: calc(50vh - var(--eight-units));
+		height: calc(50vh - var(--eight-units));
+	}
 }
