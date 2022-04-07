@@ -142,12 +142,12 @@ function desktopHandler(event) {
 
 function tabletHandler(event) {
 	/* Uncomment if statement for prod */
-	isTablet()
-	// if (hasTouch()) {
-	//   isTablet()
-	// } else {
-	//   isDesktop()
-	// }
+	// isTablet()
+	if (hasTouch()) {
+		isTablet()
+	} else {
+		isDesktop()
+	}
 }
 
 export { imageMove }

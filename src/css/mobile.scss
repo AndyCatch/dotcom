@@ -8,6 +8,7 @@
 @use 'modules/sempliceHelpers';
 @use 'modules/footer';
 @use 'modules/socialLinks';
+@use 'modules/about';
 
 @mixin navItem-exceptions-mobile {
 	.current-menu-item::after {
@@ -79,6 +80,7 @@
 	@include letterBackground.mobile;
 	@include footer.mobile;
 	@include socialLinks.mobile;
+	@include about.mobile;
 
 	.semplice-cover .show-more svg {
 		margin-bottom: 0px;

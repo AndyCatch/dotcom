@@ -869,6 +869,7 @@ a.menu-icon.open-menu {
   display: flex;
   flex-direction: row;
   justify-items: flex-start;
+  align-items: center;
 }
 
 .work-type {
@@ -1738,6 +1739,7 @@ span {
     display: flex;
     flex-direction: column;
     justify-items: flex-start;
+    align-items: flex-start;
   }
 
   .work-type-circle {
@@ -1943,6 +1945,7 @@ span {
     display: flex;
     flex-direction: column;
     justify-items: flex-start;
+    align-items: flex-start;
   }
 
   .work-type-circle {
@@ -2056,6 +2059,13 @@ span {
     color: var(--black);
   }
 
+  .about-content,
+.experience,
+.awards {
+    display: flex;
+    flex-direction: column;
+  }
+
   .semplice-cover .show-more svg {
     margin-bottom: 0px;
   }
@@ -2132,6 +2142,7 @@ span {
     display: flex;
     flex-direction: column;
     justify-items: flex-start;
+    align-items: flex-start;
   }
 
   .work-type-circle {
