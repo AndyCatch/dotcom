@@ -9,6 +9,7 @@
 @use 'modules/footer';
 @use 'modules/socialLinks';
 @use 'modules/about';
+@use 'modules/workIndex';
 
 @mixin navItem-exceptions-mobile {
 	.current-menu-item::after {
@@ -81,6 +82,7 @@
 	@include footer.mobile;
 	@include socialLinks.mobile;
 	@include about.mobile;
+	@include workIndex.mobile;
 
 	.semplice-cover .show-more svg {
 		margin-bottom: 0px;

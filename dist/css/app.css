@@ -2066,6 +2066,37 @@ span {
     flex-direction: column;
   }
 
+  .index-item-wrapper {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid;
+  }
+  .index-item-wrapper div {
+    border-top: 0px solid;
+  }
+
+  .index-item-wrapper :nth-child(4) {
+    text-align: left;
+  }
+
+  .image-set-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+  }
+
+  .small {
+    padding: 0 calc(var(--unit) / 2) calc(var(--unit) / 2) calc(var(--unit) / 2);
+    width: 33vw !important;
+  }
+
+  .large {
+    width: 100%;
+    bottom: 50%;
+    left: -50%;
+    transform: translate3d(50%, 50%, 0);
+  }
+
   .semplice-cover .show-more svg {
     margin-bottom: 0px;
   }
