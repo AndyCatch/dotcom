@@ -314,89 +314,64 @@ a.menu-icon.open-menu {
 }
 
 /* Navigation */
-/* Semplice Class */
-/* Semplice Class */
-.navbar-inner {
-  height: var(--navbar-height) !important;
-  top: 0 !important;
-  position: fixed !important;
-  transition: transform 0.4s cubic-bezier(0.65, 0.05, 0.36, 1) !important;
-  width: 100%;
-  text-align: right;
-  z-index: 5;
-  margin-top: var(--two-units);
-}
-
-/* Semplice Class – needed to override defaults :( */
-.semplice-navbar [data-nav=logo-right-menu-left] nav ul li:first-child a,
-.semplice-navbar [data-nav=logo-right-menu-left] nav ul li:last-child a {
-  padding-left: var(--two-units) !important;
-  padding-right: var(--two-units) !important;
-}
-
-/* Semplice Class */
-.menu {
-  padding-right: var(--two-units) !important;
+.custom-nav-desktop,
+.nav-toggle {
+  z-index: 10;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  height: 100%;
-}
-.menu li {
-  margin-right: var(--two-units);
-  margin-top: var(--two-units);
-}
-.menu li a {
-  line-height: var(--nav-line) !important;
-  font-size: var(--nav-size) !important;
-  padding-top: var(--unit) !important;
-  padding-bottom: var(--unit) !important;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  /* top | right | bottom | left */
+  margin: 0 0 var(--four-units) 0;
   border: 1px var(--white);
   border-style: solid;
   border-radius: var(--four-units);
-}
-.menu li a:hover {
-  color: var(--black) !important;
-  background-color: var(--white) !important;
-  transition: all 0.2s ease-in !important;
+  background-color: var(--black);
+  transition: all 0.4s cubic-bezier(0.65, 0.05, 0.36, 1) !important;
 }
 
-/* Semplice Class */
-.navbar-right {
-  display: block;
-  position: absolute;
-  height: 100%;
-  right: 0;
+.custom-nav-desktop .custom-nav-item {
+  /* top | right | bottom | left */
+  margin: var(--two-units) 0 var(--two-units) var(--four-units);
+}
+.custom-nav-desktop :nth-child(3) {
+  /* top | right | bottom | left */
+  margin-right: var(--four-units);
 }
 
-/* Semplice Class */
-.navbar-left {
-  display: block;
-  position: absolute;
-  height: 100%;
-  left: var(--two-units) !important;
+.nav-toggle,
+.custom-nav-touch {
+  display: none;
 }
 
-/* Semplice Class */
-.logo {
-  margin-right: var(--two-units);
+.custom-nav-item {
+  font-weight: normal;
+  font-style: normal;
+  font-size: var(--nav-size) !important;
+  font-family: var(--untitled-reg);
+  line-height: var(--nav-line) !important;
+}
+
+.custom-home {
+  /* top | right | bottom | left */
+  margin: 0 0 0 var(--four-units);
+}
+.custom-home img {
+  transform: scale(0.8);
 }
 
 /* Hide Show Nav classes */
 .hideNav {
-  transform: translateY(-110%) !important;
+  transform: translate(-50%, 200%);
 }
 
 .showNav {
-  transform: translateY(0%) !important;
-}
-
-.nav-item {
-  width: initial;
-  height: initial;
-}
-.nav-item span {
-  font-size: var(--nav-size) !important;
+  transform: translate(-50%, 0);
 }
 
 .nav-item.menu-item.current-menu-item a {
@@ -522,7 +497,7 @@ a.menu-icon.open-menu {
 
 .main-logo {
   display: block;
-  padding-top: var(--eight-units);
+  padding-top: var(--two-units);
   width: 100%;
 }
 .main-logo img {
@@ -551,7 +526,7 @@ a.menu-icon.open-menu {
 }
 
 .branding {
-  padding-top: var(--eight-units);
+  padding-top: var(--two-units);
   position: relative;
   color: var(--white);
 }
@@ -1064,7 +1039,7 @@ span {
 }
 
 .project-display {
-  margin-top: var(--navbar-height) !important;
+  margin-top: var(--two-units) !important;
   font-family: var(--untitled-reg) !important;
   font-size: var(--project-display) !important;
   letter-spacing: var(--project-letterSpace) !important;
@@ -1137,7 +1112,7 @@ span {
   border-radius: var(--four-units);
   background-color: transparent;
   justify-content: flex-start !important;
-  margin-bottom: var(--two-units);
+  margin-bottom: 33vh;
 }
 .semplice-cover .show-more img {
   animation: 1s arrow-down infinite alternate ease-in-out;
@@ -1298,7 +1273,7 @@ span {
   }
 
   .branding {
-    padding-top: calc(var(--eight-units));
+    padding-top: var(--two-units);
     text-align: left;
   }
 
@@ -1419,25 +1394,6 @@ span {
   }
   #overlay-menu .container-fluid .nav-item:nth-child(2) {
     margin-right: var(--two-units);
-  }
-
-  .nav-item {
-    width: calc(50% - var(--two-units));
-    height: calc(25vh - var(--two-units));
-    border: 1px var(--white);
-    border-style: solid;
-    border-radius: var(--four-units);
-    padding-top: 1rem !important;
-  }
-
-  .nav-item.menu-item.current-menu-item {
-    background-color: var(--white) !important;
-  }
-  .nav-item.menu-item.current-menu-item a {
-    font-weight: normal !important;
-    font-style: normal !important;
-    font-family: var(--untitled-reg) !important;
-    background-color: transparent;
   }
 
   .cityName {
@@ -1642,11 +1598,6 @@ span {
   }
   #overlay-menu .container-fluid .nav-item:nth-child(2) {
     margin-right: var(--two-units);
-  }
-
-  .nav-item {
-    width: initial;
-    height: initial;
   }
 
   .cityName {
@@ -1888,7 +1839,7 @@ span {
   }
 
   .branding {
-    padding-top: calc(var(--eight-units));
+    padding-top: var(--two-units);
     text-align: left;
   }
 
@@ -2095,6 +2046,57 @@ span {
     bottom: 50%;
     left: -50%;
     transform: translate3d(50%, 50%, 0);
+  }
+
+  /* To help override values + flexbox from Semplice */
+  .menu-icon {
+    margin: 8px 0 0 0;
+  }
+
+  .nav-toggle {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - var(--four-units));
+    left: 0;
+    transform: translate(0, 0);
+    /* top | right | bottom | left */
+    margin: 0 0 var(--two-units) var(--two-units);
+  }
+  .nav-toggle .custom-home {
+    /* top | right | bottom | left */
+    margin: 0 0 0 var(--two-units);
+  }
+  .nav-toggle .custom-nav-item {
+    /* top | right | bottom | left */
+    margin: var(--two-units) var(--two-units) var(--two-units) 0;
+  }
+
+  .custom-nav-touch {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 8;
+    width: 100%;
+    height: 100vh;
+    margin: 0 0 0 0;
+    background-color: var(--black);
+    transition: all 0.4s cubic-bezier(0.65, 0.05, 0.36, 1) !important;
+    transform: translate(0, 100%);
+  }
+  .custom-nav-touch .custom-nav-item {
+    /* top | right | bottom | left */
+    margin: var(--two-units) var(--two-units) var(--two-units) 0;
+  }
+
+  .custom-nav-desktop {
+    display: none;
+  }
+
+  .mobile-nav-open {
+    transform: translate(0, 0);
   }
 
   .semplice-cover .show-more svg {

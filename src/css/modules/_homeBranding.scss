@@ -19,7 +19,7 @@
 
 	.main-logo {
 		display: block;
-		padding-top: var(--eight-units);
+		padding-top: var(--two-units);
 		width: 100%;
 		img {
 			width: 100%;
@@ -46,7 +46,7 @@
 	}
 
 	.branding {
-		padding-top: var(--eight-units);
+		padding-top: var(--two-units);
 		position: relative;
 		// transform: translate(0px, calc(var(--four-units) * -1));
 		color: var(--white);
@@ -59,7 +59,7 @@
 
 @mixin touch-device {
 	.branding {
-		padding-top: calc(var(--eight-units));
+		padding-top: var(--two-units);
 		text-align: left;
 	}
 

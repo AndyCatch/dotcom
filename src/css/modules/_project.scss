@@ -115,7 +115,7 @@
 	}
 
 	.project-display {
-		margin-top: var(--navbar-height) !important;
+		margin-top: var(--two-units) !important;
 
 		font-family: var(--untitled-reg) !important;
 		font-size: var(--project-display) !important;
@@ -204,7 +204,7 @@
 		background-color: transparent;
 
 		justify-content: flex-start !important;
-		margin-bottom: var(--two-units);
+		margin-bottom: 33vh;
 
 		img {
 			animation: 1s arrow-down infinite alternate ease-in-out;

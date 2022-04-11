@@ -13,18 +13,18 @@
 
 /*-- iPad 1,2 --*/ /* Portrait & Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (hover: none) {
-  @include type-stack.tablet-type-stack;
-  @include listModule.tablet;
-  @include project.tablet;
-  @include nextProject.tablet-portrait;
-  @include homeBranding.tablet;
-  @include homeCopy.tablet;
-  @include letterBackground.tablet;
-  @include workIndex.tablet;
-  @include socialLinks.tablet;
-  @include sempliceHelpers.tablet;
-  @include navigation.tablet;
-  @include footer.tablet;
+	@include type-stack.tablet-type-stack;
+	@include listModule.tablet;
+	@include project.tablet;
+	@include nextProject.tablet-portrait;
+	@include homeBranding.tablet;
+	@include homeCopy.tablet;
+	@include letterBackground.tablet;
+	@include workIndex.tablet;
+	@include socialLinks.tablet;
+	@include sempliceHelpers.tablet;
+	@include navigation.tablet;
+	@include footer.tablet;
 }
 
 /* Portrait */
@@ -33,26 +33,25 @@
 
 /* Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
-  .semplice-cover .show-more svg {
-    margin-bottom: 0px;
-  }
+	.semplice-cover .show-more svg {
+		margin-bottom: 0px;
+	}
 }
 
 /* ----------- iPad Pro 12.9" ----------- */
 /* Declare the same value for min- and max-width to avoid colliding with desktops */
 /* Portrait + Landscape*/
 @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
-  @include type-stack.tablet-type-stack;
-  @include listModule.tablet;
-  // @include homeBranding.tablet;
-  @include project.tablet;
-  @include homeCopy.tablet;
-  @include letterBackground.tablet;
-  @include workIndex.tablet;
-  @include socialLinks.tablet;
-  @include sempliceHelpers.tablet;
-  @include navigation.iPadPro;
-  @include footer.tablet;
+	@include type-stack.tablet-type-stack;
+	@include listModule.tablet;
+	// @include homeBranding.tablet;
+	@include project.tablet;
+	@include homeCopy.tablet;
+	@include letterBackground.tablet;
+	@include workIndex.tablet;
+	@include socialLinks.tablet;
+	@include sempliceHelpers.tablet;
+	@include footer.tablet;
 }
 
 /* Portrait */
