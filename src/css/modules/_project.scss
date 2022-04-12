@@ -310,6 +310,10 @@
 		margin-bottom: var(--two-units);
 	}
 
+	.project-cover {
+		margin-top: -70vh;
+	}
+
 	.project-display {
 		font-size: var(--project-display-mobile) !important;
 		letter-spacing: var(--project-letterSpace-mobile) !important;
@@ -345,14 +349,17 @@
 	}
 
 	.semplice-cover .show-more {
+		z-index: 9 !important;
+		width: 25% !important;
+		bottom: 0px !important;
+		right: 0px;
 		height: calc(9 * var(--unit)) !important;
 		padding: var(--two-units) !important;
-		border-radius: var(--two-units) !important;
+		border-radius: var(--four-units) !important;
+		margin-bottom: var(--two-units);
 
 		img {
-			height: 90% !important;
-			width: 20% !important;
-			padding-right: var(--four-units);
+			height: 100% !important;
 		}
 	}
 }

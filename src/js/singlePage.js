@@ -113,7 +113,8 @@ function setUpHamburger() {
 		hamburger.addEventListener('click', menuToggle)
 		clearInterval(hamburgerChecker)
 	} else {
-		console.log('No Hamburger menu')
+		// Times out Checker
+		// console.log('No Hamburger menu')
 		setTimeout(function () {
 			clearInterval(hamburgerChecker)
 		}, 10000)
@@ -136,8 +137,7 @@ function menuToggle() {
 }
 
 function navHandler(event) {
-	// let nav = document.querySelectorAll('div.navbar-inner')[0]
-	let nav = document.getElementsByClassName('custom-nav-desktop')[0]
+	let nav = document.querySelector('.custom-nav-desktop')
 	let footer = document.querySelector('.clock-container')
 	let currentScrollPos = window.pageYOffset
 

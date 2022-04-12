@@ -142,22 +142,21 @@
 
 @mixin mobile {
 	.back-to-top {
-		width: calc(100% - var(--four-units));
+		width: calc(25% - var(--unit));
 		mix-blend-mode: normal !important;
+		z-index: 8 !important;
 
 		a {
 			text-align: right;
 			background-color: var(--white);
 			height: calc(9 * var(--unit)) !important;
 			padding: var(--two-units) !important;
-			border-radius: var(--two-units) !important;
+			border-radius: var(--four-units) !important;
 		}
 
 		a img {
 			mix-blend-mode: difference !important;
-			width: 20% !important;
 			height: 96% !important;
-			padding-left: var(--four-units);
 		}
 	}
 }
