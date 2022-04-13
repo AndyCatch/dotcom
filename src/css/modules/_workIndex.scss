@@ -1,7 +1,6 @@
 @mixin desktop {
 	.work-index-section {
 		width: 100%;
-		// margin: 0 var(--four-units);
 
 		h1 {
 			z-index: 0;
@@ -10,6 +9,13 @@
 
 	.index-items {
 		margin-top: calc(var(--four-units) * 3);
+	}
+
+	.index-item {
+		margin-bottom: var(--four-units);
+		color: var(--white);
+		border-top: 1px solid;
+		font-family: var(--untitled-reg);
 
 		a {
 			font-family: var(--untitled-ita);
@@ -21,6 +27,8 @@
 		a.none {
 			pointer-events: none;
 		}
+
+		transition: all 0.2s ease-out !important;
 	}
 
 	.imageSets-container {
@@ -30,8 +38,9 @@
 	}
 
 	.indexHover {
-		color: var(--black) !important;
-		transition: color 0.2s ease-out !important;
+		color: var(--black);
+		border-top: 1px solid;
+		border-color: var(--black);
 	}
 
 	.image-set-wrapper {
@@ -50,7 +59,8 @@
 		position: relative !important;
 	}
 
-	.index-item-wrapper {
+	.index-item-info {
+		// border-top: 1px solid;
 		display: grid;
 		grid-template-columns: 1fr 3fr 3fr 1fr;
 		padding-bottom: var(--unit);
@@ -59,7 +69,7 @@
 
 		div {
 			z-index: 4;
-			border-top: 1px solid;
+			// border-top: 1px solid;
 			font-size: var(--nav-size);
 		}
 
@@ -71,14 +81,10 @@
 	.description-wrapper {
 		display: flex;
 		flex-direction: row;
-		div {
-			border-top: 0px solid;
-		}
 	}
 
 	.numImages {
 		font-family: var(--untitled-ita);
-		transition: color 0.2s ease-in;
 	}
 
 	.numImages::before {
@@ -100,6 +106,7 @@
 		opacity: 0;
 		background-color: var(--white);
 		transition: opacity 0.2s ease-out;
+
 		z-index: 0;
 	}
 
@@ -163,7 +170,7 @@
 		z-index: 1;
 	}
 
-	// .index-item-wrapper (labels) = 3
+	// .index-item-info (labels) = 3
 	// .heading z-index = 3;
 	// .close z-index = 3
 	// .large z-Index = 3
@@ -196,7 +203,7 @@
 		flex-direction: column;
 	}
 
-	.index-item-wrapper {
+	.index-item-info {
 		grid-template-columns: 2fr 2fr 3fr 0fr;
 
 		div {
@@ -225,7 +232,7 @@
 }
 
 @mixin mobile {
-	.index-item-wrapper {
+	.index-item-info {
 		display: flex;
 		flex-direction: column;
 		border-top: 1px solid;
@@ -235,7 +242,7 @@
 		}
 	}
 
-	.index-item-wrapper :nth-child(4) {
+	.index-item-info :nth-child(4) {
 		text-align: left;
 	}
 

@@ -1,6 +1,5 @@
 import { tablets, desktops } from './mediaQueries'
 import { hasTouch, nthParent } from './utils'
-import { showNav } from './hideShowNav'
 
 let indexItems
 let bgHover
@@ -19,10 +18,10 @@ let opacityItems
 let hasRendered = false
 
 function indexImage(itemsNodeList) {
-	indexItems = Array.from(itemsNodeList[0].querySelectorAll('a'))
+	// indexItems = Array.from(itemsNodeList[0].querySelectorAll('index-item'))
+	indexItems = Array.from(itemsNodeList)
 	bodyTag = document.body
 	close = document.querySelectorAll('.close')[0]
-	navBar = document.querySelectorAll('div.navbar-inner')[0]
 	bgHover = document.getElementsByClassName('thumbBg')[0]
 	header = document.querySelector('h1')
 
@@ -117,19 +116,42 @@ function removeDesktopLayer() {
 
 function indexItemHandler(event) {
 	let current = event.currentTarget
-	let numImage = current.querySelector('.numImages')
+	let currentImgs = current.querySelector('.image-set-wrapper')
+	// let numImage = current.querySelector('.numImages')
+
 	if (event.type === 'mouseover') {
 		indexItems.forEach((item) => {
 			item.style.zIndex = 0 // reset all to 0
+
+			let imgs = item.querySelector('.image-set-wrapper')
+			if (imgs) {
+				imgs.classList.add('zeroOpacity')
+				imgs.classList.remove('fullOpacity')
+			}
 		})
-		numImage.style.setProperty('color', 'var(--black)', 'important')
+		// numImage.style.setProperty('color', 'var(--black)', 'important')
 		current.style.zIndex = 1 // bring the current to 1
+		if (currentImgs) {
+			currentImgs.classList.remove('zeroOpacity')
+			currentImgs.classList.add('fullOpacity')
+		}
+
 		current.classList.add('indexHover')
 		header.classList.add('headingHover')
 		bgHover.classList.add('fullOpacity')
 	} else if (event.type === 'mouseout') {
+		indexItems.forEach((item) => {
+			item.style.zIndex = 0 // reset all to 0
+
+			let imgs = item.querySelector('.image-set-wrapper')
+			if (imgs) {
+				imgs.classList.add('fullOpacity')
+				imgs.classList.remove('zeroOpacity')
+			}
+		})
+
 		current.classList.remove('indexHover')
-		numImage.style.color = 'var(--white)'
+		// numImage.style.color = 'var(--white)'
 		header.classList.remove('headingHover')
 		bgHover.classList.remove('fullOpacity')
 	}
@@ -174,19 +196,20 @@ function tabletThumbHandler(event) {
 	let lgImg = parent.querySelector('.large')
 	let caption = parent.querySelector('.caption')
 	let itemLabel = superParent.querySelector('.index-item-wrapper')
-	let backToTop = document.querySelector('.back-to-top')
+	// let backToTop = document.querySelector('.back-to-top')
 
 	document.querySelector('html').classList.add('disableScroll')
+
 	close.classList.add('showClose')
 
 	if (event.type === 'click' || 'touchstart') {
-		showNav(navBar)
+		console.log('tabletThumbHandler', event.type)
 		indexItems.forEach((item) => {
 			item.style.zIndex = 0 // reset all to 0
 		})
 		superParent.style.zIndex = 1
 		itemLabel.classList.add('zeroOpacity')
-		backToTop.style.display = 'none'
+		// backToTop.style.display = 'none'
 		thumbs.forEach((thumb) => {
 			thumb.style.pointerEvents = 'none'
 		})
@@ -204,8 +227,8 @@ function removeTabletLayer() {
 }
 
 function closeLightBox() {
-	let backToTop = document.querySelector('.back-to-top')
-	backToTop.style.display = 'block'
+	// let backToTop = document.querySelector('.back-to-top')
+	// backToTop.style.display = 'block'
 	document.querySelector('html').classList.remove('disableScroll')
 	close.classList.remove('showClose')
 

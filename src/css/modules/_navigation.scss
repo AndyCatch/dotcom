@@ -63,12 +63,10 @@
 	/* Hide Show Nav classes */
 	.hideNav {
 		transform: translate(-50%, 200%);
-		// transform: translateY(110%) !important;
 	}
 
 	.showNav {
 		transform: translate(-50%, 0);
-		// transform: translateY(0%) !important;
 	}
 
 	.nav-item.menu-item.current-menu-item {

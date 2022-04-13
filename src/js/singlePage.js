@@ -47,7 +47,7 @@ function setMouseFollow() {
 
 function addIndexImg() {
 	if (document.querySelector('section.work-index-section > div')) {
-		let nodeList = document.querySelectorAll('div.index-items')
+		let nodeList = document.querySelectorAll('div.index-items .index-item')
 		indexImage(nodeList)
 		clearInterval(indexImageChecker)
 	}
@@ -94,7 +94,6 @@ function addMobileNav() {
 }
 
 function addNav() {
-	// let nav = document.querySelectorAll('div.navbar-inner')[0]
 	let nav = document.getElementsByClassName('custom-nav-desktop')[0]
 
 	if (nav) {
@@ -127,11 +126,11 @@ function menuToggle() {
 
 	if (menuClick) {
 		// menu is open
-		// Prevent scroll events while open
+		// Prevent scroll
 		document.querySelector('html').classList.add('disableScroll')
 	} else {
 		// menu is closed
-		// Re-enable scroll events when closes
+		// Re-enable scroll
 		document.querySelector('html').classList.remove('disableScroll')
 	}
 }
