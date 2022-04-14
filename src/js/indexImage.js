@@ -2,7 +2,7 @@ import { tablets, desktops } from './mediaQueries'
 import { hasTouch, nthParent } from './utils'
 
 let indexItems
-let bgHover
+// let bgHover
 let header
 let bodyTag
 let navBar
@@ -22,7 +22,7 @@ function indexImage(itemsNodeList) {
 	indexItems = Array.from(itemsNodeList)
 	bodyTag = document.body
 	close = document.querySelectorAll('.close')[0]
-	bgHover = document.getElementsByClassName('thumbBg')[0]
+	// bgHover = document.getElementsByClassName('thumbBg')[0]
 	header = document.querySelector('h1')
 
 	renderElems(indexItems)
@@ -84,7 +84,7 @@ function setUpElementArrays() {
 	thumbs = Array.from(document.querySelectorAll('.small'))
 	largeImages = Array.from(document.querySelectorAll('.large'))
 	touchCovers = Array.from(document.querySelectorAll('.touchCover'))
-	itemLabels = Array.from(document.querySelectorAll('.index-item-wrapper'))
+	itemLabels = Array.from(document.querySelectorAll('.index-item-info'))
 	captions = Array.from(document.querySelectorAll('.caption'))
 
 	opacityItems = [largeImages, touchCovers, captions]
@@ -116,44 +116,46 @@ function removeDesktopLayer() {
 
 function indexItemHandler(event) {
 	let current = event.currentTarget
+	let currentInfo = current.querySelector('.index-item-info')
+	let bg = current.querySelector('.thumbBg')
 	let currentImgs = current.querySelector('.image-set-wrapper')
 	// let numImage = current.querySelector('.numImages')
 
 	if (event.type === 'mouseover') {
 		indexItems.forEach((item) => {
-			item.style.zIndex = 0 // reset all to 0
-
+			item.style.zIndex = 1 // reset all to 0
 			let imgs = item.querySelector('.image-set-wrapper')
 			if (imgs) {
 				imgs.classList.add('zeroOpacity')
 				imgs.classList.remove('fullOpacity')
 			}
 		})
-		// numImage.style.setProperty('color', 'var(--black)', 'important')
-		current.style.zIndex = 1 // bring the current to 1
+
+		current.style.zIndex = 2 // bring the current to 1
+		currentInfo.style.zIndex = 5
+		current.classList.add('indexHover')
+
 		if (currentImgs) {
 			currentImgs.classList.remove('zeroOpacity')
 			currentImgs.classList.add('fullOpacity')
 		}
 
-		current.classList.add('indexHover')
 		header.classList.add('headingHover')
-		bgHover.classList.add('fullOpacity')
+		bg.classList.add('fullOpacity')
 	} else if (event.type === 'mouseout') {
-		indexItems.forEach((item) => {
-			item.style.zIndex = 0 // reset all to 0
+		current.classList.remove('indexHover')
+		current.style.setProperty('color', 'var(--white)')
+		bg.classList.remove('fullOpacity')
 
+		indexItems.forEach((item) => {
+			item.style.zIndex = 1 // reset all to 0
 			let imgs = item.querySelector('.image-set-wrapper')
 			if (imgs) {
 				imgs.classList.add('fullOpacity')
 				imgs.classList.remove('zeroOpacity')
 			}
 		})
-
-		current.classList.remove('indexHover')
-		// numImage.style.color = 'var(--white)'
 		header.classList.remove('headingHover')
-		bgHover.classList.remove('fullOpacity')
 	}
 }
 
@@ -195,7 +197,7 @@ function tabletThumbHandler(event) {
 	let cover = parent.querySelector('.touchCover')
 	let lgImg = parent.querySelector('.large')
 	let caption = parent.querySelector('.caption')
-	let itemLabel = superParent.querySelector('.index-item-wrapper')
+	let itemLabel = superParent.querySelector('.index-item-info')
 	// let backToTop = document.querySelector('.back-to-top')
 
 	document.querySelector('html').classList.add('disableScroll')

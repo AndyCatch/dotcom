@@ -625,7 +625,7 @@ a.menu-icon.open-menu {
   width: 100%;
 }
 .work-index-section h1 {
-  z-index: 0;
+  z-index: 5;
 }
 
 .index-items {
@@ -635,15 +635,13 @@ a.menu-icon.open-menu {
 .index-item {
   margin-bottom: var(--four-units);
   color: var(--white);
-  border-top: 1px solid;
   font-family: var(--untitled-reg);
+  z-index: 1;
+  position: relative;
   transition: all 0.2s ease-out !important;
 }
 .index-item a {
   font-family: var(--untitled-ita);
-  display: block;
-  position: relative;
-  margin-bottom: var(--four-units);
 }
 .index-item a.none {
   pointer-events: none;
@@ -656,13 +654,11 @@ a.menu-icon.open-menu {
 }
 
 .indexHover {
-  color: var(--black);
-  border-top: 1px solid;
-  border-color: var(--black);
+  color: var(--black) !important;
 }
 
 .image-set-wrapper {
-  width: 35vw;
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -678,14 +674,15 @@ a.menu-icon.open-menu {
 }
 
 .index-item-info {
+  border-top: 1px solid;
   display: grid;
   grid-template-columns: 1fr 3fr 3fr 1fr;
   padding-bottom: var(--unit);
   pointer-events: none;
+  font-size: var(--nav-size);
 }
 .index-item-info div {
-  z-index: 4;
-  font-size: var(--nav-size);
+  z-index: 5;
 }
 .index-item-info :nth-child(4) {
   text-align: right;
@@ -719,20 +716,10 @@ a.menu-icon.open-menu {
   opacity: 0;
   background-color: var(--white);
   transition: opacity 0.2s ease-out;
-  z-index: 0;
 }
 
 .headingHover {
   color: var(--black) !important;
-  z-index: 3 !important;
-}
-
-.touchCover {
-  z-index: 2;
-}
-
-.touchHeading {
-  z-index: 3 !important;
 }
 
 .caption {
@@ -758,7 +745,7 @@ a.menu-icon.open-menu {
   font-size: calc(var(--nav-size) * 4);
   font-family: var(--beastly);
   transform: translate(4%, -50%);
-  z-index: 2;
+  z-index: 8;
   transition: opacity 0.1s ease-out;
 }
 
@@ -785,12 +772,13 @@ a.menu-icon.open-menu {
 .large {
   pointer-events: none;
   width: 65vw;
-  bottom: 0;
+  top: 50%;
+  left: 50%;
   position: fixed !important;
   opacity: 0;
   transition: opacity 0.1s ease-out;
   z-index: 3;
-  transform: translate3d(calc(5.5vw + 4px), 0, 0);
+  transform: translate3d(-50%, -50%, 0);
 }
 
 /* Home Copy Module */
