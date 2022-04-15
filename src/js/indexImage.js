@@ -15,8 +15,6 @@ let largeImages
 let touchCovers
 let opacityItems
 
-let hasRendered = false
-
 function indexImage(itemsNodeList) {
 	// indexItems = Array.from(itemsNodeList[0].querySelectorAll('index-item'))
 	indexItems = Array.from(itemsNodeList)
@@ -119,11 +117,10 @@ function indexItemHandler(event) {
 	let currentInfo = current.querySelector('.index-item-info')
 	let bg = current.querySelector('.thumbBg')
 	let currentImgs = current.querySelector('.image-set-wrapper')
-	// let numImage = current.querySelector('.numImages')
 
 	if (event.type === 'mouseover') {
 		indexItems.forEach((item) => {
-			item.style.zIndex = 1 // reset all to 0
+			item.style.zIndex = 1 // reset all
 			let imgs = item.querySelector('.image-set-wrapper')
 			if (imgs) {
 				imgs.classList.add('zeroOpacity')
@@ -131,7 +128,7 @@ function indexItemHandler(event) {
 			}
 		})
 
-		current.style.zIndex = 2 // bring the current to 1
+		current.style.zIndex = 2 // bring the current highest up
 		currentInfo.style.zIndex = 5
 		current.classList.add('indexHover')
 
@@ -148,7 +145,7 @@ function indexItemHandler(event) {
 		bg.classList.remove('fullOpacity')
 
 		indexItems.forEach((item) => {
-			item.style.zIndex = 1 // reset all to 0
+			item.style.zIndex = 1 // reset all
 			let imgs = item.querySelector('.image-set-wrapper')
 			if (imgs) {
 				imgs.classList.add('fullOpacity')
@@ -197,6 +194,9 @@ function tabletThumbHandler(event) {
 	let cover = parent.querySelector('.touchCover')
 	let lgImg = parent.querySelector('.large')
 	let caption = parent.querySelector('.caption')
+
+	let currentParts = [cover, lgImg, caption]
+
 	let itemLabel = superParent.querySelector('.index-item-info')
 	// let backToTop = document.querySelector('.back-to-top')
 
@@ -205,19 +205,27 @@ function tabletThumbHandler(event) {
 	close.classList.add('showClose')
 
 	if (event.type === 'click' || 'touchstart') {
-		console.log('tabletThumbHandler', event.type)
 		indexItems.forEach((item) => {
-			item.style.zIndex = 0 // reset all to 0
+			item.style.zIndex = 1 // reset all
 		})
-		superParent.style.zIndex = 1
+
+		captions.forEach((caption) => {
+			caption.style.display = 'none'
+		})
+		caption.style.display = 'block'
+
+		superParent.style.zIndex = 2
+
 		itemLabel.classList.add('zeroOpacity')
 		// backToTop.style.display = 'none'
 		thumbs.forEach((thumb) => {
 			thumb.style.pointerEvents = 'none'
+			thumb.style.visibility = 'hidden'
 		})
-		cover.classList.add('fullOpacity')
-		lgImg.classList.add('fullOpacity')
-		caption.classList.add('fullOpacity')
+
+		currentParts.forEach((part) => {
+			part.classList.add('fullOpacity')
+		})
 	}
 
 	event.preventDefault()
@@ -243,6 +251,10 @@ function closeLightBox() {
 		})
 	}
 
+	captions.forEach((caption) => {
+		caption.style.display = 'none'
+	})
+
 	itemLabels.forEach((itemLabel) => {
 		if (itemLabel.classList.contains('zeroOpacity')) {
 			itemLabel.classList.remove('zeroOpacity')
@@ -251,6 +263,7 @@ function closeLightBox() {
 
 	thumbs.forEach((thumb) => {
 		thumb.style.pointerEvents = 'auto'
+		thumb.style.visibility = 'visible'
 	})
 }
 
@@ -277,7 +290,6 @@ function isMobile() {
 	removeDesktopLayer()
 	removeTabletLayer()
 	// addMobileLayer()
-	console.log('isMobile func')
 }
 
 function desktopHandler(event) {

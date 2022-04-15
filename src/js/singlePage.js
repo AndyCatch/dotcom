@@ -9,7 +9,6 @@ import { imageMove } from './mouseFollow'
 var clock = setInterval(updateClock, 1000)
 var navChecker = setInterval(addNav, 500)
 var mobileNavChecker = setInterval(addMobileNav, 500)
-var navItemChecker = setInterval(addPreventScroll, 500)
 var indexImageChecker = setInterval(addIndexImg, 500)
 var hamburgerChecker = setInterval(setUpHamburger, 1000)
 var mouseFollowChecker = setInterval(setMouseFollow, 500)
@@ -53,30 +52,15 @@ function addIndexImg() {
 	}
 }
 
-function navItemHandler(e) {
-	document.querySelector('html').classList.remove('disableScroll')
-}
-
-function addPreventScroll() {
-	let menuItems = Array.from(document.querySelectorAll('.nav-item'))
-	let logo = document.getElementsByClassName('logo')[0]
-
-	if (logo) {
-		menuItems.push(logo)
-	}
-
-	if (menuItems) {
-		menuItems.forEach((menuItem) => {
-			menuItem.addEventListener('click', navItemHandler)
-		})
-
-		clearInterval(navItemChecker)
-	}
-}
-
 function addMobileNav() {
 	let toggleTag = document.querySelector('nav.nav-toggle a.custom-nav-item')
+	let homeTag = document.querySelector('nav.nav-toggle a.custom-home')
 	let mobileNavTag = document.querySelector('nav.custom-nav-touch')
+	let mobileNavItems = Array.from(
+		mobileNavTag.querySelectorAll('a.custom-nav-item')
+	)
+	let removeScrollTags = [...mobileNavItems, homeTag]
+	let page = document.querySelector('html')
 
 	if (toggleTag) {
 		clearInterval(mobileNavChecker)
@@ -89,6 +73,14 @@ function addMobileNav() {
 				toggleTag.innerHTML = `Menu`
 			}
 			event.preventDefault()
+		})
+
+		removeScrollTags.forEach((navItem) => {
+			navItem.addEventListener('click', function (e) {
+				if (page.classList.contains('disableScroll')) {
+					page.classList.remove('disableScroll')
+				}
+			})
 		})
 	}
 }

@@ -638,7 +638,7 @@ a.menu-icon.open-menu {
   font-family: var(--untitled-reg);
   z-index: 1;
   position: relative;
-  transition: all 0.2s ease-out !important;
+  transition: all 0.2s ease-in !important;
 }
 .index-item a {
   font-family: var(--untitled-ita);
@@ -676,7 +676,7 @@ a.menu-icon.open-menu {
 .index-item-info {
   border-top: 1px solid;
   display: grid;
-  grid-template-columns: 1fr 3fr 3fr 1fr;
+  grid-template-columns: 6fr 3fr 3fr;
   padding-bottom: var(--unit);
   pointer-events: none;
   font-size: var(--nav-size);
@@ -715,7 +715,11 @@ a.menu-icon.open-menu {
   left: 0;
   opacity: 0;
   background-color: var(--white);
-  transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-in;
+}
+
+.thumbBg {
+  visibility: visible;
 }
 
 .headingHover {
@@ -732,7 +736,7 @@ a.menu-icon.open-menu {
   left: var(--four-units);
   color: var(--black);
   opacity: 0;
-  transition: opacity 0.1s ease-out;
+  transition: opacity 0.2s ease-in;
 }
 
 .close {
@@ -746,7 +750,7 @@ a.menu-icon.open-menu {
   font-family: var(--beastly);
   transform: translate(4%, -50%);
   z-index: 8;
-  transition: opacity 0.1s ease-out;
+  transition: opacity 0.2s ease-in;
 }
 
 .close::after {
@@ -765,7 +769,7 @@ a.menu-icon.open-menu {
   position: relative;
   margin-right: calc(var(--unit) / 2);
   margin-top: calc(var(--unit) / 2);
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in;
   z-index: 1;
 }
 
@@ -773,12 +777,12 @@ a.menu-icon.open-menu {
   pointer-events: none;
   width: 65vw;
   top: 50%;
-  left: 50%;
+  right: 0;
   position: fixed !important;
   opacity: 0;
-  transition: opacity 0.1s ease-out;
+  transition: opacity 0.2s ease-in;
   z-index: 3;
-  transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(0, -50%, 0);
 }
 
 /* Home Copy Module */
@@ -1334,16 +1338,16 @@ span {
   }
 
   .large {
-    z-index: 3;
     width: calc(100vw - var(--eight-units));
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0);
   }
 
   .small {
     padding: 0 calc(var(--unit) / 2) calc(var(--unit) / 2) calc(var(--unit) / 2);
     width: 24vw !important;
+  }
+
+  .thumbBg {
+    visibility: hidden;
   }
 
   .social-links {
@@ -1538,16 +1542,16 @@ span {
   }
 
   .large {
-    z-index: 3;
     width: calc(100vw - var(--eight-units));
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0);
   }
 
   .small {
     padding: 0 calc(var(--unit) / 2) calc(var(--unit) / 2) calc(var(--unit) / 2);
     width: 24vw !important;
+  }
+
+  .thumbBg {
+    visibility: hidden;
   }
 
   .social-links {
@@ -2024,6 +2028,12 @@ span {
     border-top: 0px solid;
   }
 
+  .caption {
+    bottom: 28%;
+    left: var(--two-units);
+    width: calc(100% - var(--four-units));
+  }
+
   .index-item-info :nth-child(4) {
     text-align: left;
   }
@@ -2039,11 +2049,12 @@ span {
     width: 33vw !important;
   }
 
+  .thumbBg {
+    visibility: hidden;
+  }
+
   .large {
     width: 100%;
-    bottom: 50%;
-    left: -50%;
-    transform: translate3d(50%, 50%, 0);
   }
 
   /* To help override values + flexbox from Semplice */
