@@ -13,6 +13,12 @@
 		width: 100%;
 		margin: 33vh 0 0 0;
 
+		ul {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+
 		a {
 			z-index: 3;
 			font-family: var(--untitled-reg) !important;
@@ -22,6 +28,8 @@
 			padding: 0 var(--unit) 0 var(--unit);
 			border-style: solid;
 			border-radius: var(--four-units);
+			color: var(--black) !important;
+			background-color: var(--white);
 		}
 
 		a:nth-child(3) {
@@ -30,18 +38,19 @@
 
 		a::after {
 			font-family: Helvetica, Arial, sans-serif !important;
-			color: var(--white);
+			color: var(--black);
 			content: '↗︎' !important;
 		}
 
 		a:hover {
-			color: var(--black) !important;
-			background-color: var(--white);
+			color: var(--white) !important;
+			border: 0px var(--white);
+			background-color: var(--black);
 			transition: all 0.2s ease-in !important;
 		}
 
 		a:hover::after {
-			color: var(--black);
+			color: var(--white);
 			transition: all 0.2s ease-in !important;
 		}
 	}
@@ -64,6 +73,10 @@
 @mixin mobile {
 	.social-links {
 		padding-bottom: var(--two-units);
+
+		ul {
+			flex-direction: column;
+		}
 
 		ul li {
 			padding-top: var(--unit);

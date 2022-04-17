@@ -20,19 +20,11 @@ function init() {
 	document.body.appendChild(luxonTag)
 }
 
-window.addEventListener(
-	'sempliceTransitionInDone',
-	function (e) {
-		isProject()
-	},
-	false
-)
-
 window.addEventListener('load', (event) => {
 	console.log('Window load event')
 })
 
-window.addEventListener('resize', () => {
+window.addEventListener('resize', (event) => {
 	// customVhUnit() // updates the injected var
 })
 
@@ -65,12 +57,26 @@ function addMobileNav() {
 	if (toggleTag) {
 		clearInterval(mobileNavChecker)
 
+		// mobileNavItems.forEach((item) => {
+		// 	item.addEventListener('click', function (event) {
+		// 		mobileNavItems.forEach((item) => {
+		// 			item.classList.remove('current-item')
+		// 		})
+
+		// 		event.currentTarget.classList.add('current-item')
+		// 	})
+		// })
+
 		toggleTag.addEventListener('click', function (event) {
+			event.currentTarget.parentNode.classList.toggle('toggle-width')
+			// console.log(event.currentTarget.parentNode)
 			mobileNavTag.classList.toggle('mobile-nav-open')
 			if (mobileNavTag.classList.contains('mobile-nav-open')) {
 				toggleTag.innerHTML = `Close`
+				page.classList.add('disableScroll')
 			} else {
 				toggleTag.innerHTML = `Menu`
+				page.classList.remove('disableScroll')
 			}
 			event.preventDefault()
 		})

@@ -86,15 +86,23 @@
 	/* Back to Top  */
 	.back-to-top {
 		mix-blend-mode: difference !important;
-		bottom: var(--two-units) !important;
+		bottom: var(--four-units) !important;
 		right: var(--two-units) !important;
 
 		a {
-			padding: 30px !important;
-			border-radius: var(--four-units) !important;
+			width: calc(12 * var(--unit));
+			height: calc(12 * var(--unit));
+			text-align: center;
+			padding: 0 !important;
+			border-radius: 50% !important;
 			border-color: var(--white) !important;
 			border-width: 1px !important;
 			border-style: solid !important;
+		}
+
+		a img {
+			padding-top: var(--two-units) !important;
+			width: 2.9rem !important;
 		}
 	}
 }

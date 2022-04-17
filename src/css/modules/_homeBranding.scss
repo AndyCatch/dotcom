@@ -19,11 +19,17 @@
 
 	.main-logo {
 		display: block;
-		padding-top: var(--two-units);
-		width: 100%;
+		width: calc(100% + var(--four-units));
+		margin-left: calc(var(--two-units) * -1);
+		margin-top: calc(var(--half-unit) * -1);
+
 		img {
 			width: 100%;
 		}
+	}
+
+	.main-logo-m {
+		display: none;
 	}
 
 	.home-branding-content {
@@ -33,6 +39,7 @@
 
 		/* I've worked across... */
 		:nth-child(1) {
+			margin-top: var(--two-units);
 			text-align: left;
 			grid-column-start: 1;
 			grid-column-end: 6;
@@ -57,7 +64,7 @@
 	}
 }
 
-@mixin touch-device {
+@mixin tablet {
 	.branding {
 		padding-top: var(--two-units);
 		text-align: left;
@@ -70,9 +77,14 @@
 	.main-logo {
 		display: none;
 	}
-}
 
-@mixin tablet {
+	.main-logo-m {
+		width: calc(100% + var(--four-units));
+		margin-left: calc(var(--two-units) * -1);
+		margin-top: calc(var(--half-unit) * -1);
+		display: block;
+	}
+
 	.home-branding-content {
 		/* I've worked across... */
 		:nth-child(1) {
@@ -80,12 +92,22 @@
 			grid-column-end: 10;
 		}
 	}
-	@include touch-device;
 }
 
 @mixin mobile {
 	.home-branding {
-		height: 84vh;
+		height: 50vh;
+	}
+
+	.main-logo {
+		display: none;
+	}
+
+	.main-logo-m {
+		width: calc(100% + var(--four-units));
+		margin-left: calc(var(--two-units) * -1);
+		margin-top: calc(var(--half-unit) * -1);
+		display: block;
 	}
 
 	.home-branding-content {
@@ -97,5 +119,4 @@
 			grid-column-end: 12;
 		}
 	}
-	@include touch-device;
 }

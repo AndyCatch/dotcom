@@ -2,38 +2,39 @@
 var isProjectChecker = setInterval(isProject, 500)
 
 function isProject() {
-  let projectCover // Element
+	console.log('isProject hoyyyy')
+	let projectCover // Element
 
-  projectCover = document.getElementsByClassName('project-cover')[0]
+	projectCover = document.getElementsByClassName('project-cover')[0]
 
-  if (projectCover) {
-    fadeIn(projectCover)
+	if (projectCover) {
+		fadeIn(projectCover)
 
-    clearInterval(isProjectChecker)
-  }
+		clearInterval(isProjectChecker)
+	}
 }
 
 function fadeIn(projectCover) {
-  setTimeout(function () {
-    if (projectCover) {
-      projectCover.classList.add('project-cover-fade-in')
-    }
-  }, 1000)
+	setTimeout(function () {
+		if (projectCover) {
+			projectCover.classList.add('project-cover-fade-in')
+		}
+	}, 1000)
 }
 
 function fillArray(titleName) {
-  let string = new Array(5).fill(titleName).join(' — ')
-  titleName = string
+	let string = new Array(5).fill(titleName).join(' — ')
+	titleName = string
 
-  return titleName
+	return titleName
 }
 
 function makeMarquee(elArr, text) {
-  for (let i = 0; i < elArr.length; i++) {
-    if (elArr[i]) {
-      elArr[i].innerHTML = text
-    }
-  }
+	for (let i = 0; i < elArr.length; i++) {
+		if (elArr[i]) {
+			elArr[i].innerHTML = text
+		}
+	}
 }
 
 // function isProject() {

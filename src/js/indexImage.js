@@ -16,11 +16,9 @@ let touchCovers
 let opacityItems
 
 function indexImage(itemsNodeList) {
-	// indexItems = Array.from(itemsNodeList[0].querySelectorAll('index-item'))
 	indexItems = Array.from(itemsNodeList)
 	bodyTag = document.body
 	close = document.querySelectorAll('.close')[0]
-	// bgHover = document.getElementsByClassName('thumbBg')[0]
 	header = document.querySelector('h1')
 
 	renderElems(indexItems)
@@ -38,7 +36,7 @@ function renderElems(indexItems) {
 		}
 		imageSets.forEach((imageSet) => {
 			let touchCover = document.createElement('div')
-			let smlImage = new Image() // === document.createElement('img')
+			let smlImage = new Image()
 			let lgImage = new Image()
 			let caption = document.createElement('p')
 			let childItems = [lgImage, caption, touchCover, smlImage]

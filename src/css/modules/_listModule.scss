@@ -11,15 +11,6 @@
 		z-index: 0 !important;
 	}
 
-	.list-heading {
-		z-index: 3 !important;
-		p {
-			width: 100%;
-			grid-column-start: 1;
-			grid-column-end: 12;
-		}
-	}
-
 	.legend {
 		display: flex;
 		flex-direction: row;
@@ -52,6 +43,8 @@
 	}
 
 	.work-type-label {
+		letter-spacing: 1px !important;
+
 		width: auto;
 		margin-top: 0.2vw;
 		font-size: var(--micro-size) !important;
@@ -135,11 +128,6 @@
 			top: 50%;
 			left: 0%;
 		}
-	}
-
-	.list-heading h1 {
-		grid-column-start: 4;
-		grid-column-end: 12;
 	}
 }
 
