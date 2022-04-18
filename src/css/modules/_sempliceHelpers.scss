@@ -88,21 +88,24 @@
 		mix-blend-mode: difference !important;
 		bottom: var(--four-units) !important;
 		right: var(--two-units) !important;
+		width: calc(16 * var(--unit));
+		height: calc(16 * var(--unit));
 
 		a {
-			width: calc(12 * var(--unit));
-			height: calc(12 * var(--unit));
+			height: 100%;
 			text-align: center;
 			padding: 0 !important;
 			border-radius: 50% !important;
 			border-color: var(--white) !important;
 			border-width: 1px !important;
 			border-style: solid !important;
+			background-color: var(--white);
 		}
 
 		a img {
+			mix-blend-mode: difference !important;
 			padding-top: var(--two-units) !important;
-			width: 2.9rem !important;
+			width: 4.2rem !important;
 		}
 	}
 }
@@ -150,7 +153,9 @@
 
 @mixin mobile {
 	.back-to-top {
-		width: calc(25% - var(--unit));
+		width: calc(25% - var(--unit)) !important;
+		height: auto !important;
+		bottom: var(--two-units) !important;
 		mix-blend-mode: normal !important;
 		z-index: 8 !important;
 
@@ -163,8 +168,9 @@
 		}
 
 		a img {
-			mix-blend-mode: difference !important;
-			height: 96% !important;
+			padding-top: 0 !important;
+			margin-right: var(--unit) !important;
+			width: 2rem !important;
 		}
 	}
 }

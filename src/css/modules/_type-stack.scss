@@ -97,4 +97,9 @@
 	h1 {
 		font-size: var(--subHead-size-mobile) !important;
 	}
+
+	.outlined,
+	.clock-style {
+		-webkit-text-fill-color: var(--white);
+	}
 }

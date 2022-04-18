@@ -1,5 +1,4 @@
 /*–––––––––––––––This lives in Semplice –> Advanced -> Javascript ––––––––––––––––––*/
-let menuClick = false
 
 import { updateClock } from './luxonClock'
 import { indexImage } from './indexImage'
@@ -10,8 +9,9 @@ var clock = setInterval(updateClock, 1000)
 var navChecker = setInterval(addNav, 500)
 var mobileNavChecker = setInterval(addMobileNav, 500)
 var indexImageChecker = setInterval(addIndexImg, 500)
-var hamburgerChecker = setInterval(setUpHamburger, 1000)
 var mouseFollowChecker = setInterval(setMouseFollow, 500)
+
+let mobileNavOpen = false
 
 function init() {
 	// luxon library <script> tag
@@ -25,7 +25,21 @@ window.addEventListener('load', (event) => {
 })
 
 window.addEventListener('resize', (event) => {
-	// customVhUnit() // updates the injected var
+	// console.log('Window resized')
+	let toggleTag = document.querySelector('nav.nav-toggle a.custom-nav-item')
+	let mobileNavTag = document.querySelector('nav.custom-nav-touch')
+	let page = document.querySelector('html')
+
+	if (mobileNavOpen) {
+		if (mobileNavTag.classList.contains('mobile-nav-open')) {
+			mobileNavTag.classList.remove('mobile-nav-open')
+			toggleTag.innerHTML = `Menu`
+			toggleTag.parentNode.classList.remove('toggle-width')
+			page.classList.remove('disableScroll')
+		}
+
+		mobileNavOpen = !mobileNavOpen
+	}
 })
 
 function setMouseFollow() {
@@ -57,29 +71,10 @@ function addMobileNav() {
 	if (toggleTag) {
 		clearInterval(mobileNavChecker)
 
-		// mobileNavItems.forEach((item) => {
-		// 	item.addEventListener('click', function (event) {
-		// 		mobileNavItems.forEach((item) => {
-		// 			item.classList.remove('current-item')
-		// 		})
-
-		// 		event.currentTarget.classList.add('current-item')
-		// 	})
-		// })
-
-		toggleTag.addEventListener('click', function (event) {
-			event.currentTarget.parentNode.classList.toggle('toggle-width')
-			// console.log(event.currentTarget.parentNode)
-			mobileNavTag.classList.toggle('mobile-nav-open')
-			if (mobileNavTag.classList.contains('mobile-nav-open')) {
-				toggleTag.innerHTML = `Close`
-				page.classList.add('disableScroll')
-			} else {
-				toggleTag.innerHTML = `Menu`
-				page.classList.remove('disableScroll')
-			}
-			event.preventDefault()
-		})
+		toggleTag.addEventListener(
+			'click',
+			mobileNavHandler(mobileNavTag, toggleTag, page)
+		)
 
 		removeScrollTags.forEach((navItem) => {
 			navItem.addEventListener('click', function (e) {
@@ -88,6 +83,23 @@ function addMobileNav() {
 				}
 			})
 		})
+	}
+}
+
+function mobileNavHandler(mobileNavTag, toggleTag, page) {
+	return function (event) {
+		toggleTag.parentNode.classList.toggle('toggle-width')
+		mobileNavTag.classList.toggle('mobile-nav-open')
+		if (mobileNavTag.classList.contains('mobile-nav-open')) {
+			toggleTag.innerHTML = `Close`
+			page.classList.add('disableScroll')
+		} else {
+			toggleTag.innerHTML = `Menu`
+			page.classList.remove('disableScroll')
+		}
+		event.preventDefault()
+
+		mobileNavOpen = !mobileNavOpen
 	}
 }
 
@@ -100,36 +112,6 @@ function addNav() {
 			passive: true,
 		})
 		clearInterval(navChecker)
-	}
-}
-
-function setUpHamburger() {
-	let hamburger = document.getElementsByClassName('hamburger')[0]
-
-	if (hamburger) {
-		hamburger.addEventListener('click', menuToggle)
-		clearInterval(hamburgerChecker)
-	} else {
-		// Times out Checker
-		// console.log('No Hamburger menu')
-		setTimeout(function () {
-			clearInterval(hamburgerChecker)
-		}, 10000)
-	}
-}
-
-function menuToggle() {
-	// toggles boolean between true and false
-	menuClick = !menuClick
-
-	if (menuClick) {
-		// menu is open
-		// Prevent scroll
-		document.querySelector('html').classList.add('disableScroll')
-	} else {
-		// menu is closed
-		// Re-enable scroll
-		document.querySelector('html').classList.remove('disableScroll')
 	}
 }
 
