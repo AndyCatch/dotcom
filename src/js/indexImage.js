@@ -2,7 +2,6 @@ import { tablets, desktops } from './mediaQueries'
 import { hasTouch, nthParent } from './utils'
 
 let indexItems
-// let bgHover
 let header
 let bodyTag
 let navBar
@@ -16,6 +15,7 @@ let touchCovers
 let opacityItems
 
 function indexImage(itemsNodeList) {
+	console.log('INDEXIMAGE')
 	indexItems = Array.from(itemsNodeList)
 	bodyTag = document.body
 	close = document.querySelectorAll('.close')[0]

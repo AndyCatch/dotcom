@@ -2,7 +2,6 @@
 var isProjectChecker = setInterval(isProject, 500)
 
 function isProject() {
-	console.log('isProject hoyyyy')
 	let projectCover // Element
 
 	projectCover = document.getElementsByClassName('project-cover')[0]
