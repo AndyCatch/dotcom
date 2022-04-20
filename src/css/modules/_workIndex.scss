@@ -110,15 +110,10 @@
 
 	.headingHover {
 		color: var(--black) !important;
-		// z-index: 3 !important;
 	}
 
 	.touchCover {
-		// z-index: 2;
-	}
-
-	.touchHeading {
-		// z-index: 3 !important;
+		z-index: 2;
 	}
 
 	.caption {
@@ -129,10 +124,8 @@
 		z-index: 3;
 		bottom: var(--four-units);
 		left: var(--four-units);
-		color: var(--black);
 		opacity: 0;
 		transition: opacity 0.2s ease-in;
-		display: block !important;
 	}
 
 	.close {
@@ -152,7 +145,7 @@
 		border-radius: var(--four-units);
 		margin-bottom: var(--two-units);
 		margin-right: var(--two-units);
-		width: calc(25% - var(--half-unit));
+		width: calc(25% - var(--unit));
 		background-color: var(--white);
 
 		img {
@@ -165,10 +158,6 @@
 			transform: translate(0px, calc(var(--unit) * -1)) scale(0.75);
 		}
 	}
-
-	// .close::after {
-	// 	content: '×';
-	// }
 
 	.showClose {
 		display: block;
@@ -286,5 +275,6 @@
 
 	.large {
 		width: 100%;
+		top: 37%;
 	}
 }

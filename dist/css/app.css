@@ -451,7 +451,6 @@ a.menu-icon.open-menu {
   display: block;
 }
 .social-links a {
-  z-index: 3;
   font-family: var(--untitled-reg) !important;
   margin-right: var(--two-units);
   border: 1px solid var(--white);
@@ -754,6 +753,10 @@ a.menu-icon.open-menu {
   color: var(--black) !important;
 }
 
+.touchCover {
+  z-index: 2;
+}
+
 .caption {
   color: var(--black) !important;
   text-align: center;
@@ -762,10 +765,8 @@ a.menu-icon.open-menu {
   z-index: 3;
   bottom: var(--four-units);
   left: var(--four-units);
-  color: var(--black);
   opacity: 0;
   transition: opacity 0.2s ease-in;
-  display: block !important;
 }
 
 .close {
@@ -784,7 +785,7 @@ a.menu-icon.open-menu {
   border-radius: var(--four-units);
   margin-bottom: var(--two-units);
   margin-right: var(--two-units);
-  width: calc(25% - var(--half-unit));
+  width: calc(25% - var(--unit));
   background-color: var(--white);
 }
 .close img {
@@ -1986,7 +1987,7 @@ span {
     height: auto !important;
     bottom: var(--two-units) !important;
     mix-blend-mode: normal !important;
-    z-index: 9 !important;
+    z-index: 7 !important;
   }
   .back-to-top a {
     text-align: right;
@@ -2100,6 +2101,7 @@ span {
 
   .large {
     width: 100%;
+    top: 37%;
   }
 
   /* To help override values + flexbox from Semplice */

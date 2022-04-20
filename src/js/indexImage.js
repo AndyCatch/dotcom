@@ -15,7 +15,6 @@ let touchCovers
 let opacityItems
 
 function indexImage(itemsNodeList) {
-	console.log('INDEXIMAGE')
 	indexItems = Array.from(itemsNodeList)
 	bodyTag = document.body
 	close = document.querySelectorAll('.close')[0]
