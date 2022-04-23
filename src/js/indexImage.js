@@ -168,6 +168,7 @@ function desktopThumbHandler(event) {
 		current.style.opacity = 1
 		lgImg.classList.add('fullOpacity')
 		caption.classList.add('fullOpacity')
+		caption.style.display = 'block'
 	} else if (event.type === 'mouseout') {
 		setThumbs.forEach((setThumb) => {
 			setThumb.style.opacity = 1
@@ -193,9 +194,7 @@ function tabletThumbHandler(event) {
 	let caption = parent.querySelector('.caption')
 
 	let currentParts = [cover, lgImg, caption]
-
 	let itemLabel = superParent.querySelector('.index-item-info')
-	// let backToTop = document.querySelector('.back-to-top')
 
 	document.querySelector('html').classList.add('disableScroll')
 
@@ -214,7 +213,6 @@ function tabletThumbHandler(event) {
 		superParent.style.zIndex = 2
 
 		itemLabel.classList.add('zeroOpacity')
-		// backToTop.style.display = 'none'
 		thumbs.forEach((thumb) => {
 			thumb.style.pointerEvents = 'none'
 			thumb.style.visibility = 'hidden'
@@ -234,8 +232,6 @@ function removeTabletLayer() {
 }
 
 function closeLightBox() {
-	// let backToTop = document.querySelector('.back-to-top')
-	// backToTop.style.display = 'block'
 	document.querySelector('html').classList.remove('disableScroll')
 	close.classList.remove('showClose')
 

@@ -53,10 +53,10 @@
 	}
 
 	.branding {
-		padding-top: var(--two-units);
 		position: relative;
 		// transform: translate(0px, calc(var(--four-units) * -1));
 		color: var(--white);
+		margin-left: calc(var(--two-units) * -1);
 	}
 
 	.touch-branding {

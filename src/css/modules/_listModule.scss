@@ -74,7 +74,7 @@
 				filter: saturate(110%);
 				border-radius: var(--unit);
 				opacity: 0;
-				width: 65vw;
+				width: 55vw;
 				pointer-events: none;
 				transition: opacity 0.2s ease-out;
 
@@ -86,6 +86,7 @@
 
 	a h1 {
 		-webkit-text-fill-color: var(--white);
+		line-height: 0.8;
 		transition: all 0.2s ease-out !important;
 	}
 
@@ -144,7 +145,7 @@
 		}
 
 		a h1 {
-			margin-bottom: 10%;
+			transform: translate(0px, 0px);
 		}
 
 		a img {
@@ -159,6 +160,11 @@
 			top: 50%;
 			left: 0%;
 		}
+	}
+
+	a:hover h1 {
+		-webkit-text-stroke-width: 0;
+		-webkit-text-fill-color: var(--white);
 	}
 
 	.legend {
@@ -185,12 +191,10 @@
 	}
 
 	.work-type {
+		display: none;
 		width: auto;
 		margin-right: var(--unit);
 		margin-bottom: var(--unit);
-		display: flex;
-		flex-direction: row;
-		justify-content: flex-start;
 	}
 }
 

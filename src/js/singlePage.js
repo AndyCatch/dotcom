@@ -12,6 +12,10 @@ var indexImageChecker = setInterval(addIndexImg, 500)
 var mouseFollowChecker = setInterval(setMouseFollow, 500)
 
 let mobileNavOpen = false
+let pages = ['home', 'about', 'index']
+
+let currentPage
+let navItemChecker
 
 function init() {
 	// luxon library <script> tag
