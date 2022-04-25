@@ -17,6 +17,11 @@
 		line-height: var(--display-line) !important;
 	}
 
+	.page-title {
+		margin-left: calc(var(--two-units) * -1);
+		color: var(--white) !important;
+	}
+
 	.outlined,
 	.clock-style {
 		-webkit-text-fill-color: transparent;
@@ -64,6 +69,18 @@
 		color: var(--white) !important;
 		text-decoration: none;
 		transition: color 0.2s ease-out !important;
+	}
+
+	.in-page-link {
+		// background-color: var(--black) !important;
+		border: 1px solid var(--white) !important;
+		border-radius: 50% !important;
+		transition: all 0.2s ease-out !important;
+	}
+
+	.in-page-link:hover {
+		background-color: var(--terracotta) !important;
+		border: 1px solid var(--terracotta) !important;
 	}
 
 	.currentYear {

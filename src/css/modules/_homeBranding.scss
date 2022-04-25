@@ -1,5 +1,3 @@
-@use 'layoutUtils';
-
 @mixin desktop {
 	.home-branding {
 		height: 44vh;
@@ -17,23 +15,13 @@
 		align-items: flex-start;
 	}
 
-	.main-logo {
-		display: block;
-		width: calc(100% + var(--four-units));
-		margin-left: calc(var(--two-units) * -1);
-		margin-top: calc(var(--half-unit) * -1);
-
-		img {
-			width: 100%;
-		}
-	}
-
-	.main-logo-m {
-		display: none;
-	}
-
 	.home-branding-content {
-		@include layoutUtils.desktop-grid;
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		justify-items: flex-start;
+		justify-content: space-between;
+
 		z-index: 2;
 		width: 100%;
 
@@ -41,82 +29,61 @@
 		:nth-child(1) {
 			margin-top: var(--two-units);
 			text-align: left;
-			grid-column-start: 1;
-			grid-column-end: 6;
+		}
+
+		.social-links {
+			margin: 0 0 0 0;
+			width: 50%;
+			align-items: baseline;
+			justify-content: flex-end;
+
+			:last-child {
+				margin-right: 0;
+			}
 		}
 	}
 
 	.home-branding-row {
 		display: block;
 		z-index: 2;
-		width: 100%;
+		width: 33%;
 	}
 
-	.branding {
-		position: relative;
-		// transform: translate(0px, calc(var(--four-units) * -1));
-		color: var(--white);
-		margin-left: calc(var(--two-units) * -1);
-	}
-
-	.touch-branding {
-		display: none;
+	.banner {
+		margin-top: 12vh;
+		img {
+			width: 100%;
+		}
 	}
 }
 
 @mixin tablet {
-	.branding {
-		padding-top: var(--two-units);
-		text-align: left;
-	}
-
-	.touch-branding {
-		display: block;
-	}
-
-	.main-logo {
-		display: none;
-	}
-
-	.main-logo-m {
-		width: calc(100% + var(--four-units));
-		margin-left: calc(var(--two-units) * -1);
-		margin-top: calc(var(--half-unit) * -1);
-		display: block;
-	}
-
 	.home-branding-content {
-		/* I've worked across... */
-		:nth-child(1) {
-			grid-column-start: 1;
-			grid-column-end: 10;
-		}
+		//
 	}
 }
 
 @mixin mobile {
 	.home-branding {
-		height: 50vh;
+		justify-content: space-between;
+		height: 48vh;
+		display: flex;
+		flex-direction: column;
 	}
 
-	.main-logo {
+	.banner {
 		display: none;
 	}
 
-	.main-logo-m {
-		width: calc(100% + var(--four-units));
-		margin-left: calc(var(--two-units) * -1);
-		margin-top: calc(var(--half-unit) * -1);
-		display: block;
+	.home-branding-row {
+		width: 100%;
 	}
 
 	.home-branding-content {
-		display: flex;
+		flex-direction: column;
 
-		/* I've worked across... */
-		:nth-child(1) {
-			grid-column-start: 1;
-			grid-column-end: 12;
+		.social-links {
+			display: none;
 		}
 	}
 }

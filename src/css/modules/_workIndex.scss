@@ -4,11 +4,13 @@
 
 		h1 {
 			z-index: 5;
+			position: relative;
 		}
 	}
 
 	.index-items {
-		margin-top: calc(var(--four-units) * 3);
+		margin-top: 35vh;
+		margin-bottom: 35vh;
 	}
 
 	.index-item {
@@ -110,6 +112,7 @@
 
 	.headingHover {
 		color: var(--black) !important;
+		// z-index: 3;
 	}
 
 	.touchCover {
@@ -149,6 +152,7 @@
 		background-color: var(--white);
 
 		img {
+			margin-top: calc(var(--half-unit) / 2);
 			mix-blend-mode: difference;
 			width: 100%;
 			height: auto;

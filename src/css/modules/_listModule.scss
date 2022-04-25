@@ -4,13 +4,6 @@
 		width: 100%;
 	}
 
-	// .list {
-	// 	display: flex;
-	// 	flex-direction: column;
-
-	// 	z-index: 0 !important;
-	// }
-
 	.legend {
 		display: flex;
 		flex-direction: row;
@@ -141,7 +134,7 @@
 	.list {
 		a {
 			width: 100%;
-			padding-bottom: calc(var(--unit) * 12);
+			margin-bottom: var(--eight-units);
 		}
 
 		a h1 {

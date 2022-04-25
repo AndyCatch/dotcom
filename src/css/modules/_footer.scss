@@ -49,13 +49,6 @@
 	}
 
 	.footer-container {
-		// div:nth-child(1) {
-		//   margin-top: -4.15%;
-		// }
-
-		// div:nth-child(2) {
-		//   transform: translate(0, 10px);
-		// }
 	}
 }
 
@@ -70,6 +63,7 @@
 
 		p {
 			display: block;
+			margin-top: calc(var(--half-unit) / 2);
 		}
 	}
 

@@ -5,7 +5,7 @@
 	--black: #232c26 !important; /* Dusty Black */
 	--purple: #9c94e7 !important; /* Footer Clock */
 	--orange: #ff4848 !important; /* PDP Text */
-	--terracotta: #9a3f27 !important;
+	--terracotta: #c46a5a !important;
 	--red: #c92100 !important;
 	--dark-grey: #5e5e61 !important; /* Copy Headlines */
 	--dark-blue: #1e176a; /* Selected text */
@@ -24,8 +24,6 @@
 	--three-units: calc(var(--unit) * 3); /* 24px */
 	--four-units: calc(var(--unit) * 4); /* 32px */
 	--eight-units: calc(var(--unit) * 8); /* 64px */
-
-	--navbar-height: 5rem;
 
 	/* Type Sizes */
 	--display-size: 14vw; /* Converted from 220px@1440px W*/
@@ -49,7 +47,7 @@
 	--project-display-line: 0.98;
 	--nav-size: 24px;
 	--nav-line: 1;
-	--body-size: 18px;
+	--body-size: 20px;
 	--body-line: 1.2;
 	--caption-size: 16px;
 	--micro-size: 12px;

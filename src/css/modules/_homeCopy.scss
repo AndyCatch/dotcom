@@ -13,18 +13,19 @@
 
 	// Past clients...
 	.home-copy-row:nth-child(1) {
+		margin-top: calc(var(--eight-units) * 2);
 		grid-column-start: 3;
 		grid-column-end: 5;
 	}
 	// Phase...
 	.home-copy-row:nth-child(2) {
-		margin-top: 20vh;
-		grid-column-start: 3;
-		grid-column-end: 7;
+		margin-top: calc(var(--eight-units) * 2);
+		grid-column-start: 4;
+		grid-column-end: 8;
 	}
 	// Acknowledgement...
 	.home-copy-row:nth-child(3) {
-		margin-top: 35vh;
+		margin-top: calc(var(--eight-units) * 2);
 		grid-column-start: 7;
 		grid-column-end: 11;
 	}
@@ -45,9 +46,14 @@
 		flex-direction: column;
 	}
 
+	.home-copy-row:nth-child(1) {
+		margin-top: 0;
+	}
+
 	.home-copy-row:nth-child(1),
 	.home-copy-row:nth-child(2),
 	.home-copy-row:nth-child(3) {
+		margin-top: var(--eight-units);
 		grid-column-start: 1;
 		grid-column-end: 12;
 	}

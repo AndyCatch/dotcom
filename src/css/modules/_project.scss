@@ -124,11 +124,6 @@
 		color: var(--white);
 	}
 
-	.in-page-desc {
-		margin-top: 0 !important;
-		margin-bottom: var(--navbar-height) !important;
-	}
-
 	.show-first {
 		opacity: 0;
 		filter: invert(0.8);
@@ -352,12 +347,12 @@
 	.semplice-cover .show-more {
 		z-index: 9 !important;
 		width: 25% !important;
-		bottom: 0px !important;
+		// bottom: var(--two-units) !important;
 		right: 0px;
 		height: calc(9 * var(--unit)) !important;
 		padding: var(--two-units) !important;
 		border-radius: var(--four-units) !important;
-		margin-bottom: var(--two-units);
+		margin-bottom: var(--two-units) !important;
 
 		img {
 			height: 100% !important;
