@@ -122,7 +122,8 @@ input, textarea, select {
   --project-display-line: 0.98;
   --nav-size: 24px;
   --nav-line: 1;
-  --body-size: 20px;
+  --body-size: 24px;
+  --body-size-m: 20px;
   --body-line: 1.2;
   --caption-size: 16px;
   --micro-size: 12px;
@@ -474,6 +475,7 @@ a.menu-icon.open-menu {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  position: relative;
   /* top | right | bottom | left */
   width: 100%;
   margin: 0 0 0 0;
@@ -562,6 +564,7 @@ a.menu-icon.open-menu {
   text-align: left;
 }
 .home-branding-content .social-links {
+  position: relative;
   margin: 0 0 0 0;
   width: 50%;
   align-items: baseline;
@@ -578,7 +581,7 @@ a.menu-icon.open-menu {
 }
 
 .banner {
-  margin-top: 12vh;
+  position: relative;
 }
 .banner img {
   width: 100%;
@@ -627,7 +630,7 @@ a.menu-icon.open-menu {
 
 .about-block {
   grid-column-start: 4;
-  grid-column-end: 9;
+  grid-column-end: 10;
 }
 
 .italic {
@@ -872,12 +875,26 @@ a.menu-icon.open-menu {
   transform: translate3d(0, -50%, 0);
 }
 
+/* Home GLSL Canvas */
+#shaderBG {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vmax;
+  height: 100vmax;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* Home Copy Module */
 .home-copy-module {
   display: grid;
   grid-column-gap: 24px;
   column-gap: 24px;
   grid-template-columns: repeat(12, 1fr);
+  margin-bottom: calc(var(--eight-units) * 2);
 }
 
 .home-copy-row {
@@ -1698,6 +1715,13 @@ span {
     display: none;
   }
 
+  ul,
+li,
+p,
+a {
+    font-size: var(--body-size-m) !important;
+  }
+
   .display-size {
     font-size: var(--display-size-mobile) !important;
   }
@@ -1918,6 +1942,13 @@ span {
     margin-top: var(--eight-units);
     grid-column-start: 1;
     grid-column-end: 12;
+  }
+
+  ul,
+li,
+p,
+a {
+    font-size: var(--body-size-m) !important;
   }
 
   .display-size {
@@ -2275,6 +2306,13 @@ span {
   .current-menu-item::after {
     font-family: Arial, Helvetica, sans-serif !important;
     display: none;
+  }
+
+  ul,
+li,
+p,
+a {
+    font-size: var(--body-size-m) !important;
   }
 
   .display-size {

@@ -1,0 +1,15 @@
+@mixin desktop {
+	#shaderBG {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100vmax;
+		height: 100vmax;
+
+		opacity: 0.9;
+
+		pointer-events: none;
+		z-index: 0;
+	}
+}

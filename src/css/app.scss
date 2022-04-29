@@ -11,32 +11,33 @@
 @use 'modules/footer';
 @use 'modules/socialLinks';
 @use 'modules/sempliceHelpers';
+@use 'modules/homeCanvas';
 @import 'reset';
 @import 'designTokens';
 
 html,
 body {
-  background-color: var(--black);
+	background-color: var(--black);
 
-  ::-moz-selection {
-    /* Code for Firefox */
-    color: var(--purple);
-    background: var(--dark-blue);
-  }
+	::-moz-selection {
+		/* Code for Firefox */
+		color: var(--purple);
+		background: var(--dark-blue);
+	}
 
-  ::selection {
-    color: var(--purple);
-    background: var(--dark-blue);
-  }
+	::selection {
+		color: var(--purple);
+		background: var(--dark-blue);
+	}
 }
 
 body {
-  overflow-y: inherit !important;
+	overflow-y: inherit !important;
 }
 
 /* Remove the WP admin bar cos it's annoying  */
 #wpadminbar {
-  display: none;
+	display: none;
 }
 
 /* Global Type Styles */
@@ -66,6 +67,9 @@ body {
 /* Work Index */
 @include workIndex.desktop;
 
+/* Home GLSL Canvas */
+@include homeCanvas.desktop;
+
 /* Home Copy Module */
 @include homeCopy.desktop;
 
@@ -77,18 +81,18 @@ body {
 
 /* GLOBAL CSS */
 .disableScroll {
-  margin: 0;
-  height: 100%;
-  overflow: hidden !important;
-  overflow-y: hidden !important;
+	margin: 0;
+	height: 100%;
+	overflow: hidden !important;
+	overflow-y: hidden !important;
 }
 
 .fullOpacity {
-  opacity: 1;
+	opacity: 1;
 }
 
 .zeroOpacity {
-  opacity: 0;
+	opacity: 0;
 }
 
 /* -------------------- Tablets -------------------- */

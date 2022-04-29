@@ -103,6 +103,13 @@
 }
 
 @mixin mobile-type-stack {
+	ul,
+	li,
+	p,
+	a {
+		font-size: var(--body-size-m) !important;
+	}
+
 	.display-size {
 		font-size: var(--display-size-mobile) !important;
 	}

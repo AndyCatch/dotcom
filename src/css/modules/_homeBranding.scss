@@ -32,6 +32,8 @@
 		}
 
 		.social-links {
+			position: relative;
+
 			margin: 0 0 0 0;
 			width: 50%;
 			align-items: baseline;
@@ -50,7 +52,8 @@
 	}
 
 	.banner {
-		margin-top: 12vh;
+		position: relative;
+
 		img {
 			width: 100%;
 		}
