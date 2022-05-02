@@ -15,7 +15,6 @@ var mouseFollowChecker = setInterval(setMouseFollow, 500)
 var canvasChecker = setInterval(checkCanvas, 500)
 
 let mobileNavOpen = false
-let pages = ['home', 'about', 'index']
 
 let currentPage
 let navItemChecker
@@ -60,15 +59,13 @@ window.addEventListener('resize', (event) => {
 
 function checkCanvas() {
 	let canvasTag = document.getElementById('shaderBG')
-	let sandbox = new GlslCanvas(canvasTag)
 
 	if (canvasTag) {
 		// console.log('Canvas')
 		clearInterval(canvasChecker)
-
+		let sandbox = new GlslCanvas(canvasTag)
 		sandbox.load(frag)
 		sandbox.setUniform('seed', Math.random())
-
 		sizer(canvasTag)
 	} else {
 		setTimeout(() => {
@@ -122,6 +119,7 @@ function addMobileNav() {
 	}
 }
 
+// mobile NavHandler closure
 function mobileNavHandler(mobileNavTag, toggleTag, page) {
 	return function (event) {
 		toggleTag.parentNode.classList.toggle('toggle-width')

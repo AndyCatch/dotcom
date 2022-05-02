@@ -81,6 +81,11 @@ gulp.task('projectJS', function () {
 	)
 })
 
+// No sourcemaps / webpack to keep it vanilla JS
+gulp.task('currentPage', function () {
+	return pipeline(gulp.src('src/js/currentPage.js'), gulp.dest('dist/js'))
+})
+
 gulp.task('html', function () {
 	return gulp.src('src/*.html').pipe(gulp.dest('dist'))
 })
@@ -109,6 +114,10 @@ gulp.task('watch', function () {
 
 	gulp
 		.watch('src/js/project.js', gulp.series('projectJS'))
+		.on('change', browserSync.reload)
+
+	gulp
+		.watch('src/js/currentPage.js', gulp.series('currentPage'))
 		.on('change', browserSync.reload)
 
 	// CSS / .SCSS Watchers
@@ -143,6 +152,7 @@ gulp.task(
 		'compileTypeCSS',
 		'singlePageJS',
 		'projectJS',
+		'currentPage',
 		'fonts',
 		'images',
 		'watch'

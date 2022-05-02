@@ -27,8 +27,8 @@ void main(void)
     
     float hue = u_time * 0.005 + seed;
     
-    vec3 hsv1 = vec3(hue, 0.65, 0.45);
-    vec3 hsv2 = vec3(hue + 0.07, 0.125, 0.125);
+    vec3 hsv1 = vec3(0.65, sin(hue), 0.45);
+    vec3 hsv2 = vec3(hue + 0.07, 0.125, 0.75);
     
     vec3 rgb1 = hsv2rgb(hsv1);
     vec3 rgb2 = hsv2rgb(hsv2);

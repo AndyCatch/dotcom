@@ -1,4 +1,14 @@
 @mixin desktop {
+	@keyframes fadein {
+		from {
+			opacity: 0;
+		}
+
+		to {
+			opacity: 1;
+		}
+	}
+
 	#shaderBG {
 		position: fixed;
 		top: 50%;
@@ -7,9 +17,13 @@
 		width: 100vmax;
 		height: 100vmax;
 
-		opacity: 0.9;
+		animation-duration: 5s;
+		animation-name: fadein;
 
 		pointer-events: none;
 		z-index: 0;
+
+		transition-delay: 500ms;
+		transition: all 0.4s cubic-bezier(0.65, 0.05, 0.36, 1);
 	}
 }
