@@ -7,6 +7,13 @@ let currentX = null
 let currentY = null
 let currentImage = null
 
+let cursorAimX = 0
+let cursorAimY = 0
+let currCursorX = 0
+let currCursorY = 0
+
+let cursorTag
+
 let hoverElements
 let images = []
 let isPaused
@@ -27,6 +34,13 @@ function imageMove(hoverElems) {
 		tablet.addEventListener('change', tabletHandler)
 		tabletHandler(tablet)
 	})
+
+	cursorTag = document.querySelector('div.cursor div')
+
+	document.addEventListener('mousemove', function (event) {
+		cursorAimX = event.pageX - cursorTag.offsetWidth / 2
+		cursorAimY = event.pageY
+	})
 }
 
 function mouseOver(event) {
@@ -36,6 +50,8 @@ function mouseOver(event) {
 	hoverElements.forEach((hoverElem) => {
 		hoverElem.style.zIndex = 0
 	})
+	cursorTag.style.opacity = 1
+	cursorTag.style.visibility = 'visible'
 	current.style.zIndex = 1
 	currentImage.style.opacity = 1
 	currentImage.style.zIndex = -1
@@ -48,6 +64,8 @@ function mouseOut(event) {
 		hoverElem.querySelector('h1').style.transform = 'translate(0px, 0px)'
 	})
 	currentImage.style.opacity = 0
+	cursorTag.style.opacity = 0
+	cursorTag.style.left = '0' + 'px'
 }
 
 function mouseMove(event) {
@@ -80,6 +98,14 @@ function draw() {
 	let viewportHeight =
 		window.innerHeight || document.documentElement.clientHeight
 
+	currCursorX += (cursorAimX - currCursorX) * 0.02
+	currCursorY += (cursorAimY - currCursorY) * 0.02
+
+	if (cursorTag) {
+		cursorTag.style.left = currCursorX + 'px'
+		cursorTag.style.top = currCursorY + 'px'
+	}
+
 	if (!isPaused) {
 		if (currentImage) {
 			currentImage.style.transform = `translate3d(${
@@ -94,8 +120,8 @@ function draw() {
 	// (currentImage.offsetHeight / 2 - window.innerHeight / 2) -
 	// currentImage.offsetHeight * 0.75}px, 0px)
 
-	currentX = currentX + (aimX - currentX) * 0.2
-	currentY = currentY + (aimY - currentY) * 0.2
+	currentX = currentX + (aimX - currentX) * 0.03
+	currentY = currentY + (aimY - currentY) * 0.03
 
 	requestID = window.requestAnimationFrame(draw)
 }

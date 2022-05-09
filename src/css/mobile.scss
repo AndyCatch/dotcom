@@ -21,7 +21,7 @@
 
 /* ----------- Pixel Landscape ----------- */
 @media screen and (min-device-width: 731px) and (max-device-width: 731px) and (orientation: landscape) {
-	@include listModule.mobile-landscape;
+	// @include listModule.mobile-landscape;
 	@include nextProject.mobile-landscape-med;
 }
 
@@ -62,7 +62,7 @@
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
 	@include navItem-exceptions-mobile;
 
-	@include listModule.mobile-landscape;
+	// @include listModule.mobile-landscape;
 	@include nextProject.mobile-landscape-med;
 
 	// Forces logo to correct size
@@ -94,7 +94,7 @@
 /* Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
 	@include navItem-exceptions-mobile;
-	@include listModule.mobile-landscape;
+	// @include listModule.mobile-landscape;
 	@include nextProject.mobile-landscape-med;
 
 	@include type-stack.tablet-type-stack;
@@ -122,7 +122,7 @@
 
 /* Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-	@include listModule.mobile-landscape;
+	// @include listModule.mobile-landscape;
 	@include nextProject.mobile-landscape-sm;
 	@include type-stack.tablet-type-stack;
 

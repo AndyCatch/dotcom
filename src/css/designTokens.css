@@ -45,11 +45,12 @@
 	--project-letterSpace: -4px;
 	--project-letterSpace-mobile: -2px;
 	--project-display-line: 0.98;
-	--nav-size: 24px;
+	--nav-size: var(--three-units);
 	--nav-line: 1;
-	--body-size: 24px;
-	--body-size-m: 20px;
+	--body-size: var(--three-units);
+	--body-size-m: calc(var(--unit) * 2.5);
 	--body-line: 1.2;
-	--caption-size: 16px;
-	--micro-size: 12px;
+	--hover-size: var(--four-units);
+	--caption-size: var(--two-units);
+	--micro-size: calc(var(--unit) * 1.5);
 }
