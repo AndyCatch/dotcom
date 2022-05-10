@@ -945,6 +945,10 @@ a.menu-icon.open-menu {
   align-items: flex-start;
 }
 
+.mobile-label-container {
+  display: none;
+}
+
 .work-type {
   display: flex;
   flex-direction: row;
@@ -1782,19 +1786,27 @@ a {
     margin-top: 0;
   }
 
+  .work-type-label {
+    display: none;
+  }
+
+  .desktop-label-container {
+    display: none;
+  }
+
   .mobile-label-container {
     position: absolute;
-    width: calc(100% - var(--four-units));
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
-  .mobile-label-container .work-type-label {
+
+  .work-type-label-m {
     position: relative;
   }
 
   .mobile-title {
-    position: relative;
-    display: block;
+    display: contents;
     font-family: var(--untitled-reg);
     font-size: var(--body-size);
     margin-bottom: 0 !important;
@@ -1807,14 +1819,13 @@ a {
   .list a {
     width: 100%;
     margin-bottom: var(--eight-units);
-    aspect-ratio: 1/1;
     border: 0px;
   }
   .list a h1 {
     transform: translate(0px, 0px);
   }
   .list a img {
-    border-radius: var(--half-unit);
+    border-radius: var(--four-units);
     position: relative;
     /* Seems to override javascript */
     opacity: 1 !important;
@@ -1829,10 +1840,6 @@ a {
   a:hover h1 {
     -webkit-text-stroke-width: 0;
     -webkit-text-fill-color: var(--white);
-  }
-
-  .desktop-label-container {
-    display: none;
   }
 
   .next {
@@ -2015,19 +2022,27 @@ a {
     margin-top: 0;
   }
 
+  .work-type-label {
+    display: none;
+  }
+
+  .desktop-label-container {
+    display: none;
+  }
+
   .mobile-label-container {
     position: absolute;
-    width: calc(100% - var(--four-units));
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
-  .mobile-label-container .work-type-label {
+
+  .work-type-label-m {
     position: relative;
   }
 
   .mobile-title {
-    position: relative;
-    display: block;
+    display: contents;
     font-family: var(--untitled-reg);
     font-size: var(--body-size);
     margin-bottom: 0 !important;
@@ -2040,14 +2055,13 @@ a {
   .list a {
     width: 100%;
     margin-bottom: var(--eight-units);
-    aspect-ratio: 1/1;
     border: 0px;
   }
   .list a h1 {
     transform: translate(0px, 0px);
   }
   .list a img {
-    border-radius: var(--half-unit);
+    border-radius: var(--four-units);
     position: relative;
     /* Seems to override javascript */
     opacity: 1 !important;
@@ -2062,10 +2076,6 @@ a {
   a:hover h1 {
     -webkit-text-stroke-width: 0;
     -webkit-text-fill-color: var(--white);
-  }
-
-  .desktop-label-container {
-    display: none;
   }
 
   .next {
