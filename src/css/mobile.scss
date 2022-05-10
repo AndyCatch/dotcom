@@ -50,7 +50,7 @@
 	@include navItem-exceptions-mobile;
 	@include type-stack.mobile-type-stack;
 
-	@include listModule.mobile-portrait;
+	@include listModule.mobile;
 	@include nextProject.mobile-portrait-med;
 
 	.semplice-cover .show-more svg {
@@ -76,7 +76,7 @@
 	@include homeBranding.mobile;
 	@include homeCopy.mobile;
 	@include type-stack.mobile-type-stack;
-	@include listModule.mobile-portrait;
+	@include listModule.mobile;
 	@include nextProject.mobile-portrait-med;
 	@include sempliceHelpers.mobile;
 	@include letterBackground.mobile;
@@ -108,7 +108,6 @@
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
 	@include navItem-exceptions-mobile;
 	@include type-stack.mobile-type-stack;
-	@include listModule.mobile-portrait;
 
 	.semplice-cover .show-more svg {
 		margin-bottom: 0px;
