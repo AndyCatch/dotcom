@@ -34,16 +34,16 @@ gulp.task('compileTypeCSS', function () {
 	return (
 		gulp
 			.src('src/css/typography.scss')
-			// .pipe(sourcemaps.init())
+			.pipe(sourcemaps.init())
 			.pipe(sass().on('error', sass.logError))
 			// UnComment in final build
-			// .pipe(
-			//   cleanCSS({
-			//     compatibility: 'ie8',
-			//     rebase: false,
-			//   })
-			// )
-			// .pipe(sourcemaps.write())
+			.pipe(
+			  cleanCSS({
+			    compatibility: 'ie8',
+			    rebase: false,
+			  })
+			)
+			.pipe(sourcemaps.write())
 			.pipe(gulp.dest('dist/css')) // this results in a "typography.css" in the dist folder
 			.pipe(browserSync.stream())
 	)

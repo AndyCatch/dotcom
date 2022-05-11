@@ -81,6 +81,7 @@ input, textarea, select {
   /* Copy Headlines */
   --dark-blue: #1e176a;
   /* Selected text */
+  /* #dc2f02 vermillion */
   --background:var(--black);
   /* Type */
   --beastly: "Beastly-72_Point";
@@ -886,7 +887,7 @@ a.menu-icon.open-menu {
   }
 }
 #shaderBG {
-  mix-blend-mode: soft-light;
+  mix-blend-mode: color-dodge;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -1242,15 +1243,23 @@ span {
   border-style: solid;
   border-radius: var(--four-units);
   background-color: transparent;
+  mix-blend-mode: normal !important;
   justify-content: flex-start !important;
   margin-bottom: 33vh;
+  transition: all 0.3s ease-in !important;
 }
 .semplice-cover .show-more img {
+  mix-blend-mode: normal !important;
   animation: 1s arrow-down infinite alternate ease-in-out;
   background-color: transparent !important;
 }
-.semplice-cover .show-more :hover {
-  background-color: var(--white);
+
+.semplice-cover .show-more:hover {
+  background-color: var(--white) !important;
+  mix-blend-mode: difference !important;
+}
+.semplice-cover .show-more:hover img {
+  mix-blend-mode: difference !important;
 }
 
 @keyframes arrow-down {

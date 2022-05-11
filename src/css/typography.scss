@@ -1,42 +1,43 @@
+/*-----------------------------------------------------------------------*/
+
 @font-face {
-  font-family: 'Font Awesome 5 Brands';
-  font-style: normal;
-  font-weight: normal;
-  font-display: auto;
-  src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/webfonts/fa-brands-400.eot');
-  src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/webfonts/fa-brands-400.eot?#iefix')
-      format('embedded-opentype'),
-    url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/webfonts/fa-brands-400.woff2')
-      format('woff2'),
-    url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/webfonts/fa-brands-400.woff')
-      format('woff'),
-    url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/webfonts/fa-brands-400.ttf')
-      format('truetype'),
-    url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/webfonts/fa-brands-400.svg')
-      format('svg');
+	font-family: 'Beastly-72_Point';
+	/**/
+	src: url('/fonts/Beastly-72_Point.woff2'), url('/fonts/Beastly-72_Point.woff');
+	/* src: url('https://andycatch.com/proto/wp-content/uploads/2021/08/Beastly-72_Point.woff2'), url('https://andycatch.com/proto/wp-content/uploads/2021/08/Beastly-72_Point.woff'); */
 }
 
 @font-face {
-  font-family: 'Beastly-72_Point';
-  /**/
-  src: url('/fonts/Beastly-72_Point.woff2'), url('/fonts/Beastly-72_Point.woff');
-  /* src: url('https://andycatch.com/proto/wp-content/uploads/2021/08/Beastly-72_Point.woff2'), url('https://andycatch.com/proto/wp-content/uploads/2021/08/Beastly-72_Point.woff'); */
-}
-
-@font-face {
-  font-family: 'untitled-sans-web-regular';
-  /**/
-  src: url('/fonts/untitled-sans-web-regular.woff2'),
-    url('/fonts/untitled-sans-web-regular.woff');
-  /*src: url('https://andycatch.com/proto/wp-content/uploads/2021/08/untitled-sans-web-regular.woff2'),
+	font-family: 'untitled-sans-web-regular';
+	/**/
+	src: url('/fonts/untitled-sans-web-regular.woff2'),
+		url('/fonts/untitled-sans-web-regular.woff');
+	/*src: url('https://andycatch.com/proto/wp-content/uploads/2021/08/untitled-sans-web-regular.woff2'),
       url('https://andycatch.com/proto/wp-content/uploads/2021/08/untitled-sans-web-regular.woff');*/
 }
 
 @font-face {
-  font-family: 'untitled-sans-web-regular-italic';
-  /**/
-  src: url('/fonts/untitled-sans-web-regular-italic.woff2'),
-    url('/fonts/untitled-sans-web-regular-italic.woff');
-  /*src: url('https://andycatch.com/proto/wp-content/uploads/2021/08/untitled-sans-web-regular-italic.woff2'),
+	font-family: 'untitled-sans-web-regular-italic';
+	/**/
+	src: url('/fonts/untitled-sans-web-regular-italic.woff2'),
+		url('/fonts/untitled-sans-web-regular-italic.woff');
+	/*src: url('https://andycatch.com/proto/wp-content/uploads/2021/08/untitled-sans-web-regular-italic.woff2'),
       url('https://andycatch.com/proto/wp-content/uploads/2021/08/untitled-sans-web-regular-italic.woff');*/
 }
+
+/*
+@font-face {
+  font-family: "Beastly-72_Point";
+ src: url('https://andycatch.com/proto/wp-content/uploads/2021/08/Beastly-72_Point.woff2'), url('https://andycatch.com/proto/wp-content/uploads/2021/08/Beastly-72_Point.woff');
+}
+@font-face {
+  font-family: "untitled-sans-web-regular";
+  src: url('https://andycatch.com/proto/wp-content/uploads/2021/08/untitled-sans-web-regular.woff2'),
+      url('https://andycatch.com/proto/wp-content/uploads/2021/08/untitled-sans-web-regular.woff');
+}
+@font-face {
+  font-family: "untitled-sans-web-regular-italic";
+  src: url('https://andycatch.com/proto/wp-content/uploads/2021/08/untitled-sans-web-regular-italic.woff2'),
+      url('https://andycatch.com/proto/wp-content/uploads/2021/08/untitled-sans-web-regular-italic.woff');
+}
+*/
