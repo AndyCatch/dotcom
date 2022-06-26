@@ -349,7 +349,7 @@ a.menu-icon.open-menu {
 .nav-toggle {
   z-index: 10;
   position: fixed;
-  bottom: 0;
+  bottom: var(--four-units);
   left: 50%;
   transform: translate(-50%, 0);
   display: flex;
@@ -358,7 +358,6 @@ a.menu-icon.open-menu {
   align-items: center;
   width: fit-content;
   /* top | right | bottom | left */
-  margin: 0 0 var(--four-units) 0;
   border: 1px var(--white);
   border-style: solid;
   border-radius: var(--four-units);
@@ -2268,12 +2267,12 @@ a {
   .nav-toggle {
     display: flex;
     justify-content: space-between;
-    width: calc(50% - calc(5 * var(--half-unit)));
+    bottom: var(--two-units);
+    left: var(--two-units);
+    width: 50%;
     height: calc(9 * var(--unit));
-    left: 0;
     transform: translate(0, 0);
     /* top | right | bottom | left */
-    margin: 0 0 var(--two-units) var(--two-units);
   }
   .nav-toggle .custom-home {
     /* top | right | bottom | left */
@@ -2302,7 +2301,7 @@ a {
     flex-wrap: wrap;
     justify-content: flex-start;
     z-index: 9;
-    width: calc(100% - var(--four-units));
+    width: 100%;
     height: 100vh;
     margin: 0 0 0 0;
     transition: all 0.4s cubic-bezier(0.65, 0.05, 0.36, 1) !important;
