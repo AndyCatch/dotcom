@@ -15,7 +15,7 @@ gulp.task('compileCSS', function () {
 	return (
 		gulp
 			.src('src/css/app.scss')
-			// .pipe(sourcemaps.init())
+			.pipe(sourcemaps.init())
 			.pipe(sass().on('error', sass.logError))
 			// UnComment in final build
 			// .pipe(
@@ -24,7 +24,7 @@ gulp.task('compileCSS', function () {
 			//     rebase: false,
 			//   })
 			// )
-			// .pipe(sourcemaps.write())
+			.pipe(sourcemaps.write())
 			.pipe(gulp.dest('dist/css')) // this results in a "app.css" in the dist folder
 			.pipe(browserSync.stream())
 	)
@@ -38,10 +38,10 @@ gulp.task('compileTypeCSS', function () {
 			.pipe(sass().on('error', sass.logError))
 			// UnComment in final build
 			.pipe(
-			  cleanCSS({
-			    compatibility: 'ie8',
-			    rebase: false,
-			  })
+				cleanCSS({
+					compatibility: 'ie8',
+					rebase: false,
+				})
 			)
 			.pipe(sourcemaps.write())
 			.pipe(gulp.dest('dist/css')) // this results in a "typography.css" in the dist folder
