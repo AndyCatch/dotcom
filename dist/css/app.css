@@ -2267,7 +2267,7 @@ a {
     justify-content: space-between;
     bottom: var(--two-units);
     left: var(--two-units);
-    width: 50%;
+    width: calc(50% - calc(5 * var(--half-unit)));
     height: calc(9 * var(--unit));
     transform: translate(0, 0);
     /* top | right | bottom | left */
