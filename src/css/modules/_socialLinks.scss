@@ -64,7 +64,8 @@
 
 @mixin mobile {
 	.social-links {
-		flex-wrap: wrap;
+		// width: calc(100% - var(--four-units)); // witdh is defined by sections{}
+		flex-direction: column;
 		padding-bottom: 0;
 		align-items: flex-start;
 		margin-top: 30vh;

@@ -44,6 +44,7 @@
 
 @mixin mobile {
 	.home-copy-module {
+		// width: calc(100% - var(--four-units)); // this width is defined by sections{}
 		display: flex;
 		flex-direction: column;
 	}

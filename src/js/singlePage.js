@@ -12,7 +12,7 @@ var navChecker = setInterval(addNav, 500)
 var mobileNavChecker = setInterval(addMobileNav, 500)
 var indexImageChecker = setInterval(addIndexImg, 500)
 var mouseFollowChecker = setInterval(setMouseFollow, 500)
-var canvasChecker = setInterval(checkCanvas, 500)
+// var canvasChecker = setInterval(checkCanvas, 500)
 
 let mobileNavOpen = false
 

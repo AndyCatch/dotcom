@@ -38,7 +38,7 @@ function imageMove(hoverElems) {
 	cursorTag = document.querySelector('div.cursor div')
 
 	document.addEventListener('mousemove', function (event) {
-		cursorAimX = event.pageX - cursorTag.offsetWidth / 2
+		cursorAimX = event.pageX
 		cursorAimY = event.pageY
 	})
 }

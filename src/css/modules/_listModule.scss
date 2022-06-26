@@ -59,9 +59,10 @@
 		width: fit-content;
 		font-size: var(--eight-units);
 		font-family: var(--untitled-reg);
-		color: var(--orange);
-		border: 1px solid var(--orange);
+		color: var(--white);
+		border: 1px solid var(--black);
 		border-radius: var(--two-units);
+		background-color: var(--black);
 		z-index: 50;
 		pointer-events: none;
 		transform: translate(-50%, -50%);
@@ -77,6 +78,7 @@
 	.list {
 		display: flex;
 		flex-direction: column;
+		width: calc(100% - var(--four-units));
 
 		z-index: 0 !important;
 
@@ -166,6 +168,7 @@
 
 @mixin mobile {
 	.list-container {
+		width: 100%;
 		margin-top: 0;
 	}
 
@@ -178,8 +181,9 @@
 	}
 
 	.mobile-label-container {
+		display: none;
+		//
 		position: absolute;
-		display: flex;
 		flex-direction: column;
 		width: 100%;
 	}
@@ -200,11 +204,22 @@
 	}
 
 	.list {
+		flex-wrap: wrap;
+		flex-direction: unset;
+
 		a {
-			width: 100%;
-			margin-bottom: var(--eight-units);
-			// aspect-ratio: 1 / 1;
+			width: calc(50% - var(--half-unit));
+			height: 100%;
 			border: 0px;
+			margin-bottom: var(--unit);
+		}
+
+		:nth-child(odd) {
+			margin-right: var(--unit);
+		}
+
+		:nth-child(even) {
+			margin-right: 0px;
 		}
 
 		a h1 {
@@ -217,7 +232,7 @@
 			/* Seems to override javascript */
 			opacity: 1 !important;
 			transform: translate3d(0px, 0px, 0px) !important;
-			aspect-ratio: 1 / 1;
+			aspect-ratio: 1 / 2;
 			object-fit: cover;
 
 			width: 100%;

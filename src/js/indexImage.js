@@ -35,19 +35,28 @@ function renderElems(indexItems) {
 		}
 		imageSets.forEach((imageSet) => {
 			let touchCover = document.createElement('div')
+
 			let smlImage = new Image()
+			smlImage.src = imageSet.dataset.small
 			let lgImage = new Image()
+			lgImage.src = imageSet.dataset.large
+
+			let smlDiv = document.createElement('div')
+			let lgDiv = document.createElement('div')
+
 			let caption = document.createElement('p')
-			let childItems = [lgImage, caption, touchCover, smlImage]
+			let childItems = [lgDiv, caption, touchCover, smlDiv] // lgImage, smlImage,
 			if (imageSet.dataset.caption) {
 				caption.innerHTML = imageSet.dataset.caption
 			}
 
-			smlImage.src = imageSet.dataset.small
-			lgImage.src = imageSet.dataset.large
 			touchCover.classList.add('touchCover')
-			smlImage.classList.add('small')
-			lgImage.classList.add('large')
+			smlDiv.classList.add('small')
+			smlDiv.style.backgroundImage = `url(${smlImage.src})`
+			// smlImage.classList.add('small')
+			// lgImage.classList.add('large')
+			lgDiv.classList.add('large')
+			lgDiv.style.backgroundImage = `url(${lgImage.src})`
 			caption.classList.add('caption')
 
 			imageSet.replaceChildren() // think this clears this element
@@ -127,17 +136,14 @@ function indexItemHandler(event) {
 
 		current.style.zIndex = 2 // bring the current highest up
 		currentInfo.style.zIndex = 5
-		current.classList.add('indexHover')
 
 		if (currentImgs) {
 			currentImgs.classList.remove('zeroOpacity')
 			currentImgs.classList.add('fullOpacity')
 		}
 
-		header.classList.add('headingHover')
 		bg.classList.add('fullOpacity')
 	} else if (event.type === 'mouseout') {
-		current.classList.remove('indexHover')
 		current.style.setProperty('color', 'var(--white)')
 		bg.classList.remove('fullOpacity')
 
@@ -149,7 +155,6 @@ function indexItemHandler(event) {
 				imgs.classList.remove('zeroOpacity')
 			}
 		})
-		header.classList.remove('headingHover')
 	}
 }
 

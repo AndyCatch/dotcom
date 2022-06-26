@@ -37,10 +37,6 @@
 		flex-direction: row;
 	}
 
-	.indexHover {
-		color: var(--black) !important;
-	}
-
 	.image-set-wrapper {
 		width: 100%;
 		display: flex;
@@ -102,7 +98,7 @@
 		top: 0;
 		left: 0;
 		opacity: 0;
-		background-color: var(--white);
+		background-color: var(--black);
 		transition: opacity 0.2s ease-in;
 	}
 
@@ -110,17 +106,12 @@
 		visibility: visible;
 	}
 
-	.headingHover {
-		color: var(--black) !important;
-		// z-index: 3;
-	}
-
 	.touchCover {
 		z-index: 2;
 	}
 
 	.caption {
-		color: var(--black) !important;
+		color: var(--white) !important;
 		text-align: center;
 		font-family: var(--untitled-ita);
 		position: fixed !important;
@@ -171,7 +162,10 @@
 	.small {
 		opacity: 1;
 		width: 5.5vw !important;
-		height: auto;
+		background-size: cover;
+		background-position: center;
+		aspect-ratio: 16/9;
+		// height: auto;
 		position: relative;
 		margin-right: calc(var(--unit) / 2);
 		margin-top: calc(var(--unit) / 2);
@@ -189,6 +183,9 @@
 	.large {
 		pointer-events: none;
 		width: 65vw;
+		background-size: cover;
+		background-position: center;
+		aspect-ratio: 16/9;
 		top: 50%;
 		right: 0;
 		position: fixed !important;

@@ -54,6 +54,7 @@
 
 @mixin mobile {
 	.footer-container {
+		width: calc(100% - var(--four-units));
 		padding-bottom: calc(12vh + var(--two-units));
 
 		div:nth-child(1) {

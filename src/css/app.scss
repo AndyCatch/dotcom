@@ -18,6 +18,7 @@
 html,
 body {
 	background-color: var(--black);
+	// overflow-x: hidden; // don't think I need this for Semplice
 
 	::-moz-selection {
 		/* Code for Firefox */
