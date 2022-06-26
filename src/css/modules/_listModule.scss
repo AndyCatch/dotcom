@@ -1,7 +1,7 @@
 @mixin desktop {
 	.list-container {
 		display: block;
-		width: 100%;
+		// width: 100%; // this *should* be managed by sections{}
 		margin-top: 18vh;
 	}
 
@@ -78,7 +78,7 @@
 	.list {
 		display: flex;
 		flex-direction: column;
-		width: calc(100% - var(--four-units));
+		// width: calc(100% - var(--four-units)); // this *should* be managed by sections{}
 
 		z-index: 0 !important;
 
