@@ -930,7 +930,6 @@ a.menu-icon.open-menu {
 /* ----- List Module ----- */
 .list-container {
   display: block;
-  width: 100%;
   margin-top: 18vh;
 }
 
@@ -1005,7 +1004,6 @@ div.cursor div {
 .list {
   display: flex;
   flex-direction: column;
-  width: calc(100% - var(--four-units));
   z-index: 0 !important;
 }
 .list a {
