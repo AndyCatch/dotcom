@@ -4,8 +4,8 @@ import { updateClock } from './luxonClock'
 import { indexImage } from './indexImage'
 import { hideShow } from './hideShowNav'
 import { imageMove } from './mouseFollow'
-import { sizer } from './canvasUtils'
-import { frag } from './shaders/frag'
+// import { sizer } from './canvasUtils'
+// import { frag } from './shaders/frag'
 
 var clock = setInterval(updateClock, 1000)
 var navChecker = setInterval(addNav, 500)
@@ -25,10 +25,10 @@ function init() {
 	luxonTag.src = 'https://moment.github.io/luxon/global/luxon.min.js'
 	document.body.appendChild(luxonTag)
 
-	let glslCanvasTag = document.createElement('script')
-	glslCanvasTag.src =
-		'https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js'
-	document.body.appendChild(glslCanvasTag)
+	// let glslCanvasTag = document.createElement('script')
+	// glslCanvasTag.src =
+	// 	'https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js'
+	// document.body.appendChild(glslCanvasTag)
 }
 
 window.addEventListener('load', (event) => {
@@ -51,29 +51,29 @@ window.addEventListener('resize', (event) => {
 		mobileNavOpen = !mobileNavOpen
 	}
 
-	let canvasTag = document.getElementById('shaderBG')
-	if (canvasTag) {
-		sizer(canvasTag)
-	}
+	// let canvasTag = document.getElementById('shaderBG')
+	// if (canvasTag) {
+	// 	sizer(canvasTag)
+	// }
 })
 
-function checkCanvas() {
-	let canvasTag = document.getElementById('shaderBG')
+// function checkCanvas() {
+// 	let canvasTag = document.getElementById('shaderBG')
 
-	if (canvasTag) {
-		// console.log('Canvas')
-		clearInterval(canvasChecker)
-		let sandbox = new GlslCanvas(canvasTag)
-		sandbox.load(frag)
-		sandbox.setUniform('seed', Math.random())
-		sizer(canvasTag)
-	} else {
-		setTimeout(() => {
-			// console.log('No Canvas')
-			clearInterval(canvasChecker)
-		}, 1500)
-	}
-}
+// 	if (canvasTag) {
+// 		// console.log('Canvas')
+// 		clearInterval(canvasChecker)
+// 		let sandbox = new GlslCanvas(canvasTag)
+// 		sandbox.load(frag)
+// 		sandbox.setUniform('seed', Math.random())
+// 		sizer(canvasTag)
+// 	} else {
+// 		setTimeout(() => {
+// 			// console.log('No Canvas')
+// 			clearInterval(canvasChecker)
+// 		}, 1500)
+// 	}
+// }
 
 function setMouseFollow() {
 	if (document.querySelector('div.list')) {

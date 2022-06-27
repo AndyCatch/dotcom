@@ -95,7 +95,7 @@
 			color: var(--white);
 
 			border: 1px solid var(--white);
-			border-radius: var(--four-units);
+			border-radius: var(--three-units);
 
 			img {
 				/* Removing !important */
@@ -181,22 +181,29 @@
 	}
 
 	.mobile-label-container {
-		display: none;
-		//
+		display: block;
 		position: absolute;
 		flex-direction: column;
 		width: 100%;
+		top: 0;
+		left: 0;
+		background-color: var(--white);
 	}
 
 	.work-type-label-m {
+		display: none;
 		position: relative;
 	}
 
 	.mobile-title {
-		display: contents;
+		margin: var(--two-units) !important;
+		position: relative;
+		line-height: 0.9;
+		letter-spacing: -1px;
+		color: var(--black) !important;
+		display: block;
 		font-family: var(--untitled-reg);
 		font-size: var(--body-size);
-		margin-bottom: 0 !important;
 	}
 
 	div.cursor div {
@@ -208,17 +215,23 @@
 		flex-direction: unset;
 
 		a {
+			position: relative;
 			width: calc(50% - var(--half-unit));
 			height: 100%;
 			border: 0px;
 			margin-bottom: var(--unit);
 		}
 
-		:nth-child(odd) {
+		a:nth-child(2n + 2) {
+			margin-top: var(--eight-units);
+			// background-color: red;
+		}
+
+		a:nth-child(odd) {
 			margin-right: var(--unit);
 		}
 
-		:nth-child(even) {
+		a:nth-child(even) {
 			margin-right: 0px;
 		}
 
