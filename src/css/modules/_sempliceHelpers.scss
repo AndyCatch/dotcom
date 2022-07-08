@@ -165,6 +165,9 @@
 		z-index: 7 !important;
 
 		a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			text-align: right;
 			background-color: var(--white);
 			height: calc(9 * var(--unit)) !important;
@@ -174,7 +177,7 @@
 
 		a img {
 			padding-top: 0 !important;
-			margin-right: var(--unit) !important;
+			// margin-right: var(--unit) !important;
 			width: 2rem !important;
 		}
 	}

@@ -10,7 +10,7 @@
 
 	.index-items {
 		margin-top: 35vh;
-		margin-bottom: 35vh;
+		// margin-bottom: 35vh;
 	}
 
 	.index-item {
@@ -46,11 +46,11 @@
 	}
 
 	.image-set {
-		clear: both;
 		display: block;
-		float: left;
 		width: fit-content;
 		position: relative !important;
+		margin-right: var(--half-unit);
+		margin-top: var(--half-unit);
 	}
 
 	.index-item-info {
@@ -127,8 +127,8 @@
 		display: none;
 		opacity: 0;
 		color: var(--black);
-		border: 1px var(--black);
-		border-style: solid;
+		// border: 1px var(--black);
+		// border-style: solid;
 		z-index: 8;
 		transition: opacity 0.2s ease-in;
 
@@ -167,8 +167,8 @@
 		aspect-ratio: 16/9;
 		// height: auto;
 		position: relative;
-		margin-right: calc(var(--unit) / 2);
-		margin-top: calc(var(--unit) / 2);
+		// margin-right: calc(var(--unit) / 2);
+		// margin-top: calc(var(--unit) / 2);
 		transition: all 0.2s ease-in;
 		z-index: 1;
 	}
@@ -259,15 +259,16 @@
 		text-align: left;
 	}
 
+	.image-set {
+		width: calc(33 - var(--half-unit)) !important;
+	}
+
 	.image-set-wrapper {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
 		width: 100%;
 	}
 
 	.small {
-		padding: 0 calc(var(--unit) / 2) calc(var(--unit) / 2) calc(var(--unit) / 2);
-		width: 33vw !important;
+		width: calc(33vw - var(--two-units)) !important;
 	}
 
 	.thumbBg {

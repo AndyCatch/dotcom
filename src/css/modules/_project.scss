@@ -303,6 +303,10 @@
 }
 
 @mixin mobile {
+	.project-cover-fade-in {
+		opacity: 0.9;
+	}
+
 	.video-project-square {
 		width: calc(100vw - 32px);
 	}
@@ -367,11 +371,4 @@
 			height: 100% !important;
 		}
 	}
-
-	// .semplice-cover .show-more:hover {
-	// 	background-color: transparent !important;
-	// 	img {
-	// 		mix-blend-mode: normal !important;
-	// 	}
-	// }
 }

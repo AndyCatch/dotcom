@@ -4,15 +4,13 @@ import { updateClock } from './luxonClock'
 import { indexImage } from './indexImage'
 import { hideShow } from './hideShowNav'
 import { imageMove } from './mouseFollow'
-// import { sizer } from './canvasUtils'
-// import { frag } from './shaders/frag'
+import { isInViewport } from './utils'
 
 var clock = setInterval(updateClock, 1000)
 var navChecker = setInterval(addNav, 500)
 var mobileNavChecker = setInterval(addMobileNav, 500)
 var indexImageChecker = setInterval(addIndexImg, 500)
 var mouseFollowChecker = setInterval(setMouseFollow, 500)
-// var canvasChecker = setInterval(checkCanvas, 500)
 
 let mobileNavOpen = false
 
@@ -24,11 +22,6 @@ function init() {
 	let luxonTag = document.createElement('script')
 	luxonTag.src = 'https://moment.github.io/luxon/global/luxon.min.js'
 	document.body.appendChild(luxonTag)
-
-	// let glslCanvasTag = document.createElement('script')
-	// glslCanvasTag.src =
-	// 	'https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js'
-	// document.body.appendChild(glslCanvasTag)
 }
 
 window.addEventListener('load', (event) => {
@@ -50,30 +43,7 @@ window.addEventListener('resize', (event) => {
 
 		mobileNavOpen = !mobileNavOpen
 	}
-
-	// let canvasTag = document.getElementById('shaderBG')
-	// if (canvasTag) {
-	// 	sizer(canvasTag)
-	// }
 })
-
-// function checkCanvas() {
-// 	let canvasTag = document.getElementById('shaderBG')
-
-// 	if (canvasTag) {
-// 		// console.log('Canvas')
-// 		clearInterval(canvasChecker)
-// 		let sandbox = new GlslCanvas(canvasTag)
-// 		sandbox.load(frag)
-// 		sandbox.setUniform('seed', Math.random())
-// 		sizer(canvasTag)
-// 	} else {
-// 		setTimeout(() => {
-// 			// console.log('No Canvas')
-// 			clearInterval(canvasChecker)
-// 		}, 1500)
-// 	}
-// }
 
 function setMouseFollow() {
 	if (document.querySelector('div.list')) {

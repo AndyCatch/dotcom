@@ -1,8 +1,6 @@
 import { isInViewport } from './utils'
 
 let prevScrollPos = window.pageYOffset
-let navHidden = false
-let pause = 4000
 
 function showNav(elem) {
 	elem.classList.remove('hideNav')
@@ -14,15 +12,6 @@ function hideNav(elem) {
 	elem.classList.add('hideNav')
 }
 
-// function pauseCheck(navElem) {
-// 	if (navHidden) {
-// 		setTimeout(() => {
-// 			showNav(navElem)
-// 			navHidden = false
-// 		}, pause)
-// 	}
-// }
-
 function hideShow(navElem, footerElem, currentScroll) {
 	let currentScrollPos = currentScroll
 
@@ -31,10 +20,8 @@ function hideShow(navElem, footerElem, currentScroll) {
 		currentScrollPos <= 0 ||
 		isInViewport(footerElem)
 	) {
-		// navHidden = false
 		showNav(navElem)
 	} else {
-		// navHidden = true
 		hideNav(navElem)
 	}
 	prevScrollPos = currentScrollPos
