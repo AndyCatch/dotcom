@@ -26,6 +26,9 @@
 	}
 
 	.custom-nav-desktop {
+		border: 1px var(--black);
+		box-shadow: 2px 2px 8px 0 rgb(255 255 255 / 10%);
+
 		.custom-nav-item {
 			/* top | right | bottom | left */
 			margin: var(--unit) 0 var(--unit) var(--three-units);

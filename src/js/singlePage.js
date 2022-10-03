@@ -7,13 +7,17 @@ import { imageMove } from './mouseFollow'
 import { isInViewport } from './utils'
 
 var clock = setInterval(updateClock, 1000)
-var navChecker = setInterval(addNav, 500)
 var mobileNavChecker = setInterval(addMobileNav, 500)
 var indexImageChecker = setInterval(addIndexImg, 500)
 var mouseFollowChecker = setInterval(setMouseFollow, 500)
+// var letterFilterChecker = setInterval(setLetterFilter, 500)
+var navChecker = setInterval(addNav, 500)
 
 let mobileNavOpen = false
+let hadFilter = false
+let letters
 
+// ------ Used in currentPage.js ------ //
 let currentPage
 let navItemChecker
 
@@ -110,6 +114,15 @@ function mobileNavHandler(mobileNavTag, toggleTag, page) {
 function addNav() {
 	let nav = document.getElementsByClassName('custom-nav-desktop')[0]
 
+	let letterTag = document.querySelector('.letter')
+	letters = Array.from(document.getElementsByClassName('letter'))
+
+	if (letterTag.classList.contains('letter-filter')) {
+		hadFilter = true
+	} else {
+		hadFilter = false
+	}
+
 	if (nav) {
 		window.addEventListener('scroll', navHandler, {
 			capture: false,
@@ -125,7 +138,7 @@ function navHandler(event) {
 	let currentScrollPos = window.pageYOffset
 
 	if (nav != 'undefined') {
-		hideShow(nav, footer, currentScrollPos)
+		hideShow(nav, footer, letters, hadFilter, currentScrollPos)
 	}
 }
 

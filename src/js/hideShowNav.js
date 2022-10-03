@@ -1,6 +1,7 @@
 import { isInViewport } from './utils'
 
 let prevScrollPos = window.pageYOffset
+let hadFilter = false
 
 function showNav(elem) {
 	elem.classList.remove('hideNav')
@@ -10,9 +11,28 @@ function showNav(elem) {
 function hideNav(elem) {
 	elem.classList.remove('showNav')
 	elem.classList.add('hideNav')
+
+	inactivityTime(elem)
+	// console.log('Wait time enabled...')
 }
 
-function hideShow(navElem, footerElem, currentScroll) {
+let inactivityTime = function (elem) {
+	let time
+	window.onload = resetTimer
+	document.onmousemove = resetTimer
+	// document.onkeypress = resetTimer;
+	function logout() {
+		// console.log('Showing nav')
+		showNav(elem)
+	}
+
+	function resetTimer() {
+		clearTimeout(time)
+		time = setTimeout(logout, 4000)
+	}
+}
+
+function hideShow(navElem, footerElem, letters, hadFilter, currentScroll) {
 	let currentScrollPos = currentScroll
 
 	if (
@@ -25,6 +45,20 @@ function hideShow(navElem, footerElem, currentScroll) {
 		hideNav(navElem)
 	}
 	prevScrollPos = currentScrollPos
+
+	if (isInViewport(footerElem)) {
+		if (hadFilter) {
+			letters.forEach((letter) => {
+				letter.classList.remove('letter-filter')
+			})
+		}
+	} else {
+		if (hadFilter) {
+			letters.forEach((letter) => {
+				letter.classList.add('letter-filter')
+			})
+		}
+	}
 }
 
 export { hideNav, showNav, hideShow }
