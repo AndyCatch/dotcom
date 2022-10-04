@@ -180,7 +180,7 @@
 			background-color: var(--white);
 			border-radius: var(--two-units) var(--two-units) 0 0;
 
-			height: 60vh;
+			height: 50vh;
 			width: 100%;
 
 			:nth-child(1) {
@@ -207,10 +207,8 @@
 		margin: 0 0 0 0;
 		background-color: var(--black);
 		opacity: 0.3;
-
 		position: absolute;
-
-		pointer-events: none;
+		// pointer-events: none;
 	}
 
 	.custom-nav-desktop {
