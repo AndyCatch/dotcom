@@ -2,7 +2,7 @@
 
 import { updateClock } from './luxonClock'
 import { indexImage } from './indexImage'
-import { hideShow } from './hideShowNav'
+import { hideShow, inactivityTime } from './hideShowNav'
 import { imageMove } from './mouseFollow'
 import { isInViewport } from './utils'
 
@@ -10,7 +10,6 @@ var clock = setInterval(updateClock, 1000)
 var mobileNavChecker = setInterval(addMobileNav, 500)
 var indexImageChecker = setInterval(addIndexImg, 500)
 var mouseFollowChecker = setInterval(setMouseFollow, 500)
-// var letterFilterChecker = setInterval(setLetterFilter, 500)
 var navChecker = setInterval(addNav, 500)
 
 let mobileNavOpen = false
@@ -130,11 +129,13 @@ function addNav() {
 	}
 
 	if (nav) {
+		clearInterval(navChecker)
 		window.addEventListener('scroll', navHandler, {
 			capture: false,
 			passive: true,
 		})
-		clearInterval(navChecker)
+
+		inactivityTime(nav)
 	}
 }
 

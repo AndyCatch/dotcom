@@ -2,6 +2,7 @@ import { isInViewport } from './utils'
 
 let prevScrollPos = window.pageYOffset
 let hadFilter = false
+let userHasScrolled = false
 
 function showNav(elem) {
 	elem.classList.remove('hideNav')
@@ -11,18 +12,18 @@ function showNav(elem) {
 function hideNav(elem) {
 	elem.classList.remove('showNav')
 	elem.classList.add('hideNav')
-
-	inactivityTime(elem)
-	// console.log('Wait time enabled...')
 }
 
 let inactivityTime = function (elem) {
 	let time
-	window.onload = resetTimer
-	document.onmousemove = resetTimer
+	// List of user events that count as activity
+	document.onscroll = resetTimer
+	// window.onload = resetTimer
+	// document.onmousemove = resetTimer
 	// document.onkeypress = resetTimer;
+
 	function logout() {
-		// console.log('Showing nav')
+		console.log('Showing nav')
 		showNav(elem)
 	}
 
@@ -61,4 +62,4 @@ function hideShow(navElem, footerElem, letters, hadFilter, currentScroll) {
 	}
 }
 
-export { hideNav, showNav, hideShow }
+export { hideNav, showNav, hideShow, inactivityTime }
