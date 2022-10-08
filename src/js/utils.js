@@ -1,3 +1,11 @@
+// calculate distance between two points using Pythagoras
+function calculateDistance(p1, p2) {
+	let a = p2.x - p1.x
+	let b = p2.y - p1.y
+
+	return Math.sqrt(a * a + b * b)
+}
+
 function activityWatcher() {
 	//The number of seconds that have passed since the user was active.
 	var secondsSinceLastActivity = 0
@@ -151,4 +159,5 @@ export {
 	nthParent,
 	cancelAnimationFrame,
 	lerp,
+	calculateDistance,
 }

@@ -114,6 +114,11 @@
 		}
 	}
 
+	.showingImage {
+		opacity: 1 !important;
+		z-index: -1;
+	}
+
 	a h1 {
 		-webkit-text-fill-color: var(--white);
 		line-height: 0.8;

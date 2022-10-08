@@ -1,8 +1,7 @@
 import { isInViewport } from './utils'
 
 let prevScrollPos = window.pageYOffset
-let hadFilter = false
-let userHasScrolled = false
+// let hadFilter = false
 
 function showNav(elem) {
 	elem.classList.remove('hideNav')
@@ -23,7 +22,7 @@ let inactivityTime = function (elem) {
 	// document.onkeypress = resetTimer;
 
 	function logout() {
-		console.log('Showing nav')
+		// console.log('Showing nav')
 		showNav(elem)
 	}
 

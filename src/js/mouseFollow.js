@@ -1,5 +1,5 @@
 import { tablets, desktops } from './mediaQueries'
-import { hasTouch } from './utils'
+import { hasTouch, calculateDistance } from './utils'
 
 let aimX = null
 let aimY = null
@@ -53,8 +53,9 @@ function mouseOver(event) {
 	cursorTag.style.opacity = 1
 	cursorTag.style.visibility = 'visible'
 	current.style.zIndex = 1
-	currentImage.style.opacity = 1
-	currentImage.style.zIndex = -1
+	currentImage.classList.add('showingImage')
+	// currentImage.style.opacity = 1
+	// currentImage.style.zIndex = -1
 	label.style.transform = 'translate(var(--four-units, 0px))'
 }
 
@@ -63,7 +64,8 @@ function mouseOut(event) {
 	hoverElements.forEach((hoverElem) => {
 		hoverElem.querySelector('h1').style.transform = 'translate(0px, 0px)'
 	})
-	currentImage.style.opacity = 0
+	currentImage.classList.remove('showingImage')
+	// currentImage.style.opacity = 0
 	cursorTag.style.opacity = 0
 	cursorTag.style.left = '0' + 'px'
 }
@@ -98,10 +100,13 @@ function draw() {
 	let viewportHeight =
 		window.innerHeight || document.documentElement.clientHeight
 
+	let p1 = { x: 0, y: cursorAimY }
+	let p2 = { x: cursorAimX, y: cursorAimY }
+
 	currCursorX += (cursorAimX - currCursorX) * 0.02
 	currCursorY += (cursorAimY - currCursorY) * 0.02
 
-	if (cursorTag) {
+	if (cursorTag && currentImage) {
 		cursorTag.style.left = currCursorX + 'px'
 		cursorTag.style.top = currCursorY + 'px'
 	}
@@ -109,7 +114,7 @@ function draw() {
 	if (!isPaused) {
 		if (currentImage) {
 			currentImage.style.transform = `translate3d(${
-				currentX - currentImage.offsetWidth / 2 - viewportWidth / 2
+				currentX - currentImage.offsetWidth / 3 - viewportWidth / 2
 			}px, ${
 				currentY - (currentImage.offsetHeight / 2 - viewportHeight / 2)
 			}px, 0px)`

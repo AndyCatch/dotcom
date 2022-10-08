@@ -53,8 +53,6 @@ function renderElems(indexItems) {
 			touchCover.classList.add('touchCover')
 			smlDiv.classList.add('small')
 			smlDiv.style.backgroundImage = `url(${smlImage.src})`
-			// smlImage.classList.add('small')
-			// lgImage.classList.add('large')
 			lgDiv.classList.add('large')
 			lgDiv.style.backgroundImage = `url(${lgImage.src})`
 			caption.classList.add('caption')
