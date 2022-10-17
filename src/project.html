@@ -12,18 +12,39 @@
 </head>
 
 <body>
-    <div class="semplice-navbar navbar-inner">
-        <nav class="standard navbar-right">
-            <ul class="menu">
-                <li><a class="nav-item" href="https://andycatch.com/about"><span>Index</span></a></li>
-                <li><a class="nav-item" href="https://andycatch.com/"><span>About</span></a></li>
-                <li><a class="nav-item current-menu-item" href="https://andycatch.com/"><span>A</span></a></li>
-            </ul>
+    <!--NAV -->
+    <nav class="nav-toggle">
+        <a class="custom-home" href="https://andycatch.com/proto"><img src="images/home.svg"></a>
+        <a class="custom-nav-item">Menu</a>
+    </nav>
+
+    <nav class="custom-nav-touch">
+        <nav>
+            <a class="custom-nav-item" href="https://andycatch.com/proto">Home</a>
+            <a class="custom-nav-item" href="https://andycatch.com/proto/work-index">Index</a>
+            <a class="custom-nav-item" href="https://andycatch.com/proto/about">About</a>
         </nav>
-    </div>
+        <div class="touch-menu-bg"></div>
+    </nav>
 
+    <nav class="custom-nav-desktop">
+        <a class="custom-home" href="https://andycatch.com/proto"><img src="images/home.svg"></a>
+        <a class="custom-nav-item" href="https://andycatch.com/proto">Home</a>
+        <a class="custom-nav-item" href="https://andycatch.com/proto/about">About</a>
+        <a class="custom-nav-item" href="https://andycatch.com/proto/work-index">Index</a>
+    </nav>
     <div class="sections">
-
+        <!-- LETTERS -->
+        <section class="fixed-section">
+            <section class="letter-container">
+                <div class="letter letter-filter">
+                    <img src="images/A-Letter.svg" alt="Letter A">
+                </div>
+                <div class="letter letter-filter">
+                    <img src="images/C-Letter.svg" alt="Letter C">
+                </div>
+            </section>
+        </section>
         <!-- PROJECT COVER  -->
         <!-- <section class="project-cover">
             <div class="project-image-container">
@@ -34,6 +55,18 @@
                 Sorry, your browser doesn't support embedded videos.
             </video>
         </section> -->
+        <!-- PROJECT NAV  -->
+        <nav class="project-inPage-nav">
+            <!-- <div class="project-nav-wrapper"> -->
+            <p>Projects:</p>
+            <!-- <a class="current-project" href="#">Verizon Vision</a> -->
+            <a href="#">Verizon Vision</a>
+            <a href="#">Verizon DBI</a>
+            <a href="#">Sonic Drive-In</a>
+            <a href="#">Process</a>
+            <a href="#">Archive</a>
+            <!-- </div> -->
+        </nav>
 
         <!-- PROJECT DISPLAY DESC. -->
         <section>
@@ -58,7 +91,7 @@
             </div>
         </section>
         <!-- PROJECT MARKER -->
-        <section class="project-cover">
+        <!-- <section class="project-cover">
             <div class="project-image-container">
                 <video class="video-project-square" autoplay muted loop>
                     <source src="https://andycatch.com/proto/wp-content/uploads/2021/10/MAIN-COMP.mp4" type="video/mp4">
@@ -71,10 +104,10 @@
                     <li>Pay Flow</li>
                 </ul>
             </div>
-        </section>
+        </section> -->
 
         <!-- TEAM MEMBERS -->
-        <section>
+        <!-- <section>
             <div class="project-info">
                 <ul class="project-team">
                     <li>Description:</li>
@@ -89,7 +122,7 @@
                     dignissim ipsum eu sem mollis fringilla. Curabitur dapibus sem id efficitur ornare. Etiam in
                     faucibus quam, at imperdiet arcu.</p>
             </div>
-        </section>
+        </section> -->
 
         <!-- SOCIAL LINKS -->
         <nav class="social-links">

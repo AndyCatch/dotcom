@@ -1,15 +1,35 @@
 /*–––––––––––––––This lives in Semplice –> Code Module in Each Project ––––––––––––––––––*/
 var isProjectChecker = setInterval(isProject, 500)
 
-function isProject() {
-	let projectCover // Element
+let projectName = 'Verizon DBI'
+let projectNav
 
-	projectCover = document.getElementsByClassName('project-cover')[0]
+function isProject() {
+	let projectCover = document.getElementsByClassName('project-cover')[0]
+	projectNav = Array.from(document.querySelectorAll('.project-inPage-nav a'))
+
+	// Set up for testing
+	// if (projectNav) {
+	// 	clearInterval(isProjectChecker)
+	// 	setCurrentProj()
+	// }
 
 	if (projectCover) {
-		fadeIn(projectCover)
-
 		clearInterval(isProjectChecker)
+		fadeIn(projectCover)
+		setCurrentProj()
+	}
+}
+
+function setCurrentProj() {
+	if (projectNav.length > 0) {
+		projectNav.forEach((item) => {
+			item.classList.remove('current-project')
+
+			if (item.innerHTML === projectName) {
+				item.classList.add('current-project')
+			}
+		})
 	}
 }
 
@@ -20,63 +40,3 @@ function fadeIn(projectCover) {
 		}
 	}, 1000)
 }
-
-function fillArray(titleName) {
-	let string = new Array(5).fill(titleName).join(' — ')
-	titleName = string
-
-	return titleName
-}
-
-function makeMarquee(elArr, text) {
-	for (let i = 0; i < elArr.length; i++) {
-		if (elArr[i]) {
-			elArr[i].innerHTML = text
-		}
-	}
-}
-
-// function isProject() {
-//   let title = 'TITLE TITLE TITLE' // setting a title
-//   let marqueeText = fillArray(title) // String
-//   let projectCover // Element
-
-//   projectCover = document.getElementsByClassName('project-cover')[0]
-
-//   let marquee // Element
-//   marquee = document.querySelector('.cover_title div h1 span')
-
-//   // sets to faded out
-//   if (projectCover && marquee) {
-//     // pushes project title elements to an array
-//     let breakpoints = Array.from(['xl', 'lg', 'md', 'sm', 'xs']) //
-//     let projectTitles = [] // Array
-
-//     for (let i = 0; i < breakpoints.length; i++) {
-//       let selectorPath = `.cover_title div[data-content-for=${JSON.stringify(
-//         breakpoints[i]
-//       )}] h1 span`
-//       projectTitles.push(document.querySelector(selectorPath)) // finds all the elements in the DOM that will have titles to account for responsiveness
-//     }
-
-//     makeMarquee(projectTitles, marqueeText)
-//     fadeIn(projectCover, marquee)
-//     fadeIn(projectCover)
-
-//     clearInterval(isProjectChecker)
-//   }
-// }
-
-// function fadeIn(projectCover, marquee) {
-//   setTimeout(function () {
-//     if (projectCover) {
-//       projectCover.classList.add('project-cover-fade-in')
-//     }
-//   }, 1000)
-
-//   setTimeout(function () {
-//     if (marquee) {
-//       marquee.classList.add('title-fade-in')
-//     }
-//   }, 1500)
-// }

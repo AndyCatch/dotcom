@@ -1,6 +1,5 @@
 /*––––––––––––––– Hijacks the hamburger menu open/close in Semplice mobile breakpoints ––––––––––––––––––*/
 let menuClick = false // open / close check
-
 var hamburgerChecker = setInterval(setUpHamburger, 1000) // brute force to see if the menu is in the DOM
 
 function setUpHamburger() {
@@ -24,7 +23,7 @@ function menuToggle() {
 
 	if (menuClick) {
 		// menu is open
-		// Example: CSS class to prevent scroll
+		// Prevent scroll
 		document.querySelector('html').classList.add('disableScroll')
 	} else {
 		// menu is closed
