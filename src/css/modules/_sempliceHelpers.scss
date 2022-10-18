@@ -5,9 +5,11 @@
 		background-color: var(--black) !important;
 	}
 
-	// #nprogress .bar {
-	// 	height: 100vh !important;
-	// }
+	#nprogress .bar {
+		background-color: var(--black) !important;
+		height: 100vh !important;
+		mix-blend-mode: difference !important;
+	}
 
 	a.menu-icon.close-menu,
 	a.menu-icon.open-menu {
