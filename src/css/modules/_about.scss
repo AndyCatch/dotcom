@@ -32,8 +32,8 @@
 	}
 
 	.about-heading {
-		grid-column-start: 1;
-		grid-column-end: 3;
+		grid-column-start: 2;
+		grid-column-end: 4;
 	}
 
 	.about-block {
@@ -46,9 +46,10 @@
 	}
 
 	.italic::after {
-		content: '\A —';
+		content: '\A ↘︎';
 		white-space: pre;
 	}
+	// 	content: '\A ↯';
 
 	.about-content .about-block:nth-child(2) {
 		margin-top: calc(var(--eight-units) * 2);
@@ -84,20 +85,17 @@
 		grid-column-end: 6;
 
 		:nth-child(1) {
-			margin-top: 0;
+			margin-top: calc(var(--eight-units) * 2);
+			// margin-top: 0;
 		}
 	}
 
-	.experience-place {
+	.list-break {
 		margin-top: var(--four-units);
 	}
 
-	.award-heading {
-		grid-column-start: 6;
-		grid-column-end: 6;
-	}
-
 	.award-set {
+		margin-top: calc(var(--eight-units) * 2);
 		grid-column-start: 6;
 		grid-column-end: 12;
 	}
