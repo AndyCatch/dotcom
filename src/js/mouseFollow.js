@@ -19,8 +19,12 @@ let images = []
 let isPaused
 let requestID
 
+const imageMarker = 4
+const propertyValue = 256
+
 function imageMove(hoverElems) {
 	hoverElements = hoverElems
+	const style = getComputedStyle(document.body)
 	hoverElements.forEach((hoverElem) => {
 		images.push(hoverElem.querySelector('img'))
 	})
@@ -41,6 +45,18 @@ function imageMove(hoverElems) {
 		cursorAimX = event.pageX
 		cursorAimY = event.pageY
 	})
+
+	headerMargin()
+}
+
+function headerMargin() {
+	for (let i = 0; i < hoverElements.length; i++) {
+		if (i % 4 !== 0) {
+			hoverElements[i].style.marginLeft = i * propertyValue + 'px'
+		} else {
+			hoverElements[i].style.marginLeft = '0px'
+		}
+	}
 }
 
 function mouseOver(event) {
@@ -54,8 +70,6 @@ function mouseOver(event) {
 	cursorTag.style.visibility = 'visible'
 	current.style.zIndex = 1
 	currentImage.classList.add('showingImage')
-	// currentImage.style.opacity = 1
-	// currentImage.style.zIndex = -1
 	label.style.transform = 'translate(var(--four-units, 0px))'
 }
 
@@ -65,7 +79,6 @@ function mouseOut(event) {
 		hoverElem.querySelector('h1').style.transform = 'translate(0px, 0px)'
 	})
 	currentImage.classList.remove('showingImage')
-	// currentImage.style.opacity = 0
 	cursorTag.style.opacity = 0
 	cursorTag.style.left = '0' + 'px'
 }
@@ -150,6 +163,7 @@ function isDesktop() {
 		// image.style.top = '50%'
 	})
 
+	// headerMargin()
 	addImageMove()
 	draw()
 }

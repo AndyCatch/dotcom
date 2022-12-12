@@ -37,7 +37,7 @@
 	--clock-line: 0.9;
 	--clock-size-tablet: 20vw;
 	--clock-size-mobile: var(--eight-units);
-	--subHead-size: 7vw; /* Converted to vw from 80px@1440 W*/
+	--subHead-size: 9vw; /* Converted to vw from 80px@1440 W*/
 	--subHead-line: 1;
 	--subHead-size-tablet: 8vw;
 	--subHead-size-mobile: calc(var(--unit) * 6);

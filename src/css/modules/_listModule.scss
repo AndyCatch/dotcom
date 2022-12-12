@@ -16,56 +16,48 @@
 		display: none;
 	}
 
-	.work-type {
+	.work-type-wrapper {
 		display: flex;
+		align-items: center;
 		flex-direction: row;
-		justify-content: space-between;
-	}
-
-	.work-type-circle {
-		width: 60px;
-		height: 60px;
-		border: 1px solid #fff;
-		border-radius: 50%;
-		position: relative;
-		margin-top: var(--half-unit);
-		margin-right: var(--half-unit);
-	}
-
-	.work-type-abr {
-		opacity: 1;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
 	}
 
 	.work-type-label {
-		position: absolute;
+		// position: absolute;
 		letter-spacing: 1px !important;
 
 		width: auto;
 		margin-top: 0.2vw;
 		font-size: var(--micro-size) !important;
 		text-align: left;
+
+		padding: var(--half-unit) var(--unit) var(--half-unit) var(--unit);
+		margin-right: var(--half-unit);
+
+		// color: var(--black) !important;
+
+		border: 1px solid var(--white);
+		border-radius: var(--two-units);
+		background-color: var(--black);
 	}
 
 	div.cursor div {
 		// overflow: hidden;
 		display: block;
 		position: absolute;
-		top: 0;
-		left: 0;
+		top: 50%;
+		left: 50%;
 		width: fit-content;
 		font-size: var(--eight-units);
+		padding: var(--two-units);
 		font-family: var(--untitled-reg);
 		color: var(--white);
-		border: 1px solid var(--black);
-		border-radius: var(--two-units);
-		background-color: var(--black);
+		border-radius: 50%;
+		background-color: var(--orange);
 		z-index: 50;
 		pointer-events: none;
 		transform: translate(-50%, -50%);
+		transform-origin: 'center center';
 		opacity: 0;
 		transition: opacity 0.6s ease-in;
 	}
@@ -78,24 +70,21 @@
 	.list {
 		display: flex;
 		flex-direction: column;
-		// width: calc(100% - var(--four-units)); // this *should* be managed by sections{}
 
 		z-index: 0 !important;
 
 		a {
-			overflow: hidden;
+			overflow: visible;
 			width: fit-content;
 			z-index: 0;
 			margin-bottom: var(--four-units);
+			transition: margin-left 1.4s cubic-bezier(0.65, 0.05, 0.36, 1) !important;
 			// cursor: url('https://andycatch.com/proto/wp-content/uploads/2021/09/Go-Cursor.png')
 			// 		64 64,
 			// 	auto !important;
 
 			display: block;
 			color: var(--white);
-
-			border: 1px solid var(--white);
-			border-radius: var(--three-units);
 
 			img {
 				/* Removing !important */
@@ -123,15 +112,6 @@
 		-webkit-text-fill-color: var(--white);
 		line-height: 0.8;
 		transition: all 0.2s ease-out !important;
-	}
-
-	a:hover div.desktop-label-container div.work-type-circle {
-		background-color: var(--white);
-		transition: all 0.2s ease-out !important;
-	}
-
-	a:hover div.desktop-label-container div.work-type-circle p.work-type-abr {
-		color: var(--black) !important;
 	}
 
 	a:hover h1 {
@@ -225,6 +205,9 @@
 			height: 100%;
 			border: 0px;
 			margin-bottom: var(--unit);
+			overflow: hidden;
+			border-radius: var(--three-units);
+			margin-left: 0 !important;
 		}
 
 		a:nth-child(2n + 2) {
@@ -245,7 +228,6 @@
 		}
 
 		a img {
-			border-radius: var(--four-units);
 			position: relative;
 			/* Seems to override javascript */
 			opacity: 1 !important;
