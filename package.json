@@ -24,6 +24,7 @@
   "homepage": "https://github.com/AndyCatch/dotcom#readme",
   "devDependencies": {
     "browser-sync": "^2.26.14",
+    "canvas-sketch-util": "^1.10.0",
     "gulp": "^4.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-dart-scss": "^1.1.0",

@@ -19,12 +19,12 @@
 			font-family: var(--untitled-reg) !important;
 
 			margin-right: var(--unit);
-			border: 1px solid var(--white);
+			border: 1px solid var(--pink);
 			padding: 0 var(--unit) 0 var(--unit);
 			border-style: solid;
 			border-radius: var(--four-units);
 			color: var(--black) !important;
-			background-color: var(--white);
+			background-color: var(--pink);
 			transition: all 0.2s ease-in !important;
 		}
 
@@ -36,13 +36,11 @@
 
 		a:hover {
 			color: var(--white) !important;
-			// border: 1px solid;
 			background-color: var(--black);
 		}
 
 		a:hover::after {
 			color: var(--white);
-			// border: 1px var(--white);
 			transition: all 0.2s ease-in !important;
 		}
 	}

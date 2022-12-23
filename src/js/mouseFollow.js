@@ -1,5 +1,5 @@
 import { tablets, desktops } from './mediaQueries'
-import { hasTouch, calculateDistance } from './utils'
+import { hasTouch } from './utils'
 
 let aimX = null
 let aimY = null
@@ -20,7 +20,7 @@ let isPaused
 let requestID
 
 const imageMarker = 4
-const propertyValue = 256
+const propertyValue = 5
 
 function imageMove(hoverElems) {
 	hoverElements = hoverElems
@@ -50,12 +50,10 @@ function imageMove(hoverElems) {
 }
 
 function headerMargin() {
+	let reverseOrder = hoverElements.length
 	for (let i = 0; i < hoverElements.length; i++) {
-		if (i % 4 !== 0) {
-			hoverElements[i].style.marginLeft = i * propertyValue + 'px'
-		} else {
-			hoverElements[i].style.marginLeft = '0px'
-		}
+		hoverElements[i].style.marginLeft = `${reverseOrder * propertyValue}%`
+		reverseOrder = reverseOrder - 1
 	}
 }
 

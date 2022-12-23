@@ -36,7 +36,7 @@
 
 		// color: var(--black) !important;
 
-		border: 1px solid var(--white);
+		border: 1px solid var(--pink);
 		border-radius: var(--two-units);
 		background-color: var(--black);
 	}
@@ -84,7 +84,7 @@
 			// 	auto !important;
 
 			display: block;
-			color: var(--white);
+			color: var(--pink);
 
 			img {
 				/* Removing !important */
@@ -109,7 +109,7 @@
 	}
 
 	a h1 {
-		-webkit-text-fill-color: var(--white);
+		-webkit-text-fill-color: var(--pink);
 		line-height: 0.8;
 		transition: all 0.2s ease-out !important;
 	}

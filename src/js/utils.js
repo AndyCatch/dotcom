@@ -1,3 +1,23 @@
+/**
+ * Returns a random number between min (inclusive) and max (exclusive)
+ */
+function getRandomArbitrary(min, max) {
+	return Math.random() * (max - min) + min
+}
+
+/**
+ * Returns a random integer between min (inclusive) and max (inclusive).
+ * The value is no lower than min (or the next integer greater than min
+ * if min isn't an integer) and no greater than max (or the next integer
+ * lower than max if max isn't an integer).
+ * Using Math.round() will give you a non-uniform distribution!
+ */
+function getRandomInt(min, max) {
+	min = Math.ceil(min)
+	max = Math.floor(max)
+	return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
 // calculate distance between two points using Pythagoras
 function calculateDistance(p1, p2) {
 	let a = p2.x - p1.x
@@ -5,50 +25,6 @@ function calculateDistance(p1, p2) {
 
 	return Math.sqrt(a * a + b * b)
 }
-
-function activityWatcher() {
-	//The number of seconds that have passed since the user was active.
-	var secondsSinceLastActivity = 0
-	//Five minutes. 60 x 5 = 300 seconds.
-	var maxInactivity = 60 * 5
-	//Setup the setInterval method to run every second. 1000 milliseconds = 1 second.
-	setInterval(function () {
-		secondsSinceLastActivity++
-		console.log(
-			secondsSinceLastActivity + ' seconds since the user was last active'
-		)
-		//if the user has been inactive or idle for longer then the seconds specified in maxInactivity
-		if (secondsSinceLastActivity > maxInactivity) {
-			console.log(
-				'User has been inactive for more than ' + maxInactivity + ' seconds'
-			)
-			//Redirect them to your logout.php page.
-			location.href = 'logout.php'
-		}
-	}, 1000)
-
-	//The function that will be called whenever a user is active
-	function activity() {
-		// reset the secondsSinceLastActivity variable back to 0
-		secondsSinceLastActivity = 0
-	}
-
-	// Array of DOM events that should be interpreted as user activity.
-	var activityEvents = [
-		'mousedown',
-		'mousemove',
-		'keydown',
-		'scroll',
-		'touchstart',
-	]
-
-	//add these events to the document register the activity function as the listener parameter.
-	activityEvents.forEach(function (eventName) {
-		document.addEventListener(eventName, activity, true)
-	})
-}
-
-// activityWatcher();
 
 var cancelAnimationFrame =
 	window.cancelAnimationFrame || window.mozCancelAnimationFrame
@@ -160,4 +136,6 @@ export {
 	cancelAnimationFrame,
 	lerp,
 	calculateDistance,
+	getRandomArbitrary,
+	getRandomInt,
 }

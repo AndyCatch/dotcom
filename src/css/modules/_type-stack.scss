@@ -6,7 +6,7 @@
 	line-height: var(--body-line) !important;
 	text-align: left;
 
-	color: var(--white) !important;
+	color: var(--pink) !important;
 
 	letter-spacing: -1px !important;
 }
@@ -19,7 +19,7 @@
 
 	.page-title {
 		margin-left: calc(var(--two-units) * -1);
-		color: var(--white) !important;
+		color: var(--pink) !important;
 	}
 
 	.outlined,
@@ -29,7 +29,7 @@
 	}
 
 	.outlined {
-		color: var(--white) !important;
+		color: var(--pink) !important;
 	}
 
 	.label-caption,
@@ -39,7 +39,7 @@
 
 	.city-style,
 	.clock-style {
-		color: var(--white) !important;
+		color: var(--pink) !important;
 	}
 
 	.clock-style {
@@ -66,7 +66,7 @@
 		line-height: var(--body-line) !important;
 		text-align: left;
 
-		color: var(--white) !important;
+		color: var(--pink) !important;
 		text-decoration: none;
 		transition: color 0.2s ease-out !important;
 	}
