@@ -22,13 +22,13 @@ body {
 
 	::-moz-selection {
 		/* Code for Firefox */
-		color: var(--purple);
-		background: var(--dark-blue);
+		color: var(--black);
+		background: var(--pink);
 	}
 
 	::selection {
-		color: var(--purple);
-		background: var(--dark-blue);
+		color: var(--black);
+		background: var(--pink);
 	}
 }
 

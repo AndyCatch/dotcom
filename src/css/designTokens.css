@@ -5,13 +5,7 @@
 	--image-black: #121714 !important;
 	--black: #040101 !important; /* Deep Black */
 	/* --black: #232c26 !important; Dusty Black */
-	--purple: #9c94e7 !important; /* Footer Clock */
-	--orange: #ff4848 !important; /* PDP Text */
 	--terracotta: #c46a5a !important;
-	--red: #c92100 !important;
-	--dark-grey: #5e5e61 !important; /* Copy Headlines */
-	--dark-blue: #1e176a; /* Selected text */
-	/* #dc2f02 vermillion */
 
 	--background: var(--black);
 

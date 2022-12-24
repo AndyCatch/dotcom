@@ -1,35 +1,25 @@
 import { isInViewport } from './utils'
 
 let prevScrollPos = window.pageYOffset
-// let hadFilter = false
 
-function showNav(elem) {
-	elem.classList.remove('hideNav')
-	elem.classList.add('showNav')
+function toggleNav(elem, action) {
+	elem.classList.remove(action === 'show' ? 'hideNav' : 'showNav')
+	elem.classList.add(action === 'show' ? 'showNav' : 'hideNav')
 }
 
-function hideNav(elem) {
-	elem.classList.remove('showNav')
-	elem.classList.add('hideNav')
-}
-
-let inactivityTime = function (elem) {
+function inactivityTime(elem) {
 	let time
-	// List of user events that count as activity
-	document.onscroll = resetTimer
-	// window.onload = resetTimer
-	// document.onmousemove = resetTimer
-	// document.onkeypress = resetTimer;
 
 	function logout() {
-		// console.log('Showing nav')
-		showNav(elem)
+		toggleNav(elem, 'show')
 	}
 
 	function resetTimer() {
 		clearTimeout(time)
 		time = setTimeout(logout, 4000)
 	}
+
+	document.onscroll = resetTimer
 }
 
 function hideShow(navElem, footerElem, letters, hadFilter, currentScroll) {
@@ -40,9 +30,9 @@ function hideShow(navElem, footerElem, letters, hadFilter, currentScroll) {
 		currentScrollPos <= 0 ||
 		isInViewport(footerElem)
 	) {
-		showNav(navElem)
+		toggleNav(navElem, 'show')
 	} else {
-		hideNav(navElem)
+		toggleNav(navElem, 'hide')
 	}
 	prevScrollPos = currentScrollPos
 
