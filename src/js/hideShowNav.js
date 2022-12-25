@@ -51,4 +51,4 @@ function hideShow(navElem, footerElem, letters, hadFilter, currentScroll) {
 	}
 }
 
-export { hideNav, showNav, hideShow, inactivityTime }
+export { hideShow, inactivityTime }
