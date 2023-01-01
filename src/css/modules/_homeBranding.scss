@@ -16,6 +16,8 @@
 	}
 
 	.home-branding-content {
+		margin-top: var(--two-units);
+
 		display: flex;
 		flex-direction: row;
 		align-items: flex-start;
@@ -27,7 +29,6 @@
 
 		/* I've worked across... */
 		:nth-child(1) {
-			margin-top: var(--two-units);
 			text-align: left;
 		}
 

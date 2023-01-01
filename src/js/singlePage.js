@@ -19,12 +19,11 @@ let letters
 let currentPage
 let navItemChecker
 
-function init() {
-	// luxon library <script> tag
-	let luxonTag = document.createElement('script')
-	luxonTag.src = 'https://moment.github.io/luxon/global/luxon.min.js'
-	document.body.appendChild(luxonTag)
-}
+feather.replace()
+
+// function init() {
+// 	feather.replace()
+// }
 
 window.addEventListener('load', (event) => {
 	console.log('Window load event')
@@ -150,6 +149,6 @@ function navHandler(event) {
 
 document.addEventListener('DOMContentLoaded', (event) => {
 	console.log('DOM fully loaded and parsed')
-
-	init()
+	feather.replace()
+	// init()
 })
