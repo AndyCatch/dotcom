@@ -171,7 +171,8 @@
 			align-items: center;
 			justify-content: center;
 			text-align: right;
-			background-color: var(--white);
+			background-color: var(--pink);
+			// border-color: var(--pink) !important;
 			height: calc(9 * var(--unit)) !important;
 			padding: var(--two-units) !important;
 			border-radius: var(--four-units) !important;

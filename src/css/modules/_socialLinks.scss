@@ -19,8 +19,7 @@
 			font-family: var(--untitled-reg) !important;
 
 			margin-right: var(--unit);
-			// border: 1px solid var(--pink);
-			padding: 0 var(--unit) 0 var(--unit);
+			padding: var(--half-unit) var(--unit) var(--half-unit) var(--unit);
 			border-style: solid;
 			border-radius: var(--four-units);
 			color: var(--black) !important;
@@ -65,8 +64,7 @@
 
 @mixin mobile {
 	.social-links {
-		// width: calc(100% - var(--four-units)); // witdh is defined by sections{}
-		flex-direction: column;
+		flex-direction: row;
 		padding-bottom: 0;
 		align-items: flex-start;
 		margin-top: 66vh;

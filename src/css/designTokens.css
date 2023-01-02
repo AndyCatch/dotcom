@@ -20,6 +20,7 @@
 	--two-units: calc(var(--unit) * 2); /* 16px */
 	--three-units: calc(var(--unit) * 3); /* 24px */
 	--four-units: calc(var(--unit) * 4); /* 32px */
+	--five-units: calc(var(--unit) * 5); /* 40px */
 	--eight-units: calc(var(--unit) * 8); /* 64px */
 
 	/* Type Sizes */

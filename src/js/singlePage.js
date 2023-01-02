@@ -21,10 +21,6 @@ let navItemChecker
 
 feather.replace()
 
-// function init() {
-// 	feather.replace()
-// }
-
 window.addEventListener('load', (event) => {
 	console.log('Window load event')
 })
@@ -150,5 +146,4 @@ function navHandler(event) {
 document.addEventListener('DOMContentLoaded', (event) => {
 	console.log('DOM fully loaded and parsed')
 	feather.replace()
-	// init()
 })
