@@ -25,17 +25,20 @@
   "devDependencies": {
     "browser-sync": "^2.26.14",
     "canvas-sketch-util": "^1.10.0",
-    "gulp": "^4.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-dart-scss": "^1.1.0",
-    "gulp-imagemin": "^7.1.0",
+    "gulp-imagemin": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
-    "gulp4": "^4.0.3",
-    "readable-stream": "^3.6.0",
-    "webpack-stream": "^6.1.2"
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^10.0.1",
+    "readable-stream": "^4.3.0",
+    "webpack-stream": "^7.0.0"
   },
   "dependencies": {
+    "gulp": "^4.0.2",
     "gulp-dart-sass": "^1.0.2"
   }
 }

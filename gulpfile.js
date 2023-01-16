@@ -4,7 +4,6 @@ var sass = require('gulp-dart-sass')
 var cleanCSS = require('gulp-clean-css')
 var sourcemaps = require('gulp-sourcemaps')
 var uglify = require('gulp-uglify')
-var pipeline = require('readable-stream').pipeline
 var imagemin = require('gulp-imagemin')
 var webpack = require('webpack-stream')
 
@@ -50,40 +49,42 @@ gulp.task('compileTypeCSS', function () {
 })
 
 gulp.task('singlePageJS', function () {
-	return pipeline(
-		gulp.src('src/js/singlePage.js'),
-		sourcemaps.init(),
-		webpack({
-			mode: 'none',
-			output: {
-				filename: 'singlePage.js',
-			},
-		}),
-		uglify(),
-		sourcemaps.write(),
-		gulp.dest('dist/js')
-	)
+	return gulp
+		.src('src/js/singlePage.js')
+		.pipe(sourcemaps.init())
+		.pipe(
+			webpack({
+				mode: 'none',
+				output: {
+					filename: 'singlePage.js',
+				},
+			})
+		)
+		.pipe(uglify())
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest('dist/js'))
 })
 
 gulp.task('projectJS', function () {
-	return pipeline(
-		gulp.src('src/js/project.js'),
-		// sourcemaps.init(),
-		webpack({
-			mode: 'none',
-			output: {
-				filename: 'project.js',
-			},
-		}),
-		uglify(),
-		// sourcemaps.write(),
-		gulp.dest('dist/js')
-	)
+	return gulp
+		.src('src/js/project.js')
+		.pipe(sourcemaps.init())
+		.pipe(
+			webpack({
+				mode: 'none',
+				output: {
+					filename: 'project.js',
+				},
+			})
+		)
+		.pipe(uglify())
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest('dist/js'))
 })
 
 // No sourcemaps / webpack to keep it vanilla JS
 gulp.task('currentPage', function () {
-	return pipeline(gulp.src('src/js/currentPage.js'), gulp.dest('dist/js'))
+	return gulp.src('src/js/currentPage.js').pipe(gulp.dest('dist/js'))
 })
 
 gulp.task('html', function () {

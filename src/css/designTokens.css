@@ -45,7 +45,7 @@
 	--project-display-line: 0.98;
 	--nav-size: var(--three-units);
 	--nav-line: 1;
-	--body-size: var(--three-units);
+	--body-size: calc(var(--unit) * 2.5);
 	--body-size-m: calc(var(--unit) * 2.5);
 	--body-line: 1.2;
 	--hover-size: var(--four-units);
