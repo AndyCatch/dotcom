@@ -95,6 +95,25 @@
 		}
 	}
 
+	.pixelator {
+		filter: saturate(110%);
+		top: -50%;
+		left: 50%;
+
+		position: fixed;
+		opacity: 0;
+		aspect-ratio: 16 / 9;
+		width: 55vw;
+		pointer-events: none;
+		border-radius: var(--unit);
+
+		background-size: cover;
+		background-position: center;
+		background-image: var(--bg-image-pixelated);
+
+		transition: opacity 0.2s ease-out;
+	}
+
 	.showingImage {
 		opacity: 1 !important;
 		z-index: -1;
@@ -128,19 +147,33 @@
 		justify-content: space-around;
 		margin: 0 0 0 0 !important;
 
-		a img {
-			border-radius: var(--half-unit);
-			/* Removing !important */
-			position: relative;
-			/* Seems to override javascript */
-			opacity: 1 !important;
-			transform: translate3d(0px, 0px, 0px) !important;
+		// a img {
+		// 	border-radius: var(--half-unit);
+		// 	/* Removing !important */
+		// 	position: relative;
+		// 	/* Seems to override javascript */
+		// 	opacity: 1 !important;
+		// 	transform: translate3d(0px, 0px, 0px) !important;
 
-			width: 80vw;
+		// 	width: 80vw;
 
-			top: 50%;
-			left: 0%;
-		}
+		// 	top: 50%;
+		// 	left: 0%;
+		// }
+	}
+
+	.pixelator {
+		border-radius: var(--half-unit);
+		/* Removing !important */
+		position: relative;
+		/* Seems to override javascript */
+		opacity: 1 !important;
+		transform: translate3d(0px, 0px, 0px) !important;
+
+		width: 80vw;
+
+		top: 50%;
+		left: 0%;
 	}
 }
 
@@ -220,19 +253,32 @@
 			transform: translate(0px, 0px);
 		}
 
-		a img {
-			position: relative;
-			/* Seems to override javascript */
-			opacity: 1 !important;
-			transform: translate3d(0px, 0px, 0px) !important;
-			aspect-ratio: 1 / 2;
-			object-fit: cover;
+		// a img {
+		// 	position: relative;
+		// 	/* Seems to override javascript */
+		// 	opacity: 1 !important;
+		// 	transform: translate3d(0px, 0px, 0px) !important;
+		// 	aspect-ratio: 1 / 2;
+		// 	object-fit: cover;
 
-			width: 100%;
+		// 	width: 100%;
 
-			top: 0;
-			left: 0%;
-		}
+		// 	top: 0;
+		// 	left: 0%;
+		// }
+	}
+
+	.pixelator {
+		position: relative;
+		/* Seems to override javascript */
+		opacity: 1 !important;
+		transform: translate3d(0px, 0px, 0px) !important;
+		aspect-ratio: 1 / 2;
+
+		width: 100%;
+
+		top: 0;
+		left: 0%;
 	}
 
 	a:hover h1 {

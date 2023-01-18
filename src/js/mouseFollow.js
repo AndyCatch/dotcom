@@ -24,10 +24,12 @@ const propertyValue = 5
 
 function imageMove(hoverElems) {
 	hoverElements = hoverElems
-	const style = getComputedStyle(document.body)
+	// console.log(hoverElements)
 	hoverElements.forEach((hoverElem) => {
-		images.push(hoverElem.querySelector('img'))
+		images.push(hoverElem.querySelector('.pixelator'))
 	})
+
+	// setImages(images)
 
 	desktops.forEach((desktop) => {
 		desktop.addEventListener('change', desktopHandler)
@@ -49,6 +51,18 @@ function imageMove(hoverElems) {
 	headerMargin()
 }
 
+function setImage(_image) {
+	let fileName = _image.dataset.original
+	let realImage = new Image()
+	realImage.src = fileName
+
+	realImage.onload = () => {
+		setTimeout(() => {
+			_image.style.backgroundImage = `url(${fileName})`
+		}, 1000)
+	}
+}
+
 function headerMargin() {
 	let reverseOrder = hoverElements.length
 	for (let i = 0; i < hoverElements.length; i++) {
@@ -60,7 +74,7 @@ function headerMargin() {
 function mouseOver(event) {
 	let current = event.currentTarget
 	let label = current.querySelector('h1')
-	currentImage = event.currentTarget.querySelector('img')
+	currentImage = event.currentTarget.querySelector('.pixelator')
 	hoverElements.forEach((hoverElem) => {
 		hoverElem.style.zIndex = 0
 	})
@@ -69,10 +83,12 @@ function mouseOver(event) {
 	current.style.zIndex = 1
 	currentImage.classList.add('showingImage')
 	label.style.transform = 'translate(var(--four-units, 0px))'
+
+	setImage(currentImage)
 }
 
 function mouseOut(event) {
-	currentImage = event.currentTarget.querySelector('img')
+	currentImage = event.currentTarget.querySelector('.pixelator')
 	hoverElements.forEach((hoverElem) => {
 		hoverElem.querySelector('h1').style.transform = 'translate(0px, 0px)'
 	})
