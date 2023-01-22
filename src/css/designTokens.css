@@ -40,7 +40,8 @@
 	--project-display: 4vw;
 	--project-display-tablet: 7vw;
 	--project-display-mobile: calc(var(--unit) * 3.5);
-	--project-letterSpace: -6px;
+	--project-letterSpace: -4px;
+	--project-letterSpace-tablet: -4px;
 	--project-letterSpace-mobile: -2px;
 	--project-display-line: 0.98;
 	--nav-size: var(--three-units);

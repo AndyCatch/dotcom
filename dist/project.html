@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/typography.css">
     <link rel="stylesheet" href="css/app.css">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://moment.github.io/luxon/global/luxon.min.js"></script>
     <script src="js/project.js" type="text/javascript"></script>
     <script src="js/singlePage.js" type="text/javascript"></script>
 </head>
@@ -60,11 +62,11 @@
             <!-- <div class="project-nav-wrapper"> -->
             <p>Projects:</p>
             <!-- <a class="current-project" href="#">Verizon Vision</a> -->
-            <a href="#">Verizon Vision</a>
-            <a href="#">Verizon DBI</a>
-            <a href="#">Sonic Drive-In</a>
-            <a href="#">Process</a>
-            <a href="#">Archive</a>
+            <a href="#" data-project="Vision">Verizon Vision</a>
+            <a href="#" data-project="DBI">Verizon DBI</a>
+            <a href="#" data-project="Sonic">Sonic Drive-In</a>
+            <a href="#" data-project="Process">Process</a>
+            <a href="#" data-project="Archive">Archive</a>
             <!-- </div> -->
         </nav>
 
@@ -126,11 +128,10 @@
 
         <!-- SOCIAL LINKS -->
         <nav class="social-links">
-            <div>
-                <a href="http://github.com/andyCatch">Github</a>
-                <a href="https://www.instagram.com/itsandycatch/">Instagram</a>
-                <a href="https://twitter.com/AndyCatch">Twitter</a>
-            </div>
+            <a href="http://github.com/andyCatch">GH<i data-feather="github" stroke-width="2"></i></a>
+            <a href="https://www.instagram.com/itsandycatch/">IG<i data-feather="instagram" stroke-width="2"></i></a>
+            <a href="https://twitter.com/AndyCatch">TW<i data-feather="twitter" stroke-width="2"></i></a>
+            <p class="bottom-year">©2022</p>
         </nav>
 
         <!-- FOOTER -->
