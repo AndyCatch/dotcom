@@ -44,7 +44,7 @@
 		font-family: var(--untitled-reg);
 		color: var(--black);
 		border-radius: 50%;
-		background-color: var(--pink);
+		background-color: var(--light);
 		z-index: 50;
 		pointer-events: none;
 		transform: translate(-50%, -50%);
@@ -71,7 +71,7 @@
 			margin-bottom: var(--four-units);
 			transition: margin-left 1.4s cubic-bezier(0.65, 0.05, 0.36, 1) !important;
 			display: block;
-			color: var(--pink);
+			color: var(--light);
 
 			img {
 				/* Removing !important */
@@ -115,7 +115,7 @@
 	}
 
 	a h1 {
-		-webkit-text-fill-color: var(--pink);
+		-webkit-text-fill-color: var(--light);
 		line-height: 0.8;
 		transition: all 0.2s ease-out !important;
 	}

@@ -6,7 +6,7 @@
 	}
 
 	#nprogress .bar {
-		background-color: var(--pink) !important;
+		background-color: var(--light) !important;
 		height: 100vh !important;
 		mix-blend-mode: difference !important;
 	}
@@ -103,17 +103,27 @@
 			text-align: center;
 			padding: 0 !important;
 			border-radius: 50% !important;
-			border-color: var(--pink) !important;
+			border-color: var(--light) !important;
 			border-width: 1px !important;
 			border-style: solid !important;
-			background-color: var(--pink);
+			background-color: var(--light);
+			transition: all 0.2s ease-in !important;
 		}
 
 		a img {
-			mix-blend-mode: difference !important;
+			filter: invert(1);
 			padding-top: var(--two-units) !important;
 			width: 4.2rem !important;
 		}
+	}
+
+	.back-to-top a:hover {
+		background-color: var(--social-hover);
+		border-color: var(--social-hover) !important;
+	}
+
+	.back-to-top a img:hover {
+		filter: invert(0);
 	}
 }
 
@@ -171,8 +181,7 @@
 			align-items: center;
 			justify-content: center;
 			text-align: right;
-			background-color: var(--pink);
-			// border-color: var(--pink) !important;
+			background-color: var(--light);
 			height: calc(9 * var(--unit)) !important;
 			padding: var(--two-units) !important;
 			border-radius: var(--four-units) !important;

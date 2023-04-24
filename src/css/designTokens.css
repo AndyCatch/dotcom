@@ -1,9 +1,10 @@
 :root {
 	/* Colors */
 	--white: #f0fff0 !important;
-	--pink: #ff8f8f !important;
+	--light: orangered !important;
 	--image-black: #121714 !important;
-	--black: #040101 !important; /* Deep Black */
+	--black: #0f0f0f !important; /* Deep Black */
+	--social-hover: #1e1e1e;
 	/* --black: #232c26 !important; Dusty Black */
 	--terracotta: #c46a5a !important;
 

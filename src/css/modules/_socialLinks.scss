@@ -23,13 +23,13 @@
 			border-style: solid;
 			border-radius: var(--four-units);
 			color: var(--black) !important;
-			background-color: var(--pink);
+			background-color: var(--light);
 			transition: all 0.2s ease-in !important;
 		}
 
 		a:hover {
-			color: var(--white) !important;
-			background-color: var(--black);
+			color: var(--light) !important;
+			background-color: var(--social-hover);
 		}
 
 		a:hover::after {
@@ -41,10 +41,6 @@
 	.social-links a {
 		display: flex;
 		align-items: center;
-	}
-
-	.social-links a svg {
-		margin-left: var(--unit);
 	}
 }
 

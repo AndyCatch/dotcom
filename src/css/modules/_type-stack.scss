@@ -6,7 +6,7 @@
 	line-height: var(--body-line) !important;
 	text-align: left;
 
-	color: var(--pink) !important;
+	color: var(--light) !important;
 
 	letter-spacing: -1px !important;
 }
@@ -19,7 +19,7 @@
 
 	.page-title {
 		margin-left: calc(var(--two-units) * -1);
-		color: var(--pink) !important;
+		color: var(--light) !important;
 	}
 
 	.outlined,
@@ -29,7 +29,7 @@
 	}
 
 	.outlined {
-		color: var(--pink) !important;
+		color: var(--light) !important;
 	}
 
 	.label-caption,
@@ -39,7 +39,7 @@
 
 	.city-style,
 	.clock-style {
-		color: var(--pink) !important;
+		color: var(--light) !important;
 	}
 
 	.clock-style {
@@ -66,7 +66,7 @@
 		line-height: var(--body-line) !important;
 		text-align: left;
 
-		color: var(--pink) !important;
+		color: var(--light) !important;
 		text-decoration: none;
 		transition: color 0.2s ease-out !important;
 	}
@@ -79,8 +79,9 @@
 	}
 
 	.in-page-link:hover {
-		background-color: var(--terracotta) !important;
-		border: 1px solid var(--terracotta) !important;
+		background-color: var(--light) !important;
+		border: 1px solid var(--light) !important;
+		color: var(--black) !important;
 	}
 
 	.currentYear {
