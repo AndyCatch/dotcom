@@ -98,10 +98,10 @@ function mobileNavHandler(mobileNavTag, toggleTag, page) {
 		toggleTag.parentNode.classList.toggle('toggle-width')
 		mobileNavTag.classList.toggle('mobile-nav-open')
 		if (mobileNavTag.classList.contains('mobile-nav-open')) {
-			toggleTag.innerHTML = `Close`
+			// toggleTag.innerHTML = `Close`
 			page.classList.add('disableScroll')
 		} else {
-			toggleTag.innerHTML = `Menu`
+			// toggleTag.innerHTML = `Menu`
 			page.classList.remove('disableScroll')
 		}
 		event.preventDefault()

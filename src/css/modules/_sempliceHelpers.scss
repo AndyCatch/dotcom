@@ -94,7 +94,7 @@
 	.back-to-top {
 		mix-blend-mode: difference !important;
 		bottom: var(--four-units) !important;
-		right: var(--two-units) !important;
+		right: var(--unit);
 		width: calc(16 * var(--unit));
 		height: calc(16 * var(--unit));
 
@@ -102,10 +102,8 @@
 			height: 100%;
 			text-align: center;
 			padding: 0 !important;
+			border: 1px solid var(--light) !important;
 			border-radius: 50% !important;
-			border-color: var(--light) !important;
-			border-width: 1px !important;
-			border-style: solid !important;
 			background-color: var(--light);
 			transition: all 0.2s ease-in !important;
 		}
@@ -177,14 +175,13 @@
 		z-index: 7 !important;
 
 		a {
+			aspect-ratio: 1 / 1;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			text-align: right;
 			background-color: var(--light);
-			height: calc(9 * var(--unit)) !important;
-			padding: var(--two-units) !important;
-			border-radius: var(--four-units) !important;
+			height: calc(10 * var(--unit)) !important;
 		}
 
 		a img {
