@@ -398,12 +398,13 @@
 
 	.semplice-cover .show-more {
 		z-index: 9 !important;
-		width: 25% !important;
+		aspect-ratio: 1/1;
 
 		right: 0px;
-		height: calc(9 * var(--unit)) !important;
+		width: calc(10 * var(--unit)) !important;
+		height: calc(10 * var(--unit)) !important;
 		padding: var(--two-units) !important;
-		border-radius: var(--four-units) !important;
+		border-radius: 100% !important;
 		margin-bottom: var(--two-units) !important;
 
 		img {
