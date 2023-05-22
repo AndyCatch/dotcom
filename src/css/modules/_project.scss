@@ -14,6 +14,7 @@
 		grid-column-gap: 24px;
 		column-gap: 24px;
 		grid-template-columns: repeat(12, 1fr);
+		align-items: start;
 
 		:nth-child(n) {
 			z-index: 1;
@@ -30,18 +31,24 @@
 		grid-column-end: 11;
 	}
 
-	.role {
+	.zap {
 		grid-column-start: 1;
+		grid-column-end: 3;
+		position: absolute;
+	}
+
+	.role {
+		grid-column-start: 2;
 		grid-column-end: 3;
 	}
 
 	.years {
-		grid-column-start: 3;
+		grid-column-start: 4;
 		grid-column-end: 4;
 	}
 
 	.agency {
-		grid-column-start: 4;
+		grid-column-start: 5;
 		grid-column-end: 12;
 	}
 
@@ -336,6 +343,11 @@
 }
 
 @mixin mobile {
+	.zap {
+		margin-top: 0px !important;
+		position: unset;
+	}
+
 	.project-cover-fade-in {
 		opacity: 0.9;
 	}
@@ -353,7 +365,7 @@
 	}
 
 	.project-cover {
-		margin-top: -70vh;
+		margin-top: -55vh;
 	}
 
 	.project-inPage-nav {

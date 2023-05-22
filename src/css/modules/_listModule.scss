@@ -187,13 +187,15 @@
 	}
 
 	.mobile-label-container {
-		display: block;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		aspect-ratio: 1/0.75;
 		position: absolute;
 		flex-direction: column;
 		width: 100%;
 		top: 0;
 		left: 0;
-		background-color: var(--white);
 	}
 
 	.work-type-label-m {
@@ -202,14 +204,15 @@
 	}
 
 	.mobile-title {
-		margin: var(--two-units) !important;
-		position: relative;
-		line-height: 0.9;
-		letter-spacing: -1px;
-		color: var(--black) !important;
+		padding-bottom: 50%;
+		text-align: end;
 		display: block;
-		font-family: var(--untitled-reg);
-		font-size: var(--body-size);
+		width: 100%;
+		position: relative;
+		letter-spacing: 1px;
+		color: var(--black) !important;
+		font-family: var(--beastly);
+		font-size: 44px;
 	}
 
 	div.cursor div {
@@ -222,26 +225,13 @@
 
 		a {
 			position: relative;
-			width: calc(50% - var(--half-unit));
-			height: 100%;
+			aspect-ratio: 1/0.75;
+			width: calc(100% - var(--half-unit));
 			border: 0px;
 			margin-bottom: var(--unit);
 			overflow: hidden;
 			border-radius: var(--two-units);
 			margin-left: 0 !important;
-		}
-
-		a:nth-child(2n + 2) {
-			margin-top: var(--three-units);
-			// background-color: red;
-		}
-
-		a:nth-child(odd) {
-			margin-right: var(--unit);
-		}
-
-		a:nth-child(even) {
-			margin-right: 0px;
 		}
 
 		a h1 {
