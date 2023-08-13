@@ -60,13 +60,12 @@ function addIndexImg() {
 
 function addMobileNav() {
 	let toggleTag = document.querySelector('nav.nav-toggle a.custom-nav-item')
-	let homeTag = document.querySelector('nav.nav-toggle a.custom-home')
 	let mobileNavTag = document.querySelector('nav.custom-nav-touch')
 	let exitTag = document.querySelector('nav.custom-nav-touch div.touch-menu-bg')
 	let mobileNavItems = Array.from(
 		mobileNavTag.querySelectorAll('a.custom-nav-item')
 	)
-	let removeScrollTags = [...mobileNavItems, homeTag]
+	let removeScrollTags = [...mobileNavItems]
 	let page = document.querySelector('html')
 
 	if (toggleTag) {

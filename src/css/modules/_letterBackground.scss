@@ -28,7 +28,7 @@
 	}
 
 	.letter-filter {
-		filter: blur(var(--three-units));
+		filter: grayscale(1) contrast(1.4) opacity(0.5);
 	}
 }
 
