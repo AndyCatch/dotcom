@@ -1,32 +1,9 @@
 import { sequencer } from './sequencer.min'
 
-// const list = [
-// 	'KIDA01.png',
-// 	'KIDA02.png',
-// 	'KIDA03.png',
-// 	'KIDA04.png',
-// 	'KIDA05.png',
-// 	'KIDA06.png',
-// 	'KIDA07.png',
-// 	'KIDA08.png',
-// 	'KIDA09.png',
-// 	'KIDA10.png',
-// 	'KIDA11.png',
-// 	'KIDA12.png',
-// 	'KIDA13.png',
-// 	'KIDA14.png',
-// 	'KIDA15.png',
-// 	'KIDA16.png',
-// ].map((e) => {
-// 	return '../images/letters/' + e
-// })
-
 const configs = []
 const sequencers = []
-const containers = []
 
-// https://andycatch.com/proto/wp-content/uploads/2023/08/KIDA01.png
-// https://andycatch.com/proto/wp-content/uploads/2023/08/KIDA16.png
+var canvasChecker = setInterval(canvasSetup, 500)
 
 configs.push({
 	// from: './images/letters/KIDA01.png', // Test
@@ -39,11 +16,14 @@ configs.push({
 	scaleMode: 'contain',
 })
 
-window.addEventListener('load', (event) => {
-	console.log('Sequencer loaded')
+function canvasSetup() {
+	let canvasTag = document.querySelector('canvas') // if any canvas is present?
 
-	setCanvas()
-})
+	if (canvasTag) {
+		clearInterval(canvasChecker)
+		setCanvas()
+	}
+}
 
 function setCanvas() {
 	configs.forEach(function (cfg, i) {
@@ -70,3 +50,24 @@ function resizeSequencer(event) {
 }
 
 export { resizeSequencer }
+
+// const list = [
+// 	'KIDA01.png',
+// 	'KIDA02.png',
+// 	'KIDA03.png',
+// 	'KIDA04.png',
+// 	'KIDA05.png',
+// 	'KIDA06.png',
+// 	'KIDA07.png',
+// 	'KIDA08.png',
+// 	'KIDA09.png',
+// 	'KIDA10.png',
+// 	'KIDA11.png',
+// 	'KIDA12.png',
+// 	'KIDA13.png',
+// 	'KIDA14.png',
+// 	'KIDA15.png',
+// 	'KIDA16.png',
+// ].map((e) => {
+// 	return '../images/letters/' + e
+// })
