@@ -4,6 +4,7 @@ import { updateClock } from './luxonClock'
 import { indexImage } from './indexImage'
 import { hideShow, inactivityTime } from './hideShowNav'
 import { imageMove } from './mouseFollow'
+import { resizeSequencer } from './sequencerMod'
 
 var clock = setInterval(updateClock, 1000)
 var mobileNavChecker = setInterval(addMobileNav, 500)
@@ -40,6 +41,8 @@ window.addEventListener('resize', (event) => {
 
 		mobileNavOpen = !mobileNavOpen
 	}
+
+	resizeSequencer(event)
 })
 
 function setMouseFollow() {

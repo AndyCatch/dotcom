@@ -82,6 +82,23 @@ gulp.task('projectJS', function () {
 		.pipe(gulp.dest('dist/js'))
 })
 
+gulp.task('sequencerJS', function () {
+	return gulp
+		.src('src/js/sequencerMod.js')
+		.pipe(sourcemaps.init())
+		.pipe(
+			webpack({
+				mode: 'none',
+				output: {
+					filename: 'sequencerMod.js',
+				},
+			})
+		)
+		.pipe(uglify())
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest('dist/js'))
+})
+
 // No sourcemaps / webpack to keep it vanilla JS
 gulp.task('currentPage', function () {
 	return gulp.src('src/js/currentPage.js').pipe(gulp.dest('dist/js'))
@@ -121,6 +138,10 @@ gulp.task('watch', function () {
 		.watch('src/js/currentPage.js', gulp.series('currentPage'))
 		.on('change', browserSync.reload)
 
+	gulp
+		.watch('src/js/sequencerMod.js', gulp.series('sequencerJS'))
+		.on('change', browserSync.reload)
+
 	// CSS / .SCSS Watchers
 	gulp
 		.watch('src/css/app.scss', gulp.series('compileCSS'))
@@ -154,6 +175,7 @@ gulp.task(
 		'singlePageJS',
 		'projectJS',
 		'currentPage',
+		'sequencerJS',
 		'fonts',
 		'images',
 		'watch'

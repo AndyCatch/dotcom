@@ -98,9 +98,9 @@
 	@include nextProject.mobile-landscape-med;
 
 	@include type-stack.tablet-type-stack;
-	.project-image {
-		width: 70vw;
-	}
+	// .project-image {
+	// 	width: 70vw;
+	// }
 }
 
 /* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
@@ -125,7 +125,7 @@
 	@include nextProject.mobile-landscape-sm;
 	@include type-stack.tablet-type-stack;
 
-	.project-image {
-		width: 75vw;
-	}
+	// .project-image {
+	// 	width: 75vw;
+	// }
 }

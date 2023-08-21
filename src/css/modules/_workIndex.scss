@@ -117,7 +117,7 @@
 		position: fixed !important;
 		z-index: 3;
 		bottom: var(--four-units);
-		left: var(--four-units);
+		left: 50%;
 		opacity: 0;
 		transition: opacity 0.2s ease-in;
 	}
