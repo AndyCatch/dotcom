@@ -117,12 +117,9 @@
 		justify-content: flex-end;
 	}
 
-	.project-display-label {
-		border-top: 1px solid;
-	}
-
 	.project-display {
-		// margin-top: var(--two-units) !important;
+		grid-column-start: 3;
+		grid-column-end: 12;
 		pointer-events: none;
 		font-family: var(--untitled-reg) !important;
 		font-size: var(--project-display) !important;

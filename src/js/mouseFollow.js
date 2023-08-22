@@ -29,8 +29,6 @@ function imageMove(hoverElems) {
 		images.push(hoverElem.querySelector('.pixelator'))
 	})
 
-	// setImages(images)
-
 	desktops.forEach((desktop) => {
 		desktop.addEventListener('change', desktopHandler)
 		desktopHandler(desktop)
@@ -192,6 +190,8 @@ function isTablet() {
 		image.style.opacity = 1
 		image.style.transform = `translate3d(0px, 0px, 0px)`
 		image.style.pointerEvents = 'auto'
+
+		setImage(image)
 	})
 }
 

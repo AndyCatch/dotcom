@@ -190,7 +190,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		aspect-ratio: 1/0.75;
+		aspect-ratio: 1/1;
 		position: absolute;
 		flex-direction: column;
 		width: 100%;
@@ -209,7 +209,7 @@
 		width: 100%;
 		position: relative;
 		letter-spacing: 1px;
-		color: var(--black) !important;
+		color: var(--light) !important;
 		font-family: var(--beastly);
 		font-size: 44px;
 	}
@@ -224,10 +224,10 @@
 
 		a {
 			position: relative;
-			aspect-ratio: 1/0.75;
+			aspect-ratio: 1/1;
 			width: calc(100% - var(--half-unit));
 			border: 0px;
-			margin-bottom: var(--unit);
+			margin-bottom: var(--two-units);
 			overflow: hidden;
 			border-radius: var(--two-units);
 			margin-left: 0 !important;
@@ -257,7 +257,7 @@
 		/* Seems to override javascript */
 		opacity: 1 !important;
 		transform: translate3d(0px, 0px, 0px) !important;
-		aspect-ratio: 1 / 2;
+		aspect-ratio: 1 / 1;
 
 		width: 100%;
 
