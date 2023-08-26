@@ -188,7 +188,7 @@
 
 	.mobile-label-container {
 		display: flex;
-		justify-content: center;
+		justify-content: flex-start;
 		align-items: center;
 		aspect-ratio: 1/1;
 		position: absolute;
@@ -204,7 +204,7 @@
 	}
 
 	.mobile-title {
-		padding-left: var(--unit);
+		padding-left: calc(var(--unit) * 1.5);
 		display: block;
 		width: 100%;
 		position: relative;
@@ -229,7 +229,7 @@
 			border: 0px;
 			margin-bottom: var(--two-units);
 			overflow: hidden;
-			border-radius: var(--two-units);
+			border-radius: var(--two-units) var(--two-units) var(--two-units) 70%;
 			margin-left: 0 !important;
 		}
 

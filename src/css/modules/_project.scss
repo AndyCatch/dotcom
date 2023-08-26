@@ -147,7 +147,7 @@
 	.project-image-container {
 		aspect-ratio: 1 / 1;
 		width: 49vw;
-		// height: fit-content;
+		height: 49vw;
 		position: relative;
 		transform-origin: center center;
 		transition: opacity 0.3s ease-in;
@@ -161,21 +161,13 @@
 
 	.video-project-square,
 	.sequencer-project-square {
+		position: relative;
+		z-index: 1;
+
 		border-radius: var(--half-unit);
 		aspect-ratio: 1 / 1;
 		width: 49vw;
-	}
-
-	// .project-image {
-	// 	width: 66vw;
-	// }
-
-	// .project-image,
-	.video-project-square,
-	.sequencer-project-square {
-		position: relative;
-		z-index: 1;
-		// height: fit-content;
+		height: 49vw;
 	}
 
 	.cover_title div[data-content-for='xl'] h1 span,
@@ -394,6 +386,8 @@
 	}
 
 	.project-display {
+		grid-column-start: 1;
+
 		margin-top: var(--two-units);
 
 		font-size: var(--project-display-mobile) !important;

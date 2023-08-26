@@ -4,13 +4,14 @@ import { updateClock } from './luxonClock'
 import { indexImage } from './indexImage'
 import { hideShow, inactivityTime } from './hideShowNav'
 import { imageMove } from './mouseFollow'
-import { resizeSequencer } from './sequencerMod'
+import { setCanvas, resizeSequencer } from './sequencerMod'
 
 var clock = setInterval(updateClock, 1000)
 var mobileNavChecker = setInterval(addMobileNav, 500)
 var indexImageChecker = setInterval(addIndexImg, 500)
 var mouseFollowChecker = setInterval(setMouseFollow, 500)
 var navChecker = setInterval(addNav, 500)
+var canvasChecker = setInterval(canvasSetup, 500)
 
 let mobileNavOpen = false
 let hadFilter = false
@@ -19,6 +20,8 @@ let letters
 // ------ Used in currentPage.js ------ //
 let currentPage
 let navItemChecker
+
+let configs = []
 
 feather.replace()
 
@@ -44,6 +47,24 @@ window.addEventListener('resize', (event) => {
 
 	resizeSequencer(event)
 })
+
+
+function canvasSetup() {
+	console.log('canvasSetup')
+
+	// let canvasTag = document.querySelector('canvas') // if any canvas is present?
+	// let firstCanvas = document.getElementById(configs[0].id)
+	let sequenceTag = document.getElementsByClassName('sequencer-project-square')[0]
+	console.log(sequenceTag)
+	
+	if (sequenceTag) {
+		console.log("firstCanvas")
+		setCanvas()
+		clearInterval(canvasChecker)
+	}else{
+		clearInterval(canvasChecker)
+	}
+}
 
 function setMouseFollow() {
 	if (document.querySelector('div.list')) {

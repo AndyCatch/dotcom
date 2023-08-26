@@ -100,6 +100,10 @@ gulp.task('sequencerJS', function () {
 })
 
 // No sourcemaps / webpack to keep it vanilla JS
+// gulp.task('sequencerJS', function () {
+// 	return gulp.src('src/js/sequencerMod.js').pipe(gulp.dest('dist/js'))
+// })
+
 gulp.task('currentPage', function () {
 	return gulp.src('src/js/currentPage.js').pipe(gulp.dest('dist/js'))
 })

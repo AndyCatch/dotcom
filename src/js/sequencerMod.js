@@ -1,45 +1,33 @@
 import { sequencer } from './sequencer.min'
 
-const configs = []
 const sequencers = []
 
-var canvasChecker = setInterval(canvasSetup, 500)
+function setCanvas() {
+	console.log('setCanvas')
 
-configs.push({
-	// from: './images/letters/KIDA01.png', // Test
-	// to: './images/letters/KIDA16.png',
-	from: 'https://andycatch.com/proto/wp-content/uploads/2023/08/KIDA01.png',
-	to: 'https://andycatch.com/proto/wp-content/uploads/2023/08/KIDA16.png',
-	playMode: 'hover',
-	direction: 'x',
-	showLoadedImages: true,
-	scaleMode: 'contain',
-})
+	let sequenceTag = document.getElementsByClassName('sequencer-project-square')[0]
+	// Clear any existing sequencers
+	if(sequencers.length > 0){
+		sequencers.replaceChildren()
+	}
 
-function canvasSetup() {
-	let canvasTag = document.querySelector('canvas') // if any canvas is present?
-
-	if (canvasTag) {
-		clearInterval(canvasChecker)
-		setCanvas()
+	if(sequenceTag){
+		console.log(sequenceTag)
+			configs.forEach(function (cfg, i) {
+				cfg.config.canvas = document.getElementById(configs[i].id) // need to have unique ids for the canvas
+		
+				const s = sequencer.make(cfg.config)
+				let side = Math.floor(cfg.config.canvas.parentNode.getBoundingClientRect().width) // will create a square canvas
+				s.size(side,side)
+				sequencers.push(s)
+			})
 	}
 }
 
-function setCanvas() {
-	configs.forEach(function (cfg, i) {
-		cfg.canvas = document.querySelector('canvas') // need to have unique ids for the canvas
-
-		const s = sequencer.make(cfg)
-		s.size(
-			cfg.canvas.parentNode.offsetWidth,
-			cfg.canvas.parentNode.offsetHeight
-		)
-		sequencers.push(s)
-	})
-}
-
 function resizeSequencer(event) {
+	console.log('setSequencer')
 	sequencers.forEach(function (sequencer, i) {
+		console.log(sequencer)
 		if (sequencer) {
 			let side = Math.floor(
 				sequencer.ctx.canvas.parentNode.getBoundingClientRect().width
@@ -49,25 +37,4 @@ function resizeSequencer(event) {
 	})
 }
 
-export { resizeSequencer }
-
-// const list = [
-// 	'KIDA01.png',
-// 	'KIDA02.png',
-// 	'KIDA03.png',
-// 	'KIDA04.png',
-// 	'KIDA05.png',
-// 	'KIDA06.png',
-// 	'KIDA07.png',
-// 	'KIDA08.png',
-// 	'KIDA09.png',
-// 	'KIDA10.png',
-// 	'KIDA11.png',
-// 	'KIDA12.png',
-// 	'KIDA13.png',
-// 	'KIDA14.png',
-// 	'KIDA15.png',
-// 	'KIDA16.png',
-// ].map((e) => {
-// 	return '../images/letters/' + e
-// })
+export { resizeSequencer,setCanvas }

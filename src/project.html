@@ -14,67 +14,58 @@
 	</head>
 
 	<body>
+		<!--SEQUENCER SRC START -->
+		<script>
+			configs = [
+				{
+					id: 'kidA',
+					config: {
+						from: 'https://andycatch.com/proto/wp-content/uploads/2023/08/KIDA01.png',
+						to: 'https://andycatch.com/proto/wp-content/uploads/2023/08/KIDA16.png',
+						playMode: 'hover',
+						direction: 'x',
+						showLoadedImages: true,
+						scaleMode: 'contain',
+					},
+				},
+			]
+		</script>
 		<!--NAV -->
-		<nav class="nav-toggle">
-			<a class="custom-home" href="https://andycatch.com/proto"
-				><img src="images/home.svg"
-			/></a>
-			<a class="custom-nav-item">Menu</a>
-		</nav>
+	<nav class="nav-toggle">
+		<a class="custom-nav-item"><img src="images/home.svg" /></a>
+		<a class="custom-nav-item close-btn">Close</a>
+	</nav>
 
-		<nav class="custom-nav-touch">
-			<nav>
-				<a class="custom-nav-item" href="https://andycatch.com/proto">Home</a>
-				<a class="custom-nav-item" href="https://andycatch.com/proto/work-index"
-					>Index</a
-				>
-				<a class="custom-nav-item" href="https://andycatch.com/proto/about"
-					>About</a
-				>
+	<nav class="custom-nav-touch">
+		<nav>
+			<nav class="socials">
+				<a class="social-item" href="https://github.com/andyCatch"><i data-feather="github" stroke-width="2"></i></a>
+				<a class="social-item" href="https://www.instagram.com/itsandycatch/"><i data-feather="instagram"
+						stroke-width="2"></i></a>
+				<a class="social-item" href="https://twitter.com/AndyCatch"><i data-feather="twitter" stroke-width="2"></i></a>
 			</nav>
-			<div class="touch-menu-bg"></div>
-		</nav>
-
-		<nav class="custom-nav-desktop">
-			<a class="custom-home" href="https://andycatch.com/proto"
-				><img src="images/home.svg"
-			/></a>
 			<a class="custom-nav-item" href="https://andycatch.com/proto">Home</a>
-			<a class="custom-nav-item" href="https://andycatch.com/proto/about"
-				>About</a
-			>
-			<a class="custom-nav-item" href="https://andycatch.com/proto/work-index"
-				>Index</a
-			>
+			<a class="custom-nav-item" href="https://andycatch.com/proto/work-index">Index</a>
+			<a class="custom-nav-item" href="https://andycatch.com/proto/about">About</a>
 		</nav>
+		<div class="touch-menu-bg"></div>
+	</nav>
+
+	<nav class="custom-nav-desktop">
+		<a class="custom-nav-item" href="https://andycatch.com/proto"><img src="images/home.svg" />Home</a>
+		<a class="custom-nav-item" href="https://andycatch.com/proto/about">About</a>
+		<a class="custom-nav-item" href="https://andycatch.com/proto/work-index">Index</a>
+	</nav>
 
 		<!-- PROJECT NAV  -->
-		<nav class="project-inPage-nav">
-			<p>Projects:</p>
-			<a
-				href="https://andycatch.com/proto/project/verizon-vision"
-				data-project="Vision"
-				>Verizon Vision</a
-			>
-			<a
-				href="https://andycatch.com/proto/project/verizon-dbi"
-				data-project="DBI"
-				>Verizon DBI</a
-			>
-			<a href="https://andycatch.com/proto/project/sonic" data-project="Sonic"
-				>Sonic Drive-In</a
-			>
-			<a
-				href="https://andycatch.com/proto/project/process"
-				data-project="Process"
-				>Process</a
-			>
-			<a
-				href="https://andycatch.com/proto/project/archive"
-				data-project="Archive"
-				>Archive</a
-			>
-		</nav>
+<nav class="project-inPage-nav">
+	<p>Projects:</p>
+	<a href="https://andycatch.com/proto/project/verizon-vision" data-project="Vision">Verizon Vision</a>
+	<a href="https://andycatch.com/proto/project/verizon-dbi" data-project="DBI">Verizon DBI</a>
+	<a href="https://andycatch.com/proto/project/sonic" data-project="Sonic">Sonic Drive-In</a>
+	<a href="https://andycatch.com/proto/project/process" data-project="Process">Process</a>
+	<a href="https://andycatch.com/proto/project/archive" data-project="Archive">Archive</a>
+</nav>
 
 		<div class="sections">
 			<!-- LETTERS -->
@@ -151,7 +142,7 @@
 			<!-- In-page PROJECT Poster w. Sequencer  -->
 			<section class="display-container display-align-right project-opener">
 				<div class="project-image-container">
-					<canvas class="sequencer-project-square" id="sequencer"></canvas>
+					<canvas class="sequencer-project-square" id="kidA"></canvas>
 				</div>
 				<div class="overlay">
 					<ul class="sticky-title label-caption">
@@ -179,8 +170,7 @@
 				<div
 					id="footer-edge"
 					class="clock-container"
-					data-timezone="America/New_York"
-				>
+					data-timezone="America/New_York">
 					<h1 data-city="NYC" class="clock-style">18:35:22</h1>
 				</div>
 				<div class="clock-container" data-timezone="Australia/ACT">
