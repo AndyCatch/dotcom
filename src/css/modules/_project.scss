@@ -1,4 +1,5 @@
 @mixin desktop {
+
 	/* ----- Project Page Styles ----- */
 	.cover_title {
 		color: var(--white);
@@ -15,6 +16,7 @@
 		column-gap: 24px;
 		grid-template-columns: repeat(12, 1fr);
 		align-items: start;
+		margin-top: var(--two-units);
 
 		:nth-child(n) {
 			z-index: 1;
@@ -37,6 +39,16 @@
 		position: absolute;
 	}
 
+	.eyebrow {
+		letter-spacing: 1px !important;
+
+		width: auto;
+		margin-top: 0.2vw;
+		margin-right: var(--two-units);
+		font-size: var(--micro-size) !important;
+		text-align: left;
+	}
+
 	.role {
 		grid-column-start: 2;
 		grid-column-end: 3;
@@ -54,6 +66,18 @@
 
 	.vsc-controller {
 		display: none;
+	}
+
+	.sequenceLoader {
+		z-index: 12;
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 3px;
+		background-color: rgba(255, 69, 0, 1);
+		transition: background-color 1.5s;
 	}
 
 	.overlay {
@@ -110,9 +134,11 @@
 	.project-opener {
 		margin-top: 10vh;
 	}
+
 	.display-align-left {
 		justify-content: flex-start;
 	}
+
 	.display-align-right {
 		justify-content: flex-end;
 	}
@@ -352,6 +378,10 @@
 		position: unset;
 	}
 
+	.project-info{
+		margin-top: 0;
+	}
+
 	.project-image-container {
 		width: calc(100vw - 32px);
 		height: calc(100vw - 32px);
@@ -394,6 +424,10 @@
 		letter-spacing: var(--project-letterSpace-mobile) !important;
 	}
 
+	.eyebrow{
+		margin-right:0;
+	}
+
 	.project-description,
 	.project-team {
 		grid-column-start: 1;
@@ -411,7 +445,7 @@
 		grid-column-end: 13;
 
 		li {
-			display: inline;
+			display: block;
 
 			::marker {
 				display: none;

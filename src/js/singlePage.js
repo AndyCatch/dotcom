@@ -48,20 +48,15 @@ window.addEventListener('resize', (event) => {
 	resizeSequencer(event)
 })
 
-
 function canvasSetup() {
-	console.log('canvasSetup')
+	let sequenceTag = document.getElementsByClassName(
+		'sequencer-project-square'
+	)[0]
 
-	// let canvasTag = document.querySelector('canvas') // if any canvas is present?
-	// let firstCanvas = document.getElementById(configs[0].id)
-	let sequenceTag = document.getElementsByClassName('sequencer-project-square')[0]
-	console.log(sequenceTag)
-	
 	if (sequenceTag) {
-		console.log("firstCanvas")
 		setCanvas()
 		clearInterval(canvasChecker)
-	}else{
+	} else {
 		clearInterval(canvasChecker)
 	}
 }
