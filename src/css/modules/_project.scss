@@ -23,6 +23,11 @@
 		}
 	}
 
+	.project-info li.eyebrow{
+		grid-column-start:1;
+		grid-column-end:12;
+	}
+
 	.project-description {
 		grid-column-start: 1;
 		grid-column-end: 6;
@@ -88,6 +93,7 @@
 		left: 0;
 		width: 50%;
 		height: 100%;
+		pointer-events: none;
 	}
 
 	.sticky-title {
@@ -170,6 +176,7 @@
 		transition: all 0.3s ease-in;
 	}
 
+
 	.project-image-container {
 		aspect-ratio: 1 / 1;
 		width: 49vw;
@@ -215,24 +222,25 @@
 		font-family: var(--untitled-reg) !important;
 		line-height: var(--body-line) !important;
 		text-align: left;
-		color: var(--white) !important;
 		letter-spacing: -1px !important;
-
+		
 		display: flex;
 		flex-direction: row;
-
+		
 		a,
 		p {
-			margin-right: var(--two-units);
+			margin-right: var(--half-unit);
 			font-size: var(--caption-size) !important;
 		}
-
+		
 		a {
 			/* top | right | bottom | left */
 			padding: 0 var(--unit) 0 var(--unit);
 			border-radius: var(--four-units);
 			// border: 1px solid rgba(255, 255, 255, 0.2);
 			border-style: solid;
+			background-color: var(--image-black);
+			color: var(--white);
 			transition: all 0.2s ease-in !important;
 		}
 
@@ -244,7 +252,7 @@
 
 	.current-project {
 		pointer-events: none;
-		background-color: var(--white);
+		background-color: var(--light) !important;
 		color: var(--black) !important;
 	}
 
@@ -378,7 +386,7 @@
 		position: unset;
 	}
 
-	.project-info{
+	section li.project-display{
 		margin-top: 0;
 	}
 

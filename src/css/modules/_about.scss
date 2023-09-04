@@ -37,6 +37,8 @@
 	}
 
 	.about-block {
+		// color: var(--white) !important;
+
 		grid-column-start: 4;
 		grid-column-end: 10;
 	}
@@ -66,6 +68,14 @@
 		grid-column-start: 5;
 	}
 
+	.about-content .about-block:nth-child(3),
+	.about-content .about-block:nth-child(4),
+	.about-content .about-block:nth-child(5),
+	.about-content .about-block:nth-child(8) {
+		margin-top: var(--unit);
+	}
+
+
 	.experience-heading {
 		grid-column-start: 4;
 		grid-column-end: 4;
@@ -93,21 +103,24 @@
 	.margin-left-four {
 		margin-left: calc(var(--unit) * 4);
 	}
+
 	.margin-left-six {
 		margin-left: calc(var(--unit) * 6);
 	}
+
 	.margin-left-twelve {
 		margin-left: calc(var(--unit) * 12);
 	}
+
 	.margin-left-twenty {
 		margin-left: calc(var(--unit) * 20);
 	}
 }
 
-@mixin tablet {
-}
+@mixin tablet {}
 
 @mixin mobile {
+
 	.about-content,
 	.experience,
 	.awards {
