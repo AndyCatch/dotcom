@@ -37,8 +37,6 @@
 	}
 
 	.about-block {
-		// color: var(--white) !important;
-
 		grid-column-start: 4;
 		grid-column-end: 10;
 	}
@@ -120,6 +118,10 @@
 @mixin tablet {}
 
 @mixin mobile {
+	.about-heading{
+		margin-bottom: var(--unit) !important;
+	}
+
 
 	.about-content,
 	.experience,

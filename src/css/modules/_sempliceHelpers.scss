@@ -61,7 +61,11 @@
 		overflow-y: visible !important;
 	}
 
-	.is-content p,
+	#content-holder .is-content p {
+    margin-bottom: 0;
+}
+
+	// .is-content p,
 	.is-content h1 {
 		margin-bottom: 0 !important;
 	}
