@@ -9,11 +9,7 @@
 
 		/* top | right | bottom | left */
 		width: 100%;
-		margin: 60vh 0 0 0;
-
-		.bottom-year {
-			display: block;
-		}
+		margin: 35vh 0 0 0;
 
 		a {
 			aspect-ratio: 1 / 1;
@@ -65,11 +61,7 @@
 		flex-direction: row;
 		padding-bottom: 0;
 		align-items: flex-start;
-		margin-top: 70vh;
-
-		.bottom-year {
-			display: none;
-		}
+		margin-top: 35vh;
 
 		a {
 			margin-bottom: var(--unit);

@@ -1,3 +1,5 @@
+let yearSet = false
+
 function updateClock() {
 	if (luxon) {
 		let locations = document.querySelectorAll(
@@ -5,7 +7,7 @@ function updateClock() {
 		)
 
 		locations.forEach((location) => {
-			let clock = location.querySelector('h1')
+			let clock = location.querySelector('p')
 			let city = clock.getAttribute('data-city')
 			let timeZone = location.getAttribute('data-timezone')
 			let now = luxon.DateTime.now().setZone(timeZone)
@@ -20,6 +22,23 @@ function updateClock() {
 				clock.classList.remove('open')
 			}
 		})
+
+		if(!yearSet){
+			getCurrentYear()
+		}
+	}
+}
+
+function getCurrentYear(){
+	if(luxon){
+		let currentYear = document.getElementById("currentYear")
+		let timeZone = "America/New_York"
+		let now = luxon.DateTime.now().setZone(timeZone)
+		let year = now.c.year
+
+		currentYear.innerHTML = year
+
+		yearSet = true
 	}
 }
 

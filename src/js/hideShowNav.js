@@ -1,6 +1,7 @@
 import { isInViewport } from './utils'
 
-let prevScrollPos = window.pageYOffset
+let prevScrollPos = window.scrollY
+// let prevScrollPos = window.pageYOffset
 
 function toggleNav(elem, action) {
 	elem.classList.remove(action === 'show' ? 'hideNav' : 'showNav')

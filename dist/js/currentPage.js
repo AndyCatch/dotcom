@@ -12,6 +12,7 @@ function setPage() {
 
 	if (mobileNav && desktopNav) {
 		clearInterval(navItemChecker)
+		
 		let mobileNavItems = Array.from(
 			mobileNav.querySelectorAll('a.custom-nav-item')
 		)
@@ -24,7 +25,7 @@ function setPage() {
 		navItems.forEach((item) => {
 			// loops through nav items present in both desktop and mobile navs, resets
 			item.classList.remove('current-item')
-			if (item.innerHTML === currentPage) {
+			if (item.innerText === currentPage) {
 				// if nav item with matching currentPage found, updated to current item
 				item.classList.add('current-item')
 			}
