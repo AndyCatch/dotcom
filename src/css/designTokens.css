@@ -38,6 +38,7 @@
 	--subHead-line: 1;
 	--subHead-size-tablet: 8vw;
 	--subHead-size-mobile: calc(var(--unit) * 6);
+	--project-blurb:2.8vw;
 	--project-display: 4vw;
 	--project-display-tablet: 7vw;
 	--project-display-mobile: calc(var(--unit) * 3.5);
