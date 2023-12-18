@@ -54,6 +54,7 @@
 		pointer-events: none;
 	}
 
+
 	.nav-toggle,
 	.custom-nav-touch {
 		display: none;
@@ -91,16 +92,17 @@
 			font-family: var(--untitled-reg) !important;
 			background-color: var(--white);
 		}
+
 		a span {
 			color: var(--black) !important;
 		}
 	}
 }
 
-@mixin tablet {
-}
+@mixin tablet {}
 
 @mixin mobile {
+
 	/* To help override values + flexbox from Semplice */
 	.menu-icon {
 		margin: 8px 0 0 0;
@@ -186,20 +188,24 @@
 			background-color: var(--light);
 			border-radius: var(--two-units) var(--two-units) 0 0;
 
-			height: 60vh;
+			height: 64vh;
 			width: 100%;
+
+			:first-child {
+				margin-top: var(--three-units);
+			}
 		}
 
 		nav.socials {
 			/* top | right | bottom | left */
-			margin-top: var(--four-units);
-			padding-bottom: var(--unit);
-			padding-right: var(--four-units);
+			padding-right: var(--unit);
 			display: flex;
 			flex-direction: row;
-			justify-content: flex-start;
+			justify-content: flex-end;
 			align-items: center;
-			position: relative;
+			position: absolute;
+			bottom: calc(var(--unit) * 3);
+			right: 0;
 
 			width: 100%;
 			height: fit-content;
@@ -207,29 +213,35 @@
 			:nth-child(1) {
 				margin-top: 0;
 			}
-
-			:nth-child(2),
-			:nth-child(3) {
-				margin-left: var(--two-units);
-			}
 		}
 
 		.custom-nav-item {
-			font-size: var(--five-units) !important;
-			color: var(--black) !important;
+			font-size: calc(var(--unit) * 3.5) !important;
+			letter-spacing: -1.2px;
+			color: var(--black);
+			display: flex;
+			align-items: center;
+			padding: var(--half-unit) var(--four-units) var(--half-unit) var(--four-units);
+		}
 
-			margin: 0 0 0 var(--four-units);
+		.current-item {
+			text-decoration: none;
+			color: var(--white) !important;	
+		}
+	
+		.current-item::before {
+			content: "●"
 		}
 
 		.social-item {
+			/* top | right | bottom | left */
 			font-size: var(--body-size) !important;
 			font-family: var(--untitled-reg) !important;
 			color: var(--black) !important;
 			display: flex;
 			align-items: center;
-			height: calc(6 * var(--unit));
-			/* top | right | bottom | left */
-			margin: 0 0 0 var(--four-units);
+			height: 100%;
+			padding: var(--three-units);
 		}
 
 		transform: translate(0, 100%);

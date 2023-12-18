@@ -4,9 +4,8 @@
 	--light: orangered !important;
 	--image-black: #121714 !important;
 	--black: #0f0f0f !important; /* Deep Black */
+	--dusty-black: #232c26 !important;
 	--social-hover: #1e1e1e;
-	/* --black: #232c26 !important; Dusty Black */
-	--terracotta: #c46a5a !important;
 
 	--background: var(--black);
 
