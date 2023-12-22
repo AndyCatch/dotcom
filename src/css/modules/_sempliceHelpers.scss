@@ -171,6 +171,11 @@
 }
 
 @mixin mobile {
+	// .is-frontend #content .semplice-cover, .is-frontend #content-holder .semplice-cover{
+	// 	height:100vh !important;
+	// }
+
+
 	.back-to-top {
 		width: calc(25% - var(--unit)) !important;
 		height: auto !important;

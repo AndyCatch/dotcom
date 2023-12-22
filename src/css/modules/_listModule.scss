@@ -83,11 +83,19 @@
 				width: 55vw;
 				pointer-events: none;
 				transition: opacity 0.2s ease-out;
-
+				
 				top: -50%;
 				left: 50%;
 			}
 		}
+	}
+
+	.pointer::after{
+		content:" →";
+	}
+
+	.list a:last-child{
+		margin-bottom: 0;
 	}
 
 	.pixelator {
@@ -263,6 +271,10 @@
 
 		top: 0;
 		left: 0%;
+	}
+
+	.pointer::after{
+		content:" ⇲";
 	}
 
 	a:hover h1 {

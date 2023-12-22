@@ -19,7 +19,7 @@ let images = []
 let isPaused
 let requestID
 
-const propertyValue = 5
+const propertyValue = 5.5
 
 function imageMove(hoverElems) {
 	hoverElements = hoverElems

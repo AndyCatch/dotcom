@@ -62,20 +62,32 @@ function hasTouch() {
 
 // Solving for mobile browser vh/vw discrepencies in different browsers
 // via: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
-function customVhUnit() {
+function customVhUnitPx() {
 	let vh = window.innerHeight * 0.01
-	document.documentElement.style.setProperty('--vh', `${vh}px`)
+	document.documentElement.style.setProperty('--vhPx', `${vh}px`)
 }
 
-function customVwUnit() {
+function customVhUnitVal(){
+	let vh = window.innerHeight * 0.01
+	document.documentElement.style.setProperty('--vh', `${vh}`)
+}
+
+function customVwUnitPx() {
 	let vw = window.innerHeight * 0.01
-	document.documentElement.style.setProperty('--vw', `${vh}px`)
+	document.documentElement.style.setProperty('--vwPx', `${vw}px`)
+}
+
+function customVwUnitVal() {
+	let vw = window.innerHeight * 0.01
+	document.documentElement.style.setProperty('--vw', `${vw}`)
 }
 
 export {
 	isInViewport,
-	customVhUnit,
-	customVwUnit,
+	customVhUnitPx,
+	customVhUnitVal,
+	customVwUnitPx,
+	customVwUnitVal,
 	hasTouch,
 	nthParent,
 	cancelAnimationFrame,

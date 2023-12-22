@@ -5,6 +5,7 @@ import { indexImage } from './indexImage'
 import { hideShow, inactivityTime } from './hideShowNav'
 import { imageMove } from './mouseFollow'
 import { setCanvas, resizeSequencer } from './sequencerMod'
+import { customVhUnitVal } from './utils'
 
 var clock = setInterval(updateClock, 1000)
 var mobileNavChecker = setInterval(addMobileNav, 500)
@@ -142,7 +143,7 @@ function addNav() {
 
 	if (nav) {
 		clearInterval(navChecker)
-		window.addEventListener('scroll', navHandler, {
+		window.addEventListener('scroll', _.throttle(navHandler,300), {
 			capture: false,
 			passive: true,
 		})
@@ -158,6 +159,23 @@ function navHandler(event) {
 
 	if (nav != 'undefined') {
 		hideShow(nav, footer, letters, hadFilter, currentScrollPos)
+	}
+
+	viewportHeight(event)
+}
+
+// Fix for the .see-more button + mobile browsers
+function viewportHeight(event){
+	customVhUnitVal()
+
+	let sempliceCover = document.querySelector(".sections .semplice-cover")
+	let unit = getComputedStyle(document.body).getPropertyValue('--vh');
+	unit = Number(unit)
+	
+	let currentViewPortH = 100 * unit
+
+	if(sempliceCover){
+		sempliceCover.style.setProperty("height", `${currentViewPortH}px`, "important");
 	}
 }
 
