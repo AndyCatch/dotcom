@@ -1,7 +1,6 @@
 import { isInViewport } from './utils'
 
 let prevScrollPos = window.scrollY
-// let prevScrollPos = window.pageYOffset
 
 function toggleNav(elem, action) {
 	elem.classList.remove(action === 'show' ? 'hideNav' : 'showNav')
@@ -17,7 +16,7 @@ function inactivityTime(elem) {
 
 	function resetTimer() {
 		clearTimeout(time)
-		time = setTimeout(logout, 4000)
+		time = setTimeout(logout, 3000)
 	}
 
 	document.onscroll = resetTimer

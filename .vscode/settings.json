@@ -1,3 +1,6 @@
 {
-	"html.format.enable": true
+	"html.format.enable": true,
+	"[css]": {
+		"editor.defaultFormatter": null
+	}
 }

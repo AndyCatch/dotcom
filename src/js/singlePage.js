@@ -5,7 +5,7 @@ import { indexImage } from './indexImage'
 import { hideShow, inactivityTime } from './hideShowNav'
 import { imageMove } from './mouseFollow'
 import { setCanvas, resizeSequencer } from './sequencerMod'
-import { customVhUnitVal } from './utils'
+import { isInViewport, navigationType, customVhUnitVal } from './utils'
 
 var clock = setInterval(updateClock, 1000)
 var mobileNavChecker = setInterval(addMobileNav, 500)
@@ -28,7 +28,34 @@ feather.replace()
 
 window.addEventListener('load', (event) => {
 	console.log('Window load event')
+	let projectImageContainer = document.querySelector('.project-image-container')
+	let showMoreBtn = document.querySelector('.semplice-cover .show-more')
+
+	if (showMoreBtn) {
+		if (!isInViewport(projectImageContainer)) {
+			if (showMoreBtn.classList.contains('show-more-hide') === false) {
+				showMoreBtn.classList.add('show-more-hide')
+			}
+		}
+	}
 })
+
+// Leaving in case need to do stuff after transition is complete
+window.addEventListener(
+	'sempliceTransitionsDone',
+	sempliceTransitionDoneHandler,
+	false
+)
+
+function sempliceTransitionDoneHandler(event) {
+	viewportHeight(event)
+
+	window.removeEventListener(
+		'sempliceTransitionsDone',
+		sempliceTransitionDoneHandler,
+		false
+	)
+}
 
 window.addEventListener('resize', (event) => {
 	let toggleTag = document.querySelector('nav.nav-toggle a.custom-nav-item')
@@ -143,7 +170,7 @@ function addNav() {
 
 	if (nav) {
 		clearInterval(navChecker)
-		window.addEventListener('scroll', _.throttle(navHandler,300), {
+		window.addEventListener('scroll', _.throttle(scrollHandler, 300), {
 			capture: false,
 			passive: true,
 		})
@@ -152,30 +179,41 @@ function addNav() {
 	}
 }
 
-function navHandler(event) {
+function scrollHandler(event) {
 	let nav = document.querySelector('.custom-nav-desktop')
 	let footer = document.querySelector('.clock-container')
-	let currentScrollPos = window.pageYOffset
+	let currentScrollPos = window.scrollY || window.pageYOffset
+	let projectImageContainer = document.querySelector('.project-image-container')
+	let showMore = document.querySelector('.semplice-cover .show-more')
 
 	if (nav != 'undefined') {
 		hideShow(nav, footer, letters, hadFilter, currentScrollPos)
 	}
 
+	if (projectImageContainer) {
+		if (!isInViewport(projectImageContainer)) {
+			showMore.classList.add('show-more-hide')
+		} else {
+			showMore.classList.remove('show-more-hide')
+		}
+	}
+
 	viewportHeight(event)
 }
 
-// Fix for the .see-more button + mobile browsers
-function viewportHeight(event){
+function viewportHeight(event) {
 	customVhUnitVal()
+	let sempliceCover = document.querySelector('.sections .semplice-cover')
 
-	let sempliceCover = document.querySelector(".sections .semplice-cover")
-	let unit = getComputedStyle(document.body).getPropertyValue('--vh');
-	unit = Number(unit)
-	
+	let unit = Number(getComputedStyle(document.body).getPropertyValue('--vh'))
 	let currentViewPortH = 100 * unit
 
-	if(sempliceCover){
-		sempliceCover.style.setProperty("height", `${currentViewPortH}px`, "important");
+	if (sempliceCover) {
+		sempliceCover.style.setProperty(
+			'height',
+			`${currentViewPortH}px`,
+			'important'
+		)
 	}
 }
 

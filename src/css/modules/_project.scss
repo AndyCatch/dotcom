@@ -1,4 +1,5 @@
 @mixin desktop {
+
 	/* ----- Project Page Styles ----- */
 	.cover_title {
 		color: var(--white);
@@ -35,12 +36,6 @@
 	.project-team {
 		grid-column-start: 7;
 		grid-column-end: 11;
-	}
-
-	.zap {
-		grid-column-start: 1;
-		grid-column-end: 3;
-		position: absolute;
 	}
 
 	.eyebrow {
@@ -127,12 +122,24 @@
 		transition: 0.3s ease-in;
 	}
 
+	.project-cover-wrapper {
+		width: 100%;
+		height: 100vh;
+		position: relative;
+	}
+
 	.display-container {
+		position: relative;
+		top: 0;
 		width: 100%;
 		display: flex;
 		align-items: center;
 		flex-direction: row;
 		margin-bottom: 10vh;
+	}
+
+	.test-margin {
+		margin-bottom: 50vh;
 	}
 
 	// Used for videos
@@ -167,6 +174,10 @@
 		letter-spacing: var(--project-letterSpace) !important;
 		line-height: var(--project-display-line) !important;
 		color: var(--white);
+	}
+
+	.project-blurb::after {
+		content: '↯';
 	}
 
 	.show-first {
@@ -217,6 +228,10 @@
 	.cover_title div[data-content-for='sm'] h1 span,
 	.cover_title div[data-content-for='xs'] h1 span {
 		opacity: 0;
+	}
+
+	.sections .semplice-cover {
+		transition: height 0.3s ease-in !important;
 	}
 
 	.project-inPage-nav {
@@ -273,24 +288,25 @@
 		}
 	}
 
-		a.show-more.show-more-visible.semplice-event {
-			right: 2px;
-			aspect-ratio: 1/1;
-			width: 20% !important;
-			justify-content: center !important;
-			flex-wrap: wrap;
-			align-content: space-evenly;
-		}
-
 	.semplice-cover .show-more {
+		// setup for animation
+		opacity: 1;
+		pointer-events: all;
 		border: 1px var(--white);
 		border-style: solid;
 		border-radius: 100%;
+		// might solve the resize issue?
+		position: fixed !important;
+		// 
 		background-color: transparent;
 		mix-blend-mode: normal !important;
+		margin-bottom: var(--four-units);
 
-		justify-content: flex-start !important;
-		margin-bottom: 3vh;
+		right: var(--two-units);
+		aspect-ratio: 1/1;
+		width: 20% !important;
+		justify-content: center !important;
+		align-content: space-evenly;
 
 		transition: all 0.3s ease-in !important;
 
@@ -298,8 +314,13 @@
 			mix-blend-mode: normal !important;
 			animation: 1s arrow-down infinite alternate ease-in-out;
 			background-color: transparent !important;
-			width:70% !important;
+			width: 70% !important;
 		}
+	}
+
+	.show-more-hide {
+		pointer-events: none !important;
+		opacity: 0 !important;
 	}
 
 	.semplice-cover .show-more:hover {
@@ -401,11 +422,6 @@
 }
 
 @mixin mobile {
-	.zap {
-		margin-top: 0px !important;
-		position: unset;
-	}
-
 	section li.project-display {
 		margin-top: 0;
 	}
@@ -430,13 +446,17 @@
 	}
 
 	.display-container {
+		// testing for the custom version 
+		position: relative;
+		// 
+
 		margin-bottom: var(--two-units);
 		width: calc(100vw - 32px);
 		flex-direction: column;
 	}
 
 	.project-cover {
-		margin-top: -55vh;
+		margin-top: -58vh;
 	}
 
 	.project-inPage-nav {
@@ -493,15 +513,13 @@
 		display: none;
 	}
 
-	a.show-more.show-more-visible.semplice-event {
-		right: 0px;
+	.semplice-cover .show-more {
+		z-index: 9 !important;
+
+		right: var(--two-units);
 
 		width: calc(10 * var(--unit)) !important;
 		height: calc(10 * var(--unit)) !important;
-	}
-
-	.semplice-cover .show-more {
-		z-index: 9 !important;
 
 		padding: var(--two-units) !important;
 		border-radius: 100% !important;

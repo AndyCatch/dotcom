@@ -25,27 +25,24 @@
 	}
 
 	.pswp__button--arrow--left:before {
-		background: url(https://andycatch.com/proto/wp-content/uploads/2021/11/LeftArrow.svg)
-			no-repeat !important;
+		background: url(https://andycatch.com/proto/wp-content/uploads/2021/11/LeftArrow.svg) no-repeat !important;
 		left: 1rem !important;
 	}
 
 	.pswp__button--arrow--right:before {
-		background: url(https://andycatch.com/proto/wp-content/uploads/2021/11/RightArrow.svg)
-			no-repeat !important;
+		background: url(https://andycatch.com/proto/wp-content/uploads/2021/11/RightArrow.svg) no-repeat !important;
 		right: 1rem !important;
 	}
 
 	.pswp__button--close {
 		margin: 1rem 1rem 0 0 !important;
-		background: url(https://andycatch.com/proto/wp-content/uploads/2021/11/Close.svg)
-			no-repeat !important;
+		background: url(https://andycatch.com/proto/wp-content/uploads/2021/11/Close.svg) no-repeat !important;
 	}
+
 	/* top | right | bottom | left */
 	.pswp__button--fs {
 		margin: 1rem 1rem 0 0 !important;
-		background: url(https://andycatch.com/proto/wp-content/uploads/2021/11/Expand.svg)
-			no-repeat !important;
+		background: url(https://andycatch.com/proto/wp-content/uploads/2021/11/Expand.svg) no-repeat !important;
 	}
 
 	.pswp__button--arrow--left:before,
@@ -62,8 +59,8 @@
 	}
 
 	#content-holder .is-content p {
-    margin-bottom: 0;
-}
+		margin-bottom: 0;
+	}
 
 	// .is-content p,
 	.is-content h1 {
@@ -98,7 +95,7 @@
 	.back-to-top {
 		mix-blend-mode: difference !important;
 		bottom: var(--four-units) !important;
-		right: var(--unit);
+		right: var(--two-units);
 		width: calc(16 * var(--unit));
 		height: calc(16 * var(--unit));
 
@@ -171,13 +168,8 @@
 }
 
 @mixin mobile {
-	// .is-frontend #content .semplice-cover, .is-frontend #content-holder .semplice-cover{
-	// 	height:100vh !important;
-	// }
-
-
 	.back-to-top {
-		width: calc(25% - var(--unit)) !important;
+		width: calc(10 * var(--unit));
 		height: auto !important;
 		bottom: var(--two-units) !important;
 		mix-blend-mode: normal !important;
