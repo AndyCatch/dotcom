@@ -113,19 +113,22 @@
 		display: flex;
 		justify-content: flex-end;
 		width: 100%;
-		/* Fallback for browsers that do not support Custom Properties, uses {customVhUnit} from utils.js */
-		// height: calc(var(--vh, 1vh) * 100);
 		align-items: center;
+		// this value is unique to Semplice deployment – doesn't work in prototype env.
 		margin-top: calc(-100vh + var(--two-units));
+		// 
 		margin-bottom: 10vh;
-		// margin-top: calc(var(--vh, 1vh) * -100);
 		transition: 0.3s ease-in;
 	}
 
-	.project-cover-wrapper {
+	.showMoreMarker {
+		pointer-events: none;
+		z-index: 100;
+		position: absolute;
+		top: 25%;
 		width: 100%;
-		height: 100vh;
-		position: relative;
+		height: 50%;
+		background: rgba(255, 69, 0, 0);
 	}
 
 	.display-container {

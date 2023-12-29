@@ -183,18 +183,22 @@ function scrollHandler(event) {
 	let nav = document.querySelector('.custom-nav-desktop')
 	let footer = document.querySelector('.clock-container')
 	let currentScrollPos = window.scrollY || window.pageYOffset
-	let projectImageContainer = document.querySelector('.project-image-container')
-	let showMore = document.querySelector('.semplice-cover .show-more')
+	let showMoreMarker = document.querySelector('.showMoreMarker')
+	let showMoreBtn = document.querySelector('.semplice-cover .show-more')
 
 	if (nav != 'undefined') {
 		hideShow(nav, footer, letters, hadFilter, currentScrollPos)
 	}
 
-	if (projectImageContainer) {
-		if (!isInViewport(projectImageContainer)) {
-			showMore.classList.add('show-more-hide')
+	if (showMoreMarker) {
+		if (!isInViewport(showMoreMarker)) {
+			if (showMoreBtn) {
+				showMoreBtn.classList.add('show-more-hide')
+			}
 		} else {
-			showMore.classList.remove('show-more-hide')
+			if (showMoreBtn) {
+				showMoreBtn.classList.remove('show-more-hide')
+			}
 		}
 	}
 
@@ -204,7 +208,6 @@ function scrollHandler(event) {
 function viewportHeight(event) {
 	customVhUnitVal()
 	let sempliceCover = document.querySelector('.sections .semplice-cover')
-
 	let unit = Number(getComputedStyle(document.body).getPropertyValue('--vh'))
 	let currentViewPortH = 100 * unit
 
