@@ -58,20 +58,19 @@ function sempliceTransitionDoneHandler(event) {
 }
 
 window.addEventListener('resize', (event) => {
-	let toggleTag = document.querySelector('nav.nav-toggle a.custom-nav-item')
-	let mobileNavTag = document.querySelector('nav.custom-nav-touch')
-	let page = document.querySelector('html')
+	// let toggleTag = document.querySelector('nav.nav-toggle a.custom-nav-item')
+	// let mobileNavTag = document.querySelector('nav.custom-nav-touch')
+	// let page = document.querySelector('html')
 
-	if (mobileNavOpen) {
-		if (mobileNavTag.classList.contains('mobile-nav-open')) {
-			mobileNavTag.classList.remove('mobile-nav-open')
-			toggleTag.innerHTML = `Menu`
-			toggleTag.parentNode.classList.remove('toggle-width')
-			page.classList.remove('disableScroll')
-		}
+	// if (mobileNavOpen) {
+	// 	if (mobileNavTag.classList.contains('mobile-nav-open')) {
+	// 		mobileNavTag.classList.remove('mobile-nav-open')
+	// 		toggleTag.parentNode.classList.remove('toggle-width')
+	// 		page.classList.remove('disableScroll')
+	// 	}
 
-		mobileNavOpen = !mobileNavOpen
-	}
+	// 	mobileNavOpen = !mobileNavOpen
+	// }
 
 	resizeSequencer(event)
 })
