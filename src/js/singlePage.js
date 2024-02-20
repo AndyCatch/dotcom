@@ -5,7 +5,8 @@ import { indexImage } from './indexImage'
 import { hideShow, inactivityTime } from './hideShowNav'
 import { imageMove } from './mouseFollow'
 import { setCanvas, resizeSequencer } from './sequencerMod'
-import { isInViewport, navigationType, customVhUnitVal } from './utils'
+import { isInViewport, customVhUnitVal } from './utils'
+import { desktops } from './mediaQueries'
 
 var clock = setInterval(updateClock, 1000)
 var mobileNavChecker = setInterval(addMobileNav, 500)
@@ -57,23 +58,32 @@ function sempliceTransitionDoneHandler(event) {
 	)
 }
 
+desktops.forEach((desktop) => {
+	desktop.addEventListener('change', isDesktopHandler)
+})
+
 window.addEventListener('resize', (event) => {
-	// let toggleTag = document.querySelector('nav.nav-toggle a.custom-nav-item')
-	// let mobileNavTag = document.querySelector('nav.custom-nav-touch')
-	// let page = document.querySelector('html')
-
-	// if (mobileNavOpen) {
-	// 	if (mobileNavTag.classList.contains('mobile-nav-open')) {
-	// 		mobileNavTag.classList.remove('mobile-nav-open')
-	// 		toggleTag.parentNode.classList.remove('toggle-width')
-	// 		page.classList.remove('disableScroll')
-	// 	}
-
-	// 	mobileNavOpen = !mobileNavOpen
-	// }
-
+	isDesktopHandler(event)
 	resizeSequencer(event)
 })
+
+function isDesktopHandler(event){
+	// Leaving this here – can't remember what this was solving for!
+	// Issue when switching between desktop and mobile inspector view – disable scroll remains
+	let toggleTag = document.querySelector('nav.nav-toggle a.custom-nav-item')
+	let mobileNavTag = document.querySelector('nav.custom-nav-touch')
+	let page = document.querySelector('html')
+
+	if (mobileNavOpen) {
+		if (mobileNavTag.classList.contains('mobile-nav-open')) {
+			mobileNavTag.classList.remove('mobile-nav-open')
+			toggleTag.parentNode.classList.remove('toggle-width')
+			page.classList.remove('disableScroll')
+		}
+
+		mobileNavOpen = !mobileNavOpen
+	}
+}
 
 function canvasSetup() {
 	let sequenceTag = document.getElementsByClassName(
