@@ -18,7 +18,7 @@
 			justify-content: flex-end;
 
 			:last-child {
-				margin-right: 0;
+				margin-right: var(--unit);
 			}
 		}
 	}
@@ -47,8 +47,7 @@
 	}
 }
 
-@mixin tablet {
-}
+@mixin tablet {}
 
 @mixin mobile {
 	.home-branding {

@@ -54,7 +54,6 @@
 		pointer-events: none;
 	}
 
-
 	.nav-toggle,
 	.custom-nav-touch {
 		display: none;
@@ -226,9 +225,9 @@
 
 		.current-item {
 			text-decoration: none;
-			color: var(--white) !important;	
+			color: var(--white) !important;
 		}
-	
+
 		.current-item::before {
 			content: "●"
 		}

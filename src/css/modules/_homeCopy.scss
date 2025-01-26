@@ -19,21 +19,24 @@
 		grid-column-start: 2;
 		grid-column-end: 3;
 	}
+
 	// Phase...
 	.home-copy-row:nth-child(2) {
-		margin-top: calc(var(--eight-units) * 2);
+		margin-top: calc(var(--eight-units) * 10);
 		grid-column-start: 3;
 		grid-column-end: 8;
 	}
+
 	// Acknowledgement...
 	.home-copy-row:nth-child(3) {
-		margin-top: calc(var(--eight-units) * 2);
+		margin-top: calc(var(--eight-units) * 16);
 		grid-column-start: 8;
 		grid-column-end: 12;
 	}
 }
 
 @mixin tablet {
+
 	.home-copy-row:nth-child(1),
 	.home-copy-row:nth-child(2),
 	.home-copy-row:nth-child(3) {
