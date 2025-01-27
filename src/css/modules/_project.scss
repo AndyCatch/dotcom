@@ -190,6 +190,9 @@
 		letter-spacing: var(--project-letterSpace) !important;
 		line-height: var(--project-display-line) !important;
 		color: var(--white);
+
+		margin-bottom: var(--half-unit);
+
 	}
 
 	.project-blurb {
@@ -451,6 +454,10 @@
 		margin-top: 0;
 	}
 
+	.project-wrapper {
+		margin-top: 10vh;
+	}
+
 	.project-image-container {
 		width: calc(100vw - 32px);
 		height: calc(100vw - 32px);
@@ -466,6 +473,10 @@
 		height: calc(100vw - 32px);
 	}
 
+	.page-end {
+		margin-bottom: 36vh !important;
+	}
+
 	.project-ender {
 		margin-bottom: 10vh;
 	}
@@ -475,7 +486,7 @@
 		position: relative;
 		// 
 
-		margin-bottom: var(--two-units);
+		margin-bottom: var(--half-unit);
 		width: calc(100vw - 32px);
 		flex-direction: column;
 	}
