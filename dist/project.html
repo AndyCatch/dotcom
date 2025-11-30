@@ -10,6 +10,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 	<script src="https://moment.github.io/luxon/global/luxon.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.5/dist/lazyload.min.js"></script>
 	<script src="js/project.js" type="text/javascript"></script>
 	<script src="js/sequencerMod.js" type="text/javascript"></script>
 	<script src="js/singlePage.js" type="text/javascript"></script>
@@ -74,36 +75,65 @@
 		</section>
 		<!-- LETTERS END -->
 
-		<!-- PROJECT NAV  -->
-		<!-- PROJECT NAV  -->
-		<nav class="project-inPage-nav">
-			<a href="https://andycatch.com/proto/project/verizon-vision" data-project="Vision">Verizon Vision</a>
-			<a href="https://andycatch.com/proto/project/verizon-dbi" data-project="DBI">Verizon DBI</a>
-			<a href="https://andycatch.com/proto/project/sonic" data-project="Sonic">Sonic Drive-In</a>
-			<a href="https://andycatch.com/proto/project/process" data-project="Process">Process</a>
-			<a href="https://andycatch.com/proto/project/archive" data-project="Archive">Archive</a>
-		</nav>
-		<!-- PROJECT NAV END-->
-
 		<!-- PROJECT DISPLAY DESC. -->
-		<section>
+		<!-- <section>
 			<div class="project-blurb">
 				Verizon Vision is the collective name for a digital product, design
 				strategy or a campaign made with a future state or event in mind. Used
 				for research, an eventual product, internal socializing or the cutting
 				room floor
 			</div>
-		</section>
+		</section> -->
 		<!-- PROJECT DISPLAY DESC. -->
+
+		<!-- TEST -->
+		<section style="height:100vh"></section>
+		<!-- TEST -->
 
 		<!-- PROJECT COVER -->
 		<section class="project-cover">
 			<div class="project-image-container">
 				<div class="showMoreMarker"></div>
-				<video class="video-project-square" autoplay muted loop playsinline>
-					<source src="https://andycatch.com/proto/wp-content/uploads/2021/10/MAIN-COMP.mp4" type="video/mp4">
-					Sorry, your browser doesn't support embedded videos.
-				</video>
+				<!-- <source src="https://andycatch.com/proto/wp-content/uploads/2021/10/MAIN-COMP.mp4" type="video/mp4"> -->
+				<div class="video-wrapper">
+					<video class="video-project-square lazy" muted loop playsinline preload="none"
+						data-src="https://andycatch.com/proto/wp-content/uploads/2025/02/MainComp-HScroll-2.mp4"
+						data-preloadImg="https://andycatch.com/proto/wp-content/uploads/2025/03/DesktopCardConcept-Poster.png"
+						data-poster="https://andycatch.com/proto/wp-content/uploads/2025/03/DesktopCardConcept-Poster.png">
+						Your browser does not support the video tag.
+					</video>
+					<div class="loading-overlay">
+						<div class="loading-text"><span class="loading-percent">0%</span></div>
+					</div>
+				</div>
+			</div>
+			<div class="overlay">
+				<ul class="sticky-title label-caption">
+					<li class="right-side-caption">Verizon Consumer Vision (VCG)</li>
+				</ul>
+			</div>
+		</section>
+		<!-- PROJECT COVER END -->
+
+		<!-- TEST -->
+		<section style="height:50vh"></section>
+		<!-- TEST -->
+
+		<!-- PROJECT COVER -->
+		<section class="display-container display-align-right project-opener">
+			<div class="project-image-container">
+				<div class="showMoreMarker"></div>
+				<div class="video-wrapper">
+					<video class="video-project-square lazy" muted loop playsinline preload="none"
+						data-src="https://andycatch.com/proto/wp-content/uploads/2021/10/MAIN-COMP.mp4"
+						data-preloadImg="https://andycatch.com/proto/wp-content/uploads/2025/03/VCG-Poster.png"
+						data-poster="https://andycatch.com/proto/wp-content/uploads/2025/03/VCG-Poster.png">
+						Your browser does not support the video tag.
+					</video>
+					<div class="loading-overlay">
+						<div class="loading-text"><span class="loading-percent">0%</span></div>
+					</div>
+				</div>
 			</div>
 			<div class="overlay">
 				<ul class="sticky-title label-caption">
@@ -114,14 +144,6 @@
 		<!-- PROJECT COVER END -->
 
 	</div>
-
-
-	<!-- SOCIAL LINKS -->
-	<nav class="social-links">
-		<a href="http://github.com/andyCatch"><i data-feather="github" stroke-width="1"></i></a>
-		<a href="https://www.instagram.com/itsandycatch/"><i data-feather="instagram" stroke-width="1"></i></a>
-		<a href="https://twitter.com/AndyCatch"><i data-feather="twitter" stroke-width="1"></i></a>
-	</nav>
 
 	<!-- FOOTER -->
 	<footer class="footer-container">

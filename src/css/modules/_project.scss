@@ -35,7 +35,7 @@
 
 	.project-description {
 		grid-column-start: 3;
-		grid-column-end: 6;
+		grid-column-end: 7;
 	}
 
 	.project-team {
@@ -124,7 +124,9 @@
 
 	/* Handles Project Cover Titles */
 	.project-cover {
+		// Set to 0 or 1 depending on env
 		opacity: 0;
+		//
 		display: flex;
 		justify-content: flex-end;
 		width: 100%;
@@ -134,6 +136,10 @@
 		// 
 		margin-bottom: 10vh;
 		transition: 0.3s ease-in;
+	}
+
+	.contain-video {
+		object-fit: contain !important;
 	}
 
 	.showMoreMarker {
@@ -182,7 +188,7 @@
 	}
 
 	.project-display {
-		grid-column-start: 3;
+		grid-column-start: 2;
 		grid-column-end: 12;
 		pointer-events: none;
 		font-family: var(--untitled-reg) !important;
@@ -214,15 +220,10 @@
 		filter: invert(0.8);
 	}
 
-	.title-fade-in {
+	.title-fade-in,
+	.project-cover-fade-in {
 		opacity: 1 !important;
 		transition: opacity 0.3s ease-in;
-	}
-
-	.project-cover-fade-in {
-		opacity: 0.8;
-		filter: invert(0);
-		transition: all 0.3s ease-in;
 	}
 
 	.project-image-container {
@@ -240,7 +241,74 @@
 		background-color: var(--image-black);
 	}
 
-	.video-project-square,
+	.video-wrapper {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+
+	}
+
+	.loading-overlay {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		text-align: left;
+		padding: 10px;
+
+		opacity: 1;
+		transition: opacity 0.8s ease-in-out;
+
+		/* Generic placeholder immediately visible */
+		background-image: url('https://andycatch.com/proto/wp-content/uploads/2025/03/ProfileImgPreload.png');
+	}
+
+	/* Video fade-in effect */
+	.video-project-square {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+		opacity: 0;
+		/* Initially hidden */
+		transform: translateY(20px);
+		transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+		background-size: cover;
+		background-image: url('https://andycatch.com/proto/wp-content/uploads/2025/03/ProfileImgPreload.png');
+	}
+
+	.video-project-square.fade-in {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	/* Hide overlay after fade-out */
+	.hidden {
+		display: none !important;
+	}
+
+	/* Position loading text at the bottom-left */
+	.loading-text {
+		position: absolute;
+		bottom: 0px;
+		/* Adjust distance from bottom */
+		left: 44px;
+		/* Adjust distance from left */
+		color: var(--light);
+		font-size: var(--display-size);
+		font-family: var(--untitled-reg) !important;
+	}
+
 	.sequencer-project-square {
 		position: relative;
 		z-index: 1;
@@ -260,47 +328,6 @@
 
 	.sections .semplice-cover {
 		transition: height 0.3s ease-in !important;
-	}
-
-	.project-inPage-nav {
-		z-index: 11;
-		position: relative;
-		top: 0;
-		left: 0;
-
-		margin-top: var(--two-units);
-
-		width: calc(50% - var(--two-units));
-		font-family: var(--untitled-reg) !important;
-		line-height: var(--body-line) !important;
-		text-align: left;
-		letter-spacing: -1px !important;
-
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-
-		a,
-		p {
-			margin-right: var(--half-unit);
-			font-size: var(--caption-size) !important;
-		}
-
-		a {
-			/* top | right | bottom | left */
-			padding: 0 var(--unit) 0 var(--unit);
-			border-radius: var(--four-units);
-			// border: 1px solid rgba(255, 255, 255, 0.2);
-			border-style: solid;
-			background-color: var(--image-black);
-			color: var(--white);
-			transition: all 0.2s ease-in !important;
-		}
-
-		a:hover {
-			color: var(--black) !important;
-			background-color: var(--white);
-		}
 	}
 
 	.current-project {
@@ -408,7 +435,7 @@
 		margin-top: -40vh;
 	}
 
-	.video-project-square,
+	// .video-project-square,
 	.sequencer-project-square {
 		width: 70vw;
 	}
@@ -467,7 +494,7 @@
 		opacity: 0.9;
 	}
 
-	.video-project-square,
+	// .video-project-square,
 	.sequencer-project-square {
 		width: calc(100vw - 32px);
 		height: calc(100vw - 32px);
@@ -493,10 +520,6 @@
 
 	.project-cover {
 		margin-top: -58vh;
-	}
-
-	.project-inPage-nav {
-		display: none;
 	}
 
 	.project-blurb {

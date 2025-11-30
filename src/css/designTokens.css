@@ -33,21 +33,21 @@
 	--clock-line: 0.9;
 	--clock-size-tablet: 20vw;
 	--clock-size-mobile: var(--eight-units);
-	--subHead-size: 9vw; /* Converted to vw from 80px@1440 W*/
+	--subHead-size: 8vw; /* Converted to vw from 80px@1440 W*/
 	--subHead-line: 1;
-	--subHead-size-tablet: 8vw;
+	--subHead-size-tablet: var(--subHead-size);
 	--subHead-size-mobile: calc(var(--unit) * 6);
 	--project-blurb:2.8vw;
 	--project-display: 4vw;
 	--project-display-tablet: 7vw;
 	--project-display-mobile: calc(var(--unit) * 3.5);
-	--project-letterSpace: -4px;
-	--project-letterSpace-tablet: -4px;
+	--project-letterSpace: -2px;
+	--project-letterSpace-tablet: -2px;
 	--project-letterSpace-mobile: -2px;
 	--project-display-line: 0.98;
 	--nav-size: var(--three-units);
 	--nav-line: 1;
-	--body-size: calc(var(--unit) * 2.25);
+	--body-size: var(--two-units);
 	--body-size-m: calc(var(--unit) * 2.25);
 	--body-line: 1.2;
 	--hover-size: var(--four-units);

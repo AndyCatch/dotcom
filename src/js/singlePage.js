@@ -1,10 +1,12 @@
 /*–––––––––––––––This lives in Semplice –> Advanced -> Javascript ––––––––––––––––––*/
 
 import { updateClock } from './luxonClock'
-import { indexImage } from './indexImage'
+// import { indexImage } from './indexImage'
 import { hideShow, inactivityTime } from './hideShowNav'
 import { imageMove } from './mouseFollow'
 import { setCanvas, resizeSequencer } from './sequencerMod'
+import { safePlay } from './videoSafePlay'
+import { consoleTag } from './consoleTag'
 import { isInViewport, customVhUnitVal } from './utils'
 import { desktops } from './mediaQueries'
 
@@ -28,7 +30,7 @@ let configs = []
 feather.replace()
 
 window.addEventListener('load', (event) => {
-	console.log('Window load event')
+	// console.log('Window load event')
 	let projectImageContainer = document.querySelector('.project-image-container')
 	let showMoreBtn = document.querySelector('.semplice-cover .show-more')
 
@@ -49,6 +51,7 @@ window.addEventListener(
 )
 
 function sempliceTransitionDoneHandler(event) {
+	// console.log('sempliceTransitionsDone')
 	viewportHeight(event)
 
 	window.removeEventListener(
@@ -67,7 +70,7 @@ window.addEventListener('resize', (event) => {
 	resizeSequencer(event)
 })
 
-function isDesktopHandler(event){
+function isDesktopHandler(event) {
 	// Leaving this here – can't remember what this was solving for!
 	// Issue when switching between desktop and mobile inspector view – disable scroll remains
 	let toggleTag = document.querySelector('nav.nav-toggle a.custom-nav-item')
@@ -229,7 +232,137 @@ function viewportHeight(event) {
 	}
 }
 
-document.addEventListener('DOMContentLoaded', (event) => {
-	console.log('DOM fully loaded and parsed')
+function lazyLoadHandler() {
+	// Check for existing instance and destroy it
+	if (
+		window.lazyLoadInstance &&
+		typeof window.lazyLoadInstance.destroy === 'function'
+	) {
+		window.lazyLoadInstance.destroy()
+	}
+
+	// Create new LazyLoad instance and store it globally
+	window.lazyLoadInstance = new LazyLoad({
+		elements_selector: '.lazy',
+		threshold: 300,
+
+		callback_loading: (video) => {
+			const loadingOverlay = video
+				.closest('.video-wrapper')
+				.querySelector('.loading-overlay')
+			const loadingPercent = loadingOverlay.querySelector('.loading-percent')
+
+			// Set video-specific preload image
+			const preloadImg = video.getAttribute('data-preloadImg')
+			if (preloadImg) {
+				const img = new Image()
+				img.src = preloadImg
+				img.style.transition = 'opacity 0.2s ease-in'
+				img.style.opacity = 0
+				img.onload = () => {
+					loadingOverlay.style.backgroundImage = `url(${preloadImg})`
+					setTimeout(function () {
+						img.style.opacity = 1
+					}, 250)
+				}
+			}
+
+			loadingOverlay.style.opacity = '1'
+
+			// Real + fake progress logic
+			let fakeProgress = 0
+
+			const updateProgress = () => {
+				let realLoaded = 0
+				if (video.buffered.length > 0) {
+					let bufferedEnd = video.buffered.end(video.buffered.length - 1)
+					let duration = video.duration
+					if (duration > 0) {
+						realLoaded = Math.round((bufferedEnd / duration) * 100)
+					}
+				}
+
+				fakeProgress = Math.min(
+					realLoaded || fakeProgress + Math.random() * 10,
+					100
+				)
+				loadingPercent.textContent = `${Math.round(fakeProgress)}%`
+
+				if (fakeProgress >= 100) {
+					clearInterval(updateInterval)
+				}
+			}
+
+			video.addEventListener('progress', updateProgress)
+			const updateInterval = setInterval(updateProgress, 300)
+		},
+
+		callback_enter: (video) => {
+			video.src = video.getAttribute('data-src')
+		},
+
+		callback_loaded: (video) => {
+			const loadingOverlay = video
+				.closest('.video-wrapper')
+				.querySelector('.loading-overlay')
+			loadingOverlay.style.opacity = '0'
+			video.classList.add('fade-in')
+
+			setTimeout(() => {
+				loadingOverlay.classList.add('hidden')
+			}, 800)
+
+			// Uses external safePlay module
+			safePlay(video)
+		},
+	})
+
+	// Set up IntersectionObserver for play/pause
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				const video = entry.target
+				if (entry.isIntersecting) {
+					// Uses external safePlay module
+					safePlay(video)
+				} else {
+					video.pause()
+				}
+			})
+		},
+		{ threshold: 0.3 }
+	)
+
+	document.querySelectorAll('.video-project-square').forEach((video) => {
+		observer.observe(video)
+	})
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+	// console.log('DOM fully loaded and parsed')
+	consoleTag()
 	feather.replace()
+
+	// Comment for Semplice
+	// lazyLoadHandler()
 })
+
+function projectCoverInit() {
+	const projectCover = document.getElementsByClassName('project-cover')[0]
+
+	if (projectCover) {
+		// console.log('project Cover')
+
+		setTimeout(function () {
+			if (projectCover.classList.contains('project-cover-fade-in')) {
+				projectCover.classList.remove('project-cover-fade-in')
+			}
+			projectCover.classList.add('project-cover-fade-in')
+		}, 800)
+	}
+}
+
+projectCoverInit()
+
+// Uncomment for Semplice
+lazyLoadHandler()
