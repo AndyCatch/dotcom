@@ -44,21 +44,13 @@ window.addEventListener('load', (event) => {
 })
 
 // Leaving in case need to do stuff after transition is complete
-window.addEventListener(
-	'sempliceTransitionsDone',
-	sempliceTransitionDoneHandler,
-	false
-)
+window.addEventListener('sempliceTransitionsDone', sempliceTransitionDoneHandler, false)
 
 function sempliceTransitionDoneHandler(event) {
 	// console.log('sempliceTransitionsDone')
 	viewportHeight(event)
 
-	window.removeEventListener(
-		'sempliceTransitionsDone',
-		sempliceTransitionDoneHandler,
-		false
-	)
+	window.removeEventListener('sempliceTransitionsDone', sempliceTransitionDoneHandler, false)
 }
 
 desktops.forEach((desktop) => {
@@ -89,9 +81,7 @@ function isDesktopHandler(event) {
 }
 
 function canvasSetup() {
-	let sequenceTag = document.getElementsByClassName(
-		'sequencer-project-square'
-	)[0]
+	let sequenceTag = document.getElementsByClassName('sequencer-project-square')[0]
 
 	if (sequenceTag) {
 		setCanvas()
@@ -121,24 +111,16 @@ function addMobileNav() {
 	let toggleTag = document.querySelector('nav.nav-toggle a.custom-nav-item')
 	let mobileNavTag = document.querySelector('nav.custom-nav-touch')
 	let exitTag = document.querySelector('nav.custom-nav-touch div.touch-menu-bg')
-	let mobileNavItems = Array.from(
-		mobileNavTag.querySelectorAll('a.custom-nav-item')
-	)
+	let mobileNavItems = Array.from(mobileNavTag.querySelectorAll('a.custom-nav-item'))
 	let removeScrollTags = [...mobileNavItems]
 	let page = document.querySelector('html')
 
 	if (toggleTag) {
 		clearInterval(mobileNavChecker)
 
-		toggleTag.addEventListener(
-			'click',
-			mobileNavHandler(mobileNavTag, toggleTag, page)
-		)
+		toggleTag.addEventListener('click', mobileNavHandler(mobileNavTag, toggleTag, page))
 
-		exitTag.addEventListener(
-			'click',
-			mobileNavHandler(mobileNavTag, toggleTag, page)
-		)
+		exitTag.addEventListener('click', mobileNavHandler(mobileNavTag, toggleTag, page))
 
 		removeScrollTags.forEach((navItem) => {
 			navItem.addEventListener('click', function (e) {
@@ -224,20 +206,13 @@ function viewportHeight(event) {
 	let currentViewPortH = 100 * unit
 
 	if (sempliceCover) {
-		sempliceCover.style.setProperty(
-			'height',
-			`${currentViewPortH}px`,
-			'important'
-		)
+		sempliceCover.style.setProperty('height', `${currentViewPortH}px`, 'important')
 	}
 }
 
 function lazyLoadHandler() {
 	// Check for existing instance and destroy it
-	if (
-		window.lazyLoadInstance &&
-		typeof window.lazyLoadInstance.destroy === 'function'
-	) {
+	if (window.lazyLoadInstance && typeof window.lazyLoadInstance.destroy === 'function') {
 		window.lazyLoadInstance.destroy()
 	}
 
@@ -247,9 +222,7 @@ function lazyLoadHandler() {
 		threshold: 300,
 
 		callback_loading: (video) => {
-			const loadingOverlay = video
-				.closest('.video-wrapper')
-				.querySelector('.loading-overlay')
+			const loadingOverlay = video.closest('.video-wrapper').querySelector('.loading-overlay')
 			const loadingPercent = loadingOverlay.querySelector('.loading-percent')
 
 			// Set video-specific preload image
@@ -282,10 +255,7 @@ function lazyLoadHandler() {
 					}
 				}
 
-				fakeProgress = Math.min(
-					realLoaded || fakeProgress + Math.random() * 10,
-					100
-				)
+				fakeProgress = Math.min(realLoaded || fakeProgress + Math.random() * 10, 100)
 				loadingPercent.textContent = `${Math.round(fakeProgress)}%`
 
 				if (fakeProgress >= 100) {
@@ -302,9 +272,7 @@ function lazyLoadHandler() {
 		},
 
 		callback_loaded: (video) => {
-			const loadingOverlay = video
-				.closest('.video-wrapper')
-				.querySelector('.loading-overlay')
+			const loadingOverlay = video.closest('.video-wrapper').querySelector('.loading-overlay')
 			loadingOverlay.style.opacity = '0'
 			video.classList.add('fade-in')
 
@@ -342,9 +310,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	// console.log('DOM fully loaded and parsed')
 	consoleTag()
 	feather.replace()
-
-	// Comment for Semplice
-	// lazyLoadHandler()
 })
 
 function projectCoverInit() {
