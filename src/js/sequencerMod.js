@@ -11,6 +11,8 @@ function setCanvas() {
 	}
 
 	if (sequenceTag) {
+		// Define sequencer configurations.
+		// Configs are an array of objects, each containing an id and config for a sequencer instance.
 		configs.forEach(function (cfg, i) {
 			cfg.config.canvas = document.getElementById(configs[i].id) // need to have unique ids for the canvas
 

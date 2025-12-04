@@ -1,0 +1,30 @@
+// Centralized breakpoint helpers for consistent media queries.
+$breakpoints: (
+	sm: 480px,
+	md: 768px,
+	lg: 1024px,
+	xl: 1280px,
+	xxl: 1440px
+);
+
+@function bp($size) {
+	@return map-get($breakpoints, $size);
+}
+
+@mixin up($size) {
+	@media (min-width: bp($size)) {
+		@content;
+	}
+}
+
+@mixin down($size) {
+	@media (max-width: calc(bp($size) - 1px)) {
+		@content;
+	}
+}
+
+@mixin between($lower, $upper) {
+	@media (min-width: bp($lower)) and (max-width: calc(bp($upper) - 1px)) {
+		@content;
+	}
+}

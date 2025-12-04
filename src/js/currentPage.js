@@ -4,7 +4,7 @@
 // are both set in main.js file, the below code is made to be manually dropped into each page.
 // currentPage * must * be a string equal to referenced element innerHTML
 navItemChecker = setInterval(setPage, 500)
-currentPage = 'Home'
+currentPage = 'Home' // update this string to match the current page's nav item text
 
 function setPage() {
 	let mobileNav = document.querySelector('nav.custom-nav-touch')
@@ -12,13 +12,9 @@ function setPage() {
 
 	if (mobileNav && desktopNav) {
 		clearInterval(navItemChecker)
-		
-		let mobileNavItems = Array.from(
-			mobileNav.querySelectorAll('a.custom-nav-item')
-		)
-		let desktopNavItems = Array.from(
-			desktopNav.querySelectorAll('a.custom-nav-item')
-		)
+
+		let mobileNavItems = Array.from(mobileNav.querySelectorAll('a.custom-nav-item'))
+		let desktopNavItems = Array.from(desktopNav.querySelectorAll('a.custom-nav-item'))
 
 		let navItems = [...desktopNavItems, ...mobileNavItems]
 

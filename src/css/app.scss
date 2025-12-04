@@ -47,7 +47,7 @@ body {
 @include sempliceHelpers.desktop;
 
 /* Navigation */
-@include navigation.desktop;
+@include navigation.navigation;
 
 /* Footer */
 @include footer.desktop;

@@ -5,7 +5,6 @@
 @use 'modules/homeCopy';
 @use 'modules/workIndex';
 @use 'modules/letterBackground';
-@use 'modules/navigation';
 @use 'modules/socialLinks';
 @use 'modules/project';
 @use 'modules/footer';
@@ -23,7 +22,6 @@
 	@include workIndex.tablet;
 	@include socialLinks.tablet;
 	@include sempliceHelpers.tablet;
-	@include navigation.tablet;
 	@include footer.tablet;
 }
 
