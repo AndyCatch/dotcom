@@ -1,131 +1,42 @@
-@mixin desktop {
+@use '../breakpoints' as bp;
+@use './partials/projectSequencer';
+@use './partials/projectVideo';
+@use './partials/projectCopy';
 
-	/* ----- Project Page Styles ----- */
-	.cover_title {
-		color: var(--white);
-		-webkit-text-fill-color: var(--white);
-		-webkit-text-stroke-width: 0px;
-		-webkit-text-stroke-color: var(--white);
-
-		z-index: 999 !important;
+@mixin zero-margin-bottom {
+	.semplice-cover .show-more svg {
+		margin-bottom: 0px;
 	}
+}
 
-	.project-info {
-		display: grid;
-		grid-column-gap: 24px;
-		column-gap: 24px;
-		grid-template-columns: repeat(12, 1fr);
-		align-items: start;
+@mixin project {
 
-		:nth-child(n) {
-			z-index: 1;
-		}
-	}
-
-	.project-wrapper {
-		margin-top: var(--two-units);
-		margin-bottom: 20vh;
-	}
-
-
-	.project-info li.eyebrow {
-		grid-column-start: 1;
-		grid-column-end: 12;
-	}
-
-	.project-description {
-		grid-column-start: 3;
-		grid-column-end: 7;
-	}
-
-	.project-team {
-		grid-column-start: 7;
-		grid-column-end: 11;
-	}
-
-	.eyebrow {
-		letter-spacing: 1px !important;
-
-		width: auto;
-		margin-top: 0.2vw;
-		margin-right: var(--two-units);
-		font-size: var(--micro-size) !important;
-		text-align: left;
-	}
-
-	.role {
-		grid-column-start: 2;
-		grid-column-end: 3;
-	}
-
-	.years {
-		grid-column-start: 4;
-		grid-column-end: 4;
-	}
-
-	.agency {
-		grid-column-start: 5;
-		grid-column-end: 12;
-	}
+	@include projectVideo.projectVideo;
+	@include projectSequencer.projectSequencer;
+	@include projectCopy.projectCopy;
 
 	.vsc-controller {
 		display: none;
 	}
 
-	.sequenceLoader {
-		z-index: 12;
-		display: block;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 0;
-		height: 3px;
-		background-color: rgba(255, 69, 0, 1);
-		transition: background-color 1.5s;
-	}
-
-	.overlay {
-		display: block;
-		z-index: 10;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 50%;
-		height: 100%;
-		pointer-events: none;
-	}
-
-	.sticky-title {
-		position: sticky;
-		position: -webkit-sticky;
-		top: 45vh;
-	}
-
-	.right-side-caption::after {
-		content: ' →→';
-		white-space: pre;
-	}
-
-	.left-side-caption::after {
-		content: ' ⇲';
-		white-space: pre;
-	}
-
 	/* Parent section to Sticky Headers */
+	/* Semplice Masonry Module */
 	.image-section {
 		margin: 0 0 0 0 !important;
 		position: relative;
 	}
 
 	/* top | right | bottom | left */
+	/* Semplice Masonry Module */
 	.image-section-bottom {
-		margin-top: 0 !important;
+		margin-top: 0;
 	}
 
-	/* Handles Project Cover Titles */
+	/* Handles Project Cover Media – Fade in effect added w. JS */
 	.project-cover {
 		// Set to 0 or 1 depending on env
-		opacity: 0;
+		// 0 for deploy, 1 for prototype testing
+		opacity: 1;
 		//
 		display: flex;
 		justify-content: flex-end;
@@ -138,10 +49,7 @@
 		transition: 0.3s ease-in;
 	}
 
-	.contain-video {
-		object-fit: contain !important;
-	}
-
+	// Used as a workaround in the Mobile view to repostion the Semplice Show More button
 	.showMoreMarker {
 		pointer-events: none;
 		z-index: 100;
@@ -152,6 +60,7 @@
 		background: rgba(255, 69, 0, 0);
 	}
 
+	// A Display container is an "in-project" project cover i.e not the Cover
 	.display-container {
 		position: relative;
 		top: 0;
@@ -166,7 +75,7 @@
 		margin-bottom: 50vh;
 	}
 
-	// Used for videos
+	// Used for videos, and Displays; start of a project, end of a project, 
 	.project-opener {
 		margin-bottom: var(--half-unit);
 	}
@@ -175,165 +84,30 @@
 		margin-bottom: 10vh;
 	}
 
+	// Display for end of a page – adds extra height so footer isn't too close
 	.page-end {
 		margin-bottom: 36vh;
 	}
 
+	// Aligns Display visual left
 	.display-align-left {
 		justify-content: flex-start;
 	}
 
+	// Aligns Display visual right
 	.display-align-right {
 		justify-content: flex-end;
 	}
 
-	.project-display {
-		grid-column-start: 2;
-		grid-column-end: 12;
-		pointer-events: none;
-		font-family: var(--untitled-reg) !important;
-		font-size: var(--project-display) !important;
-		letter-spacing: var(--project-letterSpace) !important;
-		line-height: var(--project-display-line) !important;
-		color: var(--white);
-
-		margin-bottom: var(--half-unit);
-
-	}
-
-	.project-blurb {
-		width: 50% !important;
-		pointer-events: none;
-		font-family: var(--untitled-reg) !important;
-		font-size: var(--project-blurb) !important;
-		letter-spacing: var(--project-letterSpace) !important;
-		line-height: var(--project-display-line) !important;
-		color: var(--white);
-	}
-
-	.project-blurb::after {
-		content: '↯';
-	}
-
-	.show-first {
-		opacity: 0;
-		filter: invert(0.8);
-	}
-
-	.title-fade-in,
+	// Added as a effect by js/single-project.js > projectCoverInit()
 	.project-cover-fade-in {
 		opacity: 1 !important;
 		transition: opacity 0.3s ease-in;
 	}
 
-	.project-image-container {
-		aspect-ratio: 1 / 1;
-		width: 49vw;
-		height: 49vw;
-		position: relative;
-		transform-origin: center center;
-		transition: opacity 0.3s ease-in;
-
-		background-color: rgb(0 0 0 / 0);
-	}
-
-	.project-image-background {
-		background-color: var(--image-black);
-	}
-
-	.video-wrapper {
-		position: relative;
-		width: 100%;
-		height: 100%;
-		overflow: hidden;
-
-	}
-
-	.loading-overlay {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-		width: 100%;
-		height: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-
-		text-align: left;
-		padding: 10px;
-
-		opacity: 1;
-		transition: opacity 0.8s ease-in-out;
-
-		/* Generic placeholder immediately visible */
-		background-image: url('https://andycatch.com/proto/wp-content/uploads/2025/03/ProfileImgPreload.png');
-	}
-
-	/* Video fade-in effect */
-	.video-project-square {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		display: block;
-		opacity: 0;
-		/* Initially hidden */
-		transform: translateY(20px);
-		transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-		background-size: cover;
-		background-image: url('https://andycatch.com/proto/wp-content/uploads/2025/03/ProfileImgPreload.png');
-	}
-
-	.video-project-square.fade-in {
-		opacity: 1;
-		transform: translateY(0);
-	}
-
-	/* Hide overlay after fade-out */
-	.hidden {
-		display: none !important;
-	}
-
-	/* Position loading text at the bottom-left */
-	.loading-text {
-		position: absolute;
-		bottom: 0px;
-		/* Adjust distance from bottom */
-		left: 44px;
-		/* Adjust distance from left */
-		color: var(--light);
-		font-size: var(--display-size);
-		font-family: var(--untitled-reg) !important;
-	}
-
-	.sequencer-project-square {
-		position: relative;
-		z-index: 1;
-
-		aspect-ratio: 1 / 1;
-		width: 49vw;
-		height: 49vw;
-	}
-
-	.cover_title div[data-content-for='xl'] h1 span,
-	.cover_title div[data-content-for='lg'] h1 span,
-	.cover_title div[data-content-for='md'] h1 span,
-	.cover_title div[data-content-for='sm'] h1 span,
-	.cover_title div[data-content-for='xs'] h1 span {
-		opacity: 0;
-	}
-
+	// semplice-cover may be from Semplice CMS or I've added it somewhere...
 	.sections .semplice-cover {
 		transition: height 0.3s ease-in !important;
-	}
-
-	.current-project {
-		pointer-events: none;
-		background-color: var(--light) !important;
-		color: var(--black) !important;
 	}
 
 	/*----- Oscillating -----*/
@@ -373,6 +147,7 @@
 		}
 	}
 
+	// Assists placement of the Semplice Show More button
 	.show-more-hide {
 		pointer-events: none !important;
 		opacity: 0 !important;
@@ -404,188 +179,66 @@
 		}
 	}
 
-	.cover_title {
-		width: 100%;
-		overflow: hidden;
-	}
+	@include bp.down(md) {
+		.project-cover {
+			margin-top: -40vh;
+		}
 
-	.cover_title span {
-		/*-----Oscillating-----*/
-		white-space: nowrap;
-		display: block;
-		position: relative;
-		transform: translate(calc(-1 * (50vw - 25%)));
-		animation: move 2.5s ease-in-out infinite alternate;
+		.semplice-cover .show-more {
+			height: 12%;
+			padding: 24px !important;
+			margin-bottom: var(--two-units);
+			border-radius: var(--two-units) !important;
 
-		text-align: center;
-
-		/*-----Marquee Movement-----*/
-		// animation-timing-function: linear;
-		// animation: moveLeft 300s infinite;
-	}
-}
-
-@mixin tablet {
-	.project-display {
-		font-size: var(--project-display-tablet) !important;
-		letter-spacing: var(--project-letterSpace-tablet) !important;
-	}
-
-	.project-cover {
-		margin-top: -40vh;
-	}
-
-	// .video-project-square,
-	.sequencer-project-square {
-		width: 70vw;
-	}
-
-	.project-image-container {
-		width: 70vw;
-		height: 70vw;
-	}
-
-	.role,
-	.years,
-	.agency {
-		grid-column-start: 1;
-		grid-column-end: 13;
-
-		li {
-			display: inline;
-
-			::marker {
-				display: none;
+			img {
+				height: 100% !important;
 			}
 		}
 	}
 
-	.semplice-cover .show-more {
-		height: 12%;
-		padding: 24px !important;
-		margin-bottom: var(--two-units);
-		border-radius: var(--two-units) !important;
+	@include bp.down(sm) {
 
-		img {
-			height: 100% !important;
+		.project-cover-fade-in {
+			opacity: 0.9;
 		}
-	}
 
-	.image-section {
-		margin: 15vh 0 0 0 !important;
-	}
-}
+		.page-end {
+			margin-bottom: 36vh !important;
+		}
 
-@mixin mobile {
-	section li.project-display {
-		margin-top: 0;
-	}
+		.project-ender {
+			margin-bottom: 10vh;
+		}
 
-	.project-wrapper {
-		margin-top: 10vh;
-	}
+		.display-container {
+			// testing for the custom version 
+			position: relative;
+			// 
 
-	.project-image-container {
-		width: calc(100vw - 32px);
-		height: calc(100vw - 32px);
-	}
+			margin-bottom: var(--half-unit);
+			width: calc(100vw - 32px);
+			flex-direction: column;
+		}
 
-	.project-cover-fade-in {
-		opacity: 0.9;
-	}
+		.project-cover {
+			margin-top: -58vh;
+		}
 
-	// .video-project-square,
-	.sequencer-project-square {
-		width: calc(100vw - 32px);
-		height: calc(100vw - 32px);
-	}
+		.semplice-cover .show-more {
+			z-index: 9 !important;
 
-	.page-end {
-		margin-bottom: 36vh !important;
-	}
+			right: var(--two-units);
 
-	.project-ender {
-		margin-bottom: 10vh;
-	}
+			width: calc(10 * var(--unit)) !important;
+			height: calc(10 * var(--unit)) !important;
 
-	.display-container {
-		// testing for the custom version 
-		position: relative;
-		// 
+			padding: var(--two-units) !important;
+			border-radius: 100% !important;
+			margin-bottom: var(--two-units) !important;
 
-		margin-bottom: var(--half-unit);
-		width: calc(100vw - 32px);
-		flex-direction: column;
-	}
-
-	.project-cover {
-		margin-top: -58vh;
-	}
-
-	.project-blurb {
-		width: 100% !important;
-		margin-top: var(--two-units);
-
-		font-size: var(--project-display-mobile) !important;
-		letter-spacing: var(--project-letterSpace-mobile) !important;
-	}
-
-	.project-display {
-		grid-column-start: 1;
-
-		margin-top: var(--two-units);
-
-		font-size: var(--project-display-mobile) !important;
-		letter-spacing: var(--project-letterSpace-mobile) !important;
-	}
-
-	.eyebrow {
-		margin-right: 0;
-	}
-
-	.project-description,
-	.project-team {
-		grid-column-start: 1;
-		grid-column-end: 13;
-	}
-
-	.project-team {
-		padding-top: var(--two-units);
-	}
-
-	.role,
-	.years,
-	.agency {
-		grid-column-start: 1;
-		grid-column-end: 13;
-
-		li {
-			display: block;
-
-			::marker {
-				display: none;
+			img {
+				height: 100% !important;
 			}
-		}
-	}
-
-	.overlay {
-		display: none;
-	}
-
-	.semplice-cover .show-more {
-		z-index: 9 !important;
-
-		right: var(--two-units);
-
-		width: calc(10 * var(--unit)) !important;
-		height: calc(10 * var(--unit)) !important;
-
-		padding: var(--two-units) !important;
-		border-radius: 100% !important;
-		margin-bottom: var(--two-units) !important;
-
-		img {
-			height: 100% !important;
 		}
 	}
 }

@@ -1,6 +1,6 @@
 @use '../breakpoints' as bp;
 
-@mixin letterBackground {
+@mixin desktop {
 	.letter-container {
 		position: absolute;
 		top: 0;
@@ -32,17 +32,42 @@
 	.letter-filter {
 		filter: grayscale(1) contrast(1.4) opacity(0.5);
 	}
+}
 
-	@include bp.down(sm) {
-		.letter-container {
-			transition: all 0.3s ease-in 0.1s;
-			height: unset;
-		}
+@mixin tablet {
+	.letter-container {
+		flex-direction: column;
+	}
 
-		.letter {
-			width: 100%;
-			height: 50%;
+	/* LETTER A */
+	/* LETTER C */
+	.letter:nth-child(1),
+	.letter:nth-child(2) {
+		justify-content: flex-start;
+
+		img {
+			padding-left: var(--four-units);
 		}
 	}
 
+	.letter {
+		width: 100%;
+		height: 50vh;
+	}
+
+	.letter img {
+		height: calc(50vh - var(--eight-units));
+	}
+}
+
+@mixin mobile {
+	.letter-container {
+		transition: all 0.3s ease-in 0.1s;
+		height: unset;
+	}
+
+	.letter {
+		width: 100%;
+		height: 50%;
+	}
 }

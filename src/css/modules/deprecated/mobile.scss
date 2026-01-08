@@ -1,15 +1,15 @@
-@use 'modules/type-stack';
-@use 'modules/listModule';
-@use 'modules/nextProject';
-@use 'modules/project';
-@use 'modules/homeBranding';
-@use 'modules/letterBackground';
-@use 'modules/homeCopy';
-@use 'modules/sempliceHelpers';
-@use 'modules/footer';
-@use 'modules/socialLinks';
-@use 'modules/about';
-@use 'modules/workIndex';
+// @use 'modules/type-stack';
+// @use 'modules/listModule';
+// @use 'modules/nextProject';
+// @use 'modules/project';
+// @use 'modules/homeBranding';
+// @use 'modules/letterBackground';
+// @use 'modules/homeCopy';
+// @use 'modules/sempliceHelpers';
+// @use 'modules/footer';
+// @use 'modules/socialLinks';
+// @use 'modules/about';
+// @use 'modules/workIndex';
 
 @mixin navItem-exceptions-mobile {
 	.current-menu-item::after {
@@ -21,7 +21,7 @@
 /* ----------- Pixel Landscape ----------- */
 @media screen and (min-device-width: 731px) and (max-device-width: 731px) and (orientation: landscape) {
 	// @include listModule.mobile-landscape;
-	@include nextProject.mobile-landscape-med;
+	// @include nextProject.mobile-landscape-med;
 }
 
 /* ----------- Pixel 2 XL Portrait / iPad 1,2 Landscape ----------- */
@@ -37,7 +37,7 @@
 @media only screen and (max-device-width: 731px) and (min-device-width: 731px) and (orientation: landscape) {
 	@include navItem-exceptions-mobile;
 
-	@include nextProject.mobile-landscape-med;
+	// @include nextProject.mobile-landscape-med;
 
 	.semplice-cover .show-more svg {
 		margin-bottom: 0px;
@@ -47,10 +47,10 @@
 /* ----------- iPhone 6,7,8 PLUS, Portrait + Landscape ----------- */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (hover: none) {
 	@include navItem-exceptions-mobile;
-	@include type-stack.mobile-type-stack;
+	// @include type-stack.mobile-type-stack;
 
-	@include listModule.mobile;
-	@include nextProject.mobile-portrait-med;
+	// @include listModule.mobile;
+	// @include nextProject.mobile-portrait-med;
 
 	.semplice-cover .show-more svg {
 		margin-bottom: 0px;
@@ -62,27 +62,27 @@
 	@include navItem-exceptions-mobile;
 
 	// @include listModule.mobile-landscape;
-	@include nextProject.mobile-landscape-med;
+	// @include nextProject.mobile-landscape-med;
 
 	// Forces logo to correct size
-	@include type-stack.tablet-type-stack;
+	// @include type-stack.tablet-type-stack;
 }
 
 /* ----------- iPhone 6, 6S, 7, 8 Portrait and Landscape ----------- */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
 	// @include navItem-exceptions-mobile;
-	@include project.mobile;
-	@include homeBranding.mobile;
-	@include homeCopy.mobile;
-	@include type-stack.mobile-type-stack;
-	@include listModule.mobile;
-	@include nextProject.mobile-portrait-med;
-	@include sempliceHelpers.mobile;
-	@include letterBackground.mobile;
-	@include footer.mobile;
-	@include socialLinks.mobile;
-	@include about.mobile;
-	@include workIndex.mobile;
+	// @include project.mobile;
+	// @include homeBranding.mobile;
+	// @include homeCopy.mobile;
+	// @include type-stack.mobile-type-stack;
+	// @include listModule.mobile;
+	// @include nextProject.mobile-portrait-med;
+	// @include sempliceHelpers.mobile;
+	// @include letterBackground.mobile;
+	// @include footer.mobile;
+	// @include socialLinks.mobile;
+	// @include about.mobile;
+	// @include workIndex.mobile;
 
 	.semplice-cover .show-more svg {
 		margin-bottom: 0px;
@@ -93,9 +93,9 @@
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
 	@include navItem-exceptions-mobile;
 	// @include listModule.mobile-landscape;
-	@include nextProject.mobile-landscape-med;
+	// @include nextProject.mobile-landscape-med;
 
-	@include type-stack.tablet-type-stack;
+	// @include type-stack.tablet-type-stack;
 	// .project-image {
 	// 	width: 70vw;
 	// }
@@ -105,7 +105,7 @@
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (hover: none) {
 	@include navItem-exceptions-mobile;
-	@include type-stack.mobile-type-stack;
+	// @include type-stack.mobile-type-stack;
 
 	.semplice-cover .show-more svg {
 		margin-bottom: 0px;
@@ -114,14 +114,14 @@
 
 /* Portrait */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-	@include nextProject.mobile-portrait-sm;
+	// @include nextProject.mobile-portrait-sm;
 }
 
 /* Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
 	// @include listModule.mobile-landscape;
-	@include nextProject.mobile-landscape-sm;
-	@include type-stack.tablet-type-stack;
+	// @include nextProject.mobile-landscape-sm;
+	// @include type-stack.tablet-type-stack;
 
 	// .project-image {
 	// 	width: 75vw;

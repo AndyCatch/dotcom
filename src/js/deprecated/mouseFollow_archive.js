@@ -19,8 +19,7 @@ let images = []
 let isPaused
 let requestID
 
-const propertyValue = 8 // 8% margin on the headlines
-const reversePoint = 3 // Reverse the direction of the margin after this point
+const propertyValue = 5.5
 
 function imageMove(hoverElems) {
 	hoverElements = hoverElems
@@ -46,7 +45,7 @@ function imageMove(hoverElems) {
 		cursorAimY = event.pageY
 	})
 
-	headerMargin(hoverElements.length, reversePoint)
+	headerMargin()
 }
 
 function setImage(_image) {
@@ -61,22 +60,11 @@ function setImage(_image) {
 	}
 }
 
-function headerMargin(indexLimit, reversePoint) {
-	let increment = reversePoint // Start with the reverse point
-	let direction = -1 // Decreasing initially
-
-	for (let i = 0; i < indexLimit; i++) {
-		// console.log(`Index ${i}: Increment = ${increment}`)
-		hoverElements[i].style.marginLeft = `${increment * propertyValue}%`
-		// Update increment based on direction
-		increment += direction
-
-		// Reverse direction if increment reaches 1 or the reversePoint
-		if (increment === 1) {
-			direction = 1 // Start increasing
-		} else if (increment === reversePoint) {
-			direction = -1 // Start decreasing
-		}
+function headerMargin() {
+	let reverseOrder = hoverElements.length
+	for (let i = 0; i < hoverElements.length; i++) {
+		hoverElements[i].style.marginLeft = `${reverseOrder * propertyValue}%`
+		reverseOrder = reverseOrder - 1
 	}
 }
 

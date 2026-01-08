@@ -1,8 +1,4 @@
-@use '../breakpoints' as bp;
-
-@mixin listModule {
-
-	// Desktop styles by default
+@mixin desktop {
 	.list-container {
 		display: block;
 		// width: 100%; // this *should* be managed by sections{}
@@ -145,109 +141,144 @@
 	span {
 		position: relative;
 	}
+}
 
+@mixin tablet {
+	.list {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		margin: 0 0 0 0 !important;
 
-	@include bp.down(md) {
-		.list-container {
-			width: 100%;
-			margin-top: 0;
-		}
+		// a img {
+		// 	border-radius: var(--half-unit);
+		// 	/* Removing !important */
+		// 	position: relative;
+		// 	/* Seems to override javascript */
+		// 	opacity: 1 !important;
+		// 	transform: translate3d(0px, 0px, 0px) !important;
 
-		.work-type-label {
-			display: none;
-		}
+		// 	width: 80vw;
 
-		.desktop-label-container {
-			display: none;
-		}
-
-		.mobile-label-container {
-			display: flex;
-			justify-content: flex-start;
-			align-items: center;
-			aspect-ratio: 1/1;
-			position: absolute;
-			flex-direction: column;
-			width: 100%;
-			top: 0;
-			left: 0;
-		}
-
-		.work-type-label-m {
-			display: none;
-			position: relative;
-		}
-
-		.mobile-title {
-			padding-left: calc(var(--unit) * 1.5);
-			display: block;
-			width: 100%;
-			position: relative;
-			letter-spacing: 1px;
-			color: var(--light) !important;
-			font-family: var(--beastly);
-			font-size: 44px;
-		}
-
-		div.cursor div {
-			display: none;
-		}
-
-		.list {
-			flex-wrap: wrap;
-			flex-direction: unset;
-
-			a {
-				position: relative;
-				aspect-ratio: 1/1;
-				width: calc(100% - var(--half-unit));
-				border: 0px;
-				margin-bottom: var(--two-units);
-				overflow: hidden;
-				border-radius: var(--two-units) var(--two-units) var(--two-units) 70%;
-				margin-left: 0 !important;
-			}
-
-			a h1 {
-				transform: translate(0px, 0px);
-			}
-
-			// a img {
-			// 	position: relative;
-			// 	/* Seems to override javascript */
-			// 	opacity: 1 !important;
-			// 	transform: translate3d(0px, 0px, 0px) !important;
-			// 	aspect-ratio: 1 / 2;
-			// 	object-fit: cover;
-
-			// 	width: 100%;
-
-			// 	top: 0;
-			// 	left: 0%;
-			// }
-		}
-
-		.pixelator {
-			position: relative;
-			/* Seems to override javascript */
-			opacity: 1 !important;
-			transform: translate3d(0px, 0px, 0px) !important;
-			aspect-ratio: 1 / 1;
-
-			width: 100%;
-
-			top: 0;
-			left: 0%;
-		}
-
-		.pointer::after {
-			content: " ⇲";
-		}
-
-		a:hover h1 {
-			-webkit-text-stroke-width: 0;
-			-webkit-text-fill-color: var(--white);
-		}
+		// 	top: 50%;
+		// 	left: 0%;
+		// }
 	}
 
+	.pixelator {
+		border-radius: var(--half-unit);
+		/* Removing !important */
+		position: relative;
+		/* Seems to override javascript */
+		opacity: 1 !important;
+		transform: translate3d(0px, 0px, 0px) !important;
+
+		width: 80vw;
+
+		top: 50%;
+		left: 0%;
+	}
+}
+
+@mixin mobile {
+	.list-container {
+		width: 100%;
+		margin-top: 0;
+	}
+
+	.work-type-label {
+		display: none;
+	}
+
+	.desktop-label-container {
+		display: none;
+	}
+
+	.mobile-label-container {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		aspect-ratio: 1/1;
+		position: absolute;
+		flex-direction: column;
+		width: 100%;
+		top: 0;
+		left: 0;
+	}
+
+	.work-type-label-m {
+		display: none;
+		position: relative;
+	}
+
+	.mobile-title {
+		padding-left: calc(var(--unit) * 1.5);
+		display: block;
+		width: 100%;
+		position: relative;
+		letter-spacing: 1px;
+		color: var(--light) !important;
+		font-family: var(--beastly);
+		font-size: 44px;
+	}
+
+	div.cursor div {
+		display: none;
+	}
+
+	.list {
+		flex-wrap: wrap;
+		flex-direction: unset;
+
+		a {
+			position: relative;
+			aspect-ratio: 1/1;
+			width: calc(100% - var(--half-unit));
+			border: 0px;
+			margin-bottom: var(--two-units);
+			overflow: hidden;
+			border-radius: var(--two-units) var(--two-units) var(--two-units) 70%;
+			margin-left: 0 !important;
+		}
+
+		a h1 {
+			transform: translate(0px, 0px);
+		}
+
+		// a img {
+		// 	position: relative;
+		// 	/* Seems to override javascript */
+		// 	opacity: 1 !important;
+		// 	transform: translate3d(0px, 0px, 0px) !important;
+		// 	aspect-ratio: 1 / 2;
+		// 	object-fit: cover;
+
+		// 	width: 100%;
+
+		// 	top: 0;
+		// 	left: 0%;
+		// }
+	}
+
+	.pixelator {
+		position: relative;
+		/* Seems to override javascript */
+		opacity: 1 !important;
+		transform: translate3d(0px, 0px, 0px) !important;
+		aspect-ratio: 1 / 1;
+
+		width: 100%;
+
+		top: 0;
+		left: 0%;
+	}
+
+	.pointer::after {
+		content: " ⇲";
+	}
+
+	a:hover h1 {
+		-webkit-text-stroke-width: 0;
+		-webkit-text-fill-color: var(--white);
+	}
 }

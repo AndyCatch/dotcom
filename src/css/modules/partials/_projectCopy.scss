@@ -1,0 +1,208 @@
+@use 'breakpoints' as bp;
+
+@mixin projectCopy {
+
+  // Used with the Cover Visual – this a short description of the project at the top of page
+  .project-blurb {
+    width: 50% !important;
+    pointer-events: none;
+    font-family: var(--untitled-reg) !important;
+    font-size: var(--project-blurb) !important;
+    letter-spacing: var(--project-letterSpace) !important;
+    line-height: var(--project-display-line) !important;
+    color: var(--white);
+  }
+
+  .project-blurb::after {
+    content: '↯';
+  }
+
+  // Wraps the project description and team copy
+  .project-wrapper {
+    margin-top: var(--two-units);
+    margin-bottom: 20vh;
+  }
+
+  .project-info {
+    display: grid;
+    grid-column-gap: 24px;
+    column-gap: 24px;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: start;
+
+    :nth-child(n) {
+      z-index: 1;
+    }
+  }
+
+  .project-info li.eyebrow {
+    grid-column-start: 1;
+    grid-column-end: 12;
+  }
+
+  .project-description {
+    grid-column-start: 3;
+    grid-column-end: 7;
+  }
+
+  .project-team {
+    grid-column-start: 7;
+    grid-column-end: 11;
+  }
+
+  .eyebrow {
+    letter-spacing: 1px !important;
+
+    width: auto;
+    margin-top: 0.2vw;
+    margin-right: var(--two-units);
+    font-size: var(--micro-size) !important;
+    text-align: left;
+  }
+
+  .role {
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+
+  .years {
+    grid-column-start: 4;
+    grid-column-end: 4;
+  }
+
+  .agency {
+    grid-column-start: 5;
+    grid-column-end: 12;
+  }
+
+  // Probably should be called "Project title"
+  .project-display {
+    grid-column-start: 2;
+    grid-column-end: 12;
+    pointer-events: none;
+    font-family: var(--untitled-reg) !important;
+    font-size: var(--project-display) !important;
+    letter-spacing: var(--project-letterSpace) !important;
+    line-height: var(--project-display-line) !important;
+    color: var(--white);
+
+    margin-bottom: var(--half-unit);
+  }
+
+  .current-project {
+    pointer-events: none;
+    background-color: var(--light) !important;
+    color: var(--black) !important;
+  }
+
+  // Contains the left half caption for the project image
+  .overlay {
+    display: block;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .sticky-title {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 45vh;
+  }
+
+  .right-side-caption::after {
+    content: ' →→';
+    white-space: pre;
+  }
+
+  .left-side-caption::after {
+    content: ' ⇲';
+    white-space: pre;
+  }
+
+
+  @include bp.down(md) {
+    .project-display {
+      font-size: var(--project-display-tablet) !important;
+      letter-spacing: var(--project-letterSpace-tablet) !important;
+    }
+
+    .role,
+    .years,
+    .agency {
+      grid-column-start: 1;
+      grid-column-end: 13;
+
+      li {
+        display: inline;
+
+        ::marker {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @include bp.down(sm) {
+    .overlay {
+      display: none;
+    }
+
+    .project-blurb {
+      width: 100% !important;
+      margin-top: var(--two-units);
+
+      font-size: var(--project-display-mobile) !important;
+      letter-spacing: var(--project-letterSpace-mobile) !important;
+    }
+
+    .project-wrapper {
+      margin-top: 10vh;
+    }
+
+    .project-description,
+    .project-team {
+      grid-column-start: 1;
+      grid-column-end: 13;
+    }
+
+    .project-team {
+      padding-top: var(--two-units);
+    }
+
+    section li.project-display {
+      margin-top: 0;
+    }
+
+    .project-display {
+      grid-column-start: 1;
+
+      margin-top: var(--two-units);
+
+      font-size: var(--project-display-mobile) !important;
+      letter-spacing: var(--project-letterSpace-mobile) !important;
+    }
+
+    .eyebrow {
+      margin-right: 0;
+    }
+
+    .role,
+    .years,
+    .agency {
+      grid-column-start: 1;
+      grid-column-end: 13;
+
+      li {
+        display: block;
+
+        ::marker {
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,591 @@
+@mixin desktop {
+
+	/* ----- Project Page Styles ----- */
+	.cover_title {
+		color: var(--white);
+		-webkit-text-fill-color: var(--white);
+		-webkit-text-stroke-width: 0px;
+		-webkit-text-stroke-color: var(--white);
+
+		z-index: 999 !important;
+	}
+
+	.project-info {
+		display: grid;
+		grid-column-gap: 24px;
+		column-gap: 24px;
+		grid-template-columns: repeat(12, 1fr);
+		align-items: start;
+
+		:nth-child(n) {
+			z-index: 1;
+		}
+	}
+
+	.project-wrapper {
+		margin-top: var(--two-units);
+		margin-bottom: 20vh;
+	}
+
+
+	.project-info li.eyebrow {
+		grid-column-start: 1;
+		grid-column-end: 12;
+	}
+
+	.project-description {
+		grid-column-start: 3;
+		grid-column-end: 7;
+	}
+
+	.project-team {
+		grid-column-start: 7;
+		grid-column-end: 11;
+	}
+
+	.eyebrow {
+		letter-spacing: 1px !important;
+
+		width: auto;
+		margin-top: 0.2vw;
+		margin-right: var(--two-units);
+		font-size: var(--micro-size) !important;
+		text-align: left;
+	}
+
+	.role {
+		grid-column-start: 2;
+		grid-column-end: 3;
+	}
+
+	.years {
+		grid-column-start: 4;
+		grid-column-end: 4;
+	}
+
+	.agency {
+		grid-column-start: 5;
+		grid-column-end: 12;
+	}
+
+	.vsc-controller {
+		display: none;
+	}
+
+	.sequenceLoader {
+		z-index: 12;
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 3px;
+		background-color: rgba(255, 69, 0, 1);
+		transition: background-color 1.5s;
+	}
+
+	.overlay {
+		display: block;
+		z-index: 10;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 50%;
+		height: 100%;
+		pointer-events: none;
+	}
+
+	.sticky-title {
+		position: sticky;
+		position: -webkit-sticky;
+		top: 45vh;
+	}
+
+	.right-side-caption::after {
+		content: ' →→';
+		white-space: pre;
+	}
+
+	.left-side-caption::after {
+		content: ' ⇲';
+		white-space: pre;
+	}
+
+	/* Parent section to Sticky Headers */
+	.image-section {
+		margin: 0 0 0 0 !important;
+		position: relative;
+	}
+
+	/* top | right | bottom | left */
+	.image-section-bottom {
+		margin-top: 0 !important;
+	}
+
+	/* Handles Project Cover Titles */
+	.project-cover {
+		// Set to 0 or 1 depending on env
+		opacity: 0;
+		//
+		display: flex;
+		justify-content: flex-end;
+		width: 100%;
+		align-items: center;
+		// this value is unique to Semplice deployment – doesn't work in prototype env.
+		margin-top: calc(-100vh + var(--two-units));
+		// 
+		margin-bottom: 10vh;
+		transition: 0.3s ease-in;
+	}
+
+	.contain-video {
+		object-fit: contain !important;
+	}
+
+	.showMoreMarker {
+		pointer-events: none;
+		z-index: 100;
+		position: absolute;
+		top: 25%;
+		width: 100%;
+		height: 50%;
+		background: rgba(255, 69, 0, 0);
+	}
+
+	.display-container {
+		position: relative;
+		top: 0;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+		// margin-bottom: 10vh;
+	}
+
+	.test-margin {
+		margin-bottom: 50vh;
+	}
+
+	// Used for videos
+	.project-opener {
+		margin-bottom: var(--half-unit);
+	}
+
+	.project-ender {
+		margin-bottom: 10vh;
+	}
+
+	.page-end {
+		margin-bottom: 36vh;
+	}
+
+	.display-align-left {
+		justify-content: flex-start;
+	}
+
+	.display-align-right {
+		justify-content: flex-end;
+	}
+
+	.project-display {
+		grid-column-start: 2;
+		grid-column-end: 12;
+		pointer-events: none;
+		font-family: var(--untitled-reg) !important;
+		font-size: var(--project-display) !important;
+		letter-spacing: var(--project-letterSpace) !important;
+		line-height: var(--project-display-line) !important;
+		color: var(--white);
+
+		margin-bottom: var(--half-unit);
+
+	}
+
+	.project-blurb {
+		width: 50% !important;
+		pointer-events: none;
+		font-family: var(--untitled-reg) !important;
+		font-size: var(--project-blurb) !important;
+		letter-spacing: var(--project-letterSpace) !important;
+		line-height: var(--project-display-line) !important;
+		color: var(--white);
+	}
+
+	.project-blurb::after {
+		content: '↯';
+	}
+
+	.show-first {
+		opacity: 0;
+		filter: invert(0.8);
+	}
+
+	.title-fade-in,
+	.project-cover-fade-in {
+		opacity: 1 !important;
+		transition: opacity 0.3s ease-in;
+	}
+
+	.project-image-container {
+		aspect-ratio: 1 / 1;
+		width: 49vw;
+		height: 49vw;
+		position: relative;
+		transform-origin: center center;
+		transition: opacity 0.3s ease-in;
+
+		background-color: rgb(0 0 0 / 0);
+	}
+
+	.project-image-background {
+		background-color: var(--image-black);
+	}
+
+	.video-wrapper {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+
+	}
+
+	.loading-overlay {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		text-align: left;
+		padding: 10px;
+
+		opacity: 1;
+		transition: opacity 0.8s ease-in-out;
+
+		/* Generic placeholder immediately visible */
+		background-image: url('https://andycatch.com/proto/wp-content/uploads/2025/03/ProfileImgPreload.png');
+	}
+
+	/* Video fade-in effect */
+	.video-project-square {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+		opacity: 0;
+		/* Initially hidden */
+		transform: translateY(20px);
+		transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+		background-size: cover;
+		background-image: url('https://andycatch.com/proto/wp-content/uploads/2025/03/ProfileImgPreload.png');
+	}
+
+	.video-project-square.fade-in {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	/* Hide overlay after fade-out */
+	.hidden {
+		display: none !important;
+	}
+
+	/* Position loading text at the bottom-left */
+	.loading-text {
+		position: absolute;
+		bottom: 0px;
+		/* Adjust distance from bottom */
+		left: 44px;
+		/* Adjust distance from left */
+		color: var(--light);
+		font-size: var(--display-size);
+		font-family: var(--untitled-reg) !important;
+	}
+
+	.sequencer-project-square {
+		position: relative;
+		z-index: 1;
+
+		aspect-ratio: 1 / 1;
+		width: 49vw;
+		height: 49vw;
+	}
+
+	.cover_title div[data-content-for='xl'] h1 span,
+	.cover_title div[data-content-for='lg'] h1 span,
+	.cover_title div[data-content-for='md'] h1 span,
+	.cover_title div[data-content-for='sm'] h1 span,
+	.cover_title div[data-content-for='xs'] h1 span {
+		opacity: 0;
+	}
+
+	.sections .semplice-cover {
+		transition: height 0.3s ease-in !important;
+	}
+
+	.current-project {
+		pointer-events: none;
+		background-color: var(--light) !important;
+		color: var(--black) !important;
+	}
+
+	/*----- Oscillating -----*/
+	@keyframes move {
+		to {
+			transform: translate(calc(50vw - 100%));
+		}
+	}
+
+	.semplice-cover .show-more {
+		// setup for animation
+		opacity: 1;
+		pointer-events: all;
+		border: 1px var(--white);
+		border-style: solid;
+		border-radius: 100%;
+		// might solve the resize issue?
+		position: fixed !important;
+		// 
+		background-color: transparent;
+		mix-blend-mode: normal !important;
+		margin-bottom: var(--four-units);
+
+		right: var(--two-units);
+		aspect-ratio: 1/1;
+		width: 20% !important;
+		justify-content: center !important;
+		align-content: space-evenly;
+
+		transition: all 0.3s ease-in !important;
+
+		img {
+			mix-blend-mode: normal !important;
+			animation: 1s arrow-down infinite alternate ease-in-out;
+			background-color: transparent !important;
+			width: 70% !important;
+		}
+	}
+
+	.show-more-hide {
+		pointer-events: none !important;
+		opacity: 0 !important;
+	}
+
+	.semplice-cover .show-more:hover {
+		background-color: var(--white) !important;
+		mix-blend-mode: difference !important;
+
+		img {
+			mix-blend-mode: difference !important;
+		}
+	}
+
+	@keyframes arrow-down {
+		0% {
+			transform: translateY(0);
+			opacity: 0.2;
+		}
+
+		80% {
+			transform: translateY(8px);
+			opacity: 0.9;
+		}
+
+		100% {
+			transform: translateY(8px);
+			opacity: 1;
+		}
+	}
+
+	.cover_title {
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.cover_title span {
+		/*-----Oscillating-----*/
+		white-space: nowrap;
+		display: block;
+		position: relative;
+		transform: translate(calc(-1 * (50vw - 25%)));
+		animation: move 2.5s ease-in-out infinite alternate;
+
+		text-align: center;
+
+		/*-----Marquee Movement-----*/
+		// animation-timing-function: linear;
+		// animation: moveLeft 300s infinite;
+	}
+}
+
+@mixin tablet {
+	.project-display {
+		font-size: var(--project-display-tablet) !important;
+		letter-spacing: var(--project-letterSpace-tablet) !important;
+	}
+
+	.project-cover {
+		margin-top: -40vh;
+	}
+
+	// .video-project-square,
+	.sequencer-project-square {
+		width: 70vw;
+	}
+
+	.project-image-container {
+		width: 70vw;
+		height: 70vw;
+	}
+
+	.role,
+	.years,
+	.agency {
+		grid-column-start: 1;
+		grid-column-end: 13;
+
+		li {
+			display: inline;
+
+			::marker {
+				display: none;
+			}
+		}
+	}
+
+	.semplice-cover .show-more {
+		height: 12%;
+		padding: 24px !important;
+		margin-bottom: var(--two-units);
+		border-radius: var(--two-units) !important;
+
+		img {
+			height: 100% !important;
+		}
+	}
+
+	.image-section {
+		margin: 15vh 0 0 0 !important;
+	}
+}
+
+@mixin mobile {
+	section li.project-display {
+		margin-top: 0;
+	}
+
+	.project-wrapper {
+		margin-top: 10vh;
+	}
+
+	.project-image-container {
+		width: calc(100vw - 32px);
+		height: calc(100vw - 32px);
+	}
+
+	.project-cover-fade-in {
+		opacity: 0.9;
+	}
+
+	// .video-project-square,
+	.sequencer-project-square {
+		width: calc(100vw - 32px);
+		height: calc(100vw - 32px);
+	}
+
+	.page-end {
+		margin-bottom: 36vh !important;
+	}
+
+	.project-ender {
+		margin-bottom: 10vh;
+	}
+
+	.display-container {
+		// testing for the custom version 
+		position: relative;
+		// 
+
+		margin-bottom: var(--half-unit);
+		width: calc(100vw - 32px);
+		flex-direction: column;
+	}
+
+	.project-cover {
+		margin-top: -58vh;
+	}
+
+	.project-blurb {
+		width: 100% !important;
+		margin-top: var(--two-units);
+
+		font-size: var(--project-display-mobile) !important;
+		letter-spacing: var(--project-letterSpace-mobile) !important;
+	}
+
+	.project-display {
+		grid-column-start: 1;
+
+		margin-top: var(--two-units);
+
+		font-size: var(--project-display-mobile) !important;
+		letter-spacing: var(--project-letterSpace-mobile) !important;
+	}
+
+	.eyebrow {
+		margin-right: 0;
+	}
+
+	.project-description,
+	.project-team {
+		grid-column-start: 1;
+		grid-column-end: 13;
+	}
+
+	.project-team {
+		padding-top: var(--two-units);
+	}
+
+	.role,
+	.years,
+	.agency {
+		grid-column-start: 1;
+		grid-column-end: 13;
+
+		li {
+			display: block;
+
+			::marker {
+				display: none;
+			}
+		}
+	}
+
+	.overlay {
+		display: none;
+	}
+
+	.semplice-cover .show-more {
+		z-index: 9 !important;
+
+		right: var(--two-units);
+
+		width: calc(10 * var(--unit)) !important;
+		height: calc(10 * var(--unit)) !important;
+
+		padding: var(--two-units) !important;
+		border-radius: 100% !important;
+		margin-bottom: var(--two-units) !important;
+
+		img {
+			height: 100% !important;
+		}
+	}
+}

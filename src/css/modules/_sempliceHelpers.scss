@@ -1,6 +1,7 @@
 // All the CSS in here is drawn from Semplice
+@use '../breakpoints' as bp;
 
-@mixin desktop {
+@mixin sempliceHelpers {
 	.transition-wrap {
 		background-color: var(--black) !important;
 	}
@@ -100,12 +101,13 @@
 		width: calc(16 * var(--unit));
 		height: calc(16 * var(--unit));
 
+
 		a {
 			height: 100%;
 			text-align: center;
 			padding: 0 !important;
 			border: 1px solid var(--light) !important;
-			border-radius: 50% !important;
+			border-radius: 100% !important;
 			background-color: var(--light);
 			transition: all 0.2s ease-in !important;
 		}
@@ -125,70 +127,79 @@
 	.back-to-top a img:hover {
 		filter: invert(0);
 	}
-}
 
-@mixin tablet {
-	.back-to-top {
-		a {
-			height: 120px !important;
-			padding: 24px !important;
-			border-radius: var(--two-units) !important;
+	@include bp.down(md) {
+		.back-to-top {
+			a {
+				height: 120px !important;
+				padding: 24px !important;
+
+				border-radius: 100%;
+			}
+
+			a img {
+				width: 100% !important;
+				height: 100% !important;
+			}
 		}
 
-		a img {
-			width: 100% !important;
-			height: 100% !important;
-		}
-	}
+		#overlay-menu .container-fluid {
+			display: flex !important;
+			flex-wrap: nowrap;
+			flex-direction: row;
+			flex-basis: 50%;
+			flex-grow: 1;
 
-	#overlay-menu .container-fluid {
-		display: flex !important;
-		flex-wrap: nowrap;
-		flex-direction: row;
-		flex-basis: 50%;
-		flex-grow: 1;
+			.nav-item {
+				padding-left: var(--three-units);
+				margin-top: 73vh;
+			}
 
-		.nav-item {
-			padding-left: var(--three-units);
-			margin-top: 73vh;
-		}
+			.nav-item a {
+				height: 100%;
+			}
 
-		.nav-item a {
-			height: 100%;
-		}
+			.nav-item:nth-child(1) {
+				margin-right: var(--unit);
+				margin-left: var(--two-units);
+			}
 
-		.nav-item:nth-child(1) {
-			margin-right: var(--unit);
-			margin-left: var(--two-units);
-		}
-
-		.nav-item:nth-child(2) {
-			margin-right: var(--two-units);
-		}
-	}
-}
-
-@mixin mobile {
-	.back-to-top {
-		width: calc(10 * var(--unit));
-		height: auto !important;
-		bottom: var(--two-units) !important;
-		mix-blend-mode: normal !important;
-		z-index: 7 !important;
-
-		a {
-			aspect-ratio: 1 / 1;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			text-align: right;
-			background-color: var(--light);
-			height: calc(10 * var(--unit)) !important;
-		}
-
-		a img {
-			padding-top: 0 !important;
-			width: 2rem !important;
+			.nav-item:nth-child(2) {
+				margin-right: var(--two-units);
+			}
 		}
 	}
+
+	@include bp.down(sm) {
+		.back-to-top {
+			width: calc(10 * var(--unit));
+			height: auto !important;
+			bottom: var(--two-units) !important;
+			mix-blend-mode: normal !important;
+			z-index: 7 !important;
+			border-radius: 100%;
+
+			a {
+				aspect-ratio: 1 / 1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: right;
+				background-color: var(--light);
+				height: calc(10 * var(--unit)) !important;
+			}
+
+			a img {
+				scale: 1.4;
+				padding-top: 0 !important;
+				width: 2rem !important;
+			}
+		}
+	}
 }
+
+@mixin desktop {}
+
+@mixin tablet {}
+
+@mixin mobile {}

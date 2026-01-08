@@ -5,9 +5,9 @@
 @use 'modules/homeCopy';
 @use 'modules/navigation';
 @use 'modules/about';
-@use 'modules/workIndex';
+// @use 'modules/workIndex';
 @use 'modules/listModule';
-@use 'modules/nextProject';
+// @use 'modules/nextProject';
 @use 'modules/footer';
 @use 'modules/socialLinks';
 @use 'modules/sempliceHelpers';
@@ -41,43 +41,40 @@ body {
 }
 
 /* Global Type Styles */
-@include type-stack.desktop-type-stack;
+@include type-stack.type-stack;
 
 /* ----- Semplice specific ----- */
-@include sempliceHelpers.desktop;
+@include sempliceHelpers.sempliceHelpers;
 
 /* Navigation */
 @include navigation.navigation;
 
 /* Footer */
-@include footer.desktop;
+@include footer.footer;
 
 /* Social links */
-@include socialLinks.desktop;
+@include socialLinks.socialLinks;
 
 /* Letters */
-@include letterBackground.desktop;
+@include letterBackground.letterBackground;
 
 /* Branding */
-@include homeBranding.desktop;
+@include homeBranding.homeBranding;
 
 /* About */
-@include about.desktop;
-
-/* Work Index */
-@include workIndex.desktop;
+@include about.about;
 
 /* Home GLSL Canvas */
-@include homeCanvas.desktop;
+@include homeCanvas.homeCanvas;
 
 /* Home Copy Module */
-@include homeCopy.desktop;
+@include homeCopy.homeCopy;
 
 /* ----- List Module ----- */
-@include listModule.desktop;
+@include listModule.listModule;
 
 /* ----- Project ----- */
-@include project.desktop;
+@include project.project;
 
 /* GLOBAL CSS */
 .disableScroll {
@@ -94,11 +91,3 @@ body {
 .zeroOpacity {
 	opacity: 0;
 }
-
-/* -------------------- Tablets -------------------- */
-
-@import 'tablet';
-
-/* -------------------- Mobile --------------------- */
-
-@import 'mobile';

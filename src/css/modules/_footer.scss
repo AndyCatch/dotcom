@@ -1,6 +1,8 @@
-@use 'layoutUtils';
+@use '../breakpoints' as bp;
 
-@mixin desktop {
+@mixin footer {
+
+	// Desktop styles by default
 	.footer-container {
 		height: fit-content;
 		display: flex;
@@ -22,7 +24,7 @@
 		}
 	}
 
-	.year::before{
+	.year::before {
 		content: "©";
 	}
 
@@ -35,35 +37,53 @@
 		-webkit-text-fill-color: var(--white);
 		-webkit-text-stroke-width: 0;
 	}
-}
 
-@mixin tablet {
-	.cityName {
-		padding-top: var(--four-units);
-	}
+	.banner {
+		position: relative;
 
-	.clock-wrapper{
-		flex-direction: column;
-	}
-}
-
-@mixin mobile {
-	.footer-container {
-		width: calc(100% - var(--four-units));
-		padding-bottom: calc(12vh + var(--two-units));
-
-		div:nth-child(1) {
-			transform: translate(0, 0);
-			margin-top: 0;
-		}
-
-		p {
-			display: block;
-			margin-top: calc(var(--half-unit) / 2);
+		img {
+			width: 100%;
 		}
 	}
 
-	.clock-wrapper{
-		flex-direction: column;
+	@include bp.down(md) {
+		.cityName {
+			padding-top: var(--four-units);
+		}
+
+		.clock-wrapper {
+			flex-direction: column;
+		}
+	}
+
+	@include bp.down(sm) {
+		.footer-container {
+			width: calc(100% - var(--four-units));
+			padding-bottom: calc(12vh + var(--two-units));
+
+			div:nth-child(1) {
+				transform: translate(0, 0);
+				margin-top: 0;
+			}
+
+			p {
+				display: block;
+				margin-top: calc(var(--half-unit) / 2);
+			}
+		}
+
+		.clock-wrapper {
+			flex-direction: column;
+		}
+
+		.banner {
+			display: none;
+		}
 	}
 }
+
+// @mixin desktop {}
+
+// @mixin tablet {}
+
+// @mixin mobile {}

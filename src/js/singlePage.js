@@ -27,7 +27,16 @@ let navItemChecker
 
 let configs = []
 
+const initLazyLoad = () => {
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', lazyLoadHandler, { once: true })
+	} else {
+		lazyLoadHandler()
+	}
+}
+
 feather.replace()
+initLazyLoad()
 
 window.addEventListener('load', (event) => {
 	// console.log('Window load event')
@@ -49,7 +58,6 @@ window.addEventListener('sempliceTransitionsDone', sempliceTransitionDoneHandler
 function sempliceTransitionDoneHandler(event) {
 	// console.log('sempliceTransitionsDone')
 	viewportHeight(event)
-
 	window.removeEventListener('sempliceTransitionsDone', sempliceTransitionDoneHandler, false)
 }
 
@@ -211,18 +219,24 @@ function viewportHeight(event) {
 }
 
 function lazyLoadHandler() {
+	// console.log('lazyLoadHandler init')
 	// Check for existing instance and destroy it
 	if (window.lazyLoadInstance && typeof window.lazyLoadInstance.destroy === 'function') {
 		window.lazyLoadInstance.destroy()
 	}
 
 	// Create new LazyLoad instance and store it globally
+	// console.log('LazyLoad instance created')
 	window.lazyLoadInstance = new LazyLoad({
 		elements_selector: '.lazy',
 		threshold: 300,
 
 		callback_loading: (video) => {
-			const loadingOverlay = video.closest('.video-wrapper').querySelector('.loading-overlay')
+			const loadingOverlay = video.closest('.video-wrapper')?.querySelector('.loading-overlay')
+			if (!loadingOverlay) {
+				return
+			}
+
 			const loadingPercent = loadingOverlay.querySelector('.loading-percent')
 
 			// Set video-specific preload image
@@ -330,4 +344,5 @@ function projectCoverInit() {
 projectCoverInit()
 
 // Uncomment for Semplice
-lazyLoadHandler()
+// Leaving in for insurance purposes
+// lazyLoadHandler()

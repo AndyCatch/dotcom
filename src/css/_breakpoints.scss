@@ -1,5 +1,6 @@
 // Centralized breakpoint helpers for consistent media queries.
 $breakpoints: (
+	xsm: 320px,
 	sm: 480px,
 	md: 768px,
 	lg: 1024px,
@@ -12,19 +13,19 @@ $breakpoints: (
 }
 
 @mixin up($size) {
-	@media (min-width: bp($size)) {
+	@media (min-width: #{bp($size)}) {
 		@content;
 	}
 }
 
 @mixin down($size) {
-	@media (max-width: calc(bp($size) - 1px)) {
+	@media (max-width: #{bp($size) - 1px}) {
 		@content;
 	}
 }
 
 @mixin between($lower, $upper) {
-	@media (min-width: bp($lower)) and (max-width: calc(bp($upper) - 1px)) {
+	@media (min-width: #{bp($lower)}) and (max-width: #{bp($upper) - 1px}) {
 		@content;
 	}
 }

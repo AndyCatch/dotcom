@@ -1,4 +1,6 @@
-@mixin desktop {
+@use '../breakpoints' as bp;
+
+@mixin homeCanvas {
 	@keyframes fadein {
 		from {
 			opacity: 0;
@@ -24,4 +26,11 @@
 		pointer-events: none;
 		z-index: 0;
 	}
+
+	@include bp.down(md) {}
+
+	@include bp.down(sm) {}
+
 }
+
+@mixin desktop {}

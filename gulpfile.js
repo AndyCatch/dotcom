@@ -100,10 +100,7 @@ gulp.task('fonts', function () {
 })
 
 gulp.task('images', function () {
-	return gulp
-		.src('src/images/*')
-		.pipe(imagemin())
-		.pipe(gulp.dest('dist/images'))
+	return gulp.src('src/images/*').pipe(imagemin()).pipe(gulp.dest('dist/images'))
 })
 
 // Sets up a function called watch(), containing the gulp.watch method
@@ -113,34 +110,17 @@ gulp.task('watch', function () {
 	gulp.watch('src/*.html', gulp.series('html')).on('change', browserSync.reload)
 
 	// JS Watchers
-	gulp
-		.watch(['src/js/*.js', '!src/js/project.js'], gulp.series('singlePageJS'))
-		.on('change', browserSync.reload)
+	gulp.watch(['src/js/*.js'], gulp.series('singlePageJS')).on('change', browserSync.reload)
 
-	gulp
-		.watch('src/js/currentPage.js', gulp.series('currentPage'))
-		.on('change', browserSync.reload)
+	gulp.watch('src/js/currentPage.js', gulp.series('currentPage')).on('change', browserSync.reload)
 
-	gulp
-		.watch('src/js/sequencerMod.js', gulp.series('sequencerJS'))
-		.on('change', browserSync.reload)
+	gulp.watch('src/js/sequencerMod.js', gulp.series('sequencerJS')).on('change', browserSync.reload)
 
 	// CSS / .SCSS Watchers
-	gulp
-		.watch('src/css/app.scss', gulp.series('compileCSS'))
-		.on('change', browserSync.reload)
-	gulp
-		.watch('src/css/designTokens.css', gulp.series('compileCSS'))
-		.on('change', browserSync.reload)
-	gulp
-		.watch('src/css/mobile.scss', gulp.series('compileCSS'))
-		.on('change', browserSync.reload)
-	gulp
-		.watch('src/css/tablet.scss', gulp.series('compileCSS'))
-		.on('change', browserSync.reload)
-	gulp
-		.watch('src/css/modules/*.scss', gulp.series('compileCSS'))
-		.on('change', browserSync.reload)
+	gulp.watch('src/css/app.scss', gulp.series('compileCSS')).on('change', browserSync.reload)
+	gulp.watch('src/css/designTokens.css', gulp.series('compileCSS')).on('change', browserSync.reload)
+	gulp.watch('src/css/modules/*.scss', gulp.series('compileCSS')).on('change', browserSync.reload)
+	gulp.watch('src/css/modules/partials/*.scss', gulp.series('compileCSS')).on('change', browserSync.reload)
 
 	gulp.watch('src/css/typography.scss', gulp.series('compileTypeCSS'))
 
@@ -151,15 +131,5 @@ gulp.task('watch', function () {
 
 gulp.task(
 	'default',
-	gulp.parallel(
-		'html',
-		'compileCSS',
-		'compileTypeCSS',
-		'singlePageJS',
-		'currentPage',
-		'sequencerJS',
-		'fonts',
-		'images',
-		'watch'
-	)
+	gulp.parallel('html', 'compileCSS', 'compileTypeCSS', 'singlePageJS', 'currentPage', 'sequencerJS', 'fonts', 'images', 'watch')
 )

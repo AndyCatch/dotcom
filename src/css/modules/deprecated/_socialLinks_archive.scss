@@ -1,6 +1,4 @@
-@use '../breakpoints' as bp;
-
-@mixin socialLinks {
+@mixin desktop {
 	.social-links {
 		display: flex;
 		flex-direction: row;
@@ -46,42 +44,36 @@
 	.social-links a:nth-child(1) {
 		margin-left: var(--three-units);
 	}
+}
 
-	@include bp.down(md) {
-		.social-links {
-			justify-content: flex-start;
+@mixin tablet {
+	.social-links {
+		justify-content: flex-start;
 
-			:nth-child(1) {
-				padding: 0 var(--unit) 0 0;
-			}
-
-			a {
-				padding: 0 var(--unit) 0 var(--unit);
-			}
-		}
-	}
-
-	@include bp.down(sm) {
-		.social-links {
-			flex-direction: row;
-			padding-bottom: 0;
-			align-items: flex-start;
-			margin-top: 35vh;
-
-			a {
-				margin-bottom: var(--unit);
-				margin-right: var(--unit);
-			}
+		:nth-child(1) {
+			padding: 0 var(--unit) 0 0;
 		}
 
-		.social-links a:nth-child(1) {
-			margin-left: 0;
+		a {
+			padding: 0 var(--unit) 0 var(--unit);
 		}
 	}
 }
 
-@mixin desktop {}
+@mixin mobile {
+	.social-links {
+		flex-direction: row;
+		padding-bottom: 0;
+		align-items: flex-start;
+		margin-top: 35vh;
 
-@mixin tablet {}
+		a {
+			margin-bottom: var(--unit);
+			margin-right: var(--unit);
+		}
+	}
 
-@mixin mobile {}
+	.social-links a:nth-child(1) {
+		margin-left: 0;
+	}
+}

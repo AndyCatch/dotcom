@@ -1,0 +1,41 @@
+@use 'breakpoints' as bp;
+
+
+@mixin projectSequencer {
+
+  // Desktop styles by default
+  // On canvas tag of Sequencers
+  .sequencer-project-square {
+    position: relative;
+    z-index: 1;
+
+    aspect-ratio: 1 / 1;
+    width: 49vw;
+    height: 49vw;
+  }
+
+  .sequenceLoader {
+    z-index: 12;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: rgba(255, 69, 0, 1);
+    transition: background-color 1.5s;
+  }
+
+  @include bp.down(md) {
+    .sequencer-project-square {
+      width: 70vw;
+    }
+  }
+
+  @include bp.down(sm) {
+    .sequencer-project-square {
+      width: calc(100vw - 32px);
+      height: calc(100vw - 32px);
+    }
+  }
+}
