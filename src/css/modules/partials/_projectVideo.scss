@@ -60,6 +60,11 @@
     background-image: url('https://andycatch.com/proto/wp-content/uploads/2025/03/ProfileImgPreload.png');
   }
 
+  .aspect-ratio-16by9 {
+    object-fit: scale-down;
+    // aspect-ratio: 16/9;
+  }
+
   // Handled / added by JS single-project.js > lazyLoadHandler()
   .video-project-square.fade-in {
     opacity: 1;
@@ -73,12 +78,14 @@
   }
 
   .loading-text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    bottom: 0px;
-    /* Adjust distance from bottom */
-    left: 44px;
-    /* Adjust distance from left */
     color: var(--light);
+    text-align: center;
     font-size: var(--display-size);
     font-family: var(--untitled-reg) !important;
   }
