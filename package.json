@@ -1,44 +1,38 @@
 {
-  "name": "dotcom",
-  "version": "1.0.0",
-  "description": "A record of styles and JS for Semplice folio",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AndyCatch/dotcom.git"
-  },
-  "keywords": [
-    "semplice",
-    "javascript",
-    "sass",
-    "css"
-  ],
-  "author": "Andrew Catchaturyan",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AndyCatch/dotcom/issues"
-  },
-  "homepage": "https://github.com/AndyCatch/dotcom#readme",
-  "devDependencies": {
-    "browser-sync": "^2.26.14",
-    "canvas-sketch-util": "^1.10.0",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-dart-scss": "^1.1.0",
-    "gulp-imagemin": "^4.1.0",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.2",
-    "imagemin-gifsicle": "^7.0.0",
-    "imagemin-jpegtran": "^7.0.0",
-    "imagemin-optipng": "^8.0.0",
-    "imagemin-svgo": "^10.0.1",
-    "readable-stream": "^4.3.0",
-    "webpack-stream": "^7.0.0"
-  },
-  "dependencies": {
-    "gulp": "^4.0.2",
-    "gulp-dart-sass": "^1.1.0"
-  }
+	"name": "dotcom",
+	"version": "1.0.0",
+	"description": "A record of styles and JS for Semplice folio",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "gulp"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/AndyCatch/dotcom.git"
+	},
+	"keywords": [
+		"semplice",
+		"javascript",
+		"sass",
+		"css"
+	],
+	"author": "Andrew Catchaturyan",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/AndyCatch/dotcom/issues"
+	},
+	"homepage": "https://github.com/AndyCatch/dotcom#readme",
+	"devDependencies": {
+		"browser-sync": "^3.0.4",
+		"gulp-clean-css": "^4.3.0",
+		"gulp-uglify": "^3.0.2",
+		"sharp": "^0.35.4",
+		"svgo": "^4.1.0",
+		"webpack-stream": "^7.0.0"
+	},
+	"dependencies": {
+		"gulp": "^5.0.1",
+		"gulp-dart-sass": "^1.1.0"
+	}
 }

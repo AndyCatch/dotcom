@@ -2,10 +2,12 @@
 var gulp = require('gulp')
 var sass = require('gulp-dart-sass')
 var cleanCSS = require('gulp-clean-css')
-var sourcemaps = require('gulp-sourcemaps')
 var uglify = require('gulp-uglify')
-var imagemin = require('gulp-imagemin')
 var webpack = require('webpack-stream')
+var { Transform } = require('stream')
+var path = require('path')
+var sharp = require('sharp')
+var { optimize: optimizeSVG } = require('svgo')
 
 var browserSync = require('browser-sync').create()
 
@@ -13,8 +15,7 @@ var browserSync = require('browser-sync').create()
 gulp.task('compileCSS', function () {
 	return (
 		gulp
-			.src('src/css/app.scss')
-			.pipe(sourcemaps.init())
+			.src('src/css/app.scss', { sourcemaps: true })
 			.pipe(sass().on('error', sass.logError))
 			// UnComment in final build
 			// .pipe(
@@ -23,8 +24,7 @@ gulp.task('compileCSS', function () {
 			//     rebase: false,
 			//   })
 			// )
-			.pipe(sourcemaps.write())
-			.pipe(gulp.dest('dist/css')) // this results in a "app.css" in the dist folder
+			.pipe(gulp.dest('dist/css', { sourcemaps: true })) // this results in a "app.css" in the dist folder
 			.pipe(browserSync.stream())
 	)
 })
@@ -32,8 +32,7 @@ gulp.task('compileCSS', function () {
 gulp.task('compileTypeCSS', function () {
 	return (
 		gulp
-			.src('src/css/typography.scss')
-			.pipe(sourcemaps.init())
+			.src('src/css/typography.scss', { sourcemaps: true })
 			.pipe(sass().on('error', sass.logError))
 			// UnComment in final build
 			.pipe(
@@ -42,16 +41,14 @@ gulp.task('compileTypeCSS', function () {
 					rebase: false,
 				})
 			)
-			.pipe(sourcemaps.write())
-			.pipe(gulp.dest('dist/css')) // this results in a "typography.css" in the dist folder
+			.pipe(gulp.dest('dist/css', { sourcemaps: true })) // this results in a "typography.css" in the dist folder
 			.pipe(browserSync.stream())
 	)
 })
 
 gulp.task('singlePageJS', function () {
 	return gulp
-		.src('src/js/singlePage.js')
-		.pipe(sourcemaps.init())
+		.src('src/js/singlePage.js', { sourcemaps: true })
 		.pipe(
 			webpack({
 				mode: 'none',
@@ -61,14 +58,12 @@ gulp.task('singlePageJS', function () {
 			})
 		)
 		.pipe(uglify())
-		.pipe(sourcemaps.write())
-		.pipe(gulp.dest('dist/js'))
+		.pipe(gulp.dest('dist/js', { sourcemaps: true }))
 })
 
 gulp.task('sequencerJS', function () {
 	return gulp
-		.src('src/js/sequencerMod.js')
-		.pipe(sourcemaps.init())
+		.src('src/js/sequencerMod.js', { sourcemaps: true })
 		.pipe(
 			webpack({
 				mode: 'none',
@@ -78,8 +73,7 @@ gulp.task('sequencerJS', function () {
 			})
 		)
 		.pipe(uglify())
-		.pipe(sourcemaps.write())
-		.pipe(gulp.dest('dist/js'))
+		.pipe(gulp.dest('dist/js', { sourcemaps: true }))
 })
 
 // No sourcemaps / webpack to keep it vanilla JS
@@ -96,11 +90,37 @@ gulp.task('html', function () {
 })
 
 gulp.task('fonts', function () {
-	return gulp.src('src/fonts/*').pipe(gulp.dest('dist/fonts'))
+	return gulp.src('src/fonts/*', { encoding: false }).pipe(gulp.dest('dist/fonts'))
 })
 
+// Lossless PNG compression (sharp) + SVG minification (svgo), other files pass through
+function optimizeImages() {
+	return new Transform({
+		objectMode: true,
+		transform(file, enc, done) {
+			if (!file.isBuffer()) return done(null, file)
+			var ext = path.extname(file.path).toLowerCase()
+			if (ext === '.svg') {
+				file.contents = Buffer.from(optimizeSVG(file.contents.toString(), { path: file.path }).data)
+				return done(null, file)
+			}
+			if (ext === '.png') {
+				return sharp(file.contents)
+					.png({ compressionLevel: 9, adaptiveFiltering: true })
+					.toBuffer()
+					.then(function (buf) {
+						// Keep the original if re-encoding didn't make it smaller
+						if (buf.length < file.contents.length) file.contents = buf
+						done(null, file)
+					}, done)
+			}
+			done(null, file)
+		},
+	})
+}
+
 gulp.task('images', function () {
-	return gulp.src('src/images/*').pipe(imagemin()).pipe(gulp.dest('dist/images'))
+	return gulp.src('src/images/*', { encoding: false }).pipe(optimizeImages()).pipe(gulp.dest('dist/images'))
 })
 
 // Sets up a function called watch(), containing the gulp.watch method
