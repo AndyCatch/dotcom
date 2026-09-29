@@ -123,6 +123,45 @@ gulp.task('images', function () {
 	return gulp.src('src/images/*', { encoding: false }).pipe(optimizeImages()).pipe(gulp.dest('dist/images'))
 })
 
+// Figma exports -> WebP, ready to upload to WordPress
+// Drop PNG/JPGs into src/figma/, collect the .webp files from dist/figma/
+// Files ending in PX (e.g. Archive-IndexPX.png) are the pixelated hover previews:
+// they're kept lossless and resized with 'nearest' so the pixel blocks stay crisp
+var WEBP_MAX_WIDTH = 1920 // px – wide enough for retina desktop and 3x phones
+var WEBP_QUALITY = 80 // 0–100 – 80 is visually lossless for most images
+
+function convertToWebP() {
+	return new Transform({
+		objectMode: true,
+		transform(file, enc, done) {
+			if (!file.isBuffer()) return done(null, file)
+			var isPixelated = /PX$/.test(file.stem)
+			sharp(file.contents)
+				.resize({
+					width: WEBP_MAX_WIDTH,
+					withoutEnlargement: true, // shrinks larger exports, never upscales
+					kernel: isPixelated ? 'nearest' : 'lanczos3', // nearest = no smoothing between blocks
+				})
+				.webp(isPixelated ? { lossless: true } : { quality: WEBP_QUALITY })
+				.toBuffer()
+				.then(function (buf) {
+					var before = file.contents.length
+					file.contents = buf
+					file.extname = '.webp' // Hero.png -> Hero.webp
+					console.log('webp: ' + file.basename + ' ' + Math.round(before / 1024) + 'KB -> ' + Math.round(buf.length / 1024) + 'KB')
+					done(null, file)
+				}, done)
+		},
+	})
+}
+
+gulp.task('webp', function () {
+	return gulp
+		.src('src/figma/*.{png,jpg,jpeg}', { encoding: false, since: gulp.lastRun('webp') }) // only files added/changed since the last run
+		.pipe(convertToWebP())
+		.pipe(gulp.dest('dist/figma'))
+})
+
 // Sets up a function called watch(), containing the gulp.watch method
 gulp.task('watch', function () {
 	browserSync.init({ server: { baseDir: 'dist' } })
@@ -147,9 +186,10 @@ gulp.task('watch', function () {
 	// Misc Watchers
 	gulp.watch('src/fonts/*', gulp.series('fonts'))
 	gulp.watch('src/img/*', gulp.series('images'))
+	gulp.watch('src/figma/*', gulp.series('webp'))
 })
 
 gulp.task(
 	'default',
-	gulp.parallel('html', 'compileCSS', 'compileTypeCSS', 'singlePageJS', 'currentPage', 'sequencerJS', 'fonts', 'images', 'watch')
+	gulp.parallel('html', 'compileCSS', 'compileTypeCSS', 'singlePageJS', 'currentPage', 'sequencerJS', 'fonts', 'images', 'webp', 'watch')
 )

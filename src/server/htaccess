@@ -1,0 +1,23 @@
+# BEGIN Browser caching
+# Tells browsers how long they can reuse a downloaded file before asking again.
+# HTML isn't listed, so pages are always fresh. Replace an image under a new
+# filename if you need visitors to see the change straight away.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType font/woff2              "access plus 1 year"
+  ExpiresByType image/png               "access plus 1 month"
+  ExpiresByType image/jpeg              "access plus 1 month"
+  ExpiresByType image/webp              "access plus 1 month"
+  ExpiresByType image/svg+xml           "access plus 1 month"
+  ExpiresByType video/mp4               "access plus 1 month"
+  ExpiresByType text/css                "access plus 1 month"
+  ExpiresByType application/javascript  "access plus 1 month"
+  ExpiresByType text/javascript         "access plus 1 month"
+</IfModule>
+# END Browser caching
+
+# Use PHP71 as default
+#AddHandler application/x-httpd-php71 .php
+<IfModule mod_suphp.c>
+#    suPHP_ConfigPath /opt/php71/lib
+</IfModule>

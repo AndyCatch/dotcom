@@ -7,7 +7,7 @@ import { imageMove } from './mouseFollow'
 import { setCanvas, resizeSequencer } from './sequencerMod'
 import { safePlay } from './videoSafePlay'
 import { consoleTag } from './consoleTag'
-import { isInViewport, customVhUnitVal } from './utils'
+import { isInViewport, customVhUnitVal, throttle } from './utils'
 import { desktops } from './mediaQueries'
 
 var clock = setInterval(updateClock, 1000)
@@ -35,7 +35,6 @@ const initLazyLoad = () => {
 	}
 }
 
-feather.replace()
 initLazyLoad()
 
 window.addEventListener('load', (event) => {
@@ -54,6 +53,9 @@ window.addEventListener('load', (event) => {
 
 // Leaving in case need to do stuff after transition is complete
 window.addEventListener('sempliceTransitionsDone', sempliceTransitionDoneHandler, false)
+
+// Rebuild sequencers for the new page on every transition (setCanvas destroys the old ones)
+window.addEventListener('sempliceTransitionsDone', setCanvas, false)
 
 function sempliceTransitionDoneHandler(event) {
 	// console.log('sempliceTransitionsDone')
@@ -172,7 +174,7 @@ function addNav() {
 
 	if (nav) {
 		clearInterval(navChecker)
-		window.addEventListener('scroll', _.throttle(scrollHandler, 300), {
+		window.addEventListener('scroll', throttle(scrollHandler, 300), {
 			capture: false,
 			passive: true,
 		})
@@ -323,7 +325,6 @@ function lazyLoadHandler() {
 document.addEventListener('DOMContentLoaded', () => {
 	// console.log('DOM fully loaded and parsed')
 	consoleTag()
-	feather.replace()
 })
 
 function projectCoverInit() {

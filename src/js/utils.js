@@ -29,6 +29,26 @@ function calculateDistance(p1, p2) {
 var cancelAnimationFrame =
 	window.cancelAnimationFrame || window.mozCancelAnimationFrame
 
+// Calls fn at most once every `wait` ms, with a trailing call so the
+// last event is never dropped (same behaviour as lodash's _.throttle)
+function throttle(fn, wait) {
+	let last = 0
+	let timer = null
+	return function (...args) {
+		const remaining = wait - (Date.now() - last)
+		clearTimeout(timer)
+		if (remaining <= 0) {
+			last = Date.now()
+			fn.apply(this, args)
+		} else {
+			timer = setTimeout(() => {
+				last = Date.now()
+				fn.apply(this, args)
+			}, remaining)
+		}
+	}
+}
+
 function lerp(a, b, t) {
 	return (1 - t) * a + t * b
 }
@@ -116,4 +136,5 @@ export {
 	lerp,
 	navigationType,
 	nthParent,
+	throttle,
 }

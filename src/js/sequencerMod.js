@@ -1,22 +1,22 @@
-import { sequencer } from './libraries/sequencer.min'
+import { sequencer } from './libraries/sequencer'
 
 const sequencers = []
 
 function setCanvas() {
 	let sequenceTag = document.getElementsByClassName('sequencer-project-square')[0]
 
-	// Clear any existing sequencers
-	if (sequencers.length > 0) {
-		sequencers.replaceChildren()
-	}
+	// Tear down sequencers from a previous page (e.g. after a Semplice transition)
+	sequencers.forEach((s) => s.destroy())
+	sequencers.length = 0
 
-	if (sequenceTag) {
+	if (sequenceTag && typeof configs !== 'undefined') {
 		// Define sequencer configurations.
 		// Configs are an array of objects, each containing an id and config for a sequencer instance.
 		configs.forEach(function (cfg, i) {
 			cfg.config.canvas = document.getElementById(configs[i].id) // need to have unique ids for the canvas
+			if (!cfg.config.canvas) return // config for a canvas that isn't on this page
 
-			let parentNode = document.getElementById(configs[i].id).parentNode
+			let parentNode = cfg.config.canvas.parentNode
 			let loader = parentNode.getElementsByClassName('sequenceLoader')[0]
 
 			cfg.config.imageLoad = function (e) {
