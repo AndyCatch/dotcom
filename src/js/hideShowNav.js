@@ -24,11 +24,13 @@ function inactivityTime(elem) {
 
 function hideShow(navElem, footerElem, letters, hadFilter, currentScroll) {
 	let currentScrollPos = currentScroll
+	// Measure once, before toggleNav changes classes (a second read after would force a re-layout)
+	let footerVisible = isInViewport(footerElem)
 
 	if (
 		prevScrollPos > currentScrollPos ||
 		currentScrollPos <= 0 ||
-		isInViewport(footerElem)
+		footerVisible
 	) {
 		toggleNav(navElem, 'show')
 	} else {
@@ -36,7 +38,7 @@ function hideShow(navElem, footerElem, letters, hadFilter, currentScroll) {
 	}
 	prevScrollPos = currentScrollPos
 
-	if (isInViewport(footerElem)) {
+	if (footerVisible) {
 		if (hadFilter) {
 			letters.forEach((letter) => {
 				letter.classList.remove('letter-filter')

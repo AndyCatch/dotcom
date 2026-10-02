@@ -67,9 +67,18 @@ desktops.forEach((desktop) => {
 	desktop.addEventListener('change', isDesktopHandler)
 })
 
+let lastViewportWidth = window.innerWidth
+
 window.addEventListener('resize', (event) => {
 	isDesktopHandler(event)
-	resizeSequencer(event)
+
+	// Mobile toolbar show/hide only changes height – ignore it, recalc on width/orientation change
+	// (sequencer canvases are square, sized from width, so they don't need height-only resizes)
+	if (window.innerWidth !== lastViewportWidth) {
+		lastViewportWidth = window.innerWidth
+		viewportHeight(event)
+		resizeSequencer(event)
+	}
 })
 
 function isDesktopHandler(event) {
@@ -190,26 +199,24 @@ function scrollHandler(event) {
 	let showMoreMarker = document.querySelector('.showMoreMarker')
 	let showMoreBtn = document.querySelector('.semplice-cover .show-more')
 
+	// Read layout before any class changes below, so the browser only has to lay out once
+	let markerVisible = showMoreMarker ? isInViewport(showMoreMarker) : null
+
 	if (nav != 'undefined') {
 		hideShow(nav, footer, letters, hadFilter, currentScrollPos)
 	}
 
-	if (showMoreMarker) {
-		if (!isInViewport(showMoreMarker)) {
-			if (showMoreBtn) {
-				showMoreBtn.classList.add('show-more-hide')
-			}
-		} else {
-			if (showMoreBtn) {
-				showMoreBtn.classList.remove('show-more-hide')
-			}
-		}
+	if (markerVisible !== null && showMoreBtn) {
+		showMoreBtn.classList.toggle('show-more-hide', !markerVisible)
 	}
-
-	viewportHeight(event)
 }
 
+// Browsers with svh support size the cover in CSS (_project.scss); this is only a fallback
+const supportsSvh = window.CSS && CSS.supports('height', '100svh')
+
 function viewportHeight(event) {
+	if (supportsSvh) return
+
 	customVhUnitVal()
 	let sempliceCover = document.querySelector('.sections .semplice-cover')
 	let unit = Number(getComputedStyle(document.body).getPropertyValue('--vh'))

@@ -29,7 +29,8 @@
 
 		bottom: var(--two-units);
 		left: var(--two-units);
-		transition: all 0.4s cubic-bezier(0.65, 0.05, 0.36, 1) !important;
+		transition: background-color 0.4s cubic-bezier(0.65, 0.05, 0.36, 1),
+			border-color 0.4s cubic-bezier(0.65, 0.05, 0.36, 1) !important;
 
 		width: calc(10 * var(--unit));
 		height: calc(10 * var(--unit));
@@ -79,7 +80,10 @@
 		height: 100vh;
 		margin: 0 0 0 0;
 
-		transition: all 0.4s cubic-bezier(0.65, 0.05, 0.36, 1) !important;
+		// visibility flips to hidden only after the slide-out finishes, so the closed panel
+		// (and its backdrop-filter) isn't composited while the mobile toolbar animates
+		visibility: hidden;
+		transition: transform 0.4s cubic-bezier(0.65, 0.05, 0.36, 1), visibility 0s linear 0.4s !important;
 
 		-webkit-backdrop-filter: saturate(180%) blur(var(--unit));
 		backdrop-filter: saturate(180%) blur(var(--unit));
@@ -172,6 +176,8 @@
 
 	.mobile-nav-open {
 		transform: translate(0, 0);
+		visibility: visible;
+		transition: transform 0.4s cubic-bezier(0.65, 0.05, 0.36, 1), visibility 0s !important;
 	}
 
 	.toggle-width {

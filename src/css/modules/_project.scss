@@ -106,8 +106,12 @@
 	}
 
 	// semplice-cover may be from Semplice CMS or I've added it somewhere...
+	// svh = viewport height with the mobile browser toolbar visible. Unlike JS-measured
+	// innerHeight it stays fixed while the toolbar collapses on scroll, so no reflow/jitter.
+	// Older browsers (no svh support) fall back to the JS --vh value in singlePage.js.
 	.sections .semplice-cover {
-		transition: height 0.3s ease-in !important;
+		height: 100vh !important;
+		height: 100svh !important;
 	}
 
 	/*----- Oscillating -----*/
@@ -137,7 +141,9 @@
 		justify-content: center !important;
 		align-content: space-evenly;
 
-		transition: all 0.3s ease-in !important;
+		// Only animate what actually changes (hide/show + hover) – 'all' also animated
+		// any position/size shift caused by viewport changes
+		transition: opacity 0.3s ease-in, background-color 0.3s ease-in !important;
 
 		img {
 			mix-blend-mode: normal !important;

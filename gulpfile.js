@@ -124,7 +124,8 @@ gulp.task('images', function () {
 })
 
 // Figma exports -> WebP, ready to upload to WordPress
-// Drop PNG/JPGs into src/figma/, collect the .webp files from dist/figma/
+// Drop PNG/JPG/GIFs into src/figma/, collect the .webp files from dist/figma/
+// Animated GIFs become animated WebPs (every frame and its timing is kept)
 // Files ending in PX (e.g. Archive-IndexPX.png) are the pixelated hover previews:
 // they're kept lossless and resized with 'nearest' so the pixel blocks stay crisp
 var WEBP_MAX_WIDTH = 1920 // px – wide enough for retina desktop and 3x phones
@@ -136,7 +137,8 @@ function convertToWebP() {
 		transform(file, enc, done) {
 			if (!file.isBuffer()) return done(null, file)
 			var isPixelated = /PX$/.test(file.stem)
-			sharp(file.contents)
+			var isGif = file.extname.toLowerCase() === '.gif'
+			sharp(file.contents, { animated: isGif }) // animated: read all GIF frames, not just the first
 				.resize({
 					width: WEBP_MAX_WIDTH,
 					withoutEnlargement: true, // shrinks larger exports, never upscales
@@ -157,7 +159,7 @@ function convertToWebP() {
 
 gulp.task('webp', function () {
 	return gulp
-		.src('src/figma/*.{png,jpg,jpeg}', { encoding: false, since: gulp.lastRun('webp') }) // only files added/changed since the last run
+		.src('src/figma/*.{png,jpg,jpeg,gif}', { encoding: false, since: gulp.lastRun('webp') }) // only files added/changed since the last run
 		.pipe(convertToWebP())
 		.pipe(gulp.dest('dist/figma'))
 })
